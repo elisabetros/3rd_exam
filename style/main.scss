@@ -12,6 +12,7 @@ $lightred: #fa7960;
 $fontColor: white;
 
 @import "menu";
+@import "modal";
 
 * {
   box-sizing: border-box;
@@ -27,11 +28,14 @@ h1,
 h2,
 h3,
 p,
-div {
+div,
+li,
+a {
   color: $fontColor;
 }
 h1,
-h2 {
+h2,
+li {
   margin: 0;
   font-family: futuraBold;
 }
@@ -41,6 +45,9 @@ h2 {
 p,
 div {
   font-family: openSans;
+}
+a {
+  text-decoration: none;
 }
 
 //////////Frontpage//////////////
