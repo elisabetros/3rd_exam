@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="lib/Chart.min.js"></script>
+    <script src="lib/moment-with-locales.min.js"></script>
+  </head>
+  <body>
+    <div
+      class="total-container"
+      style="position: relative; height:30vh; width:60vw"
+    >
+      <div id="totalMoney" width="200" height="100">
+        <h2>Total amount of donations</h2>
+        <h1 class="total">Number</h1>
+      </div>
+    </div>
+    <div
+      class="chart-container"
+      style="position: relative; height:30vh; width:60vw"
+    >
+      <canvas id="donationChart" width="300" height="200"></canvas>
+    </div>
+  </body>
+  <script src="js/script.js"></script>
+</html>
