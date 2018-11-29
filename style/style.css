@@ -14,6 +14,20 @@ header {
   @media (min-width: 1024px) {
     header {
       height: 80px; } }
+  header li {
+    cursor: pointer; }
+  header .deskmenu {
+    display: none; }
+    @media (min-width: 1024px) {
+      header .deskmenu {
+        display: initial; }
+        header .deskmenu li {
+          font-size: 1.5rem;
+          display: inline-block;
+          margin: 0 5%; }
+        header .deskmenu ul {
+          padding-left: 30%;
+          display: inline; } }
   header svg {
     float: right;
     fill: white;
@@ -32,6 +46,9 @@ header {
   header .navLogo {
     display: inline; }
 
+ul {
+  list-style-type: none; }
+
 .menu {
   position: absolute;
   z-index: 10;
@@ -39,8 +56,6 @@ header {
   width: 100vw;
   transition: all 0.6s;
   background-color: rgba(255, 255, 255, 0.9); }
-  .menu ul {
-    list-style-type: none; }
 
 .hidden {
   -webkit-transform: translateX(-100vw);
@@ -60,6 +75,39 @@ header {
   -ms-transform: rotate(45deg) translate(17px, -14px);
   transform: rotate(45deg) translate(17px, -14px); }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.modal-content {
+  background-color: #dde1d5;
+  margin: 10% auto;
+  padding: 5%;
+  width: 500px;
+  height: 300px; }
+
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer; }
+
+.signUp {
+  color: #f95738;
+  cursor: pointer; }
+
 * {
   box-sizing: border-box; }
 
@@ -73,11 +121,14 @@ h1,
 h2,
 h3,
 p,
-div {
+div,
+li,
+a {
   color: white; }
 
 h1,
-h2 {
+h2,
+li {
   margin: 0;
   font-family: futuraBold; }
 
@@ -87,6 +138,9 @@ h2 {
 p,
 div {
   font-family: openSans; }
+
+a {
+  text-decoration: none; }
 
 #hero {
   background-image: url(../img/forest1.jpg);

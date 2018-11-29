@@ -1,3 +1,4 @@
+//Menu, show and hide
 let menuOpen = false;
 let menuIcon = document.querySelector(".menuIcon");
 let menu = document.querySelector(".menu");
