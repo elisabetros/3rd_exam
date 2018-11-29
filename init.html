@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+              users
+              {
+      id: "1",
+      createdAt: "2018-11-26T16:25:09.255Z",
+      name: "Alexandria Kunde",
+      avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/peter576/128.jpg",
+      email: "Maida_Langworth45@yahoo.com",
+      phonenumber: "009-392-8221 x67350"
+      }
+      //donations
+      {
+      id: "37",
+      createdAt: "2018-11-28T11:34:56.625Z",
+      amount: "568.62",
+      userID: 55
+      }
+
+              */
+
+      var mydata = {
+        users: [
+          {
+            createdAt: Date.now(),
+            name: "Elisabet Valsdóttir",
+            avatar: "selfi.png",
+            email: "a@a.dk",
+            phonenumber: "112"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Ekaterina Gerhardt-Pedersen",
+            avatar: "selfie.png",
+            email: "a@b.dk",
+            phonenumber: "113"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Lars Von Trier",
+            avatar: "selfie.png",
+            email: "sdfd@b.dk",
+            phonenumber: "113"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Julia Roberts",
+            avatar: "selfie.png",
+            email: "adf@b.dk",
+            phonenumber: "11234"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Johnny Depp",
+            avatar: "selfie.png",
+            email: "asdf@b.dk",
+            phonenumber: "1135555"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Lina Hansen",
+            avatar: "selfie.png",
+            email: "asss@b.dk",
+            phonenumber: "13436467679"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Peter Peterson",
+            avatar: "selfie.png",
+            email: "addd@b.dk",
+            phonenumber: "45457568"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Marion Cotillard",
+            avatar: "selfie.png",
+            email: "a@b.dk",
+            phonenumber: "1234663"
+          },
+          {
+            createdAt: Date.now(),
+            name: "Brad Pitt",
+            avatar: "selfie.png",
+            email: "abb@b.dk",
+            phonenumber: "11335345"
+          }
+        ],
+        donation: [
+          {
+            createdAt: Date.now(),
+            amount: "568",
+            userID: 1
+          },
+          {
+            createdAt: Date.now(),
+            amount: "168",
+            userID: 1
+          },
+          {
+            createdAt: Date.now(),
+            amount: "368",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            amount: "678",
+            userID: 3
+          },
+          {
+            createdAt: Date.now(),
+            amount: "67",
+            userID: 5
+          },
+          {
+            createdAt: Date.now(),
+            amount: "2345",
+            userID: 6
+          },
+          {
+            createdAt: Date.now(),
+            amount: "7000",
+            userID: 6
+          },
+          {
+            createdAt: Date.now(),
+            amount: "569",
+            userID: 8
+          },
+          {
+            createdAt: Date.now(),
+            amount: "2800",
+            userID: 9
+          },
+          {
+            createdAt: Date.now(),
+            amount: "28",
+            userID: 3
+          },
+          {
+            createdAt: Date.now(),
+            amount: "368.62",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            amount: "368.62",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            amount: "368.62",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            amount: "368.62",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            amount: "570",
+            userID: 8
+          },
+          {
+            createdAt: Date.now(),
+            amount: "600",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            amount: "5668.62",
+            userID: 2
+          }
+        ],
+        volunteer: [
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 1
+          },
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 2
+          },
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 6
+          },
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 4
+          },
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 3
+          },
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 5
+          },
+          {
+            createdAt: Date.now(),
+            area: "Cambridgeshire",
+            userID: 9
+          }
+        ]
+      };
+
+      mydata.users.forEach((u, i) => {
+        setTimeout(() => {
+          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
+            method: "post",
+            body: JSON.stringify(u),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(res => res.json())
+            .then(d => {
+              console.log("added ", u.name);
+            });
+        }, i * 500);
+      });
+
+      mydata.donation.forEach((d, i) => {
+        setTimeout(() => {
+          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/money`, {
+            method: "post",
+            body: JSON.stringify(d),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(res => res.json())
+            .then(d => {
+              console.log("donated ", d.amount);
+            });
+        }, i * 500);
+      });
+
+      mydata.volunteer.forEach((v, i) => {
+        setTimeout(() => {
+          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
+            method: "post",
+            body: JSON.stringify(v),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(res => res.json())
+            .then(d => {
+              console.log("volunteer ", v.userID);
+            });
+        }, i * 500);
+      });
+    </script>
+  </body>
+</html>
