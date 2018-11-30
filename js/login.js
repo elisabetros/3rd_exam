@@ -85,11 +85,17 @@ function showError() {
   console.log("not a user");
 }
 function doLogin() {
+  window.location.replace("signintest.html");
   // remember login
   console.log("user logged in!");
   sessionStorage.setItem("loggedin", "true");
+  link.forEach(singleLink => {
+    singleLink.innerText = "Log Out";
+    singleLink.addEventListener("click", logOut);
+  });
 }
 function logOut() {
   sessionStorage.setItem("loggedin", "false");
+  window.location.replace("index.html");
   checkLogin();
 }
