@@ -5,6 +5,7 @@ let link = document.querySelectorAll(".signIn");
 let signUpLink = document.querySelector(".signUp");
 let span = document.querySelectorAll(".close");
 let form = document.querySelector("#signUpForm");
+let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 // let spanOut = document.querySelector(".closeOut");
 window.addEventListener("load", checkLogin);
 
@@ -13,7 +14,6 @@ link.forEach(singleLink => {
 });
 span.forEach(singleSpan => {
   singleSpan.addEventListener("click", e => {
-    console.log(e);
     e.target.parentElement.parentElement.style.display = "none";
   });
 });
@@ -27,14 +27,6 @@ function opensignUpModal() {
   signUpModal.style.display = "block";
   signInModal.style.display = "none";
 }
-
-// window.addEventListener("click",  if (event.target == modal) {closeModal()})
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     signInModal.style.display = "none";
-//   }
-// };
 
 ////////LOGIN CHECK///////
 function checkLogin() {
@@ -62,7 +54,7 @@ function showSignUp() {
   });
   //   modal.querySelector(".modalOut").style.display = "none";
   //   modal.querySelector(".modalIn").style.display = "inital";
-  document.querySelector("#signIn").addEventListener("click", e => {
+  document.querySelector("#signInBtn").addEventListener("click", e => {
     e.preventDefault();
     checkUser();
   });
@@ -70,7 +62,7 @@ function showSignUp() {
 function checkUser() {
   let userInput = document.querySelector("#name").value;
   userName = null;
-  fetch(endpoint + "users")
+  fetch(endpoint + "/users")
     .then(response => response.json())
     .then(data => {
       data.forEach(user => {
@@ -207,8 +199,7 @@ function checkPassVal() {
   }
 }
 function resetColor(input) {
-  // let label = input.nextElementSibling;
-  // console.log(label);
+  // NOT READY YET
   input.style.color = "#1b1464";
 }
 
@@ -216,3 +207,6 @@ function checkForm() {
   let validity = form.checkValidity();
   console.log("Validity", validity);
 }
+
+// TODO Post data added in form to the data base
+//Fix menu not closing when link is clicked
