@@ -1,33 +1,40 @@
 let userName;
-let modal = document.querySelector("#popUp");
+const signInModal = document.querySelector("#signIn");
+const signUpModal = document.querySelector("#signUp");
 let link = document.querySelectorAll(".signIn");
-let span = document.getElementsByClassName("close")[0];
+let signUpLink = document.querySelector(".signUp");
+let span = document.querySelectorAll(".close");
+let form = document.querySelector("#signUpForm");
+// let spanOut = document.querySelector(".closeOut");
 window.addEventListener("load", checkLogin);
 
 link.forEach(singleLink => {
   singleLink.addEventListener("click", openModal);
 });
-
-span.addEventListener("click", closeModal);
+span.forEach(singleSpan => {
+  singleSpan.addEventListener("click", e => {
+    console.log(e);
+    e.target.parentElement.parentElement.style.display = "none";
+  });
+});
 
 function openModal() {
-  modal.style.display = "block";
-  //   if (isLoggedIn) {
-  //    } else {
-
-  //   }
+  console.log("modal opened");
+  signInModal.style.display = "block";
+  signUpLink.addEventListener("click", opensignUpModal);
 }
-function closeModal() {
-  modal.style.display = "none";
+function opensignUpModal() {
+  signUpModal.style.display = "block";
+  signInModal.style.display = "none";
 }
 
 // window.addEventListener("click",  if (event.target == modal) {closeModal()})
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     signInModal.style.display = "none";
+//   }
+// };
 
 ////////LOGIN CHECK///////
 function checkLogin() {
@@ -53,8 +60,8 @@ function showSignUp() {
   link.forEach(singleLink => {
     singleLink.innerText = "Sign In";
   });
-  //   modal.querySelector(".modelOut").style.display = "none";
-  //   modal.querySelector(".modelIn").style.display = "inital";
+  //   modal.querySelector(".modalOut").style.display = "none";
+  //   modal.querySelector(".modalIn").style.display = "inital";
   document.querySelector("#signIn").addEventListener("click", e => {
     e.preventDefault();
     checkUser();
@@ -98,4 +105,114 @@ function logOut() {
   sessionStorage.setItem("loggedin", "false");
   window.location.replace("index.html");
   checkLogin();
+}
+
+//Signup
+//read if all values are correct
+//if correct then validate form
+//When submit is pressed post to API
+//sign user in and reload to user page
+
+function checkNameVal() {
+  let name = document.querySelector(".username");
+  if (name.value === "") {
+    name.style.color = "red";
+  } else {
+    if (name.checkValidity()) {
+      name.style.border = "1px solid green";
+    } else {
+      name.style.border = "1px solid red";
+    }
+  }
+}
+
+function checkGenVal() {
+  let gender = document.querySelector(".gender");
+  if (gender.value === "") {
+    gender.style.color = "red";
+  } else {
+    if (gender.checkValidity()) {
+      gender.style.border = "1px solid green";
+    } else {
+      gender.style.border = "1px solid red";
+    }
+  }
+}
+function checkAgeVal() {
+  let age = document.querySelector(".age");
+  if (age.value === "") {
+    age.style.color = "red";
+  } else {
+    if (age.checkValidity()) {
+      age.style.border = "1px solid green";
+    } else {
+      age.style.border = "1px solid red";
+    }
+  }
+}
+function checkEmailVal() {
+  let email = document.querySelector(".email");
+  if (email.value === "") {
+    email.style.color = "red";
+  } else {
+    if (email.checkValidity()) {
+      email.style.border = "1px solid green";
+    } else {
+      email.style.border = "1px solid red";
+    }
+  }
+}
+function checkTelVal() {
+  let phonenumber = document.querySelector(".phonenumber");
+  if (phonenumber.value === "") {
+    phonenumber.style.color = "red";
+  } else {
+    if (phonenumber.checkValidity()) {
+      phonenumber.style.border = "1px solid green";
+    } else {
+      phonenumber.style.border = "1px solid red";
+    }
+  }
+}
+function checkRegVal() {
+  let region = document.querySelector(".region");
+  if (region.value === "") {
+    region.style.color = "red";
+  } else {
+    if (region.checkValidity()) {
+      region.style.border = "1px solid green";
+    } else {
+      region.style.border = "1px solid red";
+    }
+  }
+}
+function checkPassVal() {
+  {
+    let password = document.querySelector(".password");
+    let secondPassword = document.querySelector(".passwordv");
+    if (password.value === "") {
+      region.style.color = "red";
+    } else {
+      if (password.checkValidity()) {
+        password.style.border = "1px solid green";
+      } else {
+        password.style.border = "1px solid red";
+      }
+    }
+    if (password.value === secondPassword.value) {
+      secondPassword.style.border = "1px solid green";
+    } else {
+      secondPassword.style.border = "1px solid red";
+    }
+  }
+}
+function resetColor(input) {
+  // let label = input.nextElementSibling;
+  // console.log(label);
+  input.style.color = "#1b1464";
+}
+
+function checkForm() {
+  let validity = form.checkValidity();
+  console.log("Validity", validity);
 }

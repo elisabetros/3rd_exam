@@ -15,7 +15,7 @@
         <ul>
           <li><a href="#about">About Us</a></li>
           <li><a href="#Contact">Contact</a></li>
-          <li class="signIn">Sign In</li>
+          <li class="signIn" data-target="#signIn">Sign In</li>
         </ul>
       </nav>
 
@@ -29,28 +29,121 @@
       <ul>
         <li><a href="#about">About Us</a></li>
         <li><a href="#Contact">Contact</a></li>
-        <li class="signIn">Sign In</li>
+        <li class="signIn" data-target="#signIn">Sign In</li>
       </ul>
     </nav>
 
     <main>
-      <div id="popUp" class="modal">
+      <div id="signIn" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <div class="modelIn">
             <h1>Sign in</h1>
             <form>
               <label for=""
-                >User name<input name="name" id="name" type="text"
+                >User name<input required name="name" id="name" type="text"
               /></label>
               <label for="">Password<input type="text"/></label>
               <input id="signIn" type="submit" value="Sign In" />
               <p>
-                Are you not a member? Sign Up <span class="signUp">here</span>
+                Are you not a member? Sign Up
+                <span data-target="#signUp" class="signUp">here</span>
               </p>
             </form>
           </div>
           <div class="modelOut"><h1>You have succsessfuly logged out</h1></div>
+        </div>
+      </div>
+      <div id="signUp" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Sign Up</h1>
+          <form action="get" id="signUpForm">
+            <label
+              >Full Name<input
+                required
+                type="text"
+                name="username"
+                class="username"
+                oninput="checkForm()"
+                onblur="checkNameVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Gender<select
+                name="gender"
+                required
+                class="gender"
+                onblur="checkGenVal()"
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select></label
+            >
+            <label
+              >Date of birth<input
+                required
+                type="date"
+                name="age"
+                class="age"
+                oninput="checkForm()"
+                onblur="checkAgeVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Email<input
+                type="email"
+                name="email"
+                class="email"
+                oninput="checkForm()"
+                onblur="checkEmailVal()"
+                onfocus="resetColor(this)"
+            /></label>
+
+            <label
+              >Phonenumber<input
+                type="tel"
+                name="phonenumber"
+                class="phonenumber"
+                oninput="checkForm()"
+                onblur="checkTelVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <label for="region"
+              >Region<select
+                name="region"
+                required
+                class="region"
+                onblur="checkRegVal()"
+              >
+                <option value="centralJylland">Central Jylland</option>
+                <option value="southJylland">South Jylland</option>
+                <option value="northJylland">North Jylland</option>
+                <option value="capitalRegion">Capital Region</option>
+                <option value="zealand">Zealand</option>
+              </select></label
+            >
+            <label
+              >Password<input
+                type="password"
+                required
+                class="password"
+                oninput="checkForm()"
+                onblur="checkPassVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Repeat Password<input
+                type="password"
+                required
+                class="passwordv"
+                oninput="checkForm()"
+                onblur="checkPassVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <input type="submit" value="Sign Up" />
+          </form>
         </div>
       </div>
 
@@ -104,7 +197,7 @@
     </footer>
 
     <script src="js/menu.js"></script>
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
     <script src="js/login.js"></script>
   </body>
 </html>
