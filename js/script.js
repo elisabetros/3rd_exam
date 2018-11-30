@@ -3,13 +3,7 @@
 window.addEventListener("load", fetchEverything);
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io/";
 let userID = [];
-// let area = [
-//   "Central Jylland",
-//   "South Jylland",
-//   "North Jylland",
-//   "Capital Region",
-//   "Zealand"
-// ];
+
 function fetchEverything() {
   fetch(endpoint + "/users")
     .then(res => res.json())
@@ -55,12 +49,6 @@ function fetchEverything() {
       console.log("volunteer at", data);
     });
 }
-
-// function changeArea() {
-//   let newArea = area[Math.floor(Math.random() * area.length)];
-//   // oldArea = newArea;
-//   console.log(newArea);
-// }
 
 function displayChart(amountOverview) {
   new Chart(document.getElementById("donationChart"), {
