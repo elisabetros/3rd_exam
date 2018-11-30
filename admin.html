@@ -6,22 +6,53 @@
     <title>Document</title>
     <script src="lib/Chart.min.js"></script>
     <script src="lib/moment-with-locales.min.js"></script>
+
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 2fr 3fr 3fr;
+      }
+    </style>
   </head>
   <body>
-    <div
-      class="total-container"
-      style="position: relative; height:30vh; width:60vw"
-    >
-      <div id="totalMoney" width="200" height="100">
-        <h2>Total amount of donations</h2>
-        <h1 class="total">Number</h1>
+    <div class="container">
+      <div
+        class="total-container"
+        style="position: relative; height:20vh; width:50vw"
+      >
+        <div id="totalMoney" width="200" height="100">
+          <h2>Total amount of donations</h2>
+          <h1 class="total">Number</h1>
+        </div>
       </div>
-    </div>
-    <div
-      class="chart-container"
-      style="position: relative; height:30vh; width:60vw"
-    >
-      <canvas id="donationChart" width="300" height="200"></canvas>
+
+      <div
+        class="chart-container"
+        style="position: relative; height:30vh; width:60vw"
+      >
+        <canvas id="donationChart" width="300" height="200"></canvas>
+      </div>
+      <div
+        class="chart-container"
+        style="position: relative; height:30vh; width:60vw"
+      >
+        <canvas id="volunteeringChart" width="300" height="200"></canvas>
+      </div>
+      <div
+        class="total-container"
+        style="position: relative; height:20vh; width:50vw"
+      >
+        <div id="totalVolunteer" width="200" height="100">
+          <h2>Total amount of volunteers</h2>
+          <h1 class="total">Number</h1>
+        </div>
+        <div
+          class="chart-container"
+          style="position: relative; height:30vh; width:60vw"
+        >
+          <canvas id="genderChart" width="300" height="200"></canvas>
+        </div>
+      </div>
     </div>
   </body>
   <script src="js/script.js"></script>
