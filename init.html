@@ -269,39 +269,39 @@
         }, i * 500);
       });
 
-      mydata.donation.forEach((d, i) => {
-        setTimeout(() => {
-          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/money`, {
-            method: "post",
-            body: JSON.stringify(d),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            }
-          })
-            .then(res => res.json())
-            .then(d => {
-              console.log("donated ", d.amount);
-            });
-        }, i * 500);
-      });
+      // mydata.donation.forEach((d, i) => {
+      //   setTimeout(() => {
+      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/money`, {
+      //       method: "post",
+      //       body: JSON.stringify(d),
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json"
+      //       }
+      //     })
+      //       .then(res => res.json())
+      //       .then(d => {
+      //         console.log("donated ", d.amount);
+      //       });
+      //   }, i * 500);
+      // });
 
-      mydata.volunteer.forEach((v, i) => {
-        setTimeout(() => {
-          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
-            method: "post",
-            body: JSON.stringify(v),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            }
-          })
-            .then(res => res.json())
-            .then(d => {
-              console.log("volunteer ", v.userID);
-            });
-        }, i * 500);
-      });
+      // mydata.volunteer.forEach((v, i) => {
+      //   setTimeout(() => {
+      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
+      //       method: "post",
+      //       body: JSON.stringify(v),
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json"
+      //       }
+      //     })
+      //       .then(res => res.json())
+      //       .then(d => {
+      //         console.log("volunteer ", v.userID);
+      //       });
+      //   }, i * 500);
+      // });
     </script>
   </body>
 </html>

@@ -5,6 +5,7 @@ let link = document.querySelectorAll(".signIn");
 let signUpLink = document.querySelector(".signUp");
 let span = document.querySelectorAll(".close");
 let form = document.querySelector("#signUpForm");
+let signUpBtn = document.querySelector("#signUpBtn");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 // let spanOut = document.querySelector(".closeOut");
 window.addEventListener("load", checkLogin);
@@ -19,7 +20,6 @@ span.forEach(singleSpan => {
 });
 
 function openModal() {
-  console.log("modal opened");
   signInModal.style.display = "block";
   signUpLink.addEventListener("click", opensignUpModal);
 }
@@ -206,7 +206,61 @@ function resetColor(input) {
 function checkForm() {
   let validity = form.checkValidity();
   console.log("Validity", validity);
+  if (validity) {
+    signUpBtn.removeAttribute("disabled");
+  } else {
+    signUpBtn.setAttribute("disabled", true);
+  }
 }
 
-// TODO Post data added in form to the data base
-//Fix menu not closing when link is clicked
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  createUser(
+    form.elements.username.value,
+    form.elements.gender.value,
+    form.elements.age.value,
+    form.elements.email.value,
+    form.elements.phonenumber.value,
+    form.elements.passwordv.value
+  );
+});
+
+// Create empty user object
+// fill it with information from form when submit button is pressed
+
+// Get all information from form and store in newUser
+// createUser(newUser);
+
+// Post to API
+function createUser(
+  formName,
+  formGender,
+  formAge,
+  formEmail,
+  formTel,
+  formPass
+) {
+  let newUser = {
+    createdAt: Date.now(),
+    name: formName,
+    gender: formGender,
+    birthDate: formAge,
+    email: formEmail,
+    phonenumber: formTel,
+    password: formPass
+  };
+  // console.log(newUser);
+
+  fetch(endpoint + "/users", {
+    method: "post",
+    body: JSON.stringify(newUser),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(d => {
+      console.log(d);
+    });
+}

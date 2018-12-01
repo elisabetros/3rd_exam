@@ -110,25 +110,28 @@
                 onblur="checkTelVal()"
                 onfocus="resetColor(this)"
             /></label>
-            <label for="region"
-              >Region<select
-                name="region"
-                required
-                class="region"
-                onblur="checkRegVal()"
+            <!--
+              <label for="region"
+                >Region<select
+                  name="region"
+                  required
+                  class="region"
+                  onblur="checkRegVal()"
+                >
+                  <option value="centralJylland">Central Jylland</option>
+                  <option value="southJylland">South Jylland</option>
+                  <option value="northJylland">North Jylland</option>
+                  <option value="capitalRegion">Capital Region</option>
+                  <option value="zealand">Zealand</option>
+                </select></label
               >
-                <option value="centralJylland">Central Jylland</option>
-                <option value="southJylland">South Jylland</option>
-                <option value="northJylland">North Jylland</option>
-                <option value="capitalRegion">Capital Region</option>
-                <option value="zealand">Zealand</option>
-              </select></label
-            >
+            -->
             <label
               >Password<input
                 type="password"
                 required
                 class="password"
+                name="password"
                 oninput="checkForm()"
                 onblur="checkPassVal()"
                 onfocus="resetColor(this)"
@@ -137,12 +140,13 @@
               >Repeat Password<input
                 type="password"
                 required
+                name="passwordv"
                 class="passwordv"
                 oninput="checkForm()"
                 onblur="checkPassVal()"
                 onfocus="resetColor(this)"
             /></label>
-            <input type="submit" value="Sign Up" />
+            <input type="submit" value="Sign Up" id="signUpBtn" disabled />
           </form>
         </div>
       </div>
