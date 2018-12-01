@@ -215,6 +215,7 @@ function checkForm() {
 
 form.addEventListener("submit", e => {
   e.preventDefault();
+
   createUser(
     form.elements.username.value,
     form.elements.gender.value,
@@ -240,6 +241,13 @@ function createUser(
   formTel,
   formPass
 ) {
+  if (formGender === "female") {
+    formGender = "f";
+  } else if (formGender === "male") {
+    formGender = "m";
+  } else {
+    formGender = "o";
+  }
   let newUser = {
     createdAt: Date.now(),
     name: formName,
@@ -249,7 +257,7 @@ function createUser(
     phonenumber: formTel,
     password: formPass
   };
-  // console.log(newUser);
+  console.log(newUser);
 
   fetch(endpoint + "/users", {
     method: "post",
@@ -263,4 +271,5 @@ function createUser(
     .then(d => {
       console.log(d);
     });
+  // doLogin(newUser);
 }
