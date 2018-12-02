@@ -3,7 +3,12 @@ let menuOpen = false;
 let menuIcon = document.querySelector(".menuIcon");
 let menu = document.querySelector(".menu");
 let bars = menuIcon.querySelectorAll("rect");
+let menuLinks = document.querySelectorAll(".menu>ul>li");
 menuIcon.addEventListener("click", toggleMenu);
+menuLinks.forEach(link => {
+  link.addEventListener("click", toggleMenu);
+});
+// Link clicked menu closed
 
 function toggleMenu() {
   menuOpen = !menuOpen;
