@@ -52,8 +52,6 @@ function showSignUp() {
   link.forEach(singleLink => {
     singleLink.innerText = "Sign In";
   });
-  //   modal.querySelector(".modalOut").style.display = "none";
-  //   modal.querySelector(".modalIn").style.display = "inital";
   document.querySelector("#signInBtn").addEventListener("click", e => {
     e.preventDefault();
     checkUser();
@@ -61,19 +59,22 @@ function showSignUp() {
 }
 function checkUser() {
   let userInput = document.querySelector("#name").value;
+  let passwordInput = document.querySelector("#password").value;
   userName = null;
+  let userPassword = null;
   fetch(endpoint + "/users")
     .then(response => response.json())
     .then(data => {
       data.forEach(user => {
-        console.log(user.name);
-        if (userInput === user.name) {
+        console.log(user.name, user.password);
+        if (userInput === user.name && passwordInput === user.password) {
           userName = user.name;
+          userPassword = user.password;
         }
       });
-      if (userName) {
-        console.log(userName);
-        doLogin();
+      if (userName && userPassword) {
+        // console.log(userName);
+        doLogin(userName);
       } else {
         console.log("not a user");
         // showError();
@@ -83,15 +84,17 @@ function checkUser() {
 function showError() {
   console.log("not a user");
 }
-function doLogin() {
-  window.location.replace("signintest.html");
-  // remember login
-  console.log("user logged in!");
+
+function doLogin(userName) {
+  // remember who logged in
+  // console.log(userName, "logged in!");
   sessionStorage.setItem("loggedin", "true");
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
     singleLink.addEventListener("click", logOut);
   });
+  window.location.replace("signintest.html");
+  // Fetch users donations and volunteering
 }
 function logOut() {
   sessionStorage.setItem("loggedin", "false");
@@ -166,18 +169,18 @@ function checkTelVal() {
     }
   }
 }
-function checkRegVal() {
-  let region = document.querySelector(".region");
-  if (region.value === "") {
-    region.style.color = "red";
-  } else {
-    if (region.checkValidity()) {
-      region.style.border = "1px solid green";
-    } else {
-      region.style.border = "1px solid red";
-    }
-  }
-}
+// function checkRegVal() {
+//   let region = document.querySelector(".region");
+//   if (region.value === "") {
+//     region.style.color = "red";
+//   } else {
+//     if (region.checkValidity()) {
+//       region.style.border = "1px solid green";
+//     } else {
+//       region.style.border = "1px solid red";
+//     }
+//   }
+// }
 function checkPassVal() {
   {
     let password = document.querySelector(".password");
@@ -230,8 +233,7 @@ form.addEventListener("submit", e => {
 // fill it with information from form when submit button is pressed
 
 // Get all information from form and store in newUser
-// createUser(newUser);
-
+// if it's a existing user Don't push
 // Post to API
 function createUser(
   formName,
@@ -248,16 +250,20 @@ function createUser(
   } else {
     formGender = "o";
   }
+  let y = formAge.split("-")[0];
+  let m = formAge.split("-")[1];
+  let d = formAge.split("-")[2];
+  // console.log(y, m, d);
   let newUser = {
     createdAt: Date.now(),
     name: formName,
     gender: formGender,
-    birthDate: formAge,
+    birthDate: d + "-" + m + "-" + y,
     email: formEmail,
     phonenumber: formTel,
     password: formPass
   };
-  console.log(newUser);
+  // console.log(newUser);
 
   fetch(endpoint + "/users", {
     method: "post",
@@ -271,5 +277,9 @@ function createUser(
     .then(d => {
       console.log(d);
     });
+  // setTimeout(() => {
+  //   console.log(newUser.name);
+  //   // doLogin(newUser.name)
+  // }, 500);
   // doLogin(newUser);
 }
