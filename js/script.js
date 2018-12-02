@@ -6,7 +6,16 @@ let userID = [];
 
 let volunteerUserIds = [];
 let donationUserIds = [];
+let age = [];
 let userData;
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
 Chart.scaleService.updateScaleDefaults("linear", {
   ticks: {
@@ -307,9 +316,62 @@ function countAge(userData) {
     let birthDate = userData[i].birthDate;
     let birthYear = birthDate.substr(birthDate.length - 4);
     console.log("birthYear", birthYear);
+    let today = new Date();
+    age.push(today.getFullYear() - birthYear);
+    // console.log("age", age);
+    splitAge(age);
+  }
+
+  function splitAge(age) {
+    let ageOverview = [0, 0, 0, 0, 0];
+
+    for (let i = 0; i < age.length; i++) {
+      console.log("age", age[i]);
+      if (age[i] <= 18) {
+        ageOverview[0]++;
+      } else if (age[i] > 18 && age[i] <= 35) {
+        ageOverview[1]++;
+      } else if (age[i] > 35 && age[i] <= 50) {
+        ageOverview[2]++;
+      } else if (age[i] > 50 && age[i] <= 67) {
+        ageOverview[3]++;
+      } else if (age[i] > 67) {
+        ageOverview[4]++;
+      }
+      console.log("ageoverview", ageOverview);
+      displayAgeChart(ageOverview);
+    }
   }
 }
 
+function displayAgeChart(ageOverview) {
+  new Chart(document.getElementById("bar-chart-horizontal"), {
+    type: "horizontalBar",
+    data: {
+      labels: ["<18", "18-35", "36-50", "51-67", ">67"],
+      datasets: [
+        {
+          label: "Age (years)",
+          backgroundColor: [
+            "#3e95cd",
+            "#8e5ea2",
+            "#3cba9f",
+            "#e8c3b9",
+            "#c45850"
+          ],
+          data: ageOverview
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "Volunteers and donors by age"
+      }
+    }
+  });
+}
 async function init() {
   const userData = await fetchUsers();
   const genders = countGenders(userData);
@@ -325,12 +387,7 @@ async function init() {
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
   countAge(userData);
-}
-
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  const age = countAge(userData);
+  // splitAge(age);
+  // const ageOverview = splitAge(age);
 }
