@@ -6,6 +6,9 @@
   font-family: openSans;
   src: url(../fonts/opensans/OpenSansCondensed-Light.ttf); }
 
+li {
+  cursor: pointer; }
+
 header {
   width: 100vw;
   z-index: 1;
@@ -14,8 +17,6 @@ header {
   @media (min-width: 1024px) {
     header {
       height: 80px; } }
-  header li {
-    cursor: pointer; }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {
@@ -113,8 +114,16 @@ ul {
   color: #f95738;
   cursor: pointer; }
 
+#profile {
+  position: relative;
+  padding: 15vh; }
+
 * {
   box-sizing: border-box; }
+
+:root {
+  font-size: 62.5%;
+  /*1 rem = 10px*/ }
 
 body {
   margin: 0;
@@ -137,11 +146,16 @@ li {
   margin: 0;
   font-family: futuraBold; }
 
+h1 {
+  font-size: 3rem; }
+
 h2 {
+  font-size: 2rem;
   font-weight: 200; }
 
 p,
 div {
+  font-size: 1.5rem;
   font-family: openSans; }
 
 a {
