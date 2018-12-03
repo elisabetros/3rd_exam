@@ -3,6 +3,9 @@
   -ms-transform: $property;
   transform: $property;
 }
+li {
+  cursor: pointer;
+}
 header {
   width: 100vw;
   z-index: 1;
@@ -11,9 +14,7 @@ header {
   @media (min-width: 1024px) {
     height: 80px;
   }
-  li {
-    cursor: pointer;
-  }
+
   .deskmenu {
     display: none;
     @media (min-width: 1024px) {

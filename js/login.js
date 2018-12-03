@@ -3,29 +3,13 @@
 window.addEventListener("load", init);
 
 let userName;
-const signInModal = document.querySelector("#signIn");
-const signUpModal = document.querySelector("#signUp");
-let link = document.querySelectorAll(".signIn");
-let signUpLink = document.querySelector(".signUp");
-let span = document.querySelectorAll(".close");
 let form = document.querySelector("#signUpForm");
-let signUpBtn = document.querySelector("#signUpBtn");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
 async function init() {
   const userData = await fetchUsers();
-  console.log(userData[0].name);
-
   checkLogin(userData);
-
-  link.forEach(singleLink => {
-    singleLink.addEventListener("click", openModal);
-  });
-  span.forEach(singleSpan => {
-    singleSpan.addEventListener("click", e => {
-      e.target.parentElement.parentElement.style.display = "none";
-    });
-  });
+  // form.addEventListener("submit");
 }
 
 function fetchUsers() {
@@ -36,15 +20,6 @@ function fetchUsers() {
         resolve(data);
       });
   });
-}
-
-function openModal() {
-  signInModal.style.display = "block";
-  signUpLink.addEventListener("click", opensignUpModal);
-}
-function opensignUpModal() {
-  signUpModal.style.display = "block";
-  signInModal.style.display = "none";
 }
 
 ////////LOGIN CHECK///////
@@ -82,16 +57,18 @@ function checkUser(userData) {
   let passwordInput = document.querySelector("#password").value;
   userName = null;
   let userPassword = null;
+  let userID;
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
       userName = user.name;
       userPassword = user.password;
+      userID = user.id;
     }
   });
 
   if (userName && userPassword) {
     // console.log(userName);
-    doLogin(userName);
+    doLogin(userID);
   } else {
     console.log("not a user");
     // showError();
@@ -99,7 +76,7 @@ function checkUser(userData) {
 }
 // function showError() {}
 
-function doLogin(userName) {
+function doLogin(userID) {
   // remember WHO is logged in
   // console.log(userName, "logged in!");
   sessionStorage.setItem("loggedin", "true");
@@ -107,7 +84,8 @@ function doLogin(userName) {
     singleLink.innerText = "Log Out";
     singleLink.addEventListener("click", logOut);
   });
-  window.location.replace("profile.html");
+
+  window.location.replace("profile.html?id=" + userID);
   // Fetch users donations and volunteering
 }
 

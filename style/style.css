@@ -6,6 +6,9 @@
   font-family: openSans;
   src: url(../fonts/opensans/OpenSansCondensed-Light.ttf); }
 
+li {
+  cursor: pointer; }
+
 header {
   width: 100vw;
   z-index: 1;
@@ -14,8 +17,6 @@ header {
   @media (min-width: 1024px) {
     header {
       height: 80px; } }
-  header li {
-    cursor: pointer; }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {

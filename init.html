@@ -212,62 +212,70 @@
           {
             createdAt: Date.now(),
             area: "Zealand",
-            userID: 1
+            userID: 1,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Central Jutland",
-            userID: 2
+            userID: 2,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Zealand",
-            userID: 8
+            userID: 8,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Southern Jutland",
-            userID: 4
+            userID: 4,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Capital Region",
-            userID: 3
+            userID: 3,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Capital Region",
-            userID: 5
+            userID: 5,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Northen Jutland",
-            userID: 9
+            userID: 9,
+            projects: []
           },
           {
             createdAt: Date.now(),
             area: "Zealand",
-            userID: 6
+            userID: 6,
+            projects: []
           }
         ]
       };
 
-      mydata.users.forEach((u, i) => {
-        setTimeout(() => {
-          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
-            method: "post",
-            body: JSON.stringify(u),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            }
-          })
-            .then(res => res.json())
-            .then(d => {
-              console.log("added ", u.name);
-            });
-        }, i * 500);
-      });
+      // mydata.users.forEach((u, i) => {
+      //   setTimeout(() => {
+      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
+      //       method: "post",
+      //       body: JSON.stringify(u),
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json"
+      //       }
+      //     })
+      //       .then(res => res.json())
+      //       .then(d => {
+      //         console.log("added ", u.name);
+      //       });
+      //   }, i * 500);
+      // });
 
       // mydata.donation.forEach((d, i) => {
       //   setTimeout(() => {
@@ -286,22 +294,22 @@
       //   }, i * 500);
       // });
 
-      // mydata.volunteer.forEach((v, i) => {
-      //   setTimeout(() => {
-      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
-      //       method: "post",
-      //       body: JSON.stringify(v),
-      //       headers: {
-      //         Accept: "application/json",
-      //         "Content-Type": "application/json"
-      //       }
-      //     })
-      //       .then(res => res.json())
-      //       .then(d => {
-      //         console.log("volunteer ", v.userID);
-      //       });
-      //   }, i * 500);
-      // });
+      mydata.volunteer.forEach((v, i) => {
+        setTimeout(() => {
+          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
+            method: "post",
+            body: JSON.stringify(v),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(res => res.json())
+            .then(d => {
+              console.log("volunteer ", v.userID);
+            });
+        }, i * 500);
+      });
     </script>
   </body>
 </html>
