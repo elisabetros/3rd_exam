@@ -120,6 +120,7 @@ function checkNameVal() {
     }
   }
 }
+//can it not be a single function that return something and we only send different parameters there? could be a problem though when it is oninput
 
 function checkGenVal() {
   let gender = document.querySelector(".gender");
