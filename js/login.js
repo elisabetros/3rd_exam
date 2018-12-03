@@ -1,3 +1,7 @@
+"user strict";
+
+window.addEventListener("load", init);
+
 let userName;
 const signInModal = document.querySelector("#signIn");
 const signUpModal = document.querySelector("#signUp");
@@ -7,17 +11,32 @@ let span = document.querySelectorAll(".close");
 let form = document.querySelector("#signUpForm");
 let signUpBtn = document.querySelector("#signUpBtn");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
-// let spanOut = document.querySelector(".closeOut");
-window.addEventListener("load", checkLogin);
 
-link.forEach(singleLink => {
-  singleLink.addEventListener("click", openModal);
-});
-span.forEach(singleSpan => {
-  singleSpan.addEventListener("click", e => {
-    e.target.parentElement.parentElement.style.display = "none";
+async function init() {
+  const userData = await fetchUsers();
+  console.log(userData[0].name);
+
+  checkLogin(userData);
+
+  link.forEach(singleLink => {
+    singleLink.addEventListener("click", openModal);
   });
-});
+  span.forEach(singleSpan => {
+    singleSpan.addEventListener("click", e => {
+      e.target.parentElement.parentElement.style.display = "none";
+    });
+  });
+}
+
+function fetchUsers() {
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/users")
+      .then(response => response.json())
+      .then(function(data) {
+        resolve(data);
+      });
+  });
+}
 
 function openModal() {
   signInModal.style.display = "block";
@@ -29,7 +48,7 @@ function opensignUpModal() {
 }
 
 ////////LOGIN CHECK///////
-function checkLogin() {
+function checkLogin(userData) {
   if (isLoggedIn()) {
     console.log("someone is signed in!");
     link.forEach(singleLink => {
@@ -37,7 +56,7 @@ function checkLogin() {
       singleLink.addEventListener("click", logOut);
     });
   } else {
-    showSignUp();
+    showSignUp(userData);
   }
 }
 
@@ -47,55 +66,51 @@ function isLoggedIn() {
   return loggedIn;
 }
 
-function showSignUp() {
+function showSignUp(userData) {
   console.log("noone is signed in");
   link.forEach(singleLink => {
     singleLink.innerText = "Sign In";
   });
   document.querySelector("#signInBtn").addEventListener("click", e => {
     e.preventDefault();
-    checkUser();
+    checkUser(userData);
   });
 }
-function checkUser() {
+
+function checkUser(userData) {
   let userInput = document.querySelector("#name").value;
   let passwordInput = document.querySelector("#password").value;
   userName = null;
   let userPassword = null;
-  fetch(endpoint + "/users")
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(user => {
-        console.log(user.name, user.password);
-        if (userInput === user.name && passwordInput === user.password) {
-          userName = user.name;
-          userPassword = user.password;
-        }
-      });
-      if (userName && userPassword) {
-        // console.log(userName);
-        doLogin(userName);
-      } else {
-        console.log("not a user");
-        // showError();
-      }
-    });
+  userData.forEach(user => {
+    if (userInput === user.name && passwordInput === user.password) {
+      userName = user.name;
+      userPassword = user.password;
+    }
+  });
+
+  if (userName && userPassword) {
+    // console.log(userName);
+    doLogin(userName);
+  } else {
+    console.log("not a user");
+    // showError();
+  }
 }
-function showError() {
-  console.log("not a user");
-}
+// function showError() {}
 
 function doLogin(userName) {
-  // remember who logged in
+  // remember WHO is logged in
   // console.log(userName, "logged in!");
   sessionStorage.setItem("loggedin", "true");
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
     singleLink.addEventListener("click", logOut);
   });
-  window.location.replace("signintest.html");
+  window.location.replace("profile.html");
   // Fetch users donations and volunteering
 }
+
 function logOut() {
   sessionStorage.setItem("loggedin", "false");
   window.location.replace("index.html");
@@ -217,16 +232,34 @@ function checkForm() {
 }
 
 form.addEventListener("submit", e => {
+  let user;
   e.preventDefault();
-
-  createUser(
-    form.elements.username.value,
-    form.elements.gender.value,
-    form.elements.age.value,
-    form.elements.email.value,
-    form.elements.phonenumber.value,
-    form.elements.passwordv.value
-  );
+  fetch(endpoint + "/users")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(user => {
+        console.log(user.name, form.elements.username.value);
+        if (user.name === form.elements.username.value) {
+          console.log("already a name!");
+          alert("user already exist, choose another username");
+          return user.name;
+        } else {
+          console.log("not a name!");
+          return user.name;
+        }
+      });
+      if (user.name !== form.elements.username.value) {
+        console.log("i will create new");
+        // createUser(
+        //   form.elements.username.value,
+        //   form.elements.gender.value,
+        //   form.elements.age.value,
+        //   form.elements.email.value,
+        //   form.elements.phonenumber.value,
+        //   form.elements.passwordv.value
+        // );
+      }
+    });
 });
 
 // Create empty user object
@@ -277,9 +310,10 @@ function createUser(
     .then(d => {
       console.log(d);
     });
-  // setTimeout(() => {
-  //   console.log(newUser.name);
-  //   // doLogin(newUser.name)
-  // }, 500);
-  // doLogin(newUser);
 }
+
+// setTimeout(() => {
+//   console.log(newUser.name);
+//   // doLogin(newUser.name)
+// }, 500);
+// doLogin(newUser);
