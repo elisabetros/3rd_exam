@@ -8,6 +8,14 @@ let volunteerUserIds = [];
 let donationUserIds = [];
 let userData;
 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
 Chart.scaleService.updateScaleDefaults("linear", {
   ticks: {
     min: 0
@@ -74,21 +82,21 @@ function fetchVolunteers() {
   });
 }
 
-function countGenders(userData) {
-  let gender = [0, 0, 0];
+// function countGenders(userData) {
+//   let gender = [0, 0, 0];
 
-  for (let i = 0; i < userData.length; i++) {
-    if (userData[i].gender === "f") {
-      gender[0]++;
-    } else if (userData[i].gender === "m") {
-      gender[1]++;
-    } else {
-      gender[2]++;
-    }
-  }
+//   for (let i = 0; i < userData.length; i++) {
+//     if (userData[i].gender === "f") {
+//       gender[0]++;
+//     } else if (userData[i].gender === "m") {
+//       gender[1]++;
+//     } else {
+//       gender[2]++;
+//     }
+//   }
 
-  return gender;
-}
+//   return gender;
+// }
 
 function countVolunteersByAreas(volunteers) {
   let allVolunteer = 0;
@@ -212,29 +220,29 @@ function displayVolunteering(area) {
   });
 }
 
-function matchVolunteersByGender(userData, volunteerUserIds) {
-  let volunteersByGender = [0, 0, 0];
+function matchByGender(userData, userIds) {
+  let matchByGender = [0, 0, 0];
   for (let i = 0; i < userData.length; i++) {
     let exists = false;
     // console.log("first loop!", userData[i].id);
-    for (let u = 0; u < volunteerUserIds.length; u++) {
-      // console.log("second loop!", volunteerUserIds[u]);
-      if (userData[i].id == volunteerUserIds[u]) {
+    for (let u = 0; u < userIds.length; u++) {
+      // console.log("second loop!", userIds[u]);
+      if (userData[i].id == userIds[u]) {
         exists = true;
-        // console.log("it's a match", userData[i].id, volunteerUserIds[u]);
+        // console.log("it's a match", userData[i].id, userIds[u]);
       }
     }
 
     if (exists) {
       if (userData[i].gender === "f") {
         // console.log("female detected!");
-        volunteersByGender[0]++;
+        matchByGender[0]++;
       } else if (userData[i].gender === "m" || userData[i].gender === "male") {
         // console.log("male detected!");
-        volunteersByGender[1]++;
+        matchByGender[1]++;
       } else {
         // Gender unknown
-        volunteersByGender[2]++;
+        matchByGender[2]++;
       }
     }
 
@@ -242,37 +250,37 @@ function matchVolunteersByGender(userData, volunteerUserIds) {
       console.log("Not existing in volunteers array. Dont count.");
     }
   }
-  console.log("volunteersByGender", volunteersByGender);
-  return volunteersByGender;
+  console.log("matchByGender", matchByGender);
+  return matchByGender;
 }
 
-function matchDonationByGender(userData, donationUserIds) {
-  let donationByGender = [0, 0, 0];
-  for (let i = 0; i < userData.length; i++) {
-    let exists = false;
-    console.log("first loop donation", userData[i].id);
-    for (let u = 0; u < donationUserIds.length; u++) {
-      if (userData[i].id == donationUserIds[u]) {
-        exists = true;
-      }
-    }
+// function matchDonationByGender(userData, donationUserIds) {
+//   let donationByGender = [0, 0, 0];
+//   for (let i = 0; i < userData.length; i++) {
+//     let exists = false;
+//     console.log("first loop donation", userData[i].id);
+//     for (let u = 0; u < donationUserIds.length; u++) {
+//       if (userData[i].id == donationUserIds[u]) {
+//         exists = true;
+//       }
+//     }
 
-    if (exists) {
-      if (userData[i].gender === "f") {
-        donationByGender[0]++;
-      } else if (userData[i].gender === "m" || userData[i].gender === "male") {
-        donationByGender[1]++;
-      } else {
-        donationByGender[2]++;
-      }
-    }
-    if (!exists) {
-      console.log("Not existing in donation array. Dont count.");
-    }
-  }
-  console.log("donationsByGender", donationByGender);
-  return donationByGender;
-}
+//     if (exists) {
+//       if (userData[i].gender === "f") {
+//         donationByGender[0]++;
+//       } else if (userData[i].gender === "m" || userData[i].gender === "male") {
+//         donationByGender[1]++;
+//       } else {
+//         donationByGender[2]++;
+//       }
+//     }
+//     if (!exists) {
+//       console.log("Not existing in donation array. Dont count.");
+//     }
+//   }
+//   console.log("donationsByGender", donationByGender);
+//   return donationByGender;
+// }
 
 function displayChartByGender(volunteersByGender, donationByGender) {
   new Chart(document.getElementById("genderChart"), {
@@ -301,36 +309,92 @@ function displayChartByGender(volunteersByGender, donationByGender) {
   });
 }
 
-function countAge(userData) {
+function countAges(userData) {
+  let ages = [];
+
   for (let i = 0; i < userData.length; i++) {
     console.log("userData.birthDate", userData[i].birthDate);
     let birthDate = userData[i].birthDate;
     let birthYear = birthDate.substr(birthDate.length - 4);
     console.log("birthYear", birthYear);
+    let today = new Date();
+    ages.push(today.getFullYear() - birthYear);
+    // console.log("age", age);
+    // splitAge(age);
   }
+
+  return ages;
 }
 
+function splitAge(ages) {
+  let agesOverview = [0, 0, 0, 0, 0];
+
+  for (let i = 0; i < ages.length; i++) {
+    console.log("ages", ages[i]);
+    if (ages[i] <= 18) {
+      agesOverview[0]++;
+    } else if (ages[i] > 18 && ages[i] <= 35) {
+      agesOverview[1]++;
+    } else if (ages[i] > 35 && ages[i] <= 50) {
+      agesOverview[2]++;
+    } else if (ages[i] > 50 && ages[i] <= 67) {
+      agesOverview[3]++;
+    } else if (ages[i] > 67) {
+      agesOverview[4]++;
+    }
+    console.log("agesOverview", agesOverview);
+    // displayAgeChart(agesOverview);
+  }
+
+  return agesOverview;
+}
+
+function displayAgeChart(agesOverview) {
+  new Chart(document.getElementById("bar-chart-horizontal"), {
+    type: "horizontalBar",
+    data: {
+      labels: ["<18", "18-35", "36-50", "51-67", ">67"],
+      datasets: [
+        {
+          label: "Age (years)",
+          backgroundColor: [
+            "#3e95cd",
+            "#8e5ea2",
+            "#3cba9f",
+            "#e8c3b9",
+            "#c45850"
+          ],
+          data: agesOverview
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "Volunteers and donors by age"
+      }
+    }
+  });
+}
 async function init() {
+  // Fetch data
   const userData = await fetchUsers();
-  const genders = countGenders(userData);
+  // const genders = countGenders(userData);
   const donations = await fetchDonations();
-  displayChart(donations);
   const volunteers = await fetchVolunteers();
+
+  // Manipulate/convert data
   const volunteersByArea = countVolunteersByAreas(volunteers);
-  const volunteersByGender = matchVolunteersByGender(
-    userData,
-    volunteerUserIds
-  );
-  const donationByGender = matchDonationByGender(userData, donationUserIds);
+  const volunteersByGender = matchByGender(userData, volunteerUserIds);
+  const donationByGender = matchByGender(userData, donationUserIds);
+  // const donationByGender = matchDonationByGender(userData, donationUserIds);
+  const ages = countAges(userData);
+  const agesOverview = splitAge(ages);
+
+  // Display data
+  displayChart(donations);
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
-  countAge(userData);
-}
-
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  displayAgeChart(agesOverview);
 }
