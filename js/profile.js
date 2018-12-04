@@ -4,6 +4,7 @@ window.addEventListener("load", init);
 
 let urlParams = new URLSearchParams(window.location.search);
 let id = urlParams.get("id");
+let link = document.querySelectorAll(".logOut");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
 function fetchUsers() {
@@ -56,7 +57,15 @@ function showDonations(donationsData) {
 }
 function showVolunteering(volunteeringData) {}
 
+function logOut() {
+  window.location.replace("index.html");
+  sessionStorage.setItem("loggedin", "false");
+}
+
 async function init() {
+  link.forEach(singleLink => {
+    singleLink.addEventListener("click", logOut);
+  });
   const userData = await fetchUsers();
   const donationsData = await fetchDonations();
   const volunteeringData = await fetchVolunteer();
