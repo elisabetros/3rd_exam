@@ -3,9 +3,6 @@
   -ms-transform: $property;
   transform: $property;
 }
-li {
-  cursor: pointer;
-}
 header {
   width: 100vw;
   z-index: 1;
@@ -19,7 +16,7 @@ header {
     display: none;
     @media (min-width: 1024px) {
       li {
-        font-size: 1.5rem;
+        font-size: 2rem;
         display: inline-block;
         margin: 0 5%;
       }
@@ -64,7 +61,8 @@ ul {
   width: 100vw;
   transition: all 0.6s;
   li {
-    font-size: 1.3rem;
+    font-size: 2rem;
+    cursor: pointer;
   }
 }
 .hidden {

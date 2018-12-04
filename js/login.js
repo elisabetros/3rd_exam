@@ -215,27 +215,22 @@ form.addEventListener("submit", e => {
   fetch(endpoint + "/users")
     .then(response => response.json())
     .then(data => {
-      data.forEach(user => {
-        console.log(user.name, form.elements.username.value);
+      const found = data.find(user => {
         if (user.name === form.elements.username.value) {
-          console.log("already a name!");
+          // console.log("already a name!");
           alert("user already exist, choose another username");
-          return user.name;
-        } else {
-          console.log("not a name!");
-          return user.name;
+          return true;
         }
       });
-      if (user.name !== form.elements.username.value) {
-        console.log("i will create new");
-        // createUser(
-        //   form.elements.username.value,
-        //   form.elements.gender.value,
-        //   form.elements.age.value,
-        //   form.elements.email.value,
-        //   form.elements.phonenumber.value,
-        //   form.elements.passwordv.value
-        // );
+      if (!found) {
+        createUser(
+          form.elements.username.value,
+          form.elements.gender.value,
+          form.elements.age.value,
+          form.elements.email.value,
+          form.elements.phonenumber.value,
+          form.elements.passwordv.value
+        );
       }
     });
 });
