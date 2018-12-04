@@ -34,6 +34,14 @@
     </nav>
 
     <main>
+      <div class="modal-box">
+        <div class="modal-discription">
+          <span class="closeModal">&times;</span>
+          <h2 class="titleProject"></h2>
+          <p class="textProject"></p>
+          <img class="imgProject" src="" />
+        </div>
+      </div>
       <div id="signIn" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -68,7 +76,7 @@
                 name="username"
                 class="username"
                 oninput="checkForm()"
-                onblur="checkNameVal()"
+                onblur="checkInput('username')"
                 onfocus="resetColor(this)"
             /></label>
             <label
@@ -76,7 +84,7 @@
                 name="gender"
                 required
                 class="gender"
-                onblur="checkGenVal()"
+                onblur="checkInput('gender')"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -90,7 +98,7 @@
                 name="age"
                 class="age"
                 oninput="checkForm()"
-                onblur="checkAgeVal()"
+                onblur="checkInput('age')"
                 onfocus="resetColor(this)"
             /></label>
             <label
@@ -99,7 +107,7 @@
                 name="email"
                 class="email"
                 oninput="checkForm()"
-                onblur="checkEmailVal()"
+                onblur="checkInput('email')"
                 onfocus="resetColor(this)"
             /></label>
 
@@ -109,7 +117,7 @@
                 name="phonenumber"
                 class="phonenumber"
                 oninput="checkForm()"
-                onblur="checkTelVal()"
+                onblur="checkInput('phonenumber')"
                 onfocus="resetColor(this)"
             /></label>
             <!--
@@ -160,10 +168,63 @@
       <div id="fund">
         <div class="iconGrid">
           <h2>What We do Some Stuff</h2>
-          <div class="icon"><img src="img/grass.svg" alt="" /></div>
-          <div class="icon"><img src="img/leaf.svg" alt="" /></div>
-          <div class="icon"><img src="img/tree.svg" alt="" /></div>
-          <div class="icon"><img src="img/butterfly.svg" alt="" /></div>
+          <div class="icon">
+            <img src="img/grass.svg" alt="" />
+            <h2>Help to clean Bognæs Skov (Zealand)</h2>
+            <p>
+              Join us for a green project in Tuse Næs to improve Danish nature.
+            </p>
+            <button id="11" class="beVolunteer" onclick="addProject(11)">
+              Volunteer for this project
+            </button>
+            <p class="readMore" id="1" onclick="openReadMore(1)">
+              Read more...
+            </p>
+          </div>
+          <div class="icon">
+            <img src="img/leaf.svg" alt="" />
+            <h2>Replant the Planet (Capital region)</h2>
+            <p>
+              Help to improve the environment by planting trees in Gribsov
+              forest.
+            </p>
+            <p class="readMore" id="2" onclick="openReadMore(2)">
+              Read more...
+            </p>
+          </div>
+          <div class="icon">
+            <img src="img/tree.svg" alt="" />
+            <h2>Clean beautiful beaches (North Jutland)</h2>
+            <p>
+              Be part of our project of improving the quality of beaches of
+              Skagen.
+            </p>
+            <p class="readMore" id="3" onclick="openReadMore(3)">
+              Read more...
+            </p>
+          </div>
+          <div class="icon">
+            <img src="img/butterfly.svg" alt="" />
+            <h2>Spend a day with wild birds (South Jutland)</h2>
+            <p>
+              Become a volunteer for our project in Mandø and get acquainted to
+              Danish birds in their natural inhabitant area.
+            </p>
+            <p class="readMore" id="4" onclick="openReadMore(4)">
+              Read more...
+            </p>
+          </div>
+          <div class="icon">
+            <img src="img/butterfly.svg" alt="" />
+            <h2>Make a difference in Bølling Sø area (Central Jutland)</h2>
+            <p>
+              Become a part of green volunteering group in a charming area of
+              Bølling Sø.
+            </p>
+            <p class="readMore" id="5" onclick="openReadMore(5)">
+              Read more...
+            </p>
+          </div>
         </div>
         <div class="choose">
           <h2>Help us make Denmark greener</h2>
