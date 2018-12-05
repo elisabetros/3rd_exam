@@ -2,13 +2,14 @@
 
 window.addEventListener("load", init);
 
-let userName;
+// let userName;
 let form = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
 async function init() {
   const userData = await fetchUsers();
-  checkLogin(userData);
+  // checkLogin(userData);
+  showSignUp(userData);
   // form.addEventListener("submit");
 }
 
@@ -23,23 +24,23 @@ function fetchUsers() {
 }
 
 ////////LOGIN CHECK///////
-function checkLogin(userData) {
-  if (isLoggedIn()) {
-    console.log("someone is signed in!");
-    link.forEach(singleLink => {
-      singleLink.innerText = "Log Out";
-      singleLink.addEventListener("click", logOut);
-    });
-  } else {
-    showSignUp(userData);
-  }
-}
+// function checkLogin(userData) {
+//   if (isLoggedIn()) {
+//     console.log("someone is signed in!");
+//     link.forEach(singleLink => {
+//       singleLink.innerText = "Log Out";
+//       singleLink.addEventListener("click", logOut);
+//     });
+//   } else {
+//     showSignUp(userData);
+//   }
+// }
 
-function isLoggedIn() {
-  const loggedIn = sessionStorage.getItem("loggedin") === "true";
-  console.log("You are logged in:", loggedIn);
-  return loggedIn;
-}
+// function isLoggedIn() {
+//   const loggedIn = sessionStorage.getItem("loggedin") === "true";
+//   console.log("You are logged in:", loggedIn);
+//   return loggedIn;
+// }
 
 function showSignUp(userData) {
   console.log("noone is signed in");
@@ -55,7 +56,7 @@ function showSignUp(userData) {
 function checkUser(userData) {
   let userInput = document.querySelector("#name").value;
   let passwordInput = document.querySelector("#password").value;
-  userName = null;
+  let userName = null;
   let userPassword = null;
   let userID;
   userData.forEach(user => {
@@ -78,7 +79,7 @@ function checkUser(userData) {
 
 function doLogin(userID) {
   // remember WHO is logged in
-  // console.log(userName, "logged in!");
+  console.log(userID, "logged in!");
   sessionStorage.setItem("loggedin", "true");
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
