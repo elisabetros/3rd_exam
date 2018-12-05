@@ -2,13 +2,14 @@
 
 window.addEventListener("load", init);
 
-let userName;
+// let userName;
 let form = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
 async function init() {
   const userData = await fetchUsers();
-  checkLogin(userData);
+  // checkLogin(userData);
+  showSignUp(userData);
   // form.addEventListener("submit");
 }
 
@@ -23,26 +24,23 @@ function fetchUsers() {
 }
 
 ////////LOGIN CHECK///////
-function checkLogin(userData) {
-  if (isLoggedIn()) {
-    console.log("someone is signed in!");
-    console.log("user logged in is", userData);
-    link.forEach(singleLink => {
-      singleLink.innerText = "Log Out";
-      singleLink.addEventListener("click", logOut);
-    });
-  } else {
-    showSignUp(userData);
-  }
-}
+// function checkLogin(userData) {
+//   if (isLoggedIn()) {
+//     console.log("someone is signed in!");
+//     link.forEach(singleLink => {
+//       singleLink.innerText = "Log Out";
+//       singleLink.addEventListener("click", logOut);
+//     });
+//   } else {
+//     showSignUp(userData);
+//   }
+// }
 
-function isLoggedIn() {
-  // const loggedIn = sessionStorage.getItem("loggedin");
-  let user = JSON.parse(sessionStorage.getItem("user"));
-  console.log("You are logged in:", user);
-
-  return user;
-}
+// function isLoggedIn() {
+//   const loggedIn = sessionStorage.getItem("loggedin") === "true";
+//   console.log("You are logged in:", loggedIn);
+//   return loggedIn;
+// }
 
 function showSignUp(userData) {
   console.log("noone is signed in");
@@ -58,35 +56,42 @@ function showSignUp(userData) {
 function checkUser(userData) {
   let userInput = document.querySelector("#name").value;
   let passwordInput = document.querySelector("#password").value;
-  // userName = null;
-  // let userPassword = null;
-  // let userID;
+  let userName = null;
+  let userPassword = null;
+  let userID;
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
-      sessionStorage.setItem("user", JSON.stringify(user));
-      window.location.replace("profile.html");
+      userName = user.name;
+      userPassword = user.password;
+      userID = user.id;
     }
   });
+
+  if (userName && userPassword) {
+    // console.log(userName);
+    doLogin(userID);
+  } else {
+    console.log("not a user");
+    // showError();
+  }
 }
 // function showError() {}
 
-// function doLogin(userID) {
-//   // remember WHO is logged in
-//   // console.log(userName, "logged in!");
-//   sessionStorage.setItem("loggedin", true);
+function doLogin(userID) {
+  // remember WHO is logged in
+  console.log(userID, "logged in!");
+  sessionStorage.setItem("loggedin", "true");
+  link.forEach(singleLink => {
+    singleLink.innerText = "Log Out";
+    singleLink.addEventListener("click", logOut);
+  });
 
-//   link.forEach(singleLink => {
-//     singleLink.innerText = "Log Out";
-//     singleLink.addEventListener("click", logOut);
-//   });
-
-//   window.location("profile.html?id=" + userID);
-//   // Fetch users donations and volunteering
-// }
+  window.location.replace("profile.html?id=" + userID);
+  // Fetch users donations and volunteering
+}
 
 function logOut() {
-  // sessionStorage.setItem("loggedin", false);
-  sessionStorage.removeItem("user");
+  sessionStorage.setItem("loggedin", "false");
   window.location.replace("index.html");
   checkLogin();
 }
@@ -109,74 +114,55 @@ function checkNameVal() {
     }
   }
 }
-//can it not be a single function that return something and we only send different parameters there? could be a problem though when it is oninput
 
-function checkInput(inputClass) {
-  let item = document.querySelector("." + inputClass);
-  if (item.value === "") {
-    item.style.color = "red";
+function checkGenVal() {
+  let gender = document.querySelector(".gender");
+  if (gender.value === "") {
+    gender.style.color = "red";
   } else {
-    if (item.checkValidity()) {
-      item.style.border = "1px solid green";
+    if (gender.checkValidity()) {
+      gender.style.border = "1px solid green";
     } else {
-      item.style.border = "1px solid red";
+      gender.style.border = "1px solid red";
     }
   }
 }
-
-// checkInput("gender");
-// checkInput("age");
-// checkInput("email");
-// checkInput("age");
-
-// function checkGenVal() {
-//   let gender = document.querySelector(".gender");
-//   if (gender.value === "") {
-//     gender.style.color = "red";
-//   } else {
-//     if (gender.checkValidity()) {
-//       gender.style.border = "1px solid green";
-//     } else {
-//       gender.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkAgeVal() {
-//   let age = document.querySelector(".age");
-//   if (age.value === "") {
-//     age.style.color = "red";
-//   } else {
-//     if (age.checkValidity()) {
-//       age.style.border = "1px solid green";
-//     } else {
-//       age.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkEmailVal() {
-//   let email = document.querySelector(".email");
-//   if (email.value === "") {
-//     email.style.color = "red";
-//   } else {
-//     if (email.checkValidity()) {
-//       email.style.border = "1px solid green";
-//     } else {
-//       email.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkTelVal() {
-//   let phonenumber = document.querySelector(".phonenumber");
-//   if (phonenumber.value === "") {
-//     phonenumber.style.color = "red";
-//   } else {
-//     if (phonenumber.checkValidity()) {
-//       phonenumber.style.border = "1px solid green";
-//     } else {
-//       phonenumber.style.border = "1px solid red";
-//     }
-//   }
-// }
+function checkAgeVal() {
+  let age = document.querySelector(".age");
+  if (age.value === "") {
+    age.style.color = "red";
+  } else {
+    if (age.checkValidity()) {
+      age.style.border = "1px solid green";
+    } else {
+      age.style.border = "1px solid red";
+    }
+  }
+}
+function checkEmailVal() {
+  let email = document.querySelector(".email");
+  if (email.value === "") {
+    email.style.color = "red";
+  } else {
+    if (email.checkValidity()) {
+      email.style.border = "1px solid green";
+    } else {
+      email.style.border = "1px solid red";
+    }
+  }
+}
+function checkTelVal() {
+  let phonenumber = document.querySelector(".phonenumber");
+  if (phonenumber.value === "") {
+    phonenumber.style.color = "red";
+  } else {
+    if (phonenumber.checkValidity()) {
+      phonenumber.style.border = "1px solid green";
+    } else {
+      phonenumber.style.border = "1px solid red";
+    }
+  }
+}
 // function checkRegVal() {
 //   let region = document.querySelector(".region");
 //   if (region.value === "") {
@@ -194,7 +180,7 @@ function checkPassVal() {
     let password = document.querySelector(".password");
     let secondPassword = document.querySelector(".passwordv");
     if (password.value === "") {
-      password.style.color = "red";
+      region.style.color = "red";
     } else {
       if (password.checkValidity()) {
         password.style.border = "1px solid green";
@@ -225,33 +211,25 @@ function checkForm() {
 }
 
 form.addEventListener("submit", e => {
-  let user;
-
   e.preventDefault();
   fetch(endpoint + "/users")
     .then(response => response.json())
     .then(data => {
-      let exists = false;
-      data.forEach(user => {
-        // console.log(user.name, form.elements.username.value);
-
+      const found = data.find(user => {
         if (user.name === form.elements.username.value) {
-          console.log("already a name!");
-          exists = true;
+          // console.log("already a name!");
           alert("user already exist, choose another username");
-          // return user.name;
+          return true;
         }
       });
-      if (!exists) {
-        console.log("i will create new");
-
+      if (!found) {
         createUser(
           form.elements.username.value,
           form.elements.gender.value,
           form.elements.age.value,
           form.elements.email.value,
           form.elements.phonenumber.value,
-          form.elements.password.value
+          form.elements.passwordv.value
         );
       }
     });
@@ -294,7 +272,7 @@ function createUser(
   // console.log(newUser);
 
   fetch(endpoint + "/users", {
-    method: "POST",
+    method: "post",
     body: JSON.stringify(newUser),
     headers: {
       Accept: "application/json",
