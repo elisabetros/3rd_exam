@@ -12,8 +12,8 @@ $lightred: #fa7960;
 $fontColor: white;
 
 @import "menu";
-@import "modal";
 @import "profile";
+@import "modal";
 
 * {
   box-sizing: border-box;
@@ -102,9 +102,9 @@ a {
 
 /////////////////////donate page////////////////
 #fund {
-  max-height: 100vh;
+  height: 90vh;
   padding: 0 10%;
-  position: relative;
+  // position: relative;
   // top: -20vh;
 
   @media (min-width: 760px) {
@@ -154,7 +154,7 @@ a {
 
 /////////////About////////7
 #about {
-  position: relative;
+  // position: relative;
   // top: -22vh;
   background-image: url(../img/fallen-tree.jpg);
   background-attachment: fixed;
@@ -162,6 +162,6 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  clip-path: polygon(0 70%, 100% 28%, 100% 82%, 0 100%);
+  clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
   padding: 30% 10%;
 }
