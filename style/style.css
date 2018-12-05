@@ -75,8 +75,7 @@ ul {
   -ms-transform: rotate(45deg) translate(17px, -14px);
   transform: rotate(45deg) translate(17px, -14px); }
 
-#signIn,
-#signUp {
+.modal {
   display: none;
   position: fixed;
   z-index: 2;
@@ -84,33 +83,63 @@ ul {
   top: 0;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.6); }
 
 .modal-content {
-  background-color: #dde1d5;
-  margin: 10% auto;
+  background-color: white;
+  margin: 1% auto;
   padding: 5%;
   width: 80%; }
-  @media (min-width: 1024px) {
-    .modal-content {
-      width: 50%;
-      height: 50%; } }
 
 .close {
-  color: #fff;
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold; }
 
 .close:hover,
 .close:focus {
-  color: black;
   text-decoration: none;
   cursor: pointer; }
 
-.signUp {
+.signUp,
+.readMore {
   color: #f95738;
   cursor: pointer; }
+
+.description {
+  width: 60%;
+  padding: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  grid-template-rows: 1fr; }
+  .description .textProject,
+  .description .titleProject,
+  .description .textProject > h3 {
+    color: black; }
+  .description .titleProject {
+    margin-top: 50vh;
+    padding: 5%;
+    color: white;
+    font-size: 5rem;
+    grid-column: 1;
+    grid-row: 1; }
+  .description .textProject {
+    padding: 8%;
+    grid-column: 2;
+    grid-row: 1; }
+  .description .imgProject {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1; }
+  .description .close {
+    position: absolute;
+    top: 0;
+    right: 2vw; }
 
 #profile {
   position: relative;
@@ -243,55 +272,3 @@ a {
   height: 100vh;
   clip-path: polygon(0 70%, 100% 28%, 100% 82%, 0 100%);
   padding: 30% 10%; }
-
-.modal-box {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 10;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */ }
-
-.modal-discription {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; }
-
-.closeModal {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold; }
-
-.closeModal:hover,
-.closeModal:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer; }
-
-.readMore {
-  cursor: pointer; }
-
-.textProject,
-.titleProject,
-.textProject > h3 {
-  color: black; }
-
-.imgProject {
-  width: 400px; }

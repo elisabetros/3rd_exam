@@ -44,9 +44,9 @@ function fetchUsers() {
 
 function showSignUp(userData) {
   console.log("noone is signed in");
-  link.forEach(singleLink => {
-    singleLink.innerText = "Sign In";
-  });
+  // link.forEach(singleLink => {
+  //   singleLink.innerText = "Sign In";
+  // });
   document.querySelector("#signInBtn").addEventListener("click", e => {
     e.preventDefault();
     checkUser(userData);
