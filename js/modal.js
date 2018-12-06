@@ -4,12 +4,18 @@ window.addEventListener("load", init);
 
 const signInModal = document.querySelector("#signIn");
 const signUpModal = document.querySelector("#signUp");
+// const formModal = document.querySelector("#formModal");
+const projectVolBtn = document.querySelectorAll(".beVolunteer");
+const donateBtn = document.querySelecto("donate");
+const volunteerBtn = document.querySelector(".volunteer");
 let link = document.querySelectorAll(".signIn");
 let signUpLink = document.querySelector(".signUp");
 let span = document.querySelectorAll(".close");
 let signUpBtn = document.querySelector("#signUpBtn");
 
 function init() {
+  donateBtn.addEventListener("click", openFormModal);
+  volunteerBtn.addEventListener("click", openFormModal);
   link.forEach(singleLink => {
     singleLink.addEventListener("click", openModal);
   });
@@ -27,6 +33,9 @@ function init() {
     signUpModal.style.display = "block";
     signInModal.style.display = "none";
   }
+}
+function openFormModal() {
+  openFormModal.style.display = "block;";
 }
 
 //modal for Read more
