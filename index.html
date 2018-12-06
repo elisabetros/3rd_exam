@@ -13,6 +13,7 @@
 
       <nav class="deskmenu">
         <ul>
+          <li><a href="#projects">Our Projects</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#Contact">Contact</a></li>
           <li class="signIn">Sign In</li>
@@ -27,6 +28,7 @@
     </header>
     <nav class="menu hidden">
       <ul>
+        <li><a href="#projects">Our Projects</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#Contact">Contact</a></li>
         <li class="signIn">Sign In</li>
@@ -163,18 +165,28 @@
       <div id="hero">
         <h1>The Nature Fund</h1>
         <h2>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</h2>
-        <div class="choose">
-          <h2>Help us make Denmark greener</h2>
-          <div class="button">Volunteer</div>
-          <div class="button">Donate</div>
-        </div>
       </div>
-      <div id="fund">
+      <div class="choose shadow">
+        <h2>Help Denmark's nature!</h2>
+        <div class="line"></div>
+        <!--
+          <p>
+            Join a community of volunteers contribute to saving the environment
+          </p>
+        -->
+        <div class="button">Volunteer</div>
+        <!--
+          <p>Donate and give us the resources to preserve Danish nature</p>
+        -->
+        <div class="button">Donate</div>
+      </div>
+      <div id="projects">
+        <h1>Our Projects</h1>
+        <div class="line"></div>
         <div class="iconGrid">
-          <h2>What We do Some Stuff</h2>
           <div class="icon">
             <img src="img/grass.svg" alt="" />
-            <h2>Help to clean Bognæs Skov (Zealand)</h2>
+            <h2>Clean Bognæs Skov</h2>
             <p>
               Join us for a green project in Tuse Næs to improve Danish nature.
               <br />
@@ -182,14 +194,13 @@
                 Read more...
               </span>
             </p>
-
-            <button id="11" class="beVolunteer" onclick="addProject(11)">
-              Volunteer for this project
-            </button>
+            <div class="button beVolunteer" id="11" onclick="addProject(11)">
+              Volunteer
+            </div>
           </div>
           <div class="icon">
-            <img src="img/leaf.svg" alt="" />
-            <h2>Replant the Planet (Capital region)</h2>
+            <img src="img/tree.svg" alt="" />
+            <h2>Replant the Planet</h2>
             <p>
               Help to improve the environment by planting trees in Gribsov
               forest. <br />
@@ -197,58 +208,121 @@
                 Read more...
               </span>
             </p>
+            <div class="button beVolunteer" id="12" onclick="addProject(12)">
+              Volunteer
+            </div>
           </div>
           <div class="icon">
-            <img src="img/tree.svg" alt="" />
-            <h2>Clean beautiful beaches (North Jutland)</h2>
+            <img src="img/waves.svg" alt="" />
+            <h2>Clean beautiful beaches</h2>
             <p>
               Be part of our project of improving the quality of beaches of
-              Skagen.
+              Skagen. <br /><span
+                class="readMore"
+                id="3"
+                onclick="openReadMore(3)"
+              >
+                Read more...
+              </span>
             </p>
-            <p class="readMore" id="3" onclick="openReadMore(3)">
-              Read more...
-            </p>
+            <div class="button beVolunteer" id="13" onclick="addProject(13)">
+              Volunteer
+            </div>
           </div>
           <div class="icon">
-            <img src="img/butterfly.svg" alt="" />
-            <h2>Spend a day with wild birds (South Jutland)</h2>
+            <img src="img/bird.svg" alt="" />
+            <h2>Spend a day with wild birds</h2>
             <p>
               Become a volunteer for our project in Mandø and get acquainted to
-              Danish birds in their natural inhabitant area.
+              Danish birds in their natural inhabitant area. <br /><span
+                class="readMore"
+                id="4"
+                onclick="openReadMore(4)"
+              >
+                Read more...
+              </span>
             </p>
-            <p class="readMore" id="4" onclick="openReadMore(4)">
-              Read more...
-            </p>
+            <div class="button beVolunteer" id="14" onclick="addProject(14)">
+              Volunteer
+            </div>
           </div>
           <div class="icon">
             <img src="img/butterfly.svg" alt="" />
-            <h2>Make a difference in Bølling Sø area (Central Jutland)</h2>
+            <h2>Make a difference in Bølling Sø</h2>
             <p>
               Become a part of green volunteering group in a charming area of
-              Bølling Sø.
+              Bølling Sø.<br />
+              <span class="readMore" id="5" onclick="openReadMore(5)">
+                Read more...
+              </span>
             </p>
-            <p class="readMore" id="5" onclick="openReadMore(5)">
-              Read more...
-            </p>
+            <div class="button beVolunteer" id="15" onclick="addProject(15)">
+              Volunteer
+            </div>
           </div>
         </div>
       </div>
       <div id="about">
+        <div>
         <h1>About the Nature Fund</h1>
+        <div class="line"></div>
+      </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+          We at the Nature Fund believe that nature is a gift and as such,
+          deserves to be preserved and enjoyed on it's own terms. We want to
+          create a greener Denmark, so that everyone, no matter their wealth or
+          status can enjoy the scent of flowers, look at beautiful, tall pine
+          trees or take long walks on clean white beaches.. But we humans have
+          long had a exploitative relationship with mother nature, where we take
+          what we want and don't give back what we should. That's why we founded
+          The Nature Fund, a non-profit organization that aims to preserve and
+          restore Danish nature.
+       <br>
+       <br>
+          The Nature fund is a project based fundraiser. We identify problem
+          areas or ecosystems in danger all over Denmark and then carefully
+          devise how best to preserve or restore those areas. For these
+          projects, you can both donate your money to fund the project, but also
+          your time, by becoming a part of a growing community of volunteers. We
+          as an organization think that transparency is very important when it
+          comes to fundraising, and that is why we don't only say that 100% of
+          your donations go straight to saving nature, but we prove it, by
+          making all our records easily accessible.
         </p>
+        <div  class="aboutDiv">
+        <div>
+        <img src="img/world.svg" alt="" />
+        <h2>18 years active</h2>
+      </div>
+      <div>
+          <img src="img/sun.svg" alt="Sun icon" />
+          <h2>100% of donations go to the projects</h2>
+        </div>
+        <div>
+            <img src="img/bird.svg" alt="" />
+            <h2>50 animal habitats saved</h2>
+          </div>
+          <div>
+              <img src="img/pine.svg" alt="" />
+              <h2>10000 trees planted</h2>
+            </div>
+      </div>
       </div>
     </main>
-    <footer>
+    <footer id="contact">
+      <h1>Contact</h1>
+     <div class="line"></div>
       <div>
+        <p>The Nature Fund</br>
+        Nordhavn 55</br>
+        CopenHagen</br>
+        Denmark</p>
+      </div>
+      <div>
+        <p>Telephone: 55555555</br>
+        Email: info@thenaturefund.dk</p>
+      </div>
+      <div class="smallText">
         Icons made by
         <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from
         <a href="https://www.flaticon.com/" title="Flaticon"

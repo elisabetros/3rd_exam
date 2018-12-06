@@ -24,7 +24,7 @@ header {
           display: inline-block;
           margin: 0 5%; }
         header .deskmenu ul {
-          padding-left: 30%;
+          padding-left: 15%;
           display: inline; } }
   header svg {
     float: right;
@@ -177,7 +177,7 @@ li {
   font-family: futuraBold; }
 
 h1 {
-  font-size: 3rem; }
+  font-size: 4rem; }
 
 h2 {
   font-size: 2rem;
@@ -185,11 +185,30 @@ h2 {
 
 p,
 div {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: openSans; }
 
 a {
   text-decoration: none; }
+
+.shadow {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .shadow:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+
+.line {
+  width: 80px;
+  height: 1px;
+  border: 1px solid white;
+  margin: 0 0 5%; }
+
+.button {
+  font-family: futuraBold;
+  background-color: #fa7960;
+  text-align: center;
+  margin: auto;
+  padding: 1% 5%;
+  font-size: 2rem; }
 
 #hero {
   background-image: url(../img/forest1.jpg);
@@ -204,65 +223,52 @@ a {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
   @media (min-width: 1024px) {
     #hero {
-      padding: 30vh 10vh 0 10vh;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: 0.5fr 0.5fr; } }
+      padding: 40vh 10vh 0 10vh; } }
   #hero h1 {
+    margin: 0;
     font-size: 5rem; }
     @media (min-width: 760px) {
       #hero h1 {
-        font-size: 7rem;
-        grid-column: 1; } }
+        font-size: 7rem; } }
   #hero h2 {
     padding: 0 0 0 10vh; }
-    @media (min-width: 1024px) {
-      #hero h2 {
-        grid-column: 1;
-        grid-row: 2; } }
-  @media (min-width: 1024px) {
-    #hero .choose {
-      z-index: 2;
-      grid-row: 1/3;
-      grid-column: 2; } }
 
-#fund {
-  height: 90vh;
-  padding: 0 10%; }
+.choose {
+  background-color: #f95738;
+  width: 40vh;
+  padding: 5% 1%; }
+  .choose .line {
+    border: 0.5px solid white; }
+  .choose h2 {
+    font-family: openSans;
+    text-align: center; }
   @media (min-width: 760px) {
-    #fund {
-      display: grid;
-      grid-template-columns: 2fr 1fr; } }
+    .choose {
+      position: absolute;
+      top: 30vh;
+      right: 8vw; } }
+  .choose .button {
+    margin: 9% 5%; }
+
+#projects {
+  height: 90vh;
+  padding: 5% 10% 0; }
+  #projects h1,
+  #projects p,
+  #projects h2 {
+    color: #283618; }
+  #projects .line {
+    border: 1px solid #283618; }
 
 .iconGrid {
   display: grid;
-  grid-template-columns: auto auto;
-  height: 40vh;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1%;
   margin: auto; }
-  .iconGrid h2 {
-    grid-column: 1/-1; }
-  .iconGrid div {
-    justify-self: center;
-    width: 50%; }
-    @media (min-width: 760px) {
-      .iconGrid div {
-        width: auto; } }
+  .iconGrid .icon {
+    justify-self: center; }
   .iconGrid img {
     width: 30%; }
-
-.choose {
-  margin: 5% auto;
-  background-color: #f95738;
-  width: 40vh;
-  height: 60vh;
-  padding: 20% 5%; }
-  @media (min-width: 760px) {
-    .choose {
-      margin: auto; } }
-  .choose .button {
-    background-color: #fa7960;
-    text-align: center;
-    margin: 5%; }
 
 #about {
   background-image: url(../img/fallen-tree.jpg);
@@ -270,6 +276,43 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 130vh;
   clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
-  padding: 30% 10%; }
+  padding: 5% 10% 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 0.1fr 2fr;
+  grid-gap: 1%; }
+  #about h1,
+  #about .line {
+    grid-column: 1/-1; }
+  #about p {
+    grid-column: 1; }
+  #about .aboutDiv {
+    margin-top: 10%;
+    grid-row: 2;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start; }
+    #about .aboutDiv div {
+      text-align: center;
+      margin: 1%;
+      padding: 5%;
+      background-color: #283618;
+      border-radius: 10px; }
+  #about img {
+    width: 50%; }
+
+footer {
+  background-color: #283618;
+  padding: 5% 10% 0; }
+  @media (min-width: 760px) {
+    footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr; }
+      footer .line,
+      footer h1 {
+        grid-column: 1/-1; } }
+  footer .smallText {
+    font-size: 1rem; }
