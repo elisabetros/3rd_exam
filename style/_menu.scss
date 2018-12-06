@@ -27,7 +27,11 @@ header {
       display: initial;
     }
   }
-  svg {
+  svg.logo {
+    width: 20%;
+    float: left;
+  }
+  svg.menuIcon {
     float: right;
     fill: $fontColor;
     height: 50px;

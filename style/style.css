@@ -26,20 +26,23 @@ header {
         header .deskmenu ul {
           padding-left: 15%;
           display: inline; } }
-  header svg {
+  header svg.logo {
+    width: 20%;
+    float: left; }
+  header svg.menuIcon {
     float: right;
     fill: white;
     height: 50px;
     width: 40px; }
     @media (min-width: 1024px) {
-      header svg {
+      header svg.menuIcon {
         display: none; } }
-    header svg rect {
+    header svg.menuIcon rect {
       height: 8px;
       transition: all 0.6s; }
-    header svg rect:nth-child(1) {
+    header svg.menuIcon rect:nth-child(1) {
       transform-origin: left top; }
-    header svg rect:nth-child(3) {
+    header svg.menuIcon rect:nth-child(3) {
       transform-origin: left bottom; }
   header .navLogo {
     display: inline; }
@@ -224,6 +227,9 @@ a {
   @media (min-width: 1024px) {
     #hero {
       padding: 40vh 10vh 0 10vh; } }
+  #hero .line {
+    margin: 0;
+    width: 15%; }
   #hero h1 {
     margin: 0;
     font-size: 5rem; }
@@ -252,7 +258,7 @@ a {
 
 #projects {
   height: 90vh;
-  padding: 5% 10% 0; }
+  padding: 5% 5% 0; }
   #projects h1,
   #projects p,
   #projects h2 {
@@ -263,7 +269,7 @@ a {
 .iconGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 1%;
+  grid-gap: 2%;
   margin: auto; }
   .iconGrid .icon {
     justify-self: center; }
@@ -276,7 +282,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 130vh;
+  height: 110vh;
   clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
   padding: 5% 10% 0;
   display: grid;
@@ -305,14 +311,21 @@ a {
     width: 50%; }
 
 footer {
-  background-color: #283618;
-  padding: 5% 10% 0; }
+  height: 10vh;
+  padding: 0 10% 0; }
+  footer h1,
+  footer p,
+  footer div,
+  footer a {
+    color: #283618; }
+  footer .line {
+    border: 1px solid #283618;
+    margin: 0; }
+  footer .footerIcon img {
+    width: 5%; }
   @media (min-width: 760px) {
-    footer {
+    footer .footerGrid {
       display: grid;
-      grid-template-columns: 1fr 1fr; }
-      footer .line,
-      footer h1 {
-        grid-column: 1/-1; } }
+      grid-template-columns: 1fr 1fr; } }
   footer .smallText {
     font-size: 1rem; }

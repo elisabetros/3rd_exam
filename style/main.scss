@@ -92,8 +92,13 @@ a {
   top: 0;
   padding: 30vh 5vh 0 5vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+
   @media (min-width: 1024px) {
     padding: 40vh 10vh 0 10vh;
+  }
+  .line {
+    margin: 0;
+    width: 15%;
   }
   h1 {
     margin: 0;
@@ -140,7 +145,7 @@ a {
     border: 1px solid $darkGreen;
   }
   height: 90vh;
-  padding: 5% 10% 0;
+  padding: 5% 5% 0;
   // position: relative;
   // top: -20vh;
 
@@ -153,7 +158,7 @@ a {
 .iconGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 1%;
+  grid-gap: 2%;
   margin: auto;
   h2 {
     // grid-column: 1/-1;
@@ -177,7 +182,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 130vh;
+  height: 110vh;
   clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
   padding: 5% 10% 0;
   display: grid;
@@ -198,7 +203,11 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: start;
-
+    // h1 {
+    //   text-align: center;
+    //   font-size: 5rem;
+    //   margin: 0;
+    // }
     div {
       text-align: center;
       margin: 1%;
@@ -215,14 +224,26 @@ a {
 ////////////////////* Footer *//////////////
 
 footer {
-  background-color: $darkGreen;
-  padding: 5% 10% 0;
-  @media (min-width: 760px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    .line,
-    h1 {
-      grid-column: 1/-1;
+  // background-color: $darkGreen;
+  h1,
+  p,
+  div,
+  a {
+    color: $darkGreen;
+  }
+  height: 10vh;
+  padding: 0 10% 0;
+  .line {
+    border: 1px solid $darkGreen;
+    margin: 0;
+  }
+  .footerIcon img {
+    width: 5%;
+  }
+  .footerGrid {
+    @media (min-width: 760px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
   .smallText {
