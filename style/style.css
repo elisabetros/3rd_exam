@@ -99,6 +99,8 @@ ul {
   margin: 5% auto;
   padding: 5%;
   width: 80%; }
+  .modal-content p {
+    font-size: 1.5rem; }
 
 .close {
   color: black;

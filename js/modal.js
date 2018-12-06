@@ -6,7 +6,7 @@ const signInModal = document.querySelector("#signIn");
 const signUpModal = document.querySelector("#signUp");
 // const formModal = document.querySelector("#formModal");
 const projectVolBtn = document.querySelectorAll(".beVolunteer");
-const donateBtn = document.querySelecto("donate");
+const donateBtn = document.querySelector("donate");
 const volunteerBtn = document.querySelector(".volunteer");
 let link = document.querySelectorAll(".signIn");
 let signUpLink = document.querySelector(".signUp");
@@ -14,8 +14,8 @@ let span = document.querySelectorAll(".close");
 let signUpBtn = document.querySelector("#signUpBtn");
 
 function init() {
-  donateBtn.addEventListener("click", openFormModal);
-  volunteerBtn.addEventListener("click", openFormModal);
+  // donateBtn.addEventListener("click", openFormModal);
+  // volunteerBtn.addEventListener("click", openFormModal);
   link.forEach(singleLink => {
     singleLink.addEventListener("click", openModal);
   });
