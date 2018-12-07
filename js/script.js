@@ -78,8 +78,7 @@ function addNewVolunteer(newVolunteer) {
 
 function addNewProjectToJson(matchedProject) {
   console.log("matchedProject", matchedProject);
-  //1 grab existing projects
-  //push new project to projects
+
   const newData = {
     projects: matchedProject
   };

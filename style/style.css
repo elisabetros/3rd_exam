@@ -277,6 +277,7 @@ a {
       right: 8vw; } }
   .choose .button {
     margin: 9% 5%; }
+<<<<<<< HEAD
 
 .slide-modal {
   width: 200px;
@@ -292,6 +293,8 @@ a {
 
 .slide {
   transform: translateY(300px); }
+=======
+>>>>>>> 2c50af338b5ee7af663763036c6a22afc63d2cf8
 
 #projects {
   height: 90vh;
