@@ -3,6 +3,7 @@
   padding: 15vh;
   display: grid;
   grid-template-columns: 1fr 2fr 2fr;
+  grid-gap: 1em;
 }
 
 .userMenu {
@@ -17,7 +18,7 @@
 
 .box {
   width: 400px;
-  height: 200px;
+  height: 260px;
   background-color: grey;
   color: black;
 }

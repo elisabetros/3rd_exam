@@ -37,6 +37,7 @@ const projects = [
 
 //projects to add
 function slideModal() {
+  //NOT WORKING
   let webAlert = document.querySelector(".slide-modal");
 
   setTimeout(() => {
@@ -110,8 +111,8 @@ async function addProject(id) {
     console.log("newCreated", newCreatedVolunteer);
   }
   sessionStorage.setItem("project", JSON.stringify(matchedProject));
+  // fillInTemplateProjects(id);
+  // slideModal();
 }
-
-// slideModal();
 
 // projects added

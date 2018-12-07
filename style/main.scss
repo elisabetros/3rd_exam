@@ -229,10 +229,11 @@ a {
   margin: 15px;
   color: black;
   position: absolute;
-  left: -300px;
+  top: -300px;
   transition: transform 2s ease-in;
+  float: right;
 }
 
 .slide {
-  transform: translateX(300px);
+  transform: translateY(300px);
 }

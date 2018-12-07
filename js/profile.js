@@ -2,20 +2,12 @@
 
 window.addEventListener("load", init);
 
-// let urlParams = new URLSearchParams(window.location.search);
-// let id = urlParams.get("id");
 let linkOut = document.querySelectorAll(".logOut");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 let userData;
-// let amount;
+
 let area;
 
-// const project = {
-//   id: "",
-//   title: "",
-//   area: "",
-//   date: ""
-// };
 let user = JSON.parse(sessionStorage.getItem("user"));
 
 function fetchVolunteer() {
@@ -58,9 +50,6 @@ function matchVolunteers(user, volunteeringData) {
       area = volunteeringData[i].area;
       return;
     }
-    // } else {
-    //   console.log("you are not volunteer");
-    // }
   }
 }
 function showUser(data) {
@@ -86,8 +75,22 @@ function logOut() {
   sessionStorage.removeItem("user");
   window.location.href = "index.html";
 }
+let template = document.querySelector("template").content;
+let projectSection = document.querySelector("#projectSection");
+let projectName = document.querySelector("#projectName");
+
+function fillInTemplateProjects() {
+  let project = JSON.parse(sessionStorage.getItem("project"));
+  let clone = template.cloneNode(true);
+  console.log("project title", project.title);
+  clone.querySelector("#projectName").textContent = project.title;
+  clone.querySelector("#projectDate").textContent = project.date;
+
+  projectSection.appendChild(clone);
+}
 
 async function init() {
+  fillInTemplateProjects();
   const donationsData = await fetchDonations();
   const volunteeringData = await fetchVolunteer();
   const totalDonations = matchDonations(user, donationsData);
