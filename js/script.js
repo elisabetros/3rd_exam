@@ -76,6 +76,30 @@ function addNewVolunteer(newVolunteer) {
   });
 }
 
+function addNewProjectToJson(matchedProject) {
+  console.log("matchedProject", matchedProject);
+  //1 grab existing projects
+  //push new project to projects
+  const newData = {
+    projects: matchedProject
+  };
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/volunteer/" + user.id, {
+      method: "PUT",
+      body: JSON.stringify(newData),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+      });
+  });
+}
+
 function getProjectById(id) {
   for (let i = 0; i < projects.length; i++) {
     if (id === projects[i].id) {
@@ -95,7 +119,12 @@ async function addProject(id) {
   for (let i = 0; i < volunteers.length; i++) {
     if (volunteers[i].id === user.id) {
       exists = true;
-      console.log("exists");
+      console.log("exists", volunteers[i]);
+      volunteers[i].projects.push(matchedProject);
+      let newDataPosted = await addNewProjectToJson(volunteers[i].projects);
+
+      sessionStorage.setItem("project", JSON.stringify(matchedProject));
+      console.log("newDataposted", newDataPosted);
     }
   }
   if (!exists) {
@@ -110,7 +139,7 @@ async function addProject(id) {
     sessionStorage.setItem("project", JSON.stringify(matchedProject));
     console.log("newCreated", newCreatedVolunteer);
   }
-  sessionStorage.setItem("project", JSON.stringify(matchedProject));
+  // sessionStorage.setItem("project", JSON.stringify(matchedProject));
   // fillInTemplateProjects(id);
   // slideModal();
 }
