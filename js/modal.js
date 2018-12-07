@@ -62,7 +62,7 @@ const texts = [
   },
   {
     id: 5,
-    title: "Make a difference in Bølling Sø area (Central Jutland)",
+    title: "Make a difference at Bølling Sø area (Central Jutland)",
     text:
       "<h3>Where:</h3>  Kragelundvej 6a 7442 Engesvang <br><h3> When:</h3> 10/06/2019  (You will get email with detailed information after you sign up)<br><h3>Why:</h3>  Bølling Sø has both historical and environmental meaning. Help us to maintain its beauty by cleaning, planting trees or fixing amenities and get to watch birds, fish, enjoy the nature and also make an input in a Danish environment!",
     img: "img/boling.jpg"
@@ -107,6 +107,6 @@ window.onclick = function(event) {
 
 //Volunteer projects
 
-function addProject(id) {
-  console.log("id", id);
-}
+// function addProject(id) {
+//   console.log("id", id);
+// }

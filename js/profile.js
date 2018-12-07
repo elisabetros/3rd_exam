@@ -1,21 +1,14 @@
-"user strict";
+"use strict";
 
 window.addEventListener("load", init);
 
-let urlParams = new URLSearchParams(window.location.search);
-let id = urlParams.get("id");
-let link = document.querySelectorAll(".logOut");
+let linkOut = document.querySelectorAll(".logOut");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+let userData;
 
-function fetchUsers() {
-  return new Promise((resolve, reject) => {
-    fetch(endpoint + "/users/" + id)
-      .then(response => response.json())
-      .then(function(data) {
-        resolve(data);
-      });
-  });
-}
+let area;
+
+let user = JSON.parse(sessionStorage.getItem("user"));
 
 function fetchVolunteer() {
   return new Promise((resolve, reject) => {
@@ -36,15 +29,28 @@ function fetchDonations() {
       });
   });
 }
-function matchdonations(user, donation) {
-  // loop through users
-  // loop trhough donations
-  showDonations();
+
+function matchDonations(user, donationsData) {
+  let totalAmount = [];
+  for (let i = 0; i < donationsData.length; i++) {
+    if (user.id == donationsData[i].id) {
+      console.log("user has donations!", donationsData[i].amount);
+      let amount = donationsData[i].amount;
+      totalAmount.push(amount);
+    }
+  }
+  console.log("total", totalAmount);
+  return totalAmount;
 }
-function matchVolunteers(user, volunteer) {
-  // loop through users
-  // loop trhough volunteers
-  showVolunteering();
+
+function matchVolunteers(user, volunteeringData) {
+  for (let i = 0; i < volunteeringData.length; i++) {
+    if (user.id == volunteeringData[i].id) {
+      console.log("you are volunteer", volunteeringData[i].area);
+      area = volunteeringData[i].area;
+      return;
+    }
+  }
 }
 function showUser(data) {
   //show profile information
@@ -52,24 +58,43 @@ function showUser(data) {
   // make put request
   console.log(data);
 }
-function showDonations(donationsData) {
-  //   console.log(donationsData);
+function showDonations(totalDonations) {
+  let amountInput = document.querySelector(".donationsMade");
+  let amount = 0;
+  for (let i = 0; i < totalDonations.length; i++) {
+    amount = amount + Number(totalDonations[i]);
+  }
+  amountInput.innerHTML = amount + "dkk";
 }
-function showVolunteering(volunteeringData) {}
+function showVolunteering(volunteeringData) {
+  let areaAssigned = document.querySelector("#area");
+  areaAssigned.innerHTML = area;
+}
 
 function logOut() {
-  window.location.replace("index.html");
-  sessionStorage.setItem("loggedin", "false");
+  sessionStorage.removeItem("user");
+  window.location.href = "index.html";
+}
+let template = document.querySelector("template").content;
+let projectSection = document.querySelector("#projectSection");
+let projectName = document.querySelector("#projectName");
+
+function fillInTemplateProjects() {
+  let project = JSON.parse(sessionStorage.getItem("project"));
+  let clone = template.cloneNode(true);
+  console.log("project title", project.title);
+  clone.querySelector("#projectName").textContent = project.title;
+  clone.querySelector("#projectDate").textContent = project.date;
+
+  projectSection.appendChild(clone);
 }
 
 async function init() {
-  link.forEach(singleLink => {
-    singleLink.addEventListener("click", logOut);
-  });
-  const userData = await fetchUsers();
+  fillInTemplateProjects();
   const donationsData = await fetchDonations();
   const volunteeringData = await fetchVolunteer();
-  matchdonations(userData, donationsData);
-  matchVolunteers(userData, volunteeringData);
-  showUser(userData);
+  const totalDonations = matchDonations(user, donationsData);
+  matchVolunteers(user, volunteeringData);
+  showDonations(totalDonations);
+  showVolunteering(area);
 }
