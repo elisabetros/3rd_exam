@@ -63,6 +63,7 @@ function isLoggedIn() {
   // const loggedIn = sessionStorage.getItem("loggedin");
   let user = JSON.parse(sessionStorage.getItem("user"));
   console.log("You are logged in:", user);
+}
 
 // function isLoggedIn() {
 //   const loggedIn = sessionStorage.getItem("loggedin") === "true";
