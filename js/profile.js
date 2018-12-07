@@ -75,11 +75,10 @@ function logOut() {
   sessionStorage.removeItem("user");
   window.location.href = "index.html";
 }
-let template = document.querySelector("template").content;
-let projectSection = document.querySelector("#projectSection");
-let projectName = document.querySelector("#projectName");
 
 function fillInTemplateProjects() {
+  let template = document.querySelector("template").content;
+
   let project = JSON.parse(sessionStorage.getItem("project"));
   let clone = template.cloneNode(true);
   console.log("project title", project.title);
