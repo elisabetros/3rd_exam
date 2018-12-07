@@ -24,7 +24,7 @@ header {
           display: inline-block;
           margin: 0 5%; }
         header .deskmenu ul {
-          padding-left: 30%;
+          padding-left: 20%;
           display: inline; } }
   header svg {
     float: right;
@@ -114,7 +114,23 @@ ul {
 
 #profile {
   position: relative;
-  padding: 15vh; }
+  padding: 15vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr; }
+
+.userMenu {
+  grid-row: 1/2;
+  grid-column: 1; }
+
+#userSettings {
+  grid-row: 2;
+  grid-column: 2; }
+
+.box {
+  width: 400px;
+  height: 200px;
+  background-color: grey;
+  color: black; }
 
 * {
   box-sizing: border-box; }
@@ -169,7 +185,8 @@ a {
   width: 100vw;
   top: 0;
   padding: 30vh 5vh 0 5vh;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
+  -webkit-clip-path: polygon(0 79%, 0 0, 100% 0, 100% 93%);
+  clip-path: polygon(0 79%, 0 0, 100% 0, 100% 93%); }
   @media (min-width: 1024px) {
     #hero {
       padding: 30vh 10vh 0 10vh;
@@ -241,7 +258,8 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  clip-path: polygon(0 70%, 100% 28%, 100% 82%, 0 100%);
+  -webkit-clip-path: polygon(0 86%, 0 0, 100% 11%, 100% 76%);
+  clip-path: polygon(0 86%, 0 0, 100% 11%, 100% 76%);
   padding: 30% 10%; }
 
 .modal-box {
@@ -295,3 +313,17 @@ a {
 
 .imgProject {
   width: 400px; }
+
+.slide-modal {
+  width: 200px;
+  z-index: 10;
+  height: 100px;
+  background-color: #8c8c8f;
+  margin: 15px;
+  color: black;
+  position: absolute;
+  left: -300px;
+  transition: transform 2s ease-in; }
+
+.slide {
+  transform: translateX(300px); }

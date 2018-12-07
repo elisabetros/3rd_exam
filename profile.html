@@ -33,16 +33,17 @@
       </ul>
     </nav>
     <main id="profile">
-      <h1>Welcome User!</h1>
-      <h2>Your overview</h2>
-      <div id="donations"><h3>Your Donations</h3></div>
-      <div id="volunteering">
+      <div class="userMenu">
+        <h1>Welcome User!</h1>
+        <h2>Your overview</h2>
+        <h3>Your Donations</h3>
+
         <h3>Regions</h3>
         <section></section>
         <h3>Projects</h3>
-      </div>
-      <h2>Your information</h2>
-      <div id="profile">
+
+        <h2>Your information</h2>
+
         <p>EDIT</p>
         <img class="profileImg" src="" alt="" />
         <p class="username"></p>
@@ -50,9 +51,20 @@
         <p class="phone"></p>
         <p class="password"></p>
       </div>
+      <div class="box" id="userDonations">
+        Donations you've made
+        <h3 class="donationsMade"></h3>
+      </div>
+      <div class="box" id="userVolunteering">
+        You are volunteer!
+        <p>You are signed up as a volunteer in</p>
+        <br />
+        <h3 id="area"></h3>
+      </div>
+      <div class="box" id="userSettings">Your settings</div>
     </main>
 
-    <script src="js/menu.js"></script>
     <script src="js/profile.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

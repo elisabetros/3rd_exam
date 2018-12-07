@@ -6,6 +6,28 @@ let userName;
 let form = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
+//MENU
+let menuOpen = false;
+let menuIcon = document.querySelector(".menuIcon");
+let menu = document.querySelector(".menu");
+let bars = menuIcon.querySelectorAll("rect");
+let menuLinks = document.querySelectorAll(".menu>ul>li");
+menuIcon.addEventListener("click", toggleMenu);
+menuLinks.forEach(link => {
+  link.addEventListener("click", toggleMenu);
+});
+// Link clicked menu closed
+
+function toggleMenu() {
+  menuOpen = !menuOpen;
+  bars[0].classList.toggle("rotateDown");
+  bars[1].classList.toggle("fadeOut");
+  bars[2].classList.toggle("rotateUp");
+  menu.classList.toggle("hidden");
+}
+
+//MENU ends
+
 async function init() {
   const userData = await fetchUsers();
   checkLogin(userData);
@@ -26,7 +48,7 @@ function fetchUsers() {
 function checkLogin(userData) {
   if (isLoggedIn()) {
     console.log("someone is signed in!");
-    console.log("user logged in is", userData);
+    // console.log("user logged in is", userData);
     link.forEach(singleLink => {
       singleLink.innerText = "Log Out";
       singleLink.addEventListener("click", logOut);
@@ -45,7 +67,7 @@ function isLoggedIn() {
 }
 
 function showSignUp(userData) {
-  console.log("noone is signed in");
+  // console.log("noone is signed in");
   link.forEach(singleLink => {
     singleLink.innerText = "Sign In";
   });
@@ -64,31 +86,17 @@ function checkUser(userData) {
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
       sessionStorage.setItem("user", JSON.stringify(user));
-      window.location.replace("profile.html");
+      alert("you are signed in!");
+      // window.location.replace("profile.html?id=" + user.id);
     }
   });
 }
-// function showError() {}
-
-// function doLogin(userID) {
-//   // remember WHO is logged in
-//   // console.log(userName, "logged in!");
-//   sessionStorage.setItem("loggedin", true);
-
-//   link.forEach(singleLink => {
-//     singleLink.innerText = "Log Out";
-//     singleLink.addEventListener("click", logOut);
-//   });
-
-//   window.location("profile.html?id=" + userID);
-//   // Fetch users donations and volunteering
-// }
 
 function logOut() {
   // sessionStorage.setItem("loggedin", false);
   sessionStorage.removeItem("user");
-  window.location.replace("index.html");
-  checkLogin();
+  window.location.href = "index.html";
+  // checkLogin();
 }
 
 //Signup
@@ -96,20 +104,6 @@ function logOut() {
 //if correct then validate form
 //When submit is pressed post to API
 //sign user in and reload to user page
-
-function checkNameVal() {
-  let name = document.querySelector(".username");
-  if (name.value === "") {
-    name.style.color = "red";
-  } else {
-    if (name.checkValidity()) {
-      name.style.border = "1px solid green";
-    } else {
-      name.style.border = "1px solid red";
-    }
-  }
-}
-//can it not be a single function that return something and we only send different parameters there? could be a problem though when it is oninput
 
 function checkInput(inputClass) {
   let item = document.querySelector("." + inputClass);
@@ -124,71 +118,6 @@ function checkInput(inputClass) {
   }
 }
 
-// checkInput("gender");
-// checkInput("age");
-// checkInput("email");
-// checkInput("age");
-
-// function checkGenVal() {
-//   let gender = document.querySelector(".gender");
-//   if (gender.value === "") {
-//     gender.style.color = "red";
-//   } else {
-//     if (gender.checkValidity()) {
-//       gender.style.border = "1px solid green";
-//     } else {
-//       gender.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkAgeVal() {
-//   let age = document.querySelector(".age");
-//   if (age.value === "") {
-//     age.style.color = "red";
-//   } else {
-//     if (age.checkValidity()) {
-//       age.style.border = "1px solid green";
-//     } else {
-//       age.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkEmailVal() {
-//   let email = document.querySelector(".email");
-//   if (email.value === "") {
-//     email.style.color = "red";
-//   } else {
-//     if (email.checkValidity()) {
-//       email.style.border = "1px solid green";
-//     } else {
-//       email.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkTelVal() {
-//   let phonenumber = document.querySelector(".phonenumber");
-//   if (phonenumber.value === "") {
-//     phonenumber.style.color = "red";
-//   } else {
-//     if (phonenumber.checkValidity()) {
-//       phonenumber.style.border = "1px solid green";
-//     } else {
-//       phonenumber.style.border = "1px solid red";
-//     }
-//   }
-// }
-// function checkRegVal() {
-//   let region = document.querySelector(".region");
-//   if (region.value === "") {
-//     region.style.color = "red";
-//   } else {
-//     if (region.checkValidity()) {
-//       region.style.border = "1px solid green";
-//     } else {
-//       region.style.border = "1px solid red";
-//     }
-//   }
-// }
 function checkPassVal() {
   {
     let password = document.querySelector(".password");
@@ -312,3 +241,11 @@ function createUser(
 //   // doLogin(newUser.name)
 // }, 500);
 // doLogin(newUser);
+
+function openProfile() {
+  if (sessionStorage.getItem("user")) {
+    window.location.href = "profile.html";
+  } else {
+    showSignUp();
+  }
+}

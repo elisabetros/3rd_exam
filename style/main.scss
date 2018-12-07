@@ -70,7 +70,8 @@ a {
   width: 100vw;
   top: 0;
   padding: 30vh 5vh 0 5vh;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+  -webkit-clip-path: polygon(0 79%, 0 0, 100% 0, 100% 93%);
+  clip-path: polygon(0 79%, 0 0, 100% 0, 100% 93%);
   @media (min-width: 1024px) {
     padding: 30vh 10vh 0 10vh;
     display: grid;
@@ -162,7 +163,10 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  clip-path: polygon(0 70%, 100% 28%, 100% 82%, 0 100%);
+  -webkit-clip-path: polygon(0 86%, 0 0, 100% 11%, 100% 76%);
+  clip-path: polygon(0 86%, 0 0, 100% 11%, 100% 76%);
+
+  // clip-path: polygon(0 70%, 100% 28%, 100% 82%, 0 100%);
   padding: 30% 10%;
 }
 
@@ -215,4 +219,20 @@ a {
 
 .imgProject {
   width: 400px;
+}
+
+.slide-modal {
+  width: 200px;
+  z-index: 10;
+  height: 100px;
+  background-color: rgb(140, 140, 143);
+  margin: 15px;
+  color: black;
+  position: absolute;
+  left: -300px;
+  transition: transform 2s ease-in;
+}
+
+.slide {
+  transform: translateX(300px);
 }
