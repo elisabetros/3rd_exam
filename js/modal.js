@@ -14,8 +14,8 @@ let span = document.querySelectorAll(".close");
 let signUpBtn = document.querySelector("#signUpBtn");
 
 function init() {
-  // donateBtn.addEventListener("click", openFormModal);
-  // volunteerBtn.addEventListener("click", openFormModal);
+  donateBtn.addEventListener("click", openFormModal);
+  volunteerBtn.addEventListener("click", openFormModal);
   link.forEach(singleLink => {
     singleLink.addEventListener("click", openModal);
   });
@@ -123,3 +123,5 @@ window.onclick = function(event) {
 // function addProject(id) {
 //   console.log("id", id);
 // }
+
+//Orange modal

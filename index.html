@@ -342,11 +342,26 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h1 class="Formtitle"></h1>
-            <form>
+            <form class="notSignedIn">
 <label >Name<input type="text"></label>
 <label >Date of birth<input type="text"></label>
 <label>Gender<input type="text"></label>
 <label> <input type="text"></label>
+            </form>
+            <form class="SignedIn donateForm">
+              <label for="">How much would you like to donate:<input type="number"></label>
+            </form>
+            <form class="SignedIn volunteerForm">
+              <h3>Sign up to volunteer</h3>
+              <label for="region" >Chooser your preferred region to volunteer in: <select
+                name="region" required class="region">
+                <option value="centralJylland">Central Jylland</option>
+                <option value="southJylland">South Jylland</option>
+                <option value="northJylland">North Jylland</option>
+                <option value="capitalRegion">Capital Region</option>
+                <option value="zealand">Zealand</option>
+              </select></label
+            >
             </form>
             <p>Already a member? <span>Sign in</span> to continue</p>
         </div>
@@ -434,22 +449,6 @@
                 onblur="checkInput('phonenumber')"
                 onfocus="resetColor(this)"
             /></label>
-            <!--
-              <label for="region"
-                >Region<select
-                  name="region"
-                  required
-                  class="region"
-                  onblur="checkRegVal()"
-                >
-                  <option value="centralJylland">Central Jylland</option>
-                  <option value="southJylland">South Jylland</option>
-                  <option value="northJylland">North Jylland</option>
-                  <option value="capitalRegion">Capital Region</option>
-                  <option value="zealand">Zealand</option>
-                </select></label
-              >
-            -->
             <label
               >Password<input
                 type="password"
