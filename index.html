@@ -311,7 +311,9 @@
           <li><a href="#projects">Our Projects</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#Contact">Contact</a></li>
-          <li><h2 onclick="openProfile()">Your profile</h2></li>
+          <li class="yourProfile">
+            <h2 onclick="openProfile()">Your profile</h2>
+          </li>
           <li class="signIn">Sign In</li>
         </ul>
       </nav>
@@ -327,6 +329,9 @@
         <li><a href="#projects">Our Projects</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#Contact">Contact</a></li>
+        <li class="yourProfile">
+          <h2 onclick="openProfile()">Your profile</h2>
+        </li>
         <li class="signIn">Sign In</li>
       </ul>
     </nav>
@@ -339,24 +344,117 @@
           <p class="textProject"></p>
         </div>
       </div>
-      <div class="formModal modal">
+      <div id="formModal" class=" modal">
         <div class="modal-content">
-<<<<<<< HEAD
-            <span class="close">&times;</span>
-            <h1 class="Formtitle"></h1>
-            <form class="notSignedIn">
-<label >Name<input type="text"></label>
-<label >Date of birth<input type="text"></label>
-<label>Gender<input type="text"></label>
-<label> <input type="text"></label>
-            </form>
-            <form class="SignedIn donateForm">
-              <label for="">How much would you like to donate:<input type="number"></label>
-            </form>
-            <form class="SignedIn volunteerForm">
-              <h3>Sign up to volunteer</h3>
-              <label for="region" >Chooser your preferred region to volunteer in: <select
-                name="region" required class="region">
+          <span class="close">&times;</span>
+          <h2 class="formTitle"></h2>
+          <form id="notSignedIn">
+            <p>
+              If you are not already a member you will be signed up and an
+              account created for you.
+            </p>
+            <p>
+              Already a member? <span class="signIn">Sign in</span> to continue
+            </p>
+            <label
+              >Name<input
+                type="text"
+                name="username"
+                class="username"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('username')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Date of birth<input
+                type="date"
+                name="age"
+                class="age"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('age')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Gender<select
+                name="gender"
+                required
+                class="gender"
+                onblur="checkInput('gender')"
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select></label
+            >
+            <label
+              >Email<input
+                type="email"
+                name="email"
+                class="email"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('email')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Phonenumber<input
+                type="tel"
+                name="phonenumber"
+                class="phonenumber"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('phonenumber')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Password<input
+                type="password"
+                type="password"
+                class="password"
+                name="password"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkPassVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Repeat Password<input
+                type="password"
+                name="passwordv"
+                class="passwordv"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkPassVal()"
+                onfocus="resetColor(this)"
+            /></label>
+            <input type="submit" class="toNextStep" value="Continue" />
+            <!-- <p class="smallText">By </p> -->
+          </form>
+          <form id="donateForm">
+            <label for=""
+              >How much would you like to donate:<input
+                type="number"
+                class="donation"
+                name="donation"
+                oninput="checkForm('donateForm')"
+                onblur="checkInput('donation')"
+                onfocus="resetColor(this)"
+            /></label>
+            <input type="submit" class="goToPay" value="Go to Secure Payment" />
+          </form>
+          <form id="volunteerForm">
+            <p>
+              When signing up as a volunteer, please choose your preferred
+              region to volunteer in. We will then contact you via email with
+              projects in your area. If you want to volunteer for specific
+              projects, please look at
+              <a href="#projects">Our Projects page</a>.
+            </p>
+            <label for="region"
+              >Preferred region:
+              <select
+                name="region"
+                class="region"
+                oninput="checkForm('volunteerForm')"
+                onblur="checkInput('region')"
+                onfocus="resetColor(this)"
+              >
                 <option value="centralJylland">Central Jylland</option>
                 <option value="southJylland">South Jylland</option>
                 <option value="northJylland">North Jylland</option>
@@ -364,19 +462,13 @@
                 <option value="zealand">Zealand</option>
               </select></label
             >
-            </form>
-            <p>Already a member? <span>Sign in</span> to continue</p>
-=======
-          <span class="close">&times;</span>
-          <h1 class="Formtitle"></h1>
-          <form>
-            <label>Name<input type="text"/></label>
-            <label>Date of birth<input type="text"/></label>
-            <label>Gender<input type="text"/></label>
-            <label> <input type="text"/></label>
+
+            <input
+              type="submit"
+              class="newVolunteer"
+              value="Sign up as a volunteer"
+            />
           </form>
-          <p>Already a member? <span>Sign in</span> to continue</p>
->>>>>>> 2c50af338b5ee7af663763036c6a22afc63d2cf8
         </div>
       </div>
       <a href="profile.html">
@@ -417,7 +509,7 @@
                 type="text"
                 name="username"
                 class="username"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('username')"
                 onfocus="resetColor(this)"
             /></label>
@@ -439,7 +531,7 @@
                 type="date"
                 name="age"
                 class="age"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('age')"
                 onfocus="resetColor(this)"
             /></label>
@@ -448,7 +540,7 @@
                 type="email"
                 name="email"
                 class="email"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('email')"
                 onfocus="resetColor(this)"
             /></label>
@@ -458,7 +550,7 @@
                 type="tel"
                 name="phonenumber"
                 class="phonenumber"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('phonenumber')"
                 onfocus="resetColor(this)"
             /></label>
@@ -468,7 +560,7 @@
                 required
                 class="password"
                 name="password"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkPassVal()"
                 onfocus="resetColor(this)"
             /></label>
@@ -478,7 +570,7 @@
                 required
                 name="passwordv"
                 class="passwordv"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkPassVal()"
                 onfocus="resetColor(this)"
             /></label>
@@ -500,11 +592,11 @@
             Join a community of volunteers contribute to saving the environment
           </p>
         -->
-        <div class="button volunteer">Volunteer</div>
+        <div class="button volunteerBtn">Volunteer</div>
         <!--
           <p>Donate and give us the resources to preserve Danish nature</p>
         -->
-        <div class="button donate">Donate</div>
+        <div class="button donateBtn">Donate</div>
       </div>
       <div id="projects">
         <h1>Our Projects</h1>
@@ -514,7 +606,6 @@
           want to help but don't have the time for volunteering, you can always
           donate!
         </p>
-
         <div class="iconGrid">
           <div class="icon">
             <img src="img/grass.svg" alt="" />
@@ -695,8 +786,9 @@
         >
       </div>
     </footer>
-    <script src="js/login.js"></script>
+
     <script src="js/modal.js"></script>
+    <script src="js/login.js"></script>
     <script src="js/script.js"></script>
 
     <!-- <script src="js/profile.js"></script> -->

@@ -16,8 +16,18 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
+.donateForm,
+.volunteerForm,
+.notSignedIn {
+  display: none;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .modal-content {
+  color: black;
   border-radius: 10px;
   background-color: white;
   margin: 5% auto;
@@ -27,7 +37,14 @@
     // width: 50%;
     // height: 50%;
   }
-  p {
+  h3,
+  p,
+  label,
+  h2 {
+    color: black;
+  }
+  p,
+  label {
     font-size: 1.5rem;
   }
 }
@@ -46,7 +63,8 @@
 }
 
 .signUp,
-.readMore {
+.readMore,
+p > .signIn {
   color: $redColor;
   cursor: pointer;
 }

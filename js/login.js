@@ -3,7 +3,7 @@
 window.addEventListener("load", init);
 
 // let userName;
-let form = document.querySelector("#signUpForm");
+let signUpForm = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
 //MENU
@@ -32,6 +32,7 @@ async function init() {
   const userData = await fetchUsers();
   // checkLogin(userData);
   showSignUp(userData);
+  checkLogin();
   // form.addEventListener("submit");
 }
 
@@ -48,14 +49,12 @@ function fetchUsers() {
 ////////LOGIN CHECK///////
 function checkLogin(userData) {
   if (isLoggedIn()) {
-    console.log("someone is signed in!");
-    // console.log("user logged in is", userData);
+    // console.log("someone is signed in!");
     link.forEach(singleLink => {
       singleLink.innerText = "Log Out";
       singleLink.addEventListener("click", logOut);
     });
-  } else {
-    showSignUp(userData);
+    // console.log("user logged in is", userData);
   }
 }
 
@@ -63,6 +62,7 @@ function isLoggedIn() {
   // const loggedIn = sessionStorage.getItem("loggedin");
   let user = JSON.parse(sessionStorage.getItem("user"));
   console.log("You are logged in:", user);
+  return user;
 }
 
 // function isLoggedIn() {
@@ -90,20 +90,27 @@ function checkUser(userData) {
   let userID;
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
-      sessionStorage.setItem("user", JSON.stringify(user));
-      alert("you are signed in!");
-      // window.location.replace("profile.html?id=" + user.id);
+      doLogIn(user);
     }
   });
-
-  if (userName && userPassword) {
-    // console.log(userName);
-    doLogin(userID);
-  } else {
-    console.log("not a user");
-    // showError();
-  }
 }
+
+function doLogIn(user) {
+  sessionStorage.setItem("user", JSON.stringify(user));
+  alert("you are signed in!");
+  link.forEach(singleLink => {
+    singleLink.innerText = "Log Out";
+    singleLink.addEventListener("click", logOut);
+  });
+}
+
+// if (userName && userPassword) {
+//   // console.log(userName);
+//   doLogin(userID);
+// } else {
+//   console.log("not a user");
+//   // showError();
+// }
 
 function logOut() {
   // sessionStorage.setItem("loggedin", false);
@@ -123,55 +130,32 @@ function checkInput(inputClass) {
   if (item.value === "") {
     item.style.color = "red";
   } else {
-    if (gender.checkValidity()) {
-      gender.style.border = "1px solid green";
+    if (item.checkValidity()) {
+      item.style.border = "1px solid green";
     } else {
-      gender.style.border = "1px solid red";
+      item.style.border = "1px solid red";
     }
   }
 }
-function checkAgeVal() {
-  let age = document.querySelector(".age");
-  if (age.value === "") {
-    age.style.color = "red";
-  } else {
-    if (age.checkValidity()) {
-      age.style.border = "1px solid green";
-    } else {
-      age.style.border = "1px solid red";
-    }
-  }
-}
-function checkEmailVal() {
-  let email = document.querySelector(".email");
-  if (email.value === "") {
-    email.style.color = "red";
-  } else {
-    if (email.checkValidity()) {
-      email.style.border = "1px solid green";
-    } else {
-      email.style.border = "1px solid red";
-    }
-  }
-}
-function checkTelVal() {
-  let phonenumber = document.querySelector(".phonenumber");
-  if (phonenumber.value === "") {
-    phonenumber.style.color = "red";
-  } else {
-    if (phonenumber.checkValidity()) {
-      phonenumber.style.border = "1px solid green";
-    } else {
-      phonenumber.style.border = "1px solid red";
-    }
-  }
-}
+// function checkAgeVal() {
+//   let age = document.querySelector(".age");
+//   if (age.value === "") {
+//     age.style.color = "red";
+//   } else {
+//     if (age.checkValidity()) {
+//       age.style.border = "1px solid green";
+//     } else {
+//       age.style.border = "1px solid red";
+//     }
+//   }
+// }
+//
+let password = document.querySelector(".password");
+let secondPassword = document.querySelector(".passwordv");
 function checkPassVal() {
   {
-    let password = document.querySelector(".password");
-    let secondPassword = document.querySelector(".passwordv");
     if (password.value === "") {
-      region.style.color = "red";
+      password.style.color = "red";
     } else {
       if (password.checkValidity()) {
         password.style.border = "1px solid green";
@@ -191,40 +175,47 @@ function resetColor(input) {
   input.style.color = "#1b1464";
 }
 
-function checkForm() {
+function checkForm(formID) {
+  let form = document.querySelector("#" + formID);
   let validity = form.checkValidity();
   console.log("Validity", validity);
-  if (validity) {
+  if (validity && password.value === secondPassword.value) {
     signUpBtn.removeAttribute("disabled");
   } else {
     signUpBtn.setAttribute("disabled", true);
   }
 }
 
-form.addEventListener("submit", e => {
+signUpForm.addEventListener("submit", e => {
   e.preventDefault();
+  // console.log(form.elements);
+  checkIfAlreadyUser(signUpForm.elements);
+});
+
+function checkIfAlreadyUser(form) {
+  console.log(form);
   fetch(endpoint + "/users")
     .then(response => response.json())
     .then(data => {
       const found = data.find(user => {
-        if (user.name === form.elements.username.value) {
-          // console.log("already a name!");
+        if (user.name === form.username.value) {
           alert("user already exist, choose another username");
           return true;
         }
       });
+
       if (!found) {
         createUser(
-          form.elements.username.value,
-          form.elements.gender.value,
-          form.elements.age.value,
-          form.elements.email.value,
-          form.elements.phonenumber.value,
-          form.elements.passwordv.value
+          form.username.value,
+          form.gender.value,
+          form.age.value,
+          form.email.value,
+          form.phonenumber.value,
+          form.passwordv.value
         );
       }
     });
-});
+}
 
 // Create empty user object
 // fill it with information from form when submit button is pressed
@@ -273,14 +264,12 @@ function createUser(
     .then(res => res.json())
     .then(d => {
       console.log(d);
+      signUpModal.style.display = "none";
+      setTimeout(() => {
+        doLogIn(newUser);
+      }, 1000);
     });
 }
-
-// setTimeout(() => {
-//   console.log(newUser.name);
-//   // doLogin(newUser.name)
-// }, 500);
-// doLogin(newUser);
 
 function openProfile() {
   if (sessionStorage.getItem("user")) {

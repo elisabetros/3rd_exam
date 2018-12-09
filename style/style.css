@@ -22,7 +22,7 @@ header {
         header .deskmenu li {
           font-size: 2rem;
           display: inline-block;
-          margin: 0 5%; }
+          margin: 0 3%; }
         header .deskmenu ul {
           padding-left: 15%;
           display: inline; } }
@@ -110,13 +110,29 @@ ul {
   overflow: auto;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 40%, rgba(0, 0, 0, 0) 100%); }
 
+.donateForm,
+.volunteerForm,
+.notSignedIn {
+  display: none; }
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
 .modal-content {
+  color: black;
   border-radius: 10px;
   background-color: white;
   margin: 5% auto;
   padding: 5%;
   width: 80%; }
-  .modal-content p {
+  .modal-content h3,
+  .modal-content p,
+  .modal-content label,
+  .modal-content h2 {
+    color: black; }
+  .modal-content p,
+  .modal-content label {
     font-size: 1.5rem; }
 
 .close {
@@ -131,7 +147,8 @@ ul {
   cursor: pointer; }
 
 .signUp,
-.readMore {
+.readMore,
+p > .signIn {
   color: #f95738;
   cursor: pointer; }
 
@@ -227,6 +244,7 @@ a {
   margin: 0 0 5%; }
 
 .button {
+  cursor: pointer;
   font-family: futuraBold;
   background-color: #fa7960;
   text-align: center;
@@ -277,7 +295,6 @@ a {
       right: 8vw; } }
   .choose .button {
     margin: 9% 5%; }
-<<<<<<< HEAD
 
 .slide-modal {
   width: 200px;
@@ -293,10 +310,9 @@ a {
 
 .slide {
   transform: translateY(300px); }
-=======
->>>>>>> 2c50af338b5ee7af663763036c6a22afc63d2cf8
 
 #projects {
+  padding: 5%;
   height: 90vh;
   padding: 5% 5% 0; }
   #projects h1,
