@@ -6,27 +6,27 @@ window.addEventListener("load", init);
 let signUpForm = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 
-//MENU
-let menuOpen = false;
-let menuIcon = document.querySelector(".menuIcon");
-let menu = document.querySelector(".menu");
-let bars = menuIcon.querySelectorAll("rect");
-let menuLinks = document.querySelectorAll(".menu>ul>li");
-menuIcon.addEventListener("click", toggleMenu);
-menuLinks.forEach(link => {
-  link.addEventListener("click", toggleMenu);
-});
-// Link clicked menu closed
+// //MENU
+// let menuOpen = false;
+// let menuIcon = document.querySelector(".menuIcon");
+// let menu = document.querySelector(".menu");
+// let bars = menuIcon.querySelectorAll("rect");
+// let menuLinks = document.querySelectorAll(".menu>ul>li");
+// menuIcon.addEventListener("click", toggleMenu);
+// menuLinks.forEach(link => {
+//   link.addEventListener("click", toggleMenu);
+// });
+// // Link clicked menu closed
 
-function toggleMenu() {
-  menuOpen = !menuOpen;
-  bars[0].classList.toggle("rotateDown");
-  bars[1].classList.toggle("fadeOut");
-  bars[2].classList.toggle("rotateUp");
-  menu.classList.toggle("hidden");
-}
+// function toggleMenu() {
+//   menuOpen = !menuOpen;
+//   bars[0].classList.toggle("rotateDown");
+//   bars[1].classList.toggle("fadeOut");
+//   bars[2].classList.toggle("rotateUp");
+//   menu.classList.toggle("hidden");
+// }
 
-//MENU ends
+// //MENU ends
 
 async function init() {
   const userData = await fetchUsers();
@@ -97,25 +97,24 @@ function checkUser(userData) {
 
 function doLogIn(user) {
   sessionStorage.setItem("user", JSON.stringify(user));
-  alert("you are signed in!");
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
     singleLink.addEventListener("click", logOut);
+    // singleLink.removeEventListener("click", openModal);
   });
+  // alert("you are signed in!");
+  signInModal.style.display = "none";
+  showAlertModal("Your are now signed In!");
 }
-
-// if (userName && userPassword) {
-//   // console.log(userName);
-//   doLogin(userID);
-// } else {
-//   console.log("not a user");
-//   // showError();
-// }
 
 function logOut() {
   // sessionStorage.setItem("loggedin", false);
   sessionStorage.removeItem("user");
-  window.location.href = "index.html";
+  if (window.location.href === "profile.html") {
+    window.location.href = "index.html";
+  }
+  showAlertModal("You have successfully logged out");
+  // HMMMMMMMMM
   // checkLogin();
 }
 
@@ -137,19 +136,6 @@ function checkInput(inputClass) {
     }
   }
 }
-// function checkAgeVal() {
-//   let age = document.querySelector(".age");
-//   if (age.value === "") {
-//     age.style.color = "red";
-//   } else {
-//     if (age.checkValidity()) {
-//       age.style.border = "1px solid green";
-//     } else {
-//       age.style.border = "1px solid red";
-//     }
-//   }
-// }
-//
 function resetColor(input) {
   // NOT READY YET
   input.style.color = "#1b1464";

@@ -97,4 +97,7 @@ async function init() {
   matchVolunteers(user, volunteeringData);
   showDonations(totalDonations);
   showVolunteering(area);
+  linkOut.forEach(link => {
+    link.addEventListener("click", logOut);
+  });
 }

@@ -234,5 +234,12 @@ window.onclick = function(event) {
 // function addProject(id) {
 //   console.log("id", id);
 // }
-
-//Orange modal
+function showAlertModal(text) {
+  console.log("yas I wil show");
+  let webAlert = document.querySelector(".slide-modal");
+  webAlert.classList.remove("slide");
+  webAlert.querySelector("p").innerText = text;
+  setTimeout(function() {
+    webAlert.classList.add("slide");
+  }, 3000);
+}

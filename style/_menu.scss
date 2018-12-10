@@ -4,9 +4,12 @@
   transform: $property;
 }
 header {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100vw;
   z-index: 1;
-  position: absolute;
+  // position: absolute;
   padding: 5%;
   @media (min-width: 1024px) {
     height: 80px;
@@ -61,7 +64,9 @@ ul {
 }
 .menu {
   text-align: center;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  right: 0;
   z-index: 1;
   padding-top: 80px;
   width: 100vw;

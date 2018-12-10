@@ -2,6 +2,28 @@
 
 window.addEventListener("load", init);
 
+//MENU
+let menuOpen = false;
+let menuIcon = document.querySelector(".menuIcon");
+let menu = document.querySelector(".menu");
+let bars = menuIcon.querySelectorAll("rect");
+let menuLinks = document.querySelectorAll(".menu>ul>li");
+menuIcon.addEventListener("click", toggleMenu);
+menuLinks.forEach(link => {
+  link.addEventListener("click", toggleMenu);
+});
+// Link clicked menu closed
+
+function toggleMenu() {
+  menuOpen = !menuOpen;
+  bars[0].classList.toggle("rotateDown");
+  bars[1].classList.toggle("fadeOut");
+  bars[2].classList.toggle("rotateUp");
+  menu.classList.toggle("hidden");
+}
+
+//MENU ends
+
 const projects = [
   {
     id: 11,
@@ -36,18 +58,20 @@ const projects = [
 ];
 
 //projects to add
-function slideModal() {
-  //NOT WORKING
-  let webAlert = document.querySelector(".slide-modal");
+// function slideModal() {
+//   //NOT WORKING
+//
+//   let projectName = document.querySelector(".spanProject");
+//   // console.log("now I will show");
+//   webAlert.classList.remove("slide");
+//   let projectTitle = JSON.parse(sessionStorage.getItem("project"));
+//   // console.log(projectTitle.title);
+//   projectName.textContent = projectTitle.title;
 
-  setTimeout(() => {
-    webAlert.classList.add("slide");
-  });
-
-  setTimeout(function() {
-    webAlert.classList.remove("slide");
-  }, 1000);
-}
+//   setTimeout(function() {
+//     webAlert.classList.add("slide");
+//   }, 3000);
+// }
 
 function fetchVolunteer() {
   return new Promise((resolve, reject) => {
@@ -140,7 +164,11 @@ async function addProject(id) {
   }
   // sessionStorage.setItem("project", JSON.stringify(matchedProject));
   // fillInTemplateProjects(id);
-  // slideModal();
+  let string =
+    "You have successfully signed up as a volunteer in the " +
+    matchedProject.title +
+    " project";
+  showAlertModal(string);
 }
 
 // projects added

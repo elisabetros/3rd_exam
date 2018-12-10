@@ -7,9 +7,11 @@
   src: url(../fonts/opensans/OpenSansCondensed-Light.ttf); }
 
 header {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100vw;
   z-index: 1;
-  position: absolute;
   padding: 5%; }
   @media (min-width: 1024px) {
     header {
@@ -53,7 +55,9 @@ ul {
 
 .menu {
   text-align: center;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  right: 0;
   z-index: 1;
   padding-top: 80px;
   width: 100vw;
@@ -303,19 +307,20 @@ a {
     margin: 9% 5%; }
 
 .slide-modal {
-  width: 200px;
+  display: block;
+  width: 50%;
   z-index: 10;
-  height: 100px;
-  background-color: #8c8c8f;
-  margin: 15px;
-  color: black;
-  position: absolute;
-  top: -300px;
-  transition: transform 2s ease-in;
-  float: right; }
+  background-color: rgba(40, 54, 24, 0.9);
+  padding: 3%;
+  position: fixed;
+  top: 5%;
+  left: 25%;
+  transition: transform 0.8s ease-in; }
+  .slide-modal p {
+    font-size: 2.5rem; }
 
 .slide {
-  transform: translateY(300px); }
+  transform: translateY(-50vh); }
 
 #projects {
   padding: 5%;
@@ -391,18 +396,3 @@ footer {
       grid-template-columns: 1fr 1fr; } }
   footer .smallText {
     font-size: 1rem; }
-
-.slide-modal {
-  width: 200px;
-  z-index: 10;
-  height: 100px;
-  background-color: #8c8c8f;
-  margin: 15px;
-  color: black;
-  position: absolute;
-  top: -300px;
-  transition: transform 2s ease-in;
-  float: right; }
-
-.slide {
-  transform: translateY(300px); }
