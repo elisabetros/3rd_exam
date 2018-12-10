@@ -12,7 +12,7 @@ const projects = [
   {
     id: 12,
     title: "Replant the Planet",
-    region: "Capital Reagion",
+    region: "Capital Region",
     date: "15/04/2019"
   },
   {

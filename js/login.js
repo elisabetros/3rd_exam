@@ -150,26 +150,6 @@ function checkInput(inputClass) {
 //   }
 // }
 //
-let password = document.querySelector(".password");
-let secondPassword = document.querySelector(".passwordv");
-function checkPassVal() {
-  {
-    if (password.value === "") {
-      password.style.color = "red";
-    } else {
-      if (password.checkValidity()) {
-        password.style.border = "1px solid green";
-      } else {
-        password.style.border = "1px solid red";
-      }
-    }
-    if (password.value === secondPassword.value) {
-      secondPassword.style.border = "1px solid green";
-    } else {
-      secondPassword.style.border = "1px solid red";
-    }
-  }
-}
 function resetColor(input) {
   // NOT READY YET
   input.style.color = "#1b1464";
@@ -179,10 +159,10 @@ function checkForm(formID) {
   let form = document.querySelector("#" + formID);
   let validity = form.checkValidity();
   console.log("Validity", validity);
-  if (validity && password.value === secondPassword.value) {
-    signUpBtn.removeAttribute("disabled");
+  if (validity) {
+    form.querySelector("input[type=submit]").removeAttribute("disabled");
   } else {
-    signUpBtn.setAttribute("disabled", true);
+    form.querySelector("input[type=submit]").setAttribute("disabled", true);
   }
 }
 
@@ -192,29 +172,27 @@ signUpForm.addEventListener("submit", e => {
   checkIfAlreadyUser(signUpForm.elements);
 });
 
-function checkIfAlreadyUser(form) {
-  console.log(form);
-  fetch(endpoint + "/users")
-    .then(response => response.json())
-    .then(data => {
-      const found = data.find(user => {
-        if (user.name === form.username.value) {
-          alert("user already exist, choose another username");
-          return true;
-        }
-      });
-
-      if (!found) {
-        createUser(
-          form.username.value,
-          form.gender.value,
-          form.age.value,
-          form.email.value,
-          form.phonenumber.value,
-          form.passwordv.value
-        );
-      }
-    });
+async function checkIfAlreadyUser(form) {
+  // console.log(form);
+  const userData = await fetchUsers();
+  // console.log(userData);
+  const found = userData.find(user => {
+    if (user.name === form.username.value) {
+      alert("user already exist, choose another username");
+      return true;
+    }
+  });
+  if (!found) {
+    createUser(
+      form.username.value,
+      form.gender.value,
+      form.age.value,
+      form.email.value,
+      form.phonenumber.value,
+      form.passwordv.value
+    );
+  }
+  // });
 }
 
 // Create empty user object

@@ -8,6 +8,7 @@ const formModal = document.querySelector("#formModal");
 const volunteerForm = document.querySelector("#volunteerForm");
 const donateForm = document.querySelector("#donateForm");
 const notSignedInForm = document.querySelector("#notSignedIn");
+const securePayForm = document.querySelector("#securePayment");
 const projectVolBtn = document.querySelectorAll(".beVolunteer");
 const donateBtn = document.querySelector(".donateBtn");
 const volunteerBtn = document.querySelector(".volunteerBtn");
@@ -50,59 +51,101 @@ function init() {
     }
     if (!isLoggedIn()) {
       console.log("no one is logged in");
-      notSignedInForm.style.display = "grid";
-      notSignedInForm.addEventListener("submit", e => {
-        e.preventDefault();
-        // console.log("click");
-        // console.log(formModal.querySelector("#notSignedIn").elements);
-        checkIfAlreadyUser(notSignedInForm.elements);
-        notSignedInForm.style.display = "none";
-        // if (type === ".donateForm") {
-        //   showDonateForm(formModal.elements);
-        // } else {
-        //   showVolunteerForm(formModal.elements);
-        // }
-        showForm(type, notSignedInForm.elements);
-      });
-    } else {
       formModal.querySelectorAll("form").forEach(form => {
         form.style.display = "none";
       });
-      document.querySelector("#" + type).style.display = "block";
+      notSignedInForm.style.display = "grid";
+      notSignedInForm.addEventListener("submit", e => {
+        e.preventDefault();
+        checkIfAlreadyUser(notSignedInForm.elements);
+        notSignedInForm.style.display = "none";
+        showForm(type, notSignedInForm.elements);
+      });
+    } else {
+      showForm(type);
     }
-    document.querySelector("#" + type).addEventListener("click", e => {
-      e.preventDefault();
-      console.log("click");
-      if (type === "donateForm") {
-        console.log(donateForm.elements);
-        // goToPayment
-      } else {
-        console.log(volunteerForm.elements);
-        // createNewVolunteer(
-        //   formElements,
-        //   formModal.querySelector(".volunteerForm").elements
-        // );
-      }
-    });
   }
+
   // addeventlistener to buttton, post to API
 }
-function showForm(type, formElements) {
+function showForm(type) {
   console.log("show", type);
+  formModal.querySelectorAll("form").forEach(form => {
+    form.style.display = "none";
+  });
   document.querySelector("#" + type).style.display = "block";
-  document.querySelector("#" + type).addEventListener("click", e => {
+  document.querySelector("#" + type).addEventListener("submit", e => {
     e.preventDefault();
     console.log("click");
     if (type === "donateForm") {
-      console.log(donateForm.elements);
-      // goToPayment
+      // console.log(donateForm.elements);
+      goToPayment(donateForm.elements);
     } else {
-      console.log(formElements, volunteerForm.elements);
-      // createNewVolunteer(
-      //   formElements,
-      //   formModal.querySelector(".volunteerForm").elements
-      // );
+      makeNewVolunteer(volunteerForm.elements);
     }
+  });
+}
+function goToPayment(formElements) {
+  formModal.querySelectorAll("form").forEach(form => {
+    form.style.display = "none";
+  });
+  securePayForm.style.display = "block";
+  securePayForm.addEventListener("submit", e => {
+    e.preventDefault();
+    // console.log(securePayForm.elements);
+    makeNewDonation(formElements);
+  });
+  // securePayForm;
+}
+async function makeNewDonation(formElements) {
+  console.log(formElements.donation.value);
+  // let donations = await fetchDonations();
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  let newDonation = {
+    userID: user.id,
+    amount: formElements.donation.value
+  };
+  console.log("new donation:", newDonation);
+  let newCreatedDonation = await addNewDonation(newDonation);
+  console.log("new created", newCreatedDonation);
+}
+async function makeNewVolunteer(formElements) {
+  let volunteers = await fetchVolunteer();
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  let found = volunteers.find(volunteer => {
+    if (volunteer.id === user.id) {
+      alert(
+        "You are already signed up as a volunteer, choose a program to volunteer at"
+      );
+      return true;
+    }
+  });
+  if (!found) {
+    let newVolunteer = {
+      userID: user.id,
+      date: new Date(),
+      area: formElements.region.value,
+      projects: []
+    };
+    console.log("newVolunteer", newVolunteer);
+    let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
+    console.log("newCreated", newCreatedVolunteer);
+  }
+}
+function addNewDonation(newDonation) {
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/money", {
+      method: "POST",
+      body: JSON.stringify(newDonation),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+      });
   });
 }
 

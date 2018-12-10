@@ -358,6 +358,7 @@
             </p>
             <label
               >Name<input
+                required
                 type="text"
                 name="username"
                 class="username"
@@ -367,6 +368,7 @@
             /></label>
             <label
               >Date of birth<input
+                required
                 type="date"
                 name="age"
                 class="age"
@@ -388,6 +390,7 @@
             >
             <label
               >Email<input
+                required
                 type="email"
                 name="email"
                 class="email"
@@ -397,6 +400,7 @@
             /></label>
             <label
               >Phonenumber<input
+                required
                 type="tel"
                 name="phonenumber"
                 class="phonenumber"
@@ -410,33 +414,83 @@
                 type="password"
                 class="password"
                 name="password"
+                required
                 oninput="checkForm('notSignedIn')"
-                onblur="checkPassVal()"
+                onblur="checkInput('password')"
                 onfocus="resetColor(this)"
             /></label>
-            <label
-              >Repeat Password<input
-                type="password"
-                name="passwordv"
-                class="passwordv"
-                oninput="checkForm('notSignedIn')"
-                onblur="checkPassVal()"
-                onfocus="resetColor(this)"
-            /></label>
+
             <input type="submit" class="toNextStep" value="Continue" />
             <!-- <p class="smallText">By </p> -->
           </form>
           <form id="donateForm">
             <label for=""
               >How much would you like to donate:<input
+                pattern="[0-9]"
                 type="number"
                 class="donation"
                 name="donation"
+                required
                 oninput="checkForm('donateForm')"
                 onblur="checkInput('donation')"
                 onfocus="resetColor(this)"
             /></label>
             <input type="submit" class="goToPay" value="Go to Secure Payment" />
+          </form>
+          <form id="securePayment">
+            <label
+              >Name on Credit Card<input
+                type="text"
+                name="cname"
+                class="cnmae"
+                required
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('cname')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Card number<input
+                type="number"
+                name="cnumber"
+                class="cnumber"
+                pattern="[0-9]{13,16}"
+                required
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('cnumber')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Expiraton Month<input
+                type="text"
+                name="expmonth"
+                class="expmonth"
+                required
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('expmonth')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Expiration Year<input
+                type="text"
+                name="expyear"
+                class="expyear"
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('expyear')"
+                onfocus="resetColor(this)"
+                required
+            /></label>
+            <label
+              >Security Code<input
+                required
+                pattern="[0-9]{3}"
+                type="number"
+                class="securitycode"
+                name="securitycode"
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('securitycode')"
+                onfocus="resetColor(this)"
+            /></label>
+            <input type="submit" class="" value="Pay" />
           </form>
           <form id="volunteerForm">
             <p>
@@ -451,15 +505,16 @@
               <select
                 name="region"
                 class="region"
+                required
                 oninput="checkForm('volunteerForm')"
                 onblur="checkInput('region')"
                 onfocus="resetColor(this)"
               >
-                <option value="centralJylland">Central Jylland</option>
-                <option value="southJylland">South Jylland</option>
-                <option value="northJylland">North Jylland</option>
-                <option value="capitalRegion">Capital Region</option>
-                <option value="zealand">Zealand</option>
+                <option value="Central Jutland">Central Jutland</option>
+                <option value="South Jutland">South Jutland</option>
+                <option value="North Jutland">North Jutland</option>
+                <option value="Capital Region">Capital Region</option>
+                <option value="Zealand">Zealand</option>
               </select></label
             >
 
@@ -561,19 +616,21 @@
                 class="password"
                 name="password"
                 oninput="checkForm('signUpForm')"
-                onblur="checkPassVal()"
+                onblur="checkInput('password')"
                 onfocus="resetColor(this)"
             /></label>
-            <label
-              >Repeat Password<input
-                type="password"
-                required
-                name="passwordv"
-                class="passwordv"
-                oninput="checkForm('signUpForm')"
-                onblur="checkPassVal()"
-                onfocus="resetColor(this)"
-            /></label>
+            <!--
+              <label
+                >Repeat Password<input
+                  type="password"
+                  required
+                  name="passwordv"
+                  class="passwordv"
+                  oninput="checkForm('signUpForm')"
+                  onblur="checkPassVal()"
+                  onfocus="resetColor(this)"
+              /></label>
+            -->
             <input type="submit" value="Sign Up" id="signUpBtn" disabled />
           </form>
         </div>
@@ -760,7 +817,7 @@
           The Nature Fund<br />
           Nordhavn 55<br />
           2100 Osterbro<br />
-          CopenHagen<br />
+          Copenhagen<br />
           Denmark
         </p>
 
