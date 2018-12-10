@@ -113,13 +113,15 @@ a {
   h2 {
     font-size: 2.5rem;
     padding: 4vh 0 0 25vh;
-    // @media (min-width: 1024px) {
-    // }
+    @media (min-width: 760px) {
+      padding: 4vh 0 0 5vh;
+    }
   }
 }
 .choose {
+  margin: auto;
   background-color: $redColor;
-  width: 40vh;
+  width: 40vw;
   padding: 5% 1%;
   .line {
     border: 0.5px solid white;
@@ -128,13 +130,18 @@ a {
     font-family: openSans;
     text-align: center;
   }
-  @media (min-width: 760px) {
-    position: absolute;
-    top: 30vh;
-    right: 8vw;
-  }
   .button {
     margin: 9% 5%;
+  }
+  @media (min-width: 760px) {
+    position: absolute;
+    top: 60vh;
+    right: 30vw;
+  }
+  @media (min-width: 1024px) {
+    width: 20vw;
+    top: 30vh;
+    right: 8vw;
   }
 }
 
@@ -168,34 +175,43 @@ a {
   .line {
     border: 1px solid $darkGreen;
   }
-  height: 90vh;
+  height: 100vh;
   padding: 5% 5% 0;
   // position: relative;
   // top: -20vh;
-
-  @media (min-width: 760px) {
-    // display: grid;
-    // grid-template-columns: 2fr 1fr;
-    // grid-template-rows: 40vh;
-  }
 }
 .iconGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 2%;
+  @media (min-width: 760px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2%;
+  }
+
   margin: auto;
   // h2 {
   //   // grid-column: 1/-1;
   // }
   .icon {
+    margin: 10%;
     justify-self: center;
+    h2 {
+      text-align: center;
+    }
     // width: 50%;
     // background-color: $redColor;
     @media (min-width: 760px) {
+      margin: 0;
+
       // width: auto;
     }
   }
   img {
+    display: block;
+    margin: auto;
     width: 30%;
   }
 }
