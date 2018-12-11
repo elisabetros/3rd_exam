@@ -57,22 +57,6 @@ const projects = [
   }
 ];
 
-//projects to add
-// function slideModal() {
-//   //NOT WORKING
-//
-//   let projectName = document.querySelector(".spanProject");
-//   // console.log("now I will show");
-//   webAlert.classList.remove("slide");
-//   let projectTitle = JSON.parse(sessionStorage.getItem("project"));
-//   // console.log(projectTitle.title);
-//   projectName.textContent = projectTitle.title;
-
-//   setTimeout(function() {
-//     webAlert.classList.add("slide");
-//   }, 3000);
-// }
-
 function fetchVolunteer() {
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/volunteer/")

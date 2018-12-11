@@ -214,18 +214,6 @@ function displayVolunteering(area) {
     type: "bar",
     beginAtZero: true,
 
-    // scaleOverride: true,
-    // scaleSteps: step,
-    // scaleStepWidth: Math.ceil(max / step),
-    // scaleStartValue: 0,
-    // ticks: {
-    //   beginAtZero: true,
-    //   callback: function(value) {
-    //     if (value % 1 === 0) {
-    //       return value;
-    //     }
-    //   }
-
     data: {
       labels: [
         "Zealand",
@@ -303,34 +291,6 @@ function matchByGender(userData, userIds) {
   console.log("matchByGender", matchByGender);
   return matchByGender;
 }
-
-// function matchDonationByGender(userData, donationUserIds) {
-//   let donationByGender = [0, 0, 0];
-//   for (let i = 0; i < userData.length; i++) {
-//     let exists = false;
-//     console.log("first loop donation", userData[i].id);
-//     for (let u = 0; u < donationUserIds.length; u++) {
-//       if (userData[i].id == donationUserIds[u]) {
-//         exists = true;
-//       }
-//     }
-
-//     if (exists) {
-//       if (userData[i].gender === "f") {
-//         donationByGender[0]++;
-//       } else if (userData[i].gender === "m" || userData[i].gender === "male") {
-//         donationByGender[1]++;
-//       } else {
-//         donationByGender[2]++;
-//       }
-//     }
-//     if (!exists) {
-//       console.log("Not existing in donation array. Dont count.");
-//     }
-//   }
-//   console.log("donationsByGender", donationByGender);
-//   return donationByGender;
-// }
 
 function displayChartByGender(volunteersByGender, donationByGender) {
   new Chart(document.getElementById("genderChart"), {
