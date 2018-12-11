@@ -157,6 +157,7 @@ function addNewDonation(newDonation) {
 
 //modal for Read more
 
+<<<<<<< HEAD
 const texts = [
   {
     id: 1,
@@ -234,6 +235,8 @@ window.onclick = function(event) {
   }
 };
 
+=======
+>>>>>>> bc2fa6cc97d3b52382ea689a4ea936e8f05b9c08
 //Modal for Read more ends
 
 //Volunteer projects
