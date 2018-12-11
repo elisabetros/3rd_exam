@@ -158,5 +158,8 @@ async function init() {
   let userData = await fetchUser();
   console.log("userData", userData);
   fillInTemplateProjects(userData);
+  linkOut.forEach(link => {
+    link.addEventListener("click", logOut);
+  });
   // fillTemplateDonations(thisUserDonations);
 }

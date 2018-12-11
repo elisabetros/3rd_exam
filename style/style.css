@@ -336,7 +336,7 @@ a {
 
 #projects {
   padding: 5%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 5% 5% 0; }
   #projects h1,
   #projects p,
@@ -375,7 +375,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 110vh;
+  min-height: 110vh;
   clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
   padding: 5% 10% 0;
   display: grid;
@@ -404,7 +404,7 @@ a {
     width: 50%; }
 
 footer {
-  height: 10vh;
+  min-height: 10vh;
   padding: 0 10% 0; }
   footer h1,
   footer p,

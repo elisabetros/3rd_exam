@@ -108,12 +108,11 @@ function doLogIn(user) {
 }
 
 function logOut() {
-  // sessionStorage.setItem("loggedin", false);
-  sessionStorage.removeItem("user");
-  if (window.location.href === "profile.html") {
-    window.location.href = "index.html";
-  }
   showAlertModal("You have successfully logged out");
+  // setTimeout()
+  sessionStorage.removeItem("user");
+  window.location.href = "index.html";
+
   // HMMMMMMMMM
   // checkLogin();
 }
