@@ -61,6 +61,8 @@ function matchDonations(user, donationsData) {
 function fillTemplateDonations(thisUserDonations) {
   console.log("thisUserDonations", thisUserDonations);
   let templateDonation = document.querySelector("#donationsTemplate").content;
+  let sortedDonations = thisUserDonations.sort(sortByDate);
+  console.log("sortedDonations", sortedDonations);
   for (let i = 0; i < thisUserDonations.length; i++) {
     let clone = templateDonation.cloneNode(true);
     clone.querySelector("#amount").textContent =
@@ -75,9 +77,9 @@ function fillTemplateDonations(thisUserDonations) {
 }
 
 function sortByDate(a, b) {
-  if (a.dateFormatted < b.dateFormatted) {
+  if (b.date < a.date) {
     return -1;
-  } else if (a.dateFormatted > b.dateFormatted) {
+  } else if (b.dateF > a.date) {
     return 1;
   } else {
     return 0;
