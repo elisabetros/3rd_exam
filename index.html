@@ -311,7 +311,9 @@
           <li><a href="#projects">Our Projects</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#Contact">Contact</a></li>
-          <li><h2 onclick="openProfile()">Your profile</h2></li>
+          <li class="yourProfile">
+            <h2 onclick="openProfile()">Your profile</h2>
+          </li>
           <li class="signIn">Sign In</li>
         </ul>
       </nav>
@@ -327,6 +329,9 @@
         <li><a href="#projects">Our Projects</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#Contact">Contact</a></li>
+        <li class="yourProfile">
+          <h2 onclick="openProfile()">Your profile</h2>
+        </li>
         <li class="signIn">Sign In</li>
       </ul>
     </nav>
@@ -339,17 +344,186 @@
           <p class="textProject"></p>
         </div>
       </div>
-      <div class="formModal modal">
+      <div id="formModal" class=" modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <h1 class="Formtitle"></h1>
-          <form>
-            <label>Name<input type="text"/></label>
-            <label>Date of birth<input type="text"/></label>
-            <label>Gender<input type="text"/></label>
-            <label> <input type="text"/></label>
+          <h2 class="formTitle"></h2>
+          <form id="notSignedIn">
+            <p>
+              If you are not already a member you will be signed up and an
+              account created for you.
+            </p>
+            <p>
+              Already a member? <span class="signIn">Sign in</span> to continue
+            </p>
+            <label
+              >Name<input
+                required
+                type="text"
+                name="username"
+                class="username"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('username')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Date of birth<input
+                required
+                type="date"
+                name="age"
+                class="age"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('age')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Gender<select
+                name="gender"
+                required
+                class="gender"
+                onblur="checkInput('gender')"
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select></label
+            >
+            <label
+              >Email<input
+                required
+                type="email"
+                name="email"
+                class="email"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('email')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Phonenumber<input
+                required
+                type="tel"
+                name="phonenumber"
+                class="phonenumber"
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('phonenumber')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Password<input
+                type="password"
+                type="password"
+                class="password"
+                name="password"
+                required
+                oninput="checkForm('notSignedIn')"
+                onblur="checkInput('password')"
+                onfocus="resetColor(this)"
+            /></label>
+
+            <input type="submit" class="toNextStep" value="Continue" />
+            <!-- <p class="smallText">By </p> -->
           </form>
-          <p>Already a member? <span>Sign in</span> to continue</p>
+          <form id="donateForm">
+            <label for=""
+              >How much would you like to donate:<input
+                pattern="[0-9]"
+                type="number"
+                class="donation"
+                name="donation"
+                required
+                oninput="checkForm('donateForm')"
+                onblur="checkInput('donation')"
+                onfocus="resetColor(this)"
+            /></label>
+            <input type="submit" class="goToPay" value="Go to Secure Payment" />
+          </form>
+          <form id="securePayment">
+            <label
+              >Name on Credit Card<input
+                type="text"
+                name="cname"
+                class="cnmae"
+                required
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('cname')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Card number<input
+                type="number"
+                name="cnumber"
+                class="cnumber"
+                pattern="[0-9]{13,16}"
+                required
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('cnumber')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Expiraton Month<input
+                type="text"
+                name="expmonth"
+                class="expmonth"
+                required
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('expmonth')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Expiration Year<input
+                type="text"
+                name="expyear"
+                class="expyear"
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('expyear')"
+                onfocus="resetColor(this)"
+                required
+            /></label>
+            <label
+              >Security Code<input
+                required
+                pattern="[0-9]{3}"
+                type="number"
+                class="securitycode"
+                name="securitycode"
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('securitycode')"
+                onfocus="resetColor(this)"
+            /></label>
+            <input type="submit" class="" value="Pay" />
+          </form>
+          <form id="volunteerForm">
+            <p>
+              When signing up as a volunteer, please choose your preferred
+              region to volunteer in. We will then contact you via email with
+              projects in your area. If you want to volunteer for specific
+              projects, please look at
+              <a href="#projects">Our Projects page</a>.
+            </p>
+            <label for="region"
+              >Preferred region:
+              <select
+                name="region"
+                class="region"
+                required
+                oninput="checkForm('volunteerForm')"
+                onblur="checkInput('region')"
+                onfocus="resetColor(this)"
+              >
+                <option value="Central Jutland">Central Jutland</option>
+                <option value="South Jutland">South Jutland</option>
+                <option value="North Jutland">North Jutland</option>
+                <option value="Capital Region">Capital Region</option>
+                <option value="Zealand">Zealand</option>
+              </select></label
+            >
+
+            <input
+              type="submit"
+              class="newVolunteer"
+              value="Sign up as a volunteer"
+            />
+          </form>
         </div>
       </div>
       <a href="profile.html">
@@ -390,7 +564,7 @@
                 type="text"
                 name="username"
                 class="username"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('username')"
                 onfocus="resetColor(this)"
             /></label>
@@ -412,7 +586,7 @@
                 type="date"
                 name="age"
                 class="age"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('age')"
                 onfocus="resetColor(this)"
             /></label>
@@ -421,7 +595,7 @@
                 type="email"
                 name="email"
                 class="email"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('email')"
                 onfocus="resetColor(this)"
             /></label>
@@ -431,46 +605,32 @@
                 type="tel"
                 name="phonenumber"
                 class="phonenumber"
-                oninput="checkForm()"
+                oninput="checkForm('signUpForm')"
                 onblur="checkInput('phonenumber')"
                 onfocus="resetColor(this)"
             /></label>
-            <!--
-              <label for="region"
-                >Region<select
-                  name="region"
-                  required
-                  class="region"
-                  onblur="checkRegVal()"
-                >
-                  <option value="centralJylland">Central Jylland</option>
-                  <option value="southJylland">South Jylland</option>
-                  <option value="northJylland">North Jylland</option>
-                  <option value="capitalRegion">Capital Region</option>
-                  <option value="zealand">Zealand</option>
-                </select></label
-              >
-            -->
             <label
               >Password<input
                 type="password"
                 required
                 class="password"
                 name="password"
-                oninput="checkForm()"
-                onblur="checkPassVal()"
+                oninput="checkForm('signUpForm')"
+                onblur="checkInput('password')"
                 onfocus="resetColor(this)"
             /></label>
-            <label
-              >Repeat Password<input
-                type="password"
-                required
-                name="passwordv"
-                class="passwordv"
-                oninput="checkForm()"
-                onblur="checkPassVal()"
-                onfocus="resetColor(this)"
-            /></label>
+            <!--
+              <label
+                >Repeat Password<input
+                  type="password"
+                  required
+                  name="passwordv"
+                  class="passwordv"
+                  oninput="checkForm('signUpForm')"
+                  onblur="checkPassVal()"
+                  onfocus="resetColor(this)"
+              /></label>
+            -->
             <input type="submit" value="Sign Up" id="signUpBtn" disabled />
           </form>
         </div>
@@ -489,11 +649,11 @@
             Join a community of volunteers contribute to saving the environment
           </p>
         -->
-        <div class="button volunteer">Volunteer</div>
+        <div class="button volunteerBtn">Volunteer</div>
         <!--
           <p>Donate and give us the resources to preserve Danish nature</p>
         -->
-        <div class="button donate">Donate</div>
+        <div class="button donateBtn">Donate</div>
       </div>
       <div id="projects">
         <h1>Our Projects</h1>
@@ -503,7 +663,6 @@
           want to help but don't have the time for volunteering, you can always
           donate!
         </p>
-
         <div class="iconGrid">
           <div class="icon">
             <img src="img/grass.svg" alt="" />
@@ -658,7 +817,7 @@
           The Nature Fund<br />
           Nordhavn 55<br />
           2100 Osterbro<br />
-          CopenHagen<br />
+          Copenhagen<br />
           Denmark
         </p>
 
@@ -687,6 +846,7 @@
     <script src="lib/moment-with-locales.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/modal.js"></script>
+
     <script src="js/script.js"></script>
 
     <!-- <script src="js/profile.js"></script> -->
