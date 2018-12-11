@@ -41,6 +41,7 @@ function init() {
     signUpModal.style.display = "block";
     signInModal.style.display = "none";
   }
+
   function openFormModal(type) {
     console.log(type);
     formModal.style.display = "block";
@@ -49,10 +50,15 @@ function init() {
     } else {
       document.querySelector(".formTitle").textContent = "Volunteer";
     }
+    document.querySelector(".notSignedSignIn").addEventListener("click", e => {
+      openModal();
+      notSignedInForm.style.display = "none";
+    });
     if (!isLoggedIn()) {
       console.log("no one is logged in");
       formModal.querySelectorAll("form").forEach(form => {
         form.style.display = "none";
+        showForm(type);
       });
       notSignedInForm.style.display = "grid";
       notSignedInForm.addEventListener("submit", e => {

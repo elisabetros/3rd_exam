@@ -109,9 +109,10 @@ function doLogIn(user) {
 
 function logOut() {
   showAlertModal("You have successfully logged out");
-  // setTimeout()
-  sessionStorage.removeItem("user");
-  window.location.href = "index.html";
+  setTimeout(function() {
+    sessionStorage.removeItem("user");
+    window.location.href = "index.html";
+  }, 1000);
 
   // HMMMMMMMMM
   // checkLogin();

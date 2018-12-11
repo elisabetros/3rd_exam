@@ -161,6 +161,7 @@ form {
 
 .signUp,
 .readMore,
+.notSignedSignIn,
 p > .signIn {
   color: #f95738;
   cursor: pointer; }
