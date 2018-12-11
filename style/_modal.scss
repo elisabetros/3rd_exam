@@ -83,13 +83,15 @@ p > .signIn {
   .textProject > h3 {
     color: black;
   }
+  .left {
+    grid-column: 1;
+    grid-row: 1;
+  }
   .titleProject {
     margin-top: 50vh;
     padding: 5%;
     color: white;
     font-size: 5rem;
-    grid-column: 1;
-    grid-row: 1;
   }
   .textProject {
     padding: 10%;

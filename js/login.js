@@ -100,6 +100,7 @@ function doLogIn(user) {
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
     singleLink.addEventListener("click", logOut);
+    singleLink.removeEventListener("click", openModal);
     // singleLink.removeEventListener("click", openModal);
   });
   // alert("you are signed in!");
@@ -113,9 +114,6 @@ function logOut() {
     sessionStorage.removeItem("user");
     window.location.href = "index.html";
   }, 1000);
-
-  // HMMMMMMMMM
-  // checkLogin();
 }
 
 //Signup
@@ -175,7 +173,7 @@ async function checkIfAlreadyUser(form) {
       form.age.value,
       form.email.value,
       form.phonenumber.value,
-      form.passwordv.value
+      form.password.value
     );
   }
   // });
