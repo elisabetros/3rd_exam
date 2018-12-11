@@ -210,13 +210,14 @@ p > .signIn {
   .description .titleProject,
   .description .textProject > h3 {
     color: black; }
+  .description .left {
+    grid-column: 1;
+    grid-row: 1; }
   .description .titleProject {
     margin-top: 50vh;
     padding: 5%;
     color: white;
-    font-size: 5rem;
-    grid-column: 1;
-    grid-row: 1; }
+    font-size: 5rem; }
   .description .textProject {
     padding: 10%;
     grid-column: 2;
@@ -462,3 +463,6 @@ footer {
 
 .descHeight {
   min-height: 19vh; }
+
+.hidden {
+  display: none; }

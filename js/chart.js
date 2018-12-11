@@ -1,9 +1,58 @@
 "use strict";
 
-window.addEventListener("load", init);
+window.addEventListener("load", isLoggedInAsAdmin);
 
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io/";
 let userID = [];
+
+const admins = [
+  {
+    id: 1,
+    name: "Katya",
+    password: 222111
+  },
+  {
+    id: 2,
+    name: "Elisabet",
+    password: 111222
+  }
+];
+
+let submitAdmin = document.querySelector("#submitAdmin");
+let loginAdmin = document.querySelector("#loginform");
+
+submitAdmin.addEventListener("click", function(e) {
+  e.preventDefault();
+  let inputName = document.querySelector("#username").value;
+  let passwordAdmin = document.querySelector("#password").value;
+  console.log("value", inputName);
+  console.log("pass", passwordAdmin);
+  let exists = false;
+  for (let i = 0; i < admins.length; i++) {
+    if (inputName == admins[i].name && passwordAdmin == admins[i].password) {
+      exists = true;
+      console.log("match", admins[i].name);
+      let admin = admins[i];
+      loginAdmin.style.display = "none";
+      sessionStorage.setItem("admin", JSON.stringify(admin));
+      init();
+    }
+  }
+  if (!exists) {
+    alert("wrong password or login");
+  }
+});
+
+function isLoggedInAsAdmin() {
+  let admin = JSON.parse(sessionStorage.getItem("admin"));
+  if (admin) {
+    console.log("logged in as admin", admin);
+    loginAdmin.style.display = "none";
+    init();
+  } else {
+    loginAdmin.style.display = "block";
+  }
+}
 
 let volunteerUserIds = [];
 let donationUserIds = [];
