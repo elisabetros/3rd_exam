@@ -100,7 +100,7 @@ function doLogIn(user) {
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
     singleLink.addEventListener("click", logOut);
-    singleLink.removeEventListener("click", openModal);
+    // singleLink.removeEventListener("click", openModal);
     // singleLink.removeEventListener("click", openModal);
   });
   // alert("you are signed in!");
@@ -228,9 +228,17 @@ function createUser(
       console.log(d);
       signUpModal.style.display = "none";
       setTimeout(() => {
-        doLogIn(newUser);
+        logInNewUser(newUser);
       }, 1000);
     });
+}
+async function logInNewUser(newUser) {
+  const userData = await fetchUsers();
+  userData.find(user => {
+    if (user.name === newUser.name) {
+      doLogIn(user);
+    }
+  });
 }
 
 function openProfile() {
