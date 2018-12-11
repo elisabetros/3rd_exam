@@ -175,7 +175,7 @@ async function checkIfAlreadyUser(form) {
       form.age.value,
       form.email.value,
       form.phonenumber.value,
-      form.passwordv.value
+      form.password.value
     );
   }
   // });
