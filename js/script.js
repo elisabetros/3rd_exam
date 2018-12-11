@@ -143,6 +143,18 @@ async function addProject(id) {
     if (volunteers[i].id === user.id) {
       exists = true;
       console.log("exists", volunteers[i]);
+      let projectsForthisVolunteer = volunteers[i].projects;
+      let found = projectsForthisVolunteer.find(function(project) {
+        if (project.id === matchedProject.id) {
+          return true;
+        }
+      });
+      console.log("found", found);
+      if (found) {
+        console.log("already added, do not add twice");
+        return;
+      }
+      console.log("project does not exists, add to api");
       volunteers[i].projects.push(matchedProject);
       let newDataPosted = await addNewProjectToJson(volunteers[i].projects);
 

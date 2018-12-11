@@ -422,3 +422,7 @@ footer {
       grid-template-columns: 1fr 1fr; } }
   footer .smallText {
     font-size: 1rem; }
+
+.smallContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
