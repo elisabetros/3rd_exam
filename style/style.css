@@ -366,3 +366,7 @@ footer {
 
 .slide {
   transform: translateY(300px); }
+
+.smallContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }

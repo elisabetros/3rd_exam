@@ -163,9 +163,9 @@ a {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 2%;
   margin: auto;
-  h2 {
-    // grid-column: 1/-1;
-  }
+  // h2 {
+  //   // grid-column: 1/-1;
+  // }
   .icon {
     justify-self: center;
     // width: 50%;
@@ -269,4 +269,9 @@ footer {
 
 .slide {
   transform: translateY(300px);
+}
+
+.smallContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
