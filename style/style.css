@@ -24,10 +24,13 @@ header {
         header .deskmenu li {
           font-size: 2rem;
           display: inline-block;
-          margin: 0 3%; }
+          padding: 0 3%;
+          cursor: pointer; }
         header .deskmenu ul {
-          padding-left: 15%;
+          padding-left: 20%;
           display: inline; } }
+    header .deskmenu h2 {
+      cursor: pointer; }
   header svg.logo {
     width: 50%;
     float: left; }
@@ -90,6 +93,35 @@ ul {
   -webkit-transform: rotate(45deg) translate(17px, -14px);
   -ms-transform: rotate(45deg) translate(17px, -14px);
   transform: rotate(45deg) translate(17px, -14px); }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown:hover {
+  border-radius: 5px; }
+
+.dropdown-content {
+  margin: 0;
+  padding: 5% 0 5% 10%;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1; }
+
+.dropdown-content h2 {
+  display: block; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+.arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
 
 #profile {
   position: relative;

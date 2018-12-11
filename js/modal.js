@@ -202,6 +202,7 @@ function openReadMore(id) {
       titleProject.textContent = texts[i].title;
       textProject.innerHTML = texts[i].text;
       imgProject.style.backgroundImage = "url(" + texts[i].img + ")";
+
       //   imgProject.style.background =
       //     "linear-gradient(rgba(255, 0, 0, 0.45), rgba(255, 0, 0, 0.45)), url(" +
       //     texts[i].img +
