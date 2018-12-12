@@ -5,6 +5,7 @@
     width: 100%;
   }
 }
+
 .treeImage {
   // min-height: 60vh;
   background-image: url(../img/environment-forest-ground-1260324.jpg);
@@ -21,12 +22,12 @@
     display: inline;
   }
   .edit {
-    width: 8%;
+    width: 3%;
     @media (min-width: 760px) {
       width: 3%;
     }
     @media (min-width: 1024px) {
-      width: 1%;
+      width: 2%;
     }
   }
   p {
@@ -39,7 +40,7 @@
   background-size: cover;
   opacity: 0.1;
   position: absolute;
-  bottom: 0;
+  bottom: -20vh;
   left: 0;
   width: 300px;
   height: 300px;

@@ -12,17 +12,23 @@ header {
   right: 0;
   width: 100vw;
   z-index: 1;
+  padding: 0 3%;
   transition: all 0.5s; }
+  @media (min-width: 1024px) {
+    header {
+      display: grid;
+      grid-template-columns: 1fr 0.5fr auto; } }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {
       header .deskmenu {
+        grid-column: 3;
         display: initial; }
         header .deskmenu li {
           margin: 3% 0;
           font-size: 3rem;
           display: inline-block;
-          padding: 0 3%;
+          padding: 0 5%;
           cursor: pointer; }
         header .deskmenu ul {
           padding-left: 10%;
@@ -36,7 +42,8 @@ header {
     float: left; }
     @media (min-width: 1024px) {
       header svg.logo {
-        width: 20%; } }
+        width: 50%;
+        margin: 3%; } }
   header svg.menuIcon {
     margin: 5%;
     z-index: 10;
@@ -147,13 +154,13 @@ ul {
   .treeImage h1 {
     display: inline; }
   .treeImage .edit {
-    width: 8%; }
+    width: 3%; }
     @media (min-width: 760px) {
       .treeImage .edit {
         width: 3%; } }
     @media (min-width: 1024px) {
       .treeImage .edit {
-        width: 1%; } }
+        width: 2%; } }
   .treeImage p {
     margin: 0 0 0 3%; }
 
@@ -162,7 +169,7 @@ ul {
   background-size: cover;
   opacity: 0.1;
   position: absolute;
-  bottom: 0;
+  bottom: -20vh;
   left: 0;
   width: 300px;
   height: 300px; }
