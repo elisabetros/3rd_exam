@@ -4,6 +4,51 @@ window.addEventListener("load", isLoggedInAsAdmin);
 
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io/";
 let userID = [];
+let volunteerUserIds = [];
+let donationUserIds = [];
+let userData;
+let userAllData = {
+  userID: "",
+  name: "",
+  dateOfBirth: "",
+  donations: "",
+  volunteering: "",
+  region: ""
+};
+
+// function countAge(userData) {
+//   console.log("userData for age function", userData);
+//   let age = [];
+//   for (let i = 0; i < userData.length; i++) {
+//     let birthDate = userData[i].birthDate;
+//     let birthYear = birthDate.substr(birthDate.length - 4);
+//     // console.log("birthYear", birthYear);
+//     let today = new Date();
+//     age.push(today.getFullYear() - birthYear);
+//   }
+//   console.log("age", age);
+// }
+
+//create lists of all users data, combine data from different endpoints
+
+function createUserData(allData) {
+  let usersAllData = [];
+  let users = allData.users;
+  let donations = allData.donations;
+  let volunteers = allData.volunteers;
+  console.log("users", users);
+  for (let i = 0; i < users.length; i++) {
+    let userIndex = Object.create(userAllData);
+    userIndex.id = users[i].id;
+    userIndex.name = users[i].name;
+    console.log("userindex name", userIndex.name);
+    userIndex.dateOfBirth = users[i].birthDate;
+    usersAllData.push(userIndex);
+  }
+  console.log("userIndex", usersAllData);
+}
+
+//admins Authentication
 
 const admins = [
   {
@@ -17,6 +62,8 @@ const admins = [
     password: 111222
   }
 ];
+
+let adminName = document.querySelector("#adminName");
 
 let submitAdmin = document.querySelector("#submitAdmin");
 let loginAdmin = document.querySelector("#loginform");
@@ -34,6 +81,7 @@ submitAdmin.addEventListener("click", function(e) {
       console.log("match", admins[i].name);
       let admin = admins[i];
       loginAdmin.style.display = "none";
+      adminName.textContent = "Hello" + " " + admins[i].name + "!";
       sessionStorage.setItem("admin", JSON.stringify(admin));
       init();
     }
@@ -54,10 +102,23 @@ function isLoggedInAsAdmin() {
   }
 }
 
-let volunteerUserIds = [];
-let donationUserIds = [];
-let userData;
+let logOutBtn = document.querySelector("#logout");
 
+logOutBtn.addEventListener("click", function() {
+  logOutAdmin();
+});
+
+function logOutAdmin() {
+  alert("You have successfully logged out");
+  setTimeout(function() {
+    sessionStorage.removeItem("admin");
+    window.location.href = "index.html";
+  }, 1000);
+}
+
+//admins authentication ends
+
+// menu
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
 }
@@ -66,49 +127,46 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 
-// Chart.scaleService.updateScaleDefaults("linear", {
-//   ticks: {
-//     min: 0
-//   }
-// });
+//menu ends
 
 function fetchDonations() {
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/money")
       .then(res => res.json())
       .then(function(data) {
-        console.log("donations: ", data);
-        let totalAmount = 0;
-        let amountOverview = [0, 0, 0, 0];
-        for (let i = 0; i < data.length; i++) {
-          donationUserIds.push(data[i].userID);
-          console.log("donations userID is:", donationUserIds);
-          // Convert to int
-          data[i].amount = parseInt(data[i].amount);
-
-          // Add to total amount
-          totalAmount = totalAmount + data[i].amount;
-          console.log("totalAmount: ", totalAmount);
-
-          // Put into overview
-          if (data[i].amount < 100) {
-            amountOverview[0]++;
-          } else if (data[i].amount >= 100 && data[i].amount < 500) {
-            amountOverview[1]++;
-          } else if (data[i].amount >= 500 && data[i].amount < 1000) {
-            amountOverview[2]++;
-          } else if (data[i].amount >= 1000) {
-            amountOverview[3]++;
-          }
-        }
-        //display all the donations
-        const totalMoney = document.getElementById("totalMoney");
-        totalMoney.querySelector("h1").innerHTML = totalAmount + " dkk";
-        console.log("amountOverview: ", amountOverview);
-
-        resolve(amountOverview);
+        resolve(data);
       });
   });
+}
+function donationsOverview(donations) {
+  console.log("donations: ", donations);
+  let totalAmount = 0;
+  let amountOverview = [0, 0, 0, 0];
+  for (let i = 0; i < donations.length; i++) {
+    donationUserIds.push(donations[i].userID);
+    console.log("donations userID is:", donationUserIds);
+    // Convert to int
+    donations[i].amount = parseInt(donations[i].amount);
+
+    // Add to total amount
+    totalAmount = totalAmount + donations[i].amount;
+    console.log("totalAmount: ", totalAmount);
+
+    // Put into overview
+    if (donations[i].amount < 100) {
+      amountOverview[0]++;
+    } else if (donations[i].amount >= 100 && donations[i].amount < 500) {
+      amountOverview[1]++;
+    } else if (donations[i].amount >= 500 && donations[i].amount < 1000) {
+      amountOverview[2]++;
+    } else if (donations[i].amount >= 1000) {
+      amountOverview[3]++;
+    }
+  }
+  //display all the donations
+  const totalMoney = document.getElementById("totalMoney");
+  totalMoney.querySelector("h1").innerHTML = totalAmount + " dkk";
+  console.log("amountOverview: ", amountOverview);
 }
 
 function fetchUsers() {
@@ -285,7 +343,7 @@ function matchByGender(userData, userIds) {
     }
 
     if (!exists) {
-      console.log("Not existing in volunteers array. Dont count.");
+      // console.log("Not existing in volunteers array. Dont count.");
     }
   }
   console.log("matchByGender", matchByGender);
@@ -323,10 +381,10 @@ function countAges(userData) {
   let ages = [];
 
   for (let i = 0; i < userData.length; i++) {
-    console.log("userData.birthDate", userData[i].birthDate);
+    // console.log("userData.birthDate", userData[i].birthDate);
     let birthDate = userData[i].birthDate;
     let birthYear = birthDate.substr(birthDate.length - 4);
-    console.log("birthYear", birthYear);
+    // console.log("birthYear", birthYear);
     let today = new Date();
     ages.push(today.getFullYear() - birthYear);
     // console.log("age", age);
@@ -340,7 +398,7 @@ function splitAge(ages) {
   let agesOverview = [0, 0, 0, 0, 0];
 
   for (let i = 0; i < ages.length; i++) {
-    console.log("ages", ages[i]);
+    // console.log("ages", ages[i]);
     if (ages[i] <= 18) {
       agesOverview[0]++;
     } else if (ages[i] > 18 && ages[i] <= 35) {
@@ -352,7 +410,7 @@ function splitAge(ages) {
     } else if (ages[i] > 67) {
       agesOverview[4]++;
     }
-    console.log("agesOverview", agesOverview);
+    // console.log("agesOverview", agesOverview);
     // displayAgeChart(agesOverview);
   }
 
@@ -390,10 +448,11 @@ function displayAgeChart(agesOverview) {
 async function init() {
   // Fetch data
   const userData = await fetchUsers();
-  // const genders = countGenders(userData);
+
   const donations = await fetchDonations();
   const volunteers = await fetchVolunteers();
 
+  // const genders = countGenders(userData);
   // Manipulate/convert data
   const volunteersByArea = countVolunteersByAreas(volunteers);
   const volunteersByGender = matchByGender(userData, volunteerUserIds);
@@ -407,18 +466,13 @@ async function init() {
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
   displayAgeChart(agesOverview);
-}
+  donationsOverview(donations);
 
-let logOutBtn = document.querySelector("#logout");
+  const allData = {
+    users: userData,
+    donations: donations,
+    volunteers: volunteers
+  };
 
-logOutBtn.addEventListener("click", function() {
-  logOutAdmin();
-});
-
-function logOutAdmin() {
-  alert("You have successfully logged out");
-  setTimeout(function() {
-    sessionStorage.removeItem("admin");
-    window.location.href = "index.html";
-  }, 1000);
+  createUserData(allData);
 }

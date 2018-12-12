@@ -21,7 +21,7 @@
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #111;
+        background-color: rgb(168, 161, 161);
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
@@ -68,6 +68,21 @@
         position: absolute;
         background-color: rgb(135, 139, 135);
       }
+
+      #logout {
+        color: white;
+      }
+
+      .modalDonations {
+        width: 40vw;
+        height: 60vh;
+        background-color: rgb(138, 113, 113);
+        color: black;
+        position: absolute;
+        margin: 5em;
+        overflow-y: auto;
+        /* max-height: 60vh; */
+      }
     </style>
   </head>
   <body>
@@ -79,11 +94,25 @@
         <input type="password" name="password" id="password" />
       </form>
     </div>
+    <div class="modalDonations">
+      <!-- <button>Sort by date</button><button>Sort by amount</button> -->
+      <section id="donations"></section>
+      <template id="donationTemp">
+        <h2 id="userName"></h2>
+        <h3 id="amountDonated"></h3>
+        <h3 id="dateDonated"></h3>
+      </template>
+    </div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
       >
-      <a href="#">Data</a> <a href="#">Data1</a> <a href="#">Data2</a>
+
+      <h2 id="adminName">Name</h2>
+
+      <p id="allDonations">All donations</p>
+      <p>Data1</p>
+      <p>Data2</p>
       <p id="logout">Log out</p>
     </div>
     <span style="font-size:20px;cursor:pointer" onclick="openNav()"
