@@ -12,33 +12,33 @@ header {
   right: 0;
   width: 100vw;
   z-index: 1;
-  padding: 5%;
   transition: all 0.5s; }
-  @media (min-width: 1024px) {
-    header {
-      height: 80px; } }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {
       header .deskmenu {
         display: initial; }
         header .deskmenu li {
-          font-size: 2rem;
+          margin: 3% 0;
+          font-size: 3rem;
           display: inline-block;
           padding: 0 3%;
           cursor: pointer; }
         header .deskmenu ul {
-          padding-left: 20%;
+          padding-left: 10%;
           display: inline; } }
     header .deskmenu h2 {
+      font-size: 3rem;
       cursor: pointer; }
   header svg.logo {
+    margin: 1% 3% 1%;
     width: 30%;
     float: left; }
     @media (min-width: 1024px) {
       header svg.logo {
         width: 20%; } }
   header svg.menuIcon {
+    margin: 5%;
     z-index: 10;
     float: right;
     fill: white;
