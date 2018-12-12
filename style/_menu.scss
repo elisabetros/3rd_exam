@@ -11,6 +11,7 @@ header {
   z-index: 1;
   // position: absolute;
   padding: 5%;
+  transition: all 0.5s;
   @media (min-width: 1024px) {
     height: 80px;
   }
@@ -147,4 +148,7 @@ ul {
   padding: 3px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+.nav-colored {
+  background-color: rgba(0, 0, 0, 0.8);
 }

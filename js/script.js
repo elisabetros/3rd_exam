@@ -8,6 +8,7 @@ let menuIcon = document.querySelector(".menuIcon");
 let menu = document.querySelector(".menu");
 let bars = menuIcon.querySelectorAll("rect");
 let menuLinks = document.querySelectorAll(".menu>ul>li");
+let header = document.querySelector("header");
 menuIcon.addEventListener("click", toggleMenu);
 menuLinks.forEach(link => {
   link.addEventListener("click", toggleMenu);
@@ -21,6 +22,15 @@ function toggleMenu() {
   bars[2].classList.toggle("rotateUp");
   menu.classList.toggle("hidden");
 }
+
+window.addEventListener("scroll", function(e) {
+  // var header = document.getElementById("nav");
+  if (scrollY >= 800) {
+    header.style.backgroundColor = "rgba(0,0,0,.7)";
+  } else {
+    header.style.backgroundColor = "rgba(0,0,0,0)";
+  }
+});
 
 //MENU ends
 

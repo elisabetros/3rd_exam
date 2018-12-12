@@ -109,4 +109,19 @@ p > .signIn {
     top: 0;
     right: 2vw;
   }
+  .button {
+    width: 80%;
+    margin: 0 auto 5%;
+  }
+  .shareIcons {
+    margin: 5% 0 5% 30%;
+    p {
+      font-size: 1.5rem;
+      display: inline;
+    }
+    img {
+      display: inline;
+      width: 15%;
+    }
+  }
 }

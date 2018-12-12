@@ -12,7 +12,8 @@ header {
   right: 0;
   width: 100vw;
   z-index: 1;
-  padding: 5%; }
+  padding: 5%;
+  transition: all 0.5s; }
   @media (min-width: 1024px) {
     header {
       height: 80px; } }
@@ -123,6 +124,9 @@ ul {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg); }
 
+.nav-colored {
+  background-color: rgba(0, 0, 0, 0.8); }
+
 .box {
   width: 400px;
   height: 260px;
@@ -232,6 +236,17 @@ p > .signIn {
     position: absolute;
     top: 0;
     right: 2vw; }
+  .description .button {
+    width: 80%;
+    margin: 0 auto 5%; }
+  .description .shareIcons {
+    margin: 5% 0 5% 30%; }
+    .description .shareIcons p {
+      font-size: 1.5rem;
+      display: inline; }
+    .description .shareIcons img {
+      display: inline;
+      width: 15%; }
 
 * {
   box-sizing: border-box; }
