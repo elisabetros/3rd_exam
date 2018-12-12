@@ -12,32 +12,33 @@ header {
   right: 0;
   width: 100vw;
   z-index: 1;
-  padding: 5%; }
-  @media (min-width: 1024px) {
-    header {
-      height: 80px; } }
+  transition: all 0.5s; }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {
       header .deskmenu {
         display: initial; }
         header .deskmenu li {
-          font-size: 2rem;
+          margin: 3% 0;
+          font-size: 3rem;
           display: inline-block;
           padding: 0 3%;
           cursor: pointer; }
         header .deskmenu ul {
-          padding-left: 20%;
+          padding-left: 10%;
           display: inline; } }
     header .deskmenu h2 {
+      font-size: 3rem;
       cursor: pointer; }
   header svg.logo {
-    width: 50%;
+    margin: 1% 3% 1%;
+    width: 30%;
     float: left; }
     @media (min-width: 1024px) {
       header svg.logo {
         width: 20%; } }
   header svg.menuIcon {
+    margin: 5%;
     z-index: 10;
     float: right;
     fill: white;
@@ -123,6 +124,9 @@ ul {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg); }
 
+.nav-colored {
+  background-color: rgba(0, 0, 0, 0.8); }
+
 #profile {
   z-index: 1; }
 
@@ -191,7 +195,7 @@ form {
 
 .modal-content {
   color: black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
   margin: 5% auto;
   padding: 5%;
@@ -236,7 +240,7 @@ p > .signIn {
   .description .textProject > h3 {
     color: black; }
   .description .left {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1; }
   .description .titleProject {
     margin-top: 50vh;
@@ -244,11 +248,9 @@ p > .signIn {
     color: white;
     font-size: 5rem; }
   .description .textProject {
-    padding: 10%;
-    grid-column: 2;
-    grid-row: 1; }
+    padding: 10%; }
   .description .imgProject {
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px 0 0 5px;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -258,6 +260,17 @@ p > .signIn {
     position: absolute;
     top: 0;
     right: 2vw; }
+  .description .button {
+    width: 80%;
+    margin: 0 auto 5%; }
+  .description .shareIcons {
+    margin: 5% 0 5% 30%; }
+    .description .shareIcons p {
+      font-size: 1.5rem;
+      display: inline; }
+    .description .shareIcons img {
+      display: inline;
+      width: 15%; }
 
 * {
   box-sizing: border-box; }
@@ -316,6 +329,7 @@ a {
   margin: 0 0 5%; }
 
 .button {
+  border-radius: 5px;
   cursor: pointer;
   font-family: futuraBold;
   background-color: #fa7960;
@@ -355,6 +369,7 @@ a {
         padding: 4vh 0 0 5vh; } }
 
 .choose {
+  border-radius: 5px;
   margin: auto;
   background-color: #f95738;
   width: 40vw;
@@ -458,7 +473,7 @@ a {
       margin: 1%;
       padding: 5%;
       background-color: #283618;
-      border-radius: 10px; }
+      border-radius: 5px; }
   #about img {
     width: 50%; }
 
