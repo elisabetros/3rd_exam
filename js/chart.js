@@ -7,14 +7,6 @@ let userID = [];
 let volunteerUserIds = [];
 let donationUserIds = [];
 let userData;
-let userAllData = {
-  userID: "",
-  name: "",
-  dateOfBirth: "",
-  donations: "",
-  volunteering: "",
-  region: ""
-};
 
 // function countAge(userData) {
 //   console.log("userData for age function", userData);
@@ -36,16 +28,109 @@ function createUserData(allData) {
   let users = allData.users;
   let donations = allData.donations;
   let volunteers = allData.volunteers;
-  console.log("users", users);
+  console.log("donations", donations);
   for (let i = 0; i < users.length; i++) {
-    let userIndex = Object.create(userAllData);
-    userIndex.id = users[i].id;
-    userIndex.name = users[i].name;
-    console.log("userindex name", userIndex.name);
-    userIndex.dateOfBirth = users[i].birthDate;
-    usersAllData.push(userIndex);
+    let user = {
+      userID: Number(users[i].id),
+      name: users[i].name,
+      dateOfBirth: users[i].birthDate,
+      donations: [],
+      projects: [],
+      region: ""
+    };
+    usersAllData.push(user);
   }
-  console.log("userIndex", usersAllData);
+
+  console.log("usersAllData", usersAllData);
+  for (let i = 0; i < usersAllData.length; i++) {
+    for (let u = 0; u < donations.length; u++) {
+      if (usersAllData[i].userID == donations[u].userID) {
+        usersAllData[i].donations.push(donations[u]);
+        // console.log(
+        //   "it's a match!",
+        //   usersAllData[i].userID,
+        //   donations[u].userID
+        // );
+      }
+    }
+  }
+  console.log("users with donations", usersAllData);
+  for (let i = 0; i < usersAllData.length; i++) {
+    for (let u = 0; u < volunteers.length; u++) {
+      if (usersAllData[i].userID == volunteers[u].userID) {
+        usersAllData[i].region = volunteers[u].area;
+        usersAllData[i].projects.push(...volunteers[u].projects);
+        // console.log(
+        //   "it's a match!",
+        //   usersAllData[i].userID,
+        //   volunteers[u].userID
+        // );
+      }
+    }
+  }
+  return usersAllData;
+}
+
+//insert data to DOM
+
+function createLists(usersAllData) {
+  console.log("users all data in template", usersAllData);
+  let template = document.querySelector("#donationTemp").content;
+  for (let i = 0; i < usersAllData.length; i++) {
+    // console.log("usersAllData[i]", usersAllData[i]);
+    if (usersAllData[i].donations && usersAllData[i].donations.length) {
+      console.log("usersAllData[i].donations", usersAllData[i].donations);
+      for (let u = 0; u < usersAllData[i].donations.length; u++) {
+        console.log(
+          "usersAllData[i].donations[u] ",
+          usersAllData[i].donations[u]
+        );
+        let clone = template.cloneNode(true);
+        clone.querySelector("#userName").textContent = usersAllData[i].name;
+        clone.querySelector("#amountDonated").textContent =
+          usersAllData[i].donations[u].amount + "dkk";
+        // let dateFormatted = moment( usersAllData[i].donations[u].date).format(
+        //   "DD[/]MM[/]YYYY"
+        // );
+        clone.querySelector("#dateDonated").textContent = moment(
+          usersAllData[i].donations[u].date
+        ).format("DD[/]MM[/]YYYY");
+
+        document.querySelector("#donations").appendChild(clone);
+      }
+
+      let modalDonation = document.querySelector(".modalDonations");
+      let btnDonations = document.querySelector("#allDonations");
+      btnDonations.addEventListener("click", function() {
+        modalDonation.style.display = "block";
+      });
+
+      window.onclick = function(event) {
+        if (event.target == modalDonation) {
+          modalDonation.style.display = "none";
+        }
+      };
+
+      // let liCreated = document.createElement("li");
+      // document.querySelector("#donations").appendChild(clone);
+      //  usersAllData[i].donations.forEach(donation=>{
+
+      // }
+    }
+    // for (let u = 0; u < usersAllData[i].donations; u++) {
+
+    //   console.log(clone.querySelector("#amountDonatedList"));
+    // }
+    // clone.querySelector("#amountDonatedList").textContent =
+    //   usersAllData[i].donations.amount;
+    // if (usersAllData[i].donations && usersAllData[i].donations.length) {
+    //   for (let u = 0; u < usersAllData[i].donations; u++) {
+    //     clone.querySelector("#amountDonated").textContent =
+    //       usersAllData[i].donations[u].amount;
+    //     console.log("not working", usersAllData[i].donations[u].amount);
+    //   }
+    // }
+  }
 }
 
 //admins Authentication
@@ -316,14 +401,14 @@ function displayVolunteering(area) {
   });
 }
 
-function matchByGender(userData, userIds) {
+function matchByGender(userData, donationUserIds) {
   let matchByGender = [0, 0, 0];
   for (let i = 0; i < userData.length; i++) {
     let exists = false;
     // console.log("first loop!", userData[i].id);
-    for (let u = 0; u < userIds.length; u++) {
+    for (let u = 0; u < donationUserIds.length; u++) {
       // console.log("second loop!", userIds[u]);
-      if (userData[i].id == userIds[u]) {
+      if (userData[i].id == donationUserIds[u]) {
         exists = true;
         // console.log("it's a match", userData[i].id, userIds[u]);
       }
@@ -473,6 +558,7 @@ async function init() {
     donations: donations,
     volunteers: volunteers
   };
-
-  createUserData(allData);
+  const usersAllData = createUserData(allData);
+  console.log("usersAll in init", usersAllData);
+  createLists(usersAllData);
 }
