@@ -28,7 +28,7 @@ form {
 
 .modal-content {
   color: black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
   margin: 5% auto;
   padding: 5%;
@@ -84,7 +84,7 @@ p > .signIn {
     color: black;
   }
   .left {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
   }
   .titleProject {
@@ -95,11 +95,9 @@ p > .signIn {
   }
   .textProject {
     padding: 10%;
-    grid-column: 2;
-    grid-row: 1;
   }
   .imgProject {
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px 0 0 5px;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

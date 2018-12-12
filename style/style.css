@@ -32,7 +32,7 @@ header {
     header .deskmenu h2 {
       cursor: pointer; }
   header svg.logo {
-    width: 50%;
+    width: 30%;
     float: left; }
     @media (min-width: 1024px) {
       header svg.logo {
@@ -167,7 +167,7 @@ form {
 
 .modal-content {
   color: black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
   margin: 5% auto;
   padding: 5%;
@@ -212,7 +212,7 @@ p > .signIn {
   .description .textProject > h3 {
     color: black; }
   .description .left {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1; }
   .description .titleProject {
     margin-top: 50vh;
@@ -220,11 +220,9 @@ p > .signIn {
     color: white;
     font-size: 5rem; }
   .description .textProject {
-    padding: 10%;
-    grid-column: 2;
-    grid-row: 1; }
+    padding: 10%; }
   .description .imgProject {
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px 0 0 5px;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -292,6 +290,7 @@ a {
   margin: 0 0 5%; }
 
 .button {
+  border-radius: 5px;
   cursor: pointer;
   font-family: futuraBold;
   background-color: #fa7960;
@@ -331,6 +330,7 @@ a {
         padding: 4vh 0 0 5vh; } }
 
 .choose {
+  border-radius: 5px;
   margin: auto;
   background-color: #f95738;
   width: 40vw;
@@ -434,7 +434,7 @@ a {
       margin: 1%;
       padding: 5%;
       background-color: #283618;
-      border-radius: 10px; }
+      border-radius: 5px; }
   #about img {
     width: 50%; }
 

@@ -115,31 +115,65 @@ async function makeNewDonation(formElements) {
   let newCreatedDonation = await addNewDonation(newDonation);
   console.log("new created", newCreatedDonation);
   formModal.style.display = "none";
-  showAlertModal("You have succsessfully donated ", newDonation.amount);
+  let string = "You have successfully donated " + newDonation.amount;
+  showAlertModal(string);
 }
 async function makeNewVolunteer(formElements) {
   let volunteers = await fetchVolunteer();
   let user = JSON.parse(sessionStorage.getItem("user"));
   let found = volunteers.find(volunteer => {
     if (volunteer.id === user.id) {
-      alert(
-        "You are already signed up as a volunteer, choose a program to volunteer at"
-      );
+      // Put request
+      let changedVolunteer = {
+        userID: user.id,
+        date: new Date(),
+        area: formElements.region.value,
+        projects: []
+      };
       return true;
     }
   });
+  let newVolunteer = {
+    userID: user.id,
+    date: new Date(),
+    area: formElements.region.value
+    // projects: []
+  };
   if (!found) {
-    let newVolunteer = {
-      userID: user.id,
-      date: new Date(),
-      area: formElements.region.value,
-      projects: []
-    };
     console.log("newVolunteer", newVolunteer);
     let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
     console.log("newCreated", newCreatedVolunteer);
+    showAlertModal(
+      "Thank you for signing up as a volunteer in this area, we will contact you with projects in the are via email"
+    );
+    form.formModal.style.display = "none";
+  } else {
+    console.log("updatedVolunteer", newVolunteer);
+    let updatedVolunteer = await changeVolunteer(newVolunteer);
+    console.log("updated", updatedVolunteer);
+    showAlertModal(
+      "You have successfully changed the are you want to volunteer in"
+    );
   }
 }
+function changeVolunteer(newVolunteer) {
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/volunteer/" + newVolunteer.userID, {
+      method: "PUT",
+      body: JSON.stringify(newVolunteer),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+        console.log(data);
+      });
+  });
+}
+
 function addNewDonation(newDonation) {
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/money", {
