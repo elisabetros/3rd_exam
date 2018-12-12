@@ -1,9 +1,5 @@
 #profile {
-  // position: relative;
-  // padding: 15vh;
-  // display: grid;
-  // grid-template-columns: 1fr 2fr 2fr;
-  // grid-gap: 1em;
+  z-index: 1;
 }
 
 .userMenu {
@@ -23,7 +19,7 @@
   color: black;
 }
 .treeImage {
-  min-height: 100vh;
+  min-height: 60vh;
   background-image: url(../img/environment-forest-ground-1260324.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -40,5 +36,44 @@
   }
   p {
     margin: 0 0 0 3%;
+  }
+}
+
+.donationsArea {
+  grid-area: donations;
+}
+
+// .content {
+//   grid-area: content;
+// }
+
+.volunteerArea {
+  grid-area: volunteer;
+}
+
+// #wrapper {
+//   display: grid;
+//   grid-template-columns: 2fr 2fr;
+// }
+
+#wrapper {
+  padding: 2em;
+  z-index: 10;
+  position: absolute;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "....... volunteer  volunteer"
+    "donations volunteer volunteer"
+    "donations volunteer volunteer";
+  // background-color: #fff;
+  // color: #444;
+  h1,
+  h3,
+  h4,
+  p,
+  h2 {
+    color: $darkGreen;
   }
 }

@@ -39,30 +39,31 @@
         <p class="profileEmail">Elb@</p>
         <p class="profileTel">sdf</p>
       </div>
-      <div class="box" id="userDonations">
-        Donations you've made
-        <p>You have donated:</p>
-        <h3 class="donationsMade"></h3>
-        <section id="allDonations"></section>
-        <template id="donationsTemplate"
-          ><div class="smallContainer">
-            <h4 id="amount"></h4>
-            <h4 id="dateDonation"></h4></div
-        ></template>
+      <div id="wrapper">
+        <div class="donationsArea" id="userDonations">
+          Donations you've made
+          <p>You have donated:</p>
+          <h3 class="donationsMade"></h3>
+          <section id="allDonations"></section>
+          <template id="donationsTemplate"
+            ><div class="smallContainer">
+              <h4 id="amount"></h4>
+              <h4 id="dateDonation"></h4></div
+          ></template>
+        </div>
+        <div class="volunteerArea" id="userVolunteering">
+          You are a volunteer!
+          <p id="signedUpArea">You are signed up as a volunteer in</p>
+          <br />
+          <h3 id="area"></h3>
+          <h2 id="youSignedUp">Projects you signed up for</h2>
+          <section id="projectSection"></section>
+          <template id="projectTemplate">
+            <h3 id="projectName"></h3>
+            <p id="projectDate"></p>
+          </template>
+        </div>
       </div>
-      <div class="box" id="userVolunteering">
-        You are a volunteer!
-        <p id="signedUpArea">You are signed up as a volunteer in</p>
-        <br />
-        <h3 id="area"></h3>
-        <h2 id="youSignedUp">Projects you signed up for</h2>
-        <section id="projectSection"></section>
-        <template id="projectTemplate">
-          <h3 id="projectName"></h3>
-          <p id="projectDate"></p>
-        </template>
-      </div>
-      <!-- <div class="box" id="userSettings">Your settings</div> -->
     </main>
     <script src="lib/moment-with-locales.min.js"></script>
     <script src="js/profile.js"></script>

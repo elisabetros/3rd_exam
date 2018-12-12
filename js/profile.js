@@ -147,6 +147,15 @@ function fillInTemplateProjects(userData) {
   }
 }
 
+function fillInData(user) {
+  let userName = document.querySelector(".profileName");
+  let userEmail = document.querySelector(".profileEmail");
+  let userPhone = document.querySelector(".profileTel");
+  userName.textContent = user.name;
+  userEmail.textContent = user.email;
+  userPhone.textContent = "tel:" + user.phonenumber;
+}
+
 async function init() {
   const donationsData = await fetchDonations();
   const volunteeringData = await fetchVolunteer();
@@ -161,5 +170,6 @@ async function init() {
   linkOut.forEach(link => {
     link.addEventListener("click", logOut);
   });
+  fillInData(user);
   // fillTemplateDonations(thisUserDonations);
 }
