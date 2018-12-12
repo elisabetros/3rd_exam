@@ -1,9 +1,58 @@
 "use strict";
 
-window.addEventListener("load", init);
+window.addEventListener("load", isLoggedInAsAdmin);
 
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io/";
 let userID = [];
+
+const admins = [
+  {
+    id: 1,
+    name: "Katya",
+    password: 222111
+  },
+  {
+    id: 2,
+    name: "Elisabet",
+    password: 111222
+  }
+];
+
+let submitAdmin = document.querySelector("#submitAdmin");
+let loginAdmin = document.querySelector("#loginform");
+
+submitAdmin.addEventListener("click", function(e) {
+  e.preventDefault();
+  let inputName = document.querySelector("#username").value;
+  let passwordAdmin = document.querySelector("#password").value;
+  console.log("value", inputName);
+  console.log("pass", passwordAdmin);
+  let exists = false;
+  for (let i = 0; i < admins.length; i++) {
+    if (inputName == admins[i].name && passwordAdmin == admins[i].password) {
+      exists = true;
+      console.log("match", admins[i].name);
+      let admin = admins[i];
+      loginAdmin.style.display = "none";
+      sessionStorage.setItem("admin", JSON.stringify(admin));
+      init();
+    }
+  }
+  if (!exists) {
+    alert("wrong password or login");
+  }
+});
+
+function isLoggedInAsAdmin() {
+  let admin = JSON.parse(sessionStorage.getItem("admin"));
+  if (admin) {
+    console.log("logged in as admin", admin);
+    loginAdmin.style.display = "none";
+    init();
+  } else {
+    loginAdmin.style.display = "block";
+  }
+}
 
 let volunteerUserIds = [];
 let donationUserIds = [];
@@ -165,18 +214,6 @@ function displayVolunteering(area) {
     type: "bar",
     beginAtZero: true,
 
-    // scaleOverride: true,
-    // scaleSteps: step,
-    // scaleStepWidth: Math.ceil(max / step),
-    // scaleStartValue: 0,
-    // ticks: {
-    //   beginAtZero: true,
-    //   callback: function(value) {
-    //     if (value % 1 === 0) {
-    //       return value;
-    //     }
-    //   }
-
     data: {
       labels: [
         "Zealand",
@@ -254,34 +291,6 @@ function matchByGender(userData, userIds) {
   console.log("matchByGender", matchByGender);
   return matchByGender;
 }
-
-// function matchDonationByGender(userData, donationUserIds) {
-//   let donationByGender = [0, 0, 0];
-//   for (let i = 0; i < userData.length; i++) {
-//     let exists = false;
-//     console.log("first loop donation", userData[i].id);
-//     for (let u = 0; u < donationUserIds.length; u++) {
-//       if (userData[i].id == donationUserIds[u]) {
-//         exists = true;
-//       }
-//     }
-
-//     if (exists) {
-//       if (userData[i].gender === "f") {
-//         donationByGender[0]++;
-//       } else if (userData[i].gender === "m" || userData[i].gender === "male") {
-//         donationByGender[1]++;
-//       } else {
-//         donationByGender[2]++;
-//       }
-//     }
-//     if (!exists) {
-//       console.log("Not existing in donation array. Dont count.");
-//     }
-//   }
-//   console.log("donationsByGender", donationByGender);
-//   return donationByGender;
-// }
 
 function displayChartByGender(volunteersByGender, donationByGender) {
   new Chart(document.getElementById("genderChart"), {
@@ -398,4 +407,18 @@ async function init() {
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
   displayAgeChart(agesOverview);
+}
+
+let logOutBtn = document.querySelector("#logout");
+
+logOutBtn.addEventListener("click", function() {
+  logOutAdmin();
+});
+
+function logOutAdmin() {
+  alert("You have successfully logged out");
+  setTimeout(function() {
+    sessionStorage.removeItem("admin");
+    window.location.href = "index.html";
+  }, 1000);
 }

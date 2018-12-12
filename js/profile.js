@@ -133,7 +133,7 @@ function logOut() {
 function fillInTemplateProjects(userData) {
   let template = document.querySelector("#projectTemplate").content;
 
-  if (userData.projects.length > 1) {
+  if (userData.projects.length > 0) {
     let usersProjects = userData.projects;
     usersProjects.forEach(project => {
       let clone = template.cloneNode(true);

@@ -61,15 +61,30 @@
       h2 {
         font-size: 15px;
       }
+
+      #loginform {
+        width: 40vw;
+        height: 50vh;
+        position: absolute;
+        background-color: rgb(135, 139, 135);
+      }
     </style>
   </head>
   <body>
+    <div id="loginform">
+      <form>
+        <button id="submitAdmin">Sign in</button> <label>User Name :</label>
+        <input type="text" name="username" id="username" />
+        <label>Password :</label>
+        <input type="password" name="password" id="password" />
+      </form>
+    </div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
       >
       <a href="#">Data</a> <a href="#">Data1</a> <a href="#">Data2</a>
-      <a href="#">Log out</a>
+      <p id="logout">Log out</p>
     </div>
     <span style="font-size:20px;cursor:pointer" onclick="openNav()"
       >&#9776;

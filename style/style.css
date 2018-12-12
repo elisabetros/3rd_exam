@@ -464,3 +464,6 @@ footer {
 
 .descHeight {
   min-height: 19vh; }
+
+.hidden {
+  display: none; }
