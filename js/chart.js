@@ -408,3 +408,17 @@ async function init() {
   displayVolunteering(volunteersByArea);
   displayAgeChart(agesOverview);
 }
+
+let logOutBtn = document.querySelector("#logout");
+
+logOutBtn.addEventListener("click", function() {
+  logOutAdmin();
+});
+
+function logOutAdmin() {
+  alert("You have successfully logged out");
+  setTimeout(function() {
+    sessionStorage.removeItem("admin");
+    window.location.href = "index.html";
+  }, 1000);
+}
