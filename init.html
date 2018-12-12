@@ -356,28 +356,11 @@
         ]
       };
 
-      // mydata.users.forEach((u, i) => {
-      //   setTimeout(() => {
-      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
-      //       method: "post",
-      //       body: JSON.stringify(u),
-      //       headers: {
-      //         Accept: "application/json",
-      //         "Content-Type": "application/json"
-      //       }
-      //     })
-      //       .then(res => res.json())
-      //       .then(d => {
-      //         console.log("added ", u.name);
-      //       });
-      //   }, i * 500);
-      // });
-
-      mydata.donation.forEach((d, i) => {
+      mydata.users.forEach((u, i) => {
         setTimeout(() => {
-          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/money`, {
+          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
             method: "post",
-            body: JSON.stringify(d),
+            body: JSON.stringify(u),
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json"
@@ -385,10 +368,27 @@
           })
             .then(res => res.json())
             .then(d => {
-              console.log("donated ", d.amount);
+              console.log("added ", u.name);
             });
         }, i * 500);
       });
+
+      // mydata.donation.forEach((d, i) => {
+      //   setTimeout(() => {
+      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/money`, {
+      //       method: "post",
+      //       body: JSON.stringify(d),
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json"
+      //       }
+      //     })
+      //       .then(res => res.json())
+      //       .then(d => {
+      //         console.log("donated ", d.amount);
+      //       });
+      //   }, i * 500);
+      // });
 
       // mydata.volunteer.forEach((v, i) => {
       //   setTimeout(() => {

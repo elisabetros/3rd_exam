@@ -114,6 +114,8 @@ async function makeNewDonation(formElements) {
   console.log("new donation:", newDonation);
   let newCreatedDonation = await addNewDonation(newDonation);
   console.log("new created", newCreatedDonation);
+  formModal.style.display = "none";
+  showAlertModal("You have succsessfully donated ", newDonation.amount);
 }
 async function makeNewVolunteer(formElements) {
   let volunteers = await fetchVolunteer();
