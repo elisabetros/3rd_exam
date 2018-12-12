@@ -129,12 +129,9 @@ ul {
 
 #profile {
   z-index: 1; }
-
-.box {
-  width: 400px;
-  height: 260px;
-  background-color: grey;
-  color: black; }
+  #profile .line {
+    border: 1px solid #283618;
+    width: 100%; }
 
 .treeImage {
   background-image: url(../img/environment-forest-ground-1260324.jpg);
@@ -143,34 +140,67 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
-  padding: 15% 5% 5%; }
+  padding: 20% 5% 5%; }
+  @media (min-width: 1024px) {
+    .treeImage {
+      padding: 15% 5% 5%; } }
   .treeImage h1 {
     display: inline; }
   .treeImage .edit {
-    width: 3%; }
+    width: 8%; }
+    @media (min-width: 760px) {
+      .treeImage .edit {
+        width: 3%; } }
+    @media (min-width: 1024px) {
+      .treeImage .edit {
+        width: 1%; } }
   .treeImage p {
     margin: 0 0 0 3%; }
 
-.donationsArea {
-  grid-area: donations; }
-
-.volunteerArea {
-  grid-area: volunteer; }
+.seeThroughTree {
+  background-image: url(../img/leaf.svg);
+  background-size: cover;
+  opacity: 0.1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 300px; }
+  @media (min-width: 760px) {
+    .seeThroughTree {
+      width: 500px;
+      height: 500px; } }
 
 #wrapper {
-  padding: 2em;
-  z-index: 10;
-  position: absolute;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas: "....... volunteer  volunteer" "donations volunteer volunteer" "donations volunteer volunteer"; }
+  padding: 5%;
+  margin: auto; }
+  @media (min-width: 1024px) {
+    #wrapper {
+      padding: 0 20%;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1fr; } }
   #wrapper h1,
   #wrapper h3,
   #wrapper h4,
   #wrapper p,
-  #wrapper h2 {
+  #wrapper h2,
+  #wrapper div {
     color: #283618; }
+  #wrapper h3 {
+    text-align: right; }
+  #wrapper h2 {
+    font-size: 2.5rem; }
+  #wrapper #projectSection {
+    display: grid;
+    grid-template-columns: 1fr 2fr; }
+  #wrapper .volunteerArea {
+    padding: 5%; }
+    @media (min-width: 1024px) {
+      #wrapper .volunteerArea {
+        border-left: 1px solid #283618; } }
+  #wrapper .donationsArea {
+    padding: 5%; }
 
 .modal {
   display: none;
