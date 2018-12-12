@@ -1,79 +1,90 @@
 #profile {
   z-index: 1;
+  .line {
+    border: 1px solid $darkGreen;
+    width: 100%;
+  }
 }
 
-.userMenu {
-  // grid-row: 1/2;
-  // grid-column: 1;
-}
-
-#userSettings {
-  // grid-row: 2;
-  // grid-column: 2;
-}
-
-.box {
-  width: 400px;
-  height: 260px;
-  background-color: grey;
-  color: black;
-}
 .treeImage {
-  min-height: 60vh;
-  background-image: url(../img/environment-forest-ground-1260324.jpg);
+  // min-height: 60vh;
+  background-image: url(../img/forest-ground.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  clip-path: polygon(0 0, 100% 0, 100% 41%, 0 65%);
-  padding: 15% 5%;
+  clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
+  padding: 20% 5% 5%;
+  @media (min-width: 1024px) {
+    padding: 15% 5% 5%;
+  }
   h1 {
     display: inline;
   }
   .edit {
     width: 3%;
-    // display: inline;
+    @media (min-width: 760px) {
+      width: 3%;
+    }
+    @media (min-width: 1024px) {
+      width: 2%;
+    }
   }
   p {
     margin: 0 0 0 3%;
   }
 }
 
-.donationsArea {
-  grid-area: donations;
-}
-
-// .content {
-//   grid-area: content;
-// }
-
-.volunteerArea {
-  grid-area: volunteer;
-}
-
-// #wrapper {
-//   display: grid;
-//   grid-template-columns: 2fr 2fr;
-// }
-
-#wrapper {
-  padding: 2em;
-  z-index: 10;
+.seeThroughTree {
+  background-image: url(../img/leaf.svg);
+  background-size: cover;
+  opacity: 0.1;
   position: absolute;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas:
-    "....... volunteer  volunteer"
-    "donations volunteer volunteer"
-    "donations volunteer volunteer";
+  bottom: -20vh;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  @media (min-width: 760px) {
+    width: 500px;
+    height: 500px;
+  }
+}
+#wrapper {
+  padding: 5%;
+  margin: auto;
+  @media (min-width: 1024px) {
+    padding: 0 20%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
   // background-color: #fff;
   // color: #444;
   h1,
   h3,
   h4,
   p,
-  h2 {
+  h2,
+  div {
     color: $darkGreen;
+  }
+  h3 {
+    text-align: right;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  #projectSection {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  .volunteerArea {
+    padding: 5%;
+    @media (min-width: 1024px) {
+      border-left: 1px solid $darkGreen;
+    }
+  }
+  .donationsArea {
+    padding: 5%;
   }
 }

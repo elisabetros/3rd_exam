@@ -12,17 +12,23 @@ header {
   right: 0;
   width: 100vw;
   z-index: 1;
+  padding: 0 3%;
   transition: all 0.5s; }
+  @media (min-width: 1024px) {
+    header {
+      display: grid;
+      grid-template-columns: 1fr 0.5fr auto; } }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {
       header .deskmenu {
+        grid-column: 3;
         display: initial; }
         header .deskmenu li {
           margin: 3% 0;
           font-size: 3rem;
           display: inline-block;
-          padding: 0 3%;
+          padding: 0 5%;
           cursor: pointer; }
         header .deskmenu ul {
           padding-left: 10%;
@@ -36,7 +42,8 @@ header {
     float: left; }
     @media (min-width: 1024px) {
       header svg.logo {
-        width: 20%; } }
+        width: 50%;
+        margin: 3%; } }
   header svg.menuIcon {
     margin: 5%;
     z-index: 10;
@@ -129,49 +136,78 @@ ul {
 
 #profile {
   z-index: 1; }
-
-.box {
-  width: 400px;
-  height: 260px;
-  background-color: grey;
-  color: black; }
+  #profile .line {
+    border: 1px solid #283618;
+    width: 100%; }
 
 .treeImage {
-  min-height: 60vh;
-  background-image: url(../img/environment-forest-ground-1260324.jpg);
+  background-image: url(../img/forest-ground.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  clip-path: polygon(0 0, 100% 0, 100% 41%, 0 65%);
-  padding: 15% 5%; }
+  clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
+  padding: 20% 5% 5%; }
+  @media (min-width: 1024px) {
+    .treeImage {
+      padding: 15% 5% 5%; } }
   .treeImage h1 {
     display: inline; }
   .treeImage .edit {
     width: 3%; }
+    @media (min-width: 760px) {
+      .treeImage .edit {
+        width: 3%; } }
+    @media (min-width: 1024px) {
+      .treeImage .edit {
+        width: 2%; } }
   .treeImage p {
     margin: 0 0 0 3%; }
 
-.donationsArea {
-  grid-area: donations; }
-
-.volunteerArea {
-  grid-area: volunteer; }
+.seeThroughTree {
+  background-image: url(../img/leaf.svg);
+  background-size: cover;
+  opacity: 0.1;
+  position: absolute;
+  bottom: -20vh;
+  left: 0;
+  width: 300px;
+  height: 300px; }
+  @media (min-width: 760px) {
+    .seeThroughTree {
+      width: 500px;
+      height: 500px; } }
 
 #wrapper {
-  padding: 2em;
-  z-index: 10;
-  position: absolute;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas: "....... volunteer  volunteer" "donations volunteer volunteer" "donations volunteer volunteer"; }
+  padding: 5%;
+  margin: auto; }
+  @media (min-width: 1024px) {
+    #wrapper {
+      padding: 0 20%;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1fr; } }
   #wrapper h1,
   #wrapper h3,
   #wrapper h4,
   #wrapper p,
-  #wrapper h2 {
+  #wrapper h2,
+  #wrapper div {
     color: #283618; }
+  #wrapper h3 {
+    text-align: right; }
+  #wrapper h2 {
+    font-size: 2.5rem; }
+  #wrapper #projectSection {
+    display: grid;
+    grid-template-columns: 1fr 2fr; }
+  #wrapper .volunteerArea {
+    padding: 5%; }
+    @media (min-width: 1024px) {
+      #wrapper .volunteerArea {
+        border-left: 1px solid #283618; } }
+  #wrapper .donationsArea {
+    padding: 5%; }
 
 .modal {
   display: none;
@@ -339,7 +375,7 @@ a {
   font-size: 2rem; }
 
 #hero {
-  background-image: url(../img/forest1.jpg);
+  background-image: url(../img/forest.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -444,7 +480,7 @@ a {
     width: 30%; }
 
 #about {
-  background-image: url(../img/fallen-tree.png);
+  background-image: url(../img/fallen-tree.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
