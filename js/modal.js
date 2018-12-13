@@ -59,7 +59,6 @@ function init() {
       console.log("no one is logged in");
       formModal.querySelectorAll("form").forEach(form => {
         form.style.display = "none";
-        showForm(type);
       });
       notSignedInForm.style.display = "grid";
       notSignedInForm.addEventListener("submit", e => {
@@ -83,7 +82,7 @@ function showForm(type) {
   document.querySelector("#" + type).style.display = "block";
   document.querySelector("#" + type).addEventListener("submit", e => {
     e.preventDefault();
-    console.log("click");
+    // console.log("click");
     if (type === "donateForm") {
       // console.log(donateForm.elements);
       goToPayment(donateForm.elements);
@@ -92,6 +91,7 @@ function showForm(type) {
     }
   });
 }
+
 function goToPayment(formElements) {
   formModal.querySelectorAll("form").forEach(form => {
     form.style.display = "none";

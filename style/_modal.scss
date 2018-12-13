@@ -21,12 +21,9 @@
 .notSignedIn {
   display: none;
 }
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
 
 .modal-content {
+  position: relative;
   color: black;
   border-radius: 5px;
   background-color: white;
@@ -49,6 +46,9 @@ form {
   }
 }
 .close {
+  position: absolute;
+  top: 0;
+  right: 1vw;
   color: black;
   float: right;
   font-size: 28px;
@@ -62,9 +62,7 @@ form {
   cursor: pointer;
 }
 
-.signUpLink,
 .readMore,
-.notSignedSignIn,
 p > .signIn {
   color: $redColor;
   cursor: pointer;
@@ -123,5 +121,72 @@ p > .signIn {
       display: inline;
       width: 15%;
     }
+  }
+}
+.withImage {
+  min-height: 32vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  position: relative;
+  form {
+    padding: 15%;
+  }
+  .right {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    padding: 5%;
+    width: 42%;
+    p {
+      color: white;
+    }
+  }
+  .formTitle {
+    color: white;
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+    z-index: 10;
+  }
+  a {
+    color: $redColor;
+  }
+  .modalImage {
+    padding: 20% 10%;
+    background-image: url(../img/daylight-environment-forest-1322351.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    border-radius: 5px 0 0 5px;
+  }
+}
+input.button {
+  border: none;
+  color: white;
+  width: 70%;
+  margin: 5% 0;
+}
+label {
+  border-bottom: 1px solid black;
+  display: block;
+  margin: 5% 0 0;
+  padding: 1%;
+  width: 80%;
+  input {
+    display: block;
+    border: 0;
+    background: transparent;
+  }
+}
+.expdate {
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  input {
+    border-bottom: 1px solid black;
+    width: 80%;
+    grid-row: 2;
+    padding: 0;
   }
 }

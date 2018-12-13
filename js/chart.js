@@ -29,7 +29,7 @@ function createUserData(allData) {
 
   let donations = allData.donations;
   let volunteers = allData.volunteers;
-  // console.log("donations", donations);
+  console.log("donations", donations);
   for (let i = 0; i < users.length; i++) {
     let user = {
       userID: Number(users[i].id),
@@ -57,7 +57,7 @@ function createUserData(allData) {
       }
     }
   }
-  // console.log("users with donations", usersAllData);
+  console.log("users with donations", usersAllData);
   for (let i = 0; i < usersAllData.length; i++) {
     for (let u = 0; u < volunteers.length; u++) {
       if (usersAllData[i].userID == volunteers[u].userID) {
@@ -128,10 +128,10 @@ function sortByRegion(a, b) {
 function createVolunteerList(usersAllData) {
   let template = document.querySelector("#volunteerTemp").content;
   let sortedRegion = usersAllData.sort(sortByRegion);
-  // console.log("sortedRegion", sortedRegion);
+  console.log("sortedRegion", sortedRegion);
   for (let i = 0; i < usersAllData.length; i++) {
     if (usersAllData[i].region) {
-      // console.log("usersAllData[i] with region", usersAllData[i].region);
+      console.log("usersAllData[i] with region", usersAllData[i].region);
       let clone = template.cloneNode(true);
       clone.querySelector("#volunteerRegion").textContent =
         usersAllData[i].region;
@@ -147,29 +147,6 @@ function createVolunteerList(usersAllData) {
   // btnVolunteer.addEventListener("click", function() {
   //   modalVolunteers.style.display = "block";
   // });
-}
-
-function clearContent() {}
-
-function createListsByProjects(usersAllData) {
-  document.querySelector("#projectsUsers").textContent = "";
-  const projects = document.querySelectorAll(".dropdown-content p");
-  projects.forEach(project => {
-    project.addEventListener("click", function() {
-      const filtered = usersAllData.filter(u => {
-        return u.projects.find(p => p.id == project.dataset.id);
-      });
-      const projectModal = document.querySelector(".projectsList");
-      projectModal.style.display = "block";
-      console.log(filtered);
-      let template = document.querySelector("#projectsTemp").content;
-      for (let i = 0; i < filtered.length; i++) {
-        let clone = template.cloneNode(true);
-        clone.querySelector("#projectUserName").textContent = filtered[i].name;
-        document.querySelector("#projectsUsers").appendChild(clone);
-      }
-    });
-  });
 }
 
 //admins Authentication
@@ -188,9 +165,9 @@ const admins = [
 ];
 
 let adminName = document.querySelector("#adminName");
-
 let submitAdmin = document.querySelector("#submitAdmin");
 let loginAdmin = document.querySelector("#loginform");
+let adminPage = document.querySelector(".adminPage");
 
 submitAdmin.addEventListener("click", function(e) {
   e.preventDefault();
@@ -220,9 +197,11 @@ function isLoggedInAsAdmin() {
   if (admin) {
     console.log("logged in as admin", admin);
     loginAdmin.style.display = "none";
+    adminPage.style.display = "block";
     init();
   } else {
     loginAdmin.style.display = "block";
+    adminPage.style.display = "none";
   }
 }
 
@@ -619,7 +598,6 @@ async function init() {
   console.log("usersAll in init", usersAllData);
   createLists(usersAllData);
   createVolunteerList(usersAllData);
-  createListsByProjects(usersAllData);
   span.forEach(singleSpan => {
     singleSpan.addEventListener("click", e => {
       e.target.parentElement.parentElement.style.display = "none";

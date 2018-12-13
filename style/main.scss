@@ -309,17 +309,18 @@ footer {
   display: none;
 }
 
-#securePayment {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-gap: 10px;
-}
-
 input {
   border: 0;
-  border-bottom: 1px solid rgb(5, 53, 21);
+  background: transparent;
+  // border-bottom: 1px solid rgb(5, 53, 21);
 }
-
-.expdate {
-  width: 2em;
+label {
+  // background: lightgrey;
+  border-bottom: 1px solid black;
+  // border-radius: 5px 5px 0 0;
+  padding: 1%;
+  width: 80%;
+  input {
+    padding: 0 0 0 10px;
+  }
 }

@@ -8,7 +8,7 @@
     <script src="lib/Chart.min.js"></script>
     <script src="lib/moment-with-locales.min.js"></script>
   </head>
-  <body class="adminPage">
+  <body >
     <div id="loginform">
       <form>
         <button id="submitAdmin">Sign in</button> <label>User Name :</label>
@@ -17,6 +17,7 @@
         <input type="password" name="password" id="password" />
       </form>
     </div>
+    <main class="adminPage">
     <div class="modalDonations">
       <!-- <button>Sort by date</button><button>Sort by amount</button> -->
       <section id="donations"><span class="close">X</span></section>
@@ -50,21 +51,22 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
       >
-
-      <h2 id="adminName">Name</h2>
-      <p id="logout">Log out</p>
-      <p id="allDonations">All donations</p>
-      <p id="allVolunteers">All volunteers</p>
-      <div class="dropdown">
-        <button class="dropbtn">Projects</button>
-        <div class="dropdown-content">
-          <p id="project11" data-id="11">Help to clean Bognæs Skov</p>
-          <p id="project12" data-id="12">Replant the Planet</p>
-          <p id="project13" data-id="13">Clean beautiful beaches</p>
-          <p id="project14" data-id="14">Spend a day with wild birds</p>
-          <p id="project15" data-id="15">Make a difference at Bølling Sø</p>
+      <ul>
+        <h2 id="adminName">Name</h2>
+        <li id="logout">Log out</p>
+        <li id="allDonations">All donations</p>
+        <li id="allVolunteers">All volunteers</p>
+        <div class="dropdown">
+          <h2 class="dropbtn">Projects</h2>
+          <div class="dropdown-content">
+            <p id="project11" data-id="11">Help to clean Bognæs Skov</p>
+            <p id="project12" data-id="12">Replant the Planet</p>
+            <p id="project13" data-id="13">Clean beautiful beaches</p>
+            <p id="project14" data-id="14">Spend a day with wild birds</p>
+            <p id="project15" data-id="15">Make a difference at Bølling Sø</p>
+          </div>
         </div>
-      </div>
+      </ul>
     </div>
     <svg class="menuIconAdmin" viewBox="0 0 100 100" onclick="openNav()">
       <rect class="myrect" x="10" y="10" width="40" height="10" />
@@ -101,6 +103,7 @@
         <canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
       </div>
     </div>
+  </main>
   </body>
   <script src="js/chart.js"></script>
 </html>
