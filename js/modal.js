@@ -13,7 +13,7 @@ const projectVolBtn = document.querySelectorAll(".beVolunteer");
 const donateBtn = document.querySelector(".donateBtn");
 const volunteerBtn = document.querySelector(".volunteerBtn");
 let link = document.querySelectorAll(".signIn");
-let signUpLink = document.querySelector(".signUp");
+let signUpLink = document.querySelector(".signUpLink");
 let span = document.querySelectorAll(".close");
 let signUpBtn = document.querySelector("#signUpBtn");
 
@@ -38,6 +38,7 @@ function init() {
     signUpLink.addEventListener("click", opensignUpModal);
   }
   function opensignUpModal() {
+    console.log("click");
     signUpModal.style.display = "block";
     signInModal.style.display = "none";
   }

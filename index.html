@@ -27,7 +27,6 @@
             .cls-4 {
               fill: none;
             }
-
             .cls-11,
             .cls-16,
             .cls-19,
@@ -36,75 +35,57 @@
               stroke: #ffffff;
               stroke-miterlimit: 10;
             }
-
             .cls-2 {
               stroke-width: 1.72px;
             }
-
             .cls-3 {
               clip-path: url(#clip-path);
             }
-
             .cls-4 {
               stroke-width: 14px;
             }
-
             .cls-5 {
               clip-path: url(#clip-path-2);
             }
-
             .cls-6 {
               clip-path: url(#clip-path-3);
             }
-
             .cls-7 {
               clip-path: url(#clip-path-4);
             }
-
             .cls-8 {
               clip-path: url(#clip-path-5);
             }
-
             .cls-9 {
               clip-path: url(#clip-path-6);
             }
-
             .cls-10 {
               clip-path: url(#clip-path-7);
             }
-
             .cls-11 {
               stroke-width: 22px;
             }
-
             .cls-12 {
               clip-path: url(#clip-path-8);
             }
-
             .cls-13 {
               clip-path: url(#clip-path-9);
             }
-
             .cls-14 {
               clip-path: url(#clip-path-10);
             }
-
             .cls-15 {
               clip-path: url(#clip-path-11);
             }
-
             .cls-16 {
               stroke-width: 20px;
             }
-
             .cls-17 {
               clip-path: url(#clip-path-12);
             }
-
             .cls-18 {
               clip-path: url(#clip-path-13);
             }
-
             .cls-19 {
               stroke-width: 24px;
             }
@@ -550,7 +531,7 @@
       <div id="signIn" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <div class="modelIn">
+          <div class="modalIn">
             <h1>Sign in</h1>
             <form>
               <label for=""
@@ -562,266 +543,265 @@
               <input id="signInBtn" type="submit" value="Sign In" />
               <p>
                 Are you not a member? Sign Up
-                <span id="signUp" class="signUp">here</span>
+                <span class="signUpLink">here</span>
               </p>
             </form>
           </div>
         </div>
+      </div>
 
-        <div id="signUp" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Sign Up</h1>
-            <form action="get" id="signUpForm">
-              <label
-                >Full Name<input
-                  required
-                  type="text"
-                  name="username"
-                  class="username"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkInput('username')"
-                  onfocus="resetColor(this)"
-              /></label>
-              <label
-                >Gender<select
-                  name="gender"
-                  required
-                  class="gender"
-                  onblur="checkInput('gender')"
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select></label
+      <div id="signUp" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Sign Up</h1>
+          <form id="signUpForm">
+            <label
+              >Full Name<input
+                required
+                type="text"
+                name="username"
+                class="username"
+                oninput="checkForm('signUpForm')"
+                onblur="checkInput('username')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Gender<select
+                name="gender"
+                required
+                class="gender"
+                onblur="checkInput('gender')"
               >
-              <label
-                >Date of birth<input
-                  required
-                  type="date"
-                  name="age"
-                  class="age"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkInput('age')"
-                  onfocus="resetColor(this)"
-              /></label>
-              <label
-                >Email<input
-                  type="email"
-                  name="email"
-                  class="email"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkInput('email')"
-                  onfocus="resetColor(this)"
-              /></label>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select></label
+            >
+            <label
+              >Date of birth<input
+                required
+                type="date"
+                name="age"
+                class="age"
+                oninput="checkForm('signUpForm')"
+                onblur="checkInput('age')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Email<input
+                type="email"
+                name="email"
+                class="email"
+                oninput="checkForm('signUpForm')"
+                onblur="checkInput('email')"
+                onfocus="resetColor(this)"
+            /></label>
 
+            <label
+              >Phonenumber<input
+                type="tel"
+                name="phonenumber"
+                class="phonenumber"
+                oninput="checkForm('signUpForm')"
+                onblur="checkInput('phonenumber')"
+                onfocus="resetColor(this)"
+            /></label>
+            <label
+              >Password<input
+                type="password"
+                required
+                class="password"
+                name="password"
+                oninput="checkForm('signUpForm')"
+                onblur="checkInput('password')"
+                onfocus="resetColor(this)"
+            /></label>
+            <!--
               <label
-                >Phonenumber<input
-                  type="tel"
-                  name="phonenumber"
-                  class="phonenumber"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkInput('phonenumber')"
-                  onfocus="resetColor(this)"
-              /></label>
-              <label
-                >Password<input
+                >Repeat Password<input
                   type="password"
                   required
-                  class="password"
-                  name="password"
+                  name="passwordv"
+                  class="passwordv"
                   oninput="checkForm('signUpForm')"
-                  onblur="checkInput('password')"
+                  onblur="checkPassVal()"
                   onfocus="resetColor(this)"
               /></label>
-              <!--
-                <label
-                  >Repeat Password<input
-                    type="password"
-                    required
-                    name="passwordv"
-                    class="passwordv"
-                    oninput="checkForm('signUpForm')"
-                    onblur="checkPassVal()"
-                    onfocus="resetColor(this)"
-                /></label>
-              -->
-              <input type="submit" value="Sign Up" id="signUpBtn" disabled />
-            </form>
-          </div>
+            -->
+            <input type="submit" value="Sign Up" id="signUpBtn" disabled />
+          </form>
         </div>
+      </div>
 
-        <div id="hero">
-          <h1>The Nature Fund</h1>
-          <div class="line"></div>
-          <h2>Planting trees and saving bees since 2000</h2>
-        </div>
-        <div class="choose shadow">
-          <h2>Help Denmark's nature!</h2>
-          <!-- <div class="line"></div> -->
-          <!--
-            <p>
-              Join a community of volunteers contribute to saving the environment
+      <div id="hero">
+        <h1>The Nature Fund</h1>
+        <div class="line"></div>
+        <h2>Planting trees and saving bees since 2000</h2>
+      </div>
+      <div class="choose shadow">
+        <h2>Help Denmark's nature!</h2>
+        <!-- <div class="line"></div> -->
+        <!--
+          <p>
+            Join a community of volunteers contribute to saving the environment
+          </p>
+        -->
+        <div class="button volunteerBtn">Volunteer</div>
+        <!--
+          <p>Donate and give us the resources to preserve Danish nature</p>
+        -->
+        <div class="button donateBtn">Donate</div>
+      </div>
+      <div id="projects">
+        <h1>Our Projects</h1>
+        <div class="line"></div>
+        <p>
+          You can now choose one or more projects to volunteer in. If you still
+          want to help but don't have the time for volunteering, you can always
+          donate!
+        </p>
+        <div class="iconGrid">
+          <div class="icon">
+            <img src="img/grass.svg" alt="" />
+            <h2>Clean Bognæs Skov</h2>
+            <p class="descHeight">
+              Join us for a green project in Tuse Næs to improve Danish nature.
+              <br />
+              <span class="readMore" id="1" onclick="openReadMore(11)">
+                Read more...
+              </span>
             </p>
-          -->
-          <div class="button volunteerBtn">Volunteer</div>
-          <!--
-            <p>Donate and give us the resources to preserve Danish nature</p>
-          -->
-          <div class="button donateBtn">Donate</div>
+            <div
+              class="button beVolunteer shadow"
+              id="11"
+              onclick="addProject(11)"
+            >
+              Volunteer
+            </div>
+          </div>
+          <div class="icon">
+            <img src="img/tree.svg" alt="" />
+            <h2>Replant the Planet</h2>
+            <p class="descHeight">
+              Help to improve the environment by planting trees in Gribskov
+              forest. <br />
+              <span class="readMore" id="2" onclick="openReadMore(12)">
+                Read more...
+              </span>
+            </p>
+            <div
+              class="button beVolunteer shadow"
+              id="12"
+              onclick="addProject(12)"
+            >
+              Volunteer
+            </div>
+          </div>
+          <div class="icon">
+            <img src="img/waves.svg" alt="" />
+            <h2>Clean beautiful beaches</h2>
+            <p class="descHeight">
+              Be part of our project of improving the quality of beaches of
+              Skagen. <br /><span
+                class="readMore"
+                id="3"
+                onclick="openReadMore(13)"
+              >
+                Read more...
+              </span>
+            </p>
+            <div
+              class="button beVolunteer shadow"
+              id="13"
+              onclick="addProject(13)"
+            >
+              Volunteer
+            </div>
+          </div>
+          <div class="icon">
+            <img src="img/bird.svg" alt="" />
+            <h2>Spend a day with wild birds</h2>
+            <p class="descHeight">
+              Become a volunteer and get acquainted to Danish birds in their
+              natural inhabitant area. <br /><span
+                class="readMore"
+                id="4"
+                onclick="openReadMore(14)"
+              >
+                Read more...
+              </span>
+            </p>
+            <div
+              class="button beVolunteer shadow"
+              id="14"
+              onclick="addProject(14)"
+            >
+              Volunteer
+            </div>
+          </div>
+          <div class="icon">
+            <img src="img/reed.svg" alt="" />
+            <h2>Make a difference in Bølling Sø</h2>
+            <p class="descHeight">
+              Become a part of green volunteering group in a charming area of
+              Bølling Sø.<br />
+              <span class="readMore" id="5" onclick="openReadMore(15)">
+                Read more...
+              </span>
+            </p>
+            <div
+              class="button beVolunteer shadow"
+              id="15"
+              onclick="addProject(15)"
+            >
+              Volunteer
+            </div>
+          </div>
         </div>
-        <div id="projects">
-          <h1>Our Projects</h1>
+      </div>
+      <div id="about">
+        <div>
+          <h1>About the Nature Fund</h1>
           <div class="line"></div>
-          <p>
-            You can now choose one or more projects to volunteer in. If you
-            still want to help but don't have the time for volunteering, you can
-            always donate!
-          </p>
-          <div class="iconGrid">
-            <div class="icon">
-              <img src="img/grass.svg" alt="" />
-              <h2>Clean Bognæs Skov</h2>
-              <p class="descHeight">
-                Join us for a green project in Tuse Næs to improve Danish
-                nature. <br />
-                <span class="readMore" id="1" onclick="openReadMore(11)">
-                  Read more...
-                </span>
-              </p>
-              <div
-                class="button beVolunteer shadow"
-                id="11"
-                onclick="addProject(11)"
-              >
-                Volunteer
-              </div>
-            </div>
-            <div class="icon">
-              <img src="img/tree.svg" alt="" />
-              <h2>Replant the Planet</h2>
-              <p class="descHeight">
-                Help to improve the environment by planting trees in Gribskov
-                forest. <br />
-                <span class="readMore" id="2" onclick="openReadMore(12)">
-                  Read more...
-                </span>
-              </p>
-              <div
-                class="button beVolunteer shadow"
-                id="12"
-                onclick="addProject(12)"
-              >
-                Volunteer
-              </div>
-            </div>
-            <div class="icon">
-              <img src="img/waves.svg" alt="" />
-              <h2>Clean beautiful beaches</h2>
-              <p class="descHeight">
-                Be part of our project of improving the quality of beaches of
-                Skagen. <br /><span
-                  class="readMore"
-                  id="3"
-                  onclick="openReadMore(13)"
-                >
-                  Read more...
-                </span>
-              </p>
-              <div
-                class="button beVolunteer shadow"
-                id="13"
-                onclick="addProject(13)"
-              >
-                Volunteer
-              </div>
-            </div>
-            <div class="icon">
-              <img src="img/bird.svg" alt="" />
-              <h2>Spend a day with wild birds</h2>
-              <p class="descHeight">
-                Become a volunteer and get acquainted to Danish birds in their
-                natural inhabitant area. <br /><span
-                  class="readMore"
-                  id="4"
-                  onclick="openReadMore(14)"
-                >
-                  Read more...
-                </span>
-              </p>
-              <div
-                class="button beVolunteer shadow"
-                id="14"
-                onclick="addProject(14)"
-              >
-                Volunteer
-              </div>
-            </div>
-            <div class="icon">
-              <img src="img/reed.svg" alt="" />
-              <h2>Make a difference in Bølling Sø</h2>
-              <p class="descHeight">
-                Become a part of green volunteering group in a charming area of
-                Bølling Sø.<br />
-                <span class="readMore" id="5" onclick="openReadMore(15)">
-                  Read more...
-                </span>
-              </p>
-              <div
-                class="button beVolunteer shadow"
-                id="15"
-                onclick="addProject(15)"
-              >
-                Volunteer
-              </div>
-            </div>
-          </div>
         </div>
-        <div id="about">
+        <p>
+          We at the Nature Fund believe that nature is a gift and as such,
+          deserves to be preserved and enjoyed on it's own terms. We want to
+          create a greener Denmark, so that everyone, no matter their wealth or
+          status can enjoy the scent of flowers, look at beautiful, tall pine
+          trees or take long walks on clean white beaches.. But we humans have
+          long had a exploitative relationship with mother nature, where we take
+          what we want and don't give back what we should. That's why we founded
+          The Nature Fund, a non-profit organization that aims to preserve and
+          restore Danish nature. <br />
+          <br />
+          The Nature fund is a project based fundraiser. We identify problem
+          areas or ecosystems in danger all over Denmark and then carefully
+          devise how best to preserve or restore those areas. Since we were
+          founded, in 2000, we have planted over 10.000 trees, and saved 50
+          animal habitats. And it's these kind of projects, that your money goes
+          towards when you donate, or your time if you want to join our growing
+          community of volunteers. We as an organization think that transparency
+          is very important when it comes to fundraising, and that is why we
+          don't only say that 100% of your donations go straight to saving
+          nature, but we prove it, by making all our records easily accessible.
+        </p>
+        <div class="aboutDiv">
           <div>
-            <h1>About the Nature Fund</h1>
-            <div class="line"></div>
+            <img src="img/world.svg" alt="" />
+            <h2>18 years active</h2>
           </div>
-          <p>
-            We at the Nature Fund believe that nature is a gift and as such,
-            deserves to be preserved and enjoyed on it's own terms. We want to
-            create a greener Denmark, so that everyone, no matter their wealth
-            or status can enjoy the scent of flowers, look at beautiful, tall
-            pine trees or take long walks on clean white beaches.. But we humans
-            have long had a exploitative relationship with mother nature, where
-            we take what we want and don't give back what we should. That's why
-            we founded The Nature Fund, a non-profit organization that aims to
-            preserve and restore Danish nature. <br />
-            <br />
-            The Nature fund is a project based fundraiser. We identify problem
-            areas or ecosystems in danger all over Denmark and then carefully
-            devise how best to preserve or restore those areas. Since we were
-            founded, in 2000, we have planted over 10.000 trees, and saved 50
-            animal habitats. And it's these kind of projects, that your money
-            goes towards when you donate, or your time if you want to join our
-            growing community of volunteers. We as an organization think that
-            transparency is very important when it comes to fundraising, and
-            that is why we don't only say that 100% of your donations go
-            straight to saving nature, but we prove it, by making all our
-            records easily accessible.
-          </p>
-          <div class="aboutDiv">
-            <div>
-              <img src="img/world.svg" alt="" />
-              <h2>18 years active</h2>
-            </div>
-            <div>
-              <img src="img/sun.svg" alt="Sun icon" />
-              <h2>100% for nature</h2>
-            </div>
-            <div>
-              <img src="img/whale.svg" alt="" />
-              <h2>50 animal habitats saved</h2>
-            </div>
-            <div>
-              <img src="img/pine.svg" alt="" />
-              <h2>10000 trees planted</h2>
-            </div>
+          <div>
+            <img src="img/sun.svg" alt="Sun icon" />
+            <h2>100% for nature</h2>
+          </div>
+          <div>
+            <img src="img/whale.svg" alt="" />
+            <h2>50 animal habitats saved</h2>
+          </div>
+          <div>
+            <img src="img/pine.svg" alt="" />
+            <h2>10000 trees planted</h2>
           </div>
         </div>
       </div>
