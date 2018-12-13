@@ -429,58 +429,61 @@
             <input type="submit" class="goToPay" value="Go to Secure Payment" />
           </form>
           <form id="securePayment">
-            <label
-              >Name on Credit Card<input
-                type="text"
-                name="cname"
-                class="cname"
-                required
-                oninput="checkForm('securePayment')"
-                onblur="checkInput('cname')"
-                onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Card number<input
-                type="number"
-                name="cnumber"
-                class="cnumber"
-                pattern="[0-9]{13,16}"
-                required
-                oninput="checkForm('securePayment')"
-                onblur="checkInput('cnumber')"
-                onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Expiraton Month<input
-                type="text"
-                name="expmonth"
-                class="expmonth"
-                required
-                oninput="checkForm('securePayment')"
-                onblur="checkInput('expmonth')"
-                onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Expiration Year<input
-                type="text"
-                name="expyear"
-                class="expyear"
-                oninput="checkForm('securePayment')"
-                onblur="checkInput('expyear')"
-                onfocus="resetColor(this)"
-                required
-            /></label>
-            <label
-              >Security Code<input
-                required
-                pattern="[0-9]{3}"
-                type="number"
-                class="securitycode"
-                name="securitycode"
-                oninput="checkForm('securePayment')"
-                onblur="checkInput('securitycode')"
-                onfocus="resetColor(this)"
-            /></label>
+            <div class="imgPay"></div>
+            <div>
+              <label
+                >Name on Credit Card<input
+                  type="text"
+                  name="cname"
+                  class="cname"
+                  required
+                  oninput="checkForm('securePayment')"
+                  onblur="checkInput('cname')"
+                  onfocus="resetColor(this)"/></label
+              ><br />
+              <label
+                >Card number<input
+                  type="number"
+                  name="cnumber"
+                  class="cnumber"
+                  pattern="[0-9]{13,16}"
+                  required
+                  oninput="checkForm('securePayment')"
+                  onblur="checkInput('cnumber')"
+                  onfocus="resetColor(this)"/></label
+              ><br />
+              <label
+                >Expiraton Month<input
+                  type="text"
+                  name="expmonth"
+                  class="expmonth expdate"
+                  required
+                  oninput="checkForm('securePayment')"
+                  onblur="checkInput('expmonth')"
+                  onfocus="resetColor(this)"
+              /></label>
+              <label
+                >Expiration Year<input
+                  type="text"
+                  name="expyear"
+                  class="expyear expdate"
+                  oninput="checkForm('securePayment')"
+                  onblur="checkInput('expyear')"
+                  onfocus="resetColor(this)"
+                  required
+              /></label>
+              <label
+                >Security Code<input
+                  required
+                  pattern="[0-9]{3}"
+                  type="number"
+                  class="securitycode expdate"
+                  name="securitycode"
+                  oninput="checkForm('securePayment')"
+                  onblur="checkInput('securitycode')"
+                  onfocus="resetColor(this)"
+              /></label>
+            </div>
             <input type="submit" class="" value="Pay" />
           </form>
           <form id="volunteerForm">

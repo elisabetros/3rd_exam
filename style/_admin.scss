@@ -74,7 +74,8 @@ h2 {
 }
 
 .modalDonations,
-.volunteerDonations {
+.volunteerDonations,
+.projectList {
   width: 40vw;
   height: 60vh;
   background-color: rgb(138, 113, 113);
@@ -82,5 +83,48 @@ h2 {
   position: absolute;
   margin: 5em;
   overflow-y: auto;
+  display: none;
   /* max-height: 60vh; */
+}
+
+.dropbtn {
+  // background-color: #4caf50;
+  color: rgb(6, 41, 17);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  // background-color: #f9f9f9;
+  min-width: 160px;
+  // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
 }

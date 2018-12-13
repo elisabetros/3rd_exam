@@ -96,7 +96,7 @@ function goToPayment(formElements) {
   formModal.querySelectorAll("form").forEach(form => {
     form.style.display = "none";
   });
-  securePayForm.style.display = "block";
+  securePayForm.style.display = "grid";
   securePayForm.addEventListener("submit", e => {
     e.preventDefault();
     // console.log(securePayForm.elements);

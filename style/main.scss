@@ -305,3 +305,18 @@ footer {
 .hidden {
   display: none;
 }
+
+#securePayment {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 10px;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid rgb(5, 53, 21);
+}
+
+.expdate {
+  width: 2em;
+}
