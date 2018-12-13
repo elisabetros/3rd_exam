@@ -144,9 +144,9 @@ function createVolunteerList(usersAllData) {
   }
   let btnVolunteer = document.querySelector("#allVolunteers");
   let modalVolunteers = document.querySelector(".volunteerDonations");
-  btnVolunteer.addEventListener("click", function() {
-    modalVolunteers.style.display = "block";
-  });
+  // btnVolunteer.addEventListener("click", function() {
+  //   modalVolunteers.style.display = "block";
+  // });
 }
 
 //admins Authentication
@@ -221,7 +221,7 @@ function logOutAdmin() {
 
 // menu
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenav").style.width = "40vw";
   document.querySelector(".menuIconAdmin").style.visibility = "hidden";
 }
 

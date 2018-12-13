@@ -353,11 +353,14 @@ p > .signIn {
   @media (min-width: 760px) {
     .horizontalLine {
       width: 1px;
-      grid-row: span 2;
       border: 1px solid #283618; } }
 
 .one {
-  grid-column: 2; }
+  grid-column: 2;
+  grid-row: span 4; }
+  @media (min-width: 1024px) {
+    .one {
+      grid-row: span 2; } }
 
 .two {
   display: none; }
@@ -382,7 +385,7 @@ p > .signIn {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(40, 54, 24, 0.8);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px; }
@@ -396,7 +399,7 @@ p > .signIn {
   transition: 0.3s; }
 
 .sidenav a:hover {
-  color: #f1f1f1; }
+  color: white; }
 
 .sidenav .closebtn {
   position: absolute;
@@ -419,14 +422,37 @@ p > .signIn {
 
 .modalDonations,
 .volunteerDonations {
-  width: 40vw;
+  display: none;
+  width: 50vw;
   height: 60vh;
-  background-color: #8a7171;
-  color: black;
+  background-color: rgba(40, 54, 24, 0.8);
   position: absolute;
-  margin: 5em;
+  margin: 100px 0 0 40vw;
   overflow-y: auto;
   /* max-height: 60vh; */ }
+  .modalDonations h3,
+  .modalDonations h2,
+  .modalDonations p,
+  .volunteerDonations h3,
+  .volunteerDonations h2,
+  .volunteerDonations p {
+    color: white; }
+  .modalDonations p,
+  .modalDonations h3,
+  .volunteerDonations p,
+  .volunteerDonations h3 {
+    display: inline-block;
+    margin: 0 10% 0; }
+  .modalDonations .line,
+  .volunteerDonations .line {
+    width: 100%;
+    margin: 3% 0 10%; }
+  .modalDonations section,
+  .volunteerDonations section {
+    margin: 5%; }
+  .modalDonations .close,
+  .volunteerDonations .close {
+    color: white; }
 
 * {
   box-sizing: border-box; }
