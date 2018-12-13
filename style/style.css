@@ -17,12 +17,11 @@ header {
   @media (min-width: 1024px) {
     header {
       display: grid;
-      grid-template-columns: 1fr 0.5fr auto; } }
+      grid-template-columns: 1fr 2fr; } }
   header .deskmenu {
     display: none; }
     @media (min-width: 1024px) {
       header .deskmenu {
-        grid-column: 3;
         display: initial; }
         header .deskmenu li {
           margin: 3% 0;
@@ -38,14 +37,17 @@ header {
       cursor: pointer; }
   header svg.logo {
     margin: 1% 3% 1%;
-    width: 30%;
+    width: 50%;
     float: left; }
+    @media (min-width: 760px) {
+      header svg.logo {
+        width: 30%; } }
     @media (min-width: 1024px) {
       header svg.logo {
         width: 50%;
         margin: 3%; } }
   header svg.menuIcon {
-    margin: 5%;
+    margin: 3%;
     z-index: 10;
     float: right;
     fill: white;
