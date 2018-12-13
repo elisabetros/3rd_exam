@@ -298,7 +298,7 @@ function countVolunteersByAreas(volunteers) {
 
   for (let i = 0; i < volunteers.length; i++) {
     volunteerUserIds.push(volunteers[i].userID);
-    console.log("volunteer userID is:", volunteerUserIds);
+    // console.log("volunteer userID is:", volunteerUserIds);
 
     if (volunteers[i].area === "Zealand") {
       area[0]++;
@@ -326,6 +326,8 @@ function countVolunteersByAreas(volunteers) {
 }
 
 function displayChart(amountOverview) {
+  console.log("displaychartcalled", amountOverview);
+  // USE AMOUNTOVERVIEW AS DATA WHEN IT WORKS !!
   new Chart(document.getElementById("donationChart"), {
     type: "pie",
     data: {
@@ -403,7 +405,7 @@ function displayVolunteering(area) {
 }
 
 function matchByGender(userData, userIds) {
-  let matchByGender = [0, 0, 0];
+  let matchByGender = [0, 0];
   for (let i = 0; i < userData.length; i++) {
     let exists = false;
     // console.log("first loop!", userData[i].id);
@@ -420,12 +422,8 @@ function matchByGender(userData, userIds) {
       if (userData[i].gender === "f") {
         // console.log("female detected!");
         matchByGender[0]++;
-      } else if (userData[i].gender === "m" || userData[i].gender === "male") {
-        // console.log("male detected!");
-        matchByGender[1]++;
       } else {
-        // Gender unknown
-        matchByGender[2]++;
+        matchByGender[1]++;
       }
     }
 
@@ -461,6 +459,15 @@ function displayChartByGender(volunteersByGender, donationByGender) {
       title: {
         display: true,
         text: "Donations and volunteering (by gender)"
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true
+            }
+          }
+        ]
       }
     }
   });
@@ -556,7 +563,7 @@ async function init() {
   const agesOverview = splitAge(ages);
 
   // Display data
-  displayChart(donations);
+  displayChart(amountOverview);
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
   displayAgeChart(agesOverview);
