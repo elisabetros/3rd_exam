@@ -26,6 +26,7 @@ let userData;
 function createUserData(allData) {
   let usersAllData = [];
   let users = allData.users;
+
   let donations = allData.donations;
   let volunteers = allData.volunteers;
   console.log("donations", donations);
@@ -36,7 +37,9 @@ function createUserData(allData) {
       dateOfBirth: users[i].birthDate,
       donations: [],
       projects: [],
-      region: ""
+      region: "",
+      tel: users[i].phonenumber,
+      email: users[i].email
     };
     usersAllData.push(user);
   }
@@ -110,6 +113,40 @@ function createLists(usersAllData) {
       };
     }
   }
+}
+
+function sortByRegion(a, b) {
+  if (a.region < b.region) {
+    return -1;
+  } else if (a.region > b.region) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function createVolunteerList(usersAllData) {
+  let template = document.querySelector("#volunteerTemp").content;
+  let sortedRegion = usersAllData.sort(sortByRegion);
+  console.log("sortedRegion", sortedRegion);
+  for (let i = 0; i < usersAllData.length; i++) {
+    if (usersAllData[i].region) {
+      console.log("usersAllData[i] with region", usersAllData[i].region);
+      let clone = template.cloneNode(true);
+      clone.querySelector("#volunteerRegion").textContent =
+        usersAllData[i].region;
+      clone.querySelector("#voluntName").textContent = usersAllData[i].name;
+      clone.querySelector("#volunteerEmail").textContent =
+        usersAllData[i].email;
+      clone.querySelector("#volunteerTel").textContent = usersAllData[i].tel;
+      document.querySelector("#volunteerDonations").appendChild(clone);
+    }
+  }
+  let btnVolunteer = document.querySelector("#allVolunteers");
+  let modalVolunteers = document.querySelector(".volunteerDonations");
+  btnVolunteer.addEventListener("click", function() {
+    modalVolunteers.style.display = "block";
+  });
 }
 
 //admins Authentication
@@ -555,4 +592,5 @@ async function init() {
   const usersAllData = createUserData(allData);
   console.log("usersAll in init", usersAllData);
   createLists(usersAllData);
+  createVolunteerList(usersAllData);
 }

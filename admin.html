@@ -73,6 +73,7 @@
         color: white;
       }
 
+      .volunteerDonations,
       .modalDonations {
         width: 40vw;
         height: 60vh;
@@ -105,6 +106,16 @@
         <h3 id="dateDonated"></h3>
       </template>
     </div>
+    <div class="volunteerDonations">
+      <!-- <button>Sort by date</button><button>Sort by amount</button> -->
+      <section id="volunteerDonations"></section>
+      <template id="volunteerTemp">
+        <p id="volunteerRegion"></p>
+        <p id="voluntName"></p>
+        <p id="volunteerEmail"></p>
+        <p id="volunteerTel"></p>
+      </template>
+    </div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
@@ -113,7 +124,7 @@
       <h2 id="adminName">Name</h2>
 
       <p id="allDonations">All donations</p>
-      <p>Data1</p>
+      <p id="allVolunteers">All volunteers</p>
       <p>Data2</p>
       <p id="logout">Log out</p>
     </div>
