@@ -316,6 +316,15 @@ p > .signIn {
   grid-template-columns: 2fr 3fr 3fr;
   grid-template-rows: 2fr 2fr; }
 
+p,
+h1,
+h2,
+h3,
+div,
+li,
+a {
+  color: #283618; }
+
 .sidenav {
   height: 100%;
   width: 0;
