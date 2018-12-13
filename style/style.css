@@ -375,7 +375,8 @@ h2 {
 #logout {
   color: white; }
 
-.modalDonations {
+.modalDonations,
+.volunteerDonations {
   width: 40vw;
   height: 60vh;
   background-color: #8a7171;
