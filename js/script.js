@@ -64,7 +64,7 @@ const projects = [
   },
   {
     id: 15,
-    title: "Make a difference at Bølling Sø area",
+    title: "Make a difference at Bølling Sø",
     region: "Central Jutland",
     date: "10/06/2019"
   }
