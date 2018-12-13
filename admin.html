@@ -8,7 +8,7 @@
     <script src="lib/Chart.min.js"></script>
     <script src="lib/moment-with-locales.min.js"></script>
   </head>
-  <body>
+  <body class="adminPage">
     <div id="loginform">
       <form>
         <button id="submitAdmin">Sign in</button> <label>User Name :</label>
@@ -22,8 +22,10 @@
       <section id="donations"><span class="close">X</span></section>
       <template id="donationTemp">
         <h2 id="userName"></h2>
+
+        <p id="dateDonated"></p>
         <h3 id="amountDonated"></h3>
-        <h3 id="dateDonated"></h3>
+        <div class="line"></div>
       </template>
     </div>
     <div class="volunteerDonations">
@@ -64,16 +66,25 @@
         </div>
       </div>
     </div>
-    <span style="font-size:20px;cursor:pointer" onclick="openNav()"
-      >&#9776;
-    </span>
+    <svg class="menuIconAdmin" viewBox="0 0 100 100" onclick="openNav()">
+      <rect class="myrect" x="10" y="10" width="40" height="10" />
+      <rect class="myrect" x="10" y="30" width="60" height="10" />
+      <rect class="myrect" x="10" y="50" width="80" height="10" />
+    </svg>
     <div class="container">
       <div class="total-container">
-        <div id="totalMoney" class="size1">
+        <div id="totalMoney">
           <h2>Total amount of donations</h2>
+          <div class="line green"></div>
+          <h1 class="total">Number</h1>
+        </div>
+        <div id="totalVolunteer">
+          <h2>Total amount of volunteers</h2>
+          <div class="line green"></div>
           <h1 class="total">Number</h1>
         </div>
       </div>
+      <div class="horizontalLine one"></div>
 
       <div class="chart-container size">
         <canvas id="donationChart" class="size"></canvas>
@@ -82,13 +93,10 @@
         <canvas id="volunteeringChart" class="size"></canvas>
       </div>
 
-      <div id="totalVolunteer" class="size1">
-        <h2>Total amount of volunteers</h2>
-        <h1 class="total">Number</h1>
-      </div>
       <div class="chart-container size">
         <canvas id="genderChart" class="size"></canvas>
       </div>
+      <div class="horizontalLine two"></div>
       <div class="chart-container size">
         <canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
       </div>

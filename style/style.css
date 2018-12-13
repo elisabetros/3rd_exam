@@ -311,19 +311,72 @@ p > .signIn {
       width: 15%; }
 
 .container {
-  margin: 5%;
-  display: grid;
-  grid-template-columns: 2fr 3fr 3fr;
-  grid-template-rows: 2fr 2fr; }
+  margin: auto;
+  max-width: 100vw;
+  margin: 1% 5%; }
+  @media (min-width: 760px) {
+    .container {
+      display: grid;
+      grid-template-columns: 30vw 0.1fr 1fr; } }
+  @media (min-width: 1024px) {
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 0.1fr 3fr 0.1fr 3fr;
+      grid-template-rows: 2fr 2fr;
+      grid-row-gap: 5%;
+      grid-column-gap: 3%; } }
 
-p,
-h1,
-h2,
-h3,
-div,
-li,
-a {
+.adminPage p,
+.adminPage h1,
+.adminPage h2,
+.adminPage h3,
+.adminPage div {
   color: #283618; }
+
+.adminPage li {
+  margin: 3% 0; }
+
+.adminPage ul > h2 {
+  color: white;
+  margin: 5% 0; }
+
+.total-container {
+  grid-column: 1;
+  grid-row: span 4; }
+  .total-container h1 {
+    text-align: center; }
+  .total-container div {
+    margin: 5%; }
+
+.horizontalLine {
+  display: "none"; }
+  @media (min-width: 760px) {
+    .horizontalLine {
+      width: 1px;
+      border: 1px solid #283618; } }
+
+.one {
+  grid-column: 2;
+  grid-row: span 4; }
+  @media (min-width: 1024px) {
+    .one {
+      grid-row: span 2; } }
+
+.two {
+  display: none; }
+  @media (min-width: 1024px) {
+    .two {
+      display: block;
+      grid-column: 4;
+      grid-row: 1/-1; } }
+
+.menuIconAdmin {
+  margin: 3%;
+  width: 10%;
+  fill: #283618; }
+  @media (min-width: 1024px) {
+    .menuIconAdmin {
+      width: 3%; } }
 
 .sidenav {
   height: 100%;
@@ -332,7 +385,7 @@ a {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #a8a1a1;
+  background-color: rgba(40, 54, 24, 0.8);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px; }
@@ -346,7 +399,7 @@ a {
   transition: 0.3s; }
 
 .sidenav a:hover {
-  color: #f1f1f1; }
+  color: white; }
 
 .sidenav .closebtn {
   position: absolute;
@@ -355,16 +408,11 @@ a {
   font-size: 36px;
   margin-left: 50px; }
 
-.size1 {
-  height: 100px;
-  width: 150px; }
-
 .size {
-  height: 190px;
-  width: 351px; }
-
-h2 {
-  font-size: 15px; }
+  width: 300px; }
+  @media (min-width: 760px) {
+    .size {
+      width: 351px; } }
 
 #loginform {
   width: 40vw;
@@ -372,21 +420,47 @@ h2 {
   position: absolute;
   background-color: #878b87; }
 
-#logout {
-  color: white; }
-
 .modalDonations,
 .volunteerDonations,
 .projectList {
   width: 40vw;
   height: 60vh;
-  background-color: #8a7171;
-  color: black;
+  background-color: rgba(40, 54, 24, 0.8);
   position: absolute;
-  margin: 5em;
+  margin: 100px 0 0 40vw;
   overflow-y: auto;
-  display: none;
   /* max-height: 60vh; */ }
+  .modalDonations h3,
+  .modalDonations h2,
+  .modalDonations p,
+  .volunteerDonations h3,
+  .volunteerDonations h2,
+  .volunteerDonations p,
+  .projectList h3,
+  .projectList h2,
+  .projectList p {
+    color: white; }
+  .modalDonations p,
+  .modalDonations h3,
+  .volunteerDonations p,
+  .volunteerDonations h3,
+  .projectList p,
+  .projectList h3 {
+    display: inline-block;
+    margin: 0 10% 0; }
+  .modalDonations .line,
+  .volunteerDonations .line,
+  .projectList .line {
+    width: 100%;
+    margin: 3% 0 10%; }
+  .modalDonations section,
+  .volunteerDonations section,
+  .projectList section {
+    margin: 5%; }
+  .modalDonations .close,
+  .volunteerDonations .close,
+  .projectList .close {
+    color: white; }
 
 .dropbtn {
   color: #062911;
@@ -475,6 +549,9 @@ a {
   height: 1px;
   border: 1px solid white;
   margin: 0 0 5%; }
+
+.line.green {
+  border: 1px solid #283618; }
 
 .button {
   border-radius: 5px;
