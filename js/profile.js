@@ -7,9 +7,54 @@ let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 let userData;
 
 let area;
-
 let user = JSON.parse(sessionStorage.getItem("user"));
 
+let editBtn = document.querySelector(".edit");
+const userSettingSection = document.querySelector("#userSettings");
+let changeName = document.querySelector(".profileName");
+let changeEmail = document.querySelector(".profileEmail");
+let changeTel = document.querySelector(".profileTel");
+let updateBtn = document.querySelector(".updateBtn");
+
+function changeToInput() {
+  changeName.contentEditable = "true";
+  changeEmail.contentEditable = "true";
+  changeTel.contentEditable = "true";
+  updateBtn.style.display = "initial";
+  // Add input styling
+  updateBtn.addEventListener("click", e => {
+    console.log("click");
+    changeName.contentEditable = "false";
+    changeEmail.contentEditable = "false";
+    changeTel.contentEditable = "false";
+
+    let updatedContent = {
+      name: changeName.textContent,
+      email: changeEmail.textContent,
+      phonenumber: changeTel.textContent
+    };
+    updateUserInformation(updatedContent);
+  });
+}
+
+function updateUserInformation(updatedContent) {
+  // Put rewuest
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/user/" + user.id, {
+      method: "PUT",
+      body: JSON.stringify(updatedContent),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+        console.log("updated user", data);
+      });
+  });
+}
 function fetchVolunteer() {
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/volunteer/")
@@ -192,5 +237,10 @@ async function init() {
     link.addEventListener("click", logOut);
   });
   fillInData(user);
+  editBtn.addEventListener("click", e => {
+    e.preventDefault();
+    // console.log("edit click");
+    changeToInput();
+  });
   // fillTemplateDonations(thisUserDonations);
 }
