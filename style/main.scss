@@ -74,6 +74,9 @@ a {
   border: 1px solid white;
   margin: 0 0 5%;
 }
+.line.green {
+  border: 1px solid $darkGreen;
+}
 .button {
   border-radius: 5px;
   cursor: pointer;

@@ -185,10 +185,12 @@ function logOutAdmin() {
 // menu
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
+  document.querySelector(".menuIconAdmin").style.visibility = "hidden";
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
+  document.querySelector(".menuIconAdmin").style.visibility = "initial";
 }
 
 //menu ends
@@ -314,7 +316,7 @@ function displayChart(amountOverview) {
       datasets: [
         {
           label: "Donations (dkk)",
-          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+          backgroundColor: ["#3e160e", "#7d2c1c", "#7e8674", "#283618"],
           data: amountOverview
         }
       ]
@@ -351,11 +353,11 @@ function displayVolunteering(area) {
         {
           label: "Volunteers available",
           backgroundColor: [
-            "#3e95cd",
-            "#8e5ea2",
-            "#3cba9f",
-            "#e8c3b9",
-            "#c45850"
+            "#3e160e",
+            "#7d2c1c",
+            "#d45e47",
+            "#283618",
+            "#7e8674"
           ],
           data: area
         }
@@ -424,12 +426,12 @@ function displayChartByGender(volunteersByGender, donationByGender) {
       datasets: [
         {
           label: "Male",
-          backgroundColor: "#3e95cd",
+          backgroundColor: "#7d2c1c",
           data: [volunteersByGender[1], donationByGender[1]]
         },
         {
           label: "Female",
-          backgroundColor: "#8e5ea2",
+          backgroundColor: "#283618",
           data: [volunteersByGender[0], donationByGender[0]]
         }
       ]
@@ -501,11 +503,11 @@ function displayAgeChart(agesOverview) {
         {
           label: "Age (years)",
           backgroundColor: [
-            "#3e95cd",
-            "#8e5ea2",
-            "#3cba9f",
-            "#e8c3b9",
-            "#c45850"
+            "#3e160e",
+            "#7d2c1c",
+            "#d45e47",
+            "#283618",
+            "#7e8674"
           ],
           data: agesOverview
         }

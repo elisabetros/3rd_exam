@@ -1,27 +1,84 @@
+$border: 1px solid #283618;
+
 .container {
-  margin: 5%;
-  display: grid;
-  grid-template-columns: 2fr 3fr 3fr;
-  grid-template-rows: 2fr 2fr;
+  margin: auto;
+  max-width: 100vw;
+  margin: 1% 5%;
+  @media (min-width: 760px) {
+    display: grid;
+    grid-template-columns: 30vw 0.1fr 1fr;
+  }
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 2fr 0.1fr 3fr 0.1fr 3fr;
+    grid-template-rows: 2fr 2fr;
+    grid-row-gap: 5%;
+    grid-column-gap: 3%;
+  }
 }
-p,
-h1,
-h2,
-h3,
-div,
-li,
-a {
-  color: $darkGreen;
+.adminPage {
+  p,
+  h1,
+  h2,
+  h3,
+  div {
+    color: $darkGreen;
+  }
+  li {
+    margin: 3% 0;
+  }
+  ul > h2 {
+    color: white;
+    margin: 5% 0;
+  }
+}
+.total-container {
+  grid-column: 1;
+  grid-row: span 4;
+  h1 {
+    text-align: center;
+  }
+  div {
+    margin: 5%;
+  }
 }
 
+.horizontalLine {
+  display: "none";
+  @media (min-width: 760px) {
+    width: 1px;
+    grid-row: span 2;
+    border: $border;
+  }
+}
+.one {
+  grid-column: 2;
+}
+.two {
+  display: none;
+  @media (min-width: 1024px) {
+    display: block;
+    grid-column: 4;
+    grid-row: 1/-1;
+  }
+}
+.menuIconAdmin {
+  margin: 3%;
+  width: 10%;
+  fill: $darkGreen;
+  @media (min-width: 1024px) {
+    width: 3%;
+  }
+}
 .sidenav {
+  //   padding: 5%;
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(168, 161, 161);
+  background-color: rgba(0, 0, 0, 0.8);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -47,19 +104,13 @@ a {
   font-size: 36px;
   margin-left: 50px;
 }
-
-.size1 {
-  height: 100px;
-  width: 150px;
 }
 
 .size {
-  height: 190px;
-  width: 351px;
-}
-
-h2 {
-  font-size: 15px;
+  width: 300px;
+  @media (min-width: 760px) {
+    width: 351px;
+  }
 }
 
 #loginform {
@@ -69,9 +120,9 @@ h2 {
   background-color: rgb(135, 139, 135);
 }
 
-#logout {
-  color: white;
-}
+// #logout {
+//   color: white;
+// }
 
 .modalDonations {
   width: 40vw;
