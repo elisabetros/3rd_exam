@@ -89,9 +89,7 @@ function createLists(usersAllData) {
         clone.querySelector("#userName").textContent = usersAllData[i].name;
         clone.querySelector("#amountDonated").textContent =
           usersAllData[i].donations[u].amount + "dkk";
-        // let dateFormatted = moment( usersAllData[i].donations[u].date).format(
-        //   "DD[/]MM[/]YYYY"
-        // );
+
         clone.querySelector("#dateDonated").textContent = moment(
           usersAllData[i].donations[u].date
         ).format("DD[/]MM[/]YYYY");
@@ -110,26 +108,7 @@ function createLists(usersAllData) {
           modalDonation.style.display = "none";
         }
       };
-
-      // let liCreated = document.createElement("li");
-      // document.querySelector("#donations").appendChild(clone);
-      //  usersAllData[i].donations.forEach(donation=>{
-
-      // }
     }
-    // for (let u = 0; u < usersAllData[i].donations; u++) {
-
-    //   console.log(clone.querySelector("#amountDonatedList"));
-    // }
-    // clone.querySelector("#amountDonatedList").textContent =
-    //   usersAllData[i].donations.amount;
-    // if (usersAllData[i].donations && usersAllData[i].donations.length) {
-    //   for (let u = 0; u < usersAllData[i].donations; u++) {
-    //     clone.querySelector("#amountDonated").textContent =
-    //       usersAllData[i].donations[u].amount;
-    //     console.log("not working", usersAllData[i].donations[u].amount);
-    //   }
-    // }
   }
 }
 
