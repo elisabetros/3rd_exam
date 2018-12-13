@@ -19,7 +19,7 @@ header {
   .deskmenu {
     display: none;
     @media (min-width: 1024px) {
-      grid-column: 3;
+      // grid-column: 3;
       li {
         margin: 3% 0;
         font-size: 3rem;
@@ -47,7 +47,7 @@ header {
       width: 30%;
     }
     @media (min-width: 1024px) {
-      width: 80%;
+      width: 50%;
       margin: 3%;
     }
 

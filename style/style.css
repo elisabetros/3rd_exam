@@ -22,7 +22,6 @@ header {
     display: none; }
     @media (min-width: 1024px) {
       header .deskmenu {
-        grid-column: 3;
         display: initial; }
         header .deskmenu li {
           margin: 3% 0;
@@ -45,7 +44,7 @@ header {
         width: 30%; } }
     @media (min-width: 1024px) {
       header svg.logo {
-        width: 80%;
+        width: 50%;
         margin: 3%; } }
   header svg.menuIcon {
     margin: 3%;
