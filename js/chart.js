@@ -557,6 +557,7 @@ function displayAgeChart(agesOverview) {
     }
   });
 }
+let span = document.querySelectorAll(".close");
 async function init() {
   // Fetch data
   const userData = await fetchUsers();
@@ -593,4 +594,9 @@ async function init() {
   console.log("usersAll in init", usersAllData);
   createLists(usersAllData);
   createVolunteerList(usersAllData);
+  span.forEach(singleSpan => {
+    singleSpan.addEventListener("click", e => {
+      e.target.parentElement.parentElement.style.display = "none";
+    });
+  });
 }
