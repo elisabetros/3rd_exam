@@ -79,12 +79,12 @@ function createLists(usersAllData) {
   for (let i = 0; i < usersAllData.length; i++) {
     // console.log("usersAllData[i]", usersAllData[i]);
     if (usersAllData[i].donations && usersAllData[i].donations.length) {
-      console.log("usersAllData[i].donations", usersAllData[i].donations);
+      // console.log("usersAllData[i].donations", usersAllData[i].donations);
       for (let u = 0; u < usersAllData[i].donations.length; u++) {
-        console.log(
-          "usersAllData[i].donations[u] ",
-          usersAllData[i].donations[u]
-        );
+        // console.log(
+        //   "usersAllData[i].donations[u] ",
+        //   usersAllData[i].donations[u]
+        // );
         let clone = template.cloneNode(true);
         clone.querySelector("#userName").textContent = usersAllData[i].name;
         clone.querySelector("#amountDonated").textContent =
@@ -224,18 +224,18 @@ function fetchDonations() {
   });
 }
 function donationsOverview(donations) {
-  console.log("donations: ", donations);
+  // console.log("donations: ", donations);
   let totalAmount = 0;
   let amountOverview = [0, 0, 0, 0];
   for (let i = 0; i < donations.length; i++) {
     donationUserIds.push(donations[i].userID);
-    console.log("donations userID is:", donationUserIds);
+    // console.log("donations userID is:", donationUserIds);
     // Convert to int
     donations[i].amount = parseInt(donations[i].amount);
 
     // Add to total amount
     totalAmount = totalAmount + donations[i].amount;
-    console.log("totalAmount: ", totalAmount);
+    // console.log("totalAmount: ", totalAmount);
 
     // Put into overview
     if (donations[i].amount < 100) {
@@ -252,6 +252,7 @@ function donationsOverview(donations) {
   const totalMoney = document.getElementById("totalMoney");
   totalMoney.querySelector("h1").innerHTML = totalAmount + " dkk";
   console.log("amountOverview: ", amountOverview);
+  return amountOverview;
 }
 
 function fetchUsers() {
@@ -401,14 +402,15 @@ function displayVolunteering(area) {
   });
 }
 
-function matchByGender(userData, donationUserIds) {
+function matchByGender(userData, userIds) {
   let matchByGender = [0, 0, 0];
   for (let i = 0; i < userData.length; i++) {
     let exists = false;
     // console.log("first loop!", userData[i].id);
-    for (let u = 0; u < donationUserIds.length; u++) {
-      // console.log("second loop!", userIds[u]);
-      if (userData[i].id == donationUserIds[u]) {
+    for (let u = 0; u < userIds.length; u++) {
+      // console.log("userData[i].id", userData[i].id);
+      // console.log("userIds[u]", userIds[u]);
+      if (Number(userData[i].id) == Number(userIds[u])) {
         exists = true;
         // console.log("it's a match", userData[i].id, userIds[u]);
       }
@@ -436,6 +438,8 @@ function matchByGender(userData, donationUserIds) {
 }
 
 function displayChartByGender(volunteersByGender, donationByGender) {
+  console.log("displayChartByGender, volunteersByGender: ", volunteersByGender);
+  console.log("displayChartByGender, donationByGender: ", donationByGender);
   new Chart(document.getElementById("genderChart"), {
     type: "bar",
     data: {
@@ -540,8 +544,13 @@ async function init() {
   // const genders = countGenders(userData);
   // Manipulate/convert data
   const volunteersByArea = countVolunteersByAreas(volunteers);
+
+  const amountOverview = donationsOverview(donations);
+  console.log("amount overview", amountOverview);
   const volunteersByGender = matchByGender(userData, volunteerUserIds);
   const donationByGender = matchByGender(userData, donationUserIds);
+  console.log("volunteersByGender", volunteersByGender);
+  console.log("donationByGender", donationByGender);
   // const donationByGender = matchDonationByGender(userData, donationUserIds);
   const ages = countAges(userData);
   const agesOverview = splitAge(ages);
@@ -551,7 +560,6 @@ async function init() {
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
   displayAgeChart(agesOverview);
-  donationsOverview(donations);
 
   const allData = {
     users: userData,
