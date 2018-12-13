@@ -165,6 +165,8 @@ ul {
         width: 2%; } }
   .treeImage p {
     margin: 0 0 0 3%; }
+  .treeImage .updateBtn {
+    display: none; }
 
 .seeThroughTree {
   background-image: url(../img/leaf.svg);
