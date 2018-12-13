@@ -128,7 +128,7 @@ $border: 1px solid rgb(40, 54, 24);
 
 .modalDonations,
 .volunteerDonations,
-.projectList {
+.projectsList {
   width: 40vw;
   height: 60vh;
   background-color: rgba(40, 54, 24, 0.8);
@@ -156,7 +156,7 @@ $border: 1px solid rgb(40, 54, 24);
   .close {
     color: white;
   }
-  /* max-height: 60vh; */
+  display: none;
 }
 
 .dropbtn {

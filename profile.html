@@ -330,10 +330,27 @@
     </nav>
     <main id="profile">
       <div class="treeImage" id="userSettings">
-        <h1 class="profileName">Elisabet</h1>
-        <a href=""><img src="img/write.svg" class="edit" alt="pencil icon"/></a>
-        <p class="profileEmail">Elb@</p>
-        <p class="profileTel">sdf</p>
+        <h1 id="profileName" contenteditable="true"></h1>
+        <img src="img/write.svg" class="edit" id="nameEdit" alt="pencil icon" />
+
+        <div>
+          <p id="profileEmail" contenteditable="true">Elb@</p>
+          <img
+            src="img/write.svg"
+            class="edit"
+            id="emailEdit"
+            alt="pencil icon"
+          />
+        </div>
+        <div>
+          <p id="profileTel" contenteditable="true">sdf</p>
+          <img
+            src="img/write.svg"
+            class="edit"
+            id="telEdit"
+            alt="pencil icon"
+          />
+        </div>
       </div>
       <div class="seeThroughTree"></div>
       <div id="wrapper">

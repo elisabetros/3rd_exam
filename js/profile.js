@@ -97,6 +97,27 @@ function matchVolunteers(user, volunteeringData) {
     }
   }
 }
+
+let editNameIcon = document.querySelector("#nameEdit");
+editNameIcon.addEventListener("click", function() {
+  document.querySelector("#profileName").focus();
+  document.getElementById("nameEdit").src = "img/diskette.svg";
+});
+
+let editEmail = document.querySelector("#emailEdit");
+
+editEmail.addEventListener("click", function() {
+  document.querySelector("#profileEmail").focus();
+  document.getElementById("emailEdit").src = "img/diskette.svg";
+});
+
+let editPhone = document.querySelector("#telEdit");
+
+editPhone.addEventListener("click", function() {
+  document.querySelector("#profileTel").focus();
+  document.getElementById("telEdit").src = "img/diskette.svg";
+});
+
 function showUser(data) {
   //show profile information
   // when edit buttoned is press change to input field
@@ -148,9 +169,9 @@ function fillInTemplateProjects(userData) {
 }
 
 function fillInData(user) {
-  let userName = document.querySelector(".profileName");
-  let userEmail = document.querySelector(".profileEmail");
-  let userPhone = document.querySelector(".profileTel");
+  let userName = document.querySelector("#profileName");
+  let userEmail = document.querySelector("#profileEmail");
+  let userPhone = document.querySelector("#profileTel");
   userName.textContent = user.name;
   userEmail.textContent = user.email;
   userPhone.textContent = "tel:" + user.phonenumber;
