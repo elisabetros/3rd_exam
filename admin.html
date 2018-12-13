@@ -4,87 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" href="style/style.css" />
     <script src="lib/Chart.min.js"></script>
     <script src="lib/moment-with-locales.min.js"></script>
-
-    <style>
-      .container {
-        display: grid;
-        grid-template-columns: 2fr 3fr 3fr;
-        grid-template-rows: 2fr 2fr;
-      }
-
-      .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: rgb(168, 161, 161);
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-      }
-
-      .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-
-      .sidenav a:hover {
-        color: #f1f1f1;
-      }
-
-      .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-      }
-
-      .size1 {
-        height: 100px;
-        width: 150px;
-      }
-
-      .size {
-        height: 190px;
-        width: 351px;
-      }
-
-      h2 {
-        font-size: 15px;
-      }
-
-      #loginform {
-        width: 40vw;
-        height: 50vh;
-        position: absolute;
-        background-color: rgb(135, 139, 135);
-      }
-
-      #logout {
-        color: white;
-      }
-
-      .modalDonations {
-        width: 40vw;
-        height: 60vh;
-        background-color: rgb(138, 113, 113);
-        color: black;
-        position: absolute;
-        margin: 5em;
-        overflow-y: auto;
-        display: none;
-        /* max-height: 60vh; */
-      }
-    </style>
   </head>
   <body>
     <div id="loginform">
@@ -97,11 +19,10 @@
     </div>
     <div class="modalDonations">
       <!-- <button>Sort by date</button><button>Sort by amount</button> -->
-      <section id="donations"></section>
+      <section id="donations"><span class="close">X</span></section>
       <template id="donationTemp">
         <h2 id="userName"></h2>
         <h3 id="amountDonated"></h3>
-
         <h3 id="dateDonated"></h3>
       </template>
     </div>

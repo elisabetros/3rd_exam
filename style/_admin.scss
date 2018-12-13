@@ -1,0 +1,85 @@
+.container {
+  margin: 5%;
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr;
+  grid-template-rows: 2fr 2fr;
+}
+p,
+h1,
+h2,
+h3,
+div,
+li,
+a {
+  color: $darkGreen;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(168, 161, 161);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.size1 {
+  height: 100px;
+  width: 150px;
+}
+
+.size {
+  height: 190px;
+  width: 351px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+#loginform {
+  width: 40vw;
+  height: 50vh;
+  position: absolute;
+  background-color: rgb(135, 139, 135);
+}
+
+#logout {
+  color: white;
+}
+
+.modalDonations {
+  width: 40vw;
+  height: 60vh;
+  background-color: rgb(138, 113, 113);
+  color: black;
+  position: absolute;
+  margin: 5em;
+  overflow-y: auto;
+  /* max-height: 60vh; */
+}
