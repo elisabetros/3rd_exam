@@ -79,7 +79,7 @@ function fillTemplateDonations(thisUserDonations) {
 function sortByDate(a, b) {
   if (b.date < a.date) {
     return -1;
-  } else if (b.dateF > a.date) {
+  } else if (b.date > a.date) {
     return 1;
   } else {
     return 0;
