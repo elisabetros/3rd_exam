@@ -123,7 +123,7 @@ async function makeNewDonation(formElements) {
   let newCreatedDonation = await addNewDonation(newDonation);
   console.log("new created", newCreatedDonation);
   formModal.style.display = "none";
-  let string = "You have successfully donated " + newDonation.amount;
+  let string = "You have successfully donated " + newDonation.amount + " dkk";
   showAlertModal(string);
 }
 async function makeNewVolunteer(formElements) {
@@ -152,7 +152,7 @@ async function makeNewVolunteer(formElements) {
     let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
     console.log("newCreated", newCreatedVolunteer);
     showAlertModal(
-      "Thank you for signing up as a volunteer in this area, we will contact you with projects in the are via email"
+      "Thank you for signing up as a volunteer in this area, we will contact you with projects via email"
     );
     form.formModal.style.display = "none";
   } else {

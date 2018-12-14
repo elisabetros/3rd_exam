@@ -56,8 +56,11 @@ h2 {
 }
 p,
 div {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: openSans;
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
 }
 a {
   text-decoration: none;
@@ -119,6 +122,9 @@ a {
     font-size: 2.5rem;
     padding: 4vh 0 0 5vh;
     @media (min-width: 760px) {
+      padding: 4vh 0 0 15vh;
+    }
+    @media (min-width: 1024px) {
       padding: 4vh 0 0 25vh;
     }
   }
@@ -127,7 +133,7 @@ a {
   border-radius: 5px;
   margin: auto;
   background-color: $redColor;
-  width: 50vw;
+  width: 65vw;
   padding: 5% 1%;
   .line {
     border: 0.5px solid white;
@@ -137,15 +143,23 @@ a {
     text-align: center;
   }
   .button {
-    margin: 9% 5%;
+    margin: 9% auto;
   }
   @media (min-width: 760px) {
+    padding: 5%;
     position: absolute;
     top: 60vh;
-    right: 30vw;
+    right: 20vw;
   }
+  @media (min-width: 800px) {
+    top: 20vh;
+    right: 5vw;
+    width: 40vw;
+  }
+
   @media (min-width: 1024px) {
-    width: 20vw;
+    padding: 3% 5%;
+    width: 30vw;
     top: 30vh;
     right: 8vw;
   }
@@ -230,7 +244,7 @@ a {
   background-size: cover;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
-  padding: 20% 5%;
+  padding: 20% 10%;
   @media (min-width: 760px) {
     padding: 20% 15%;
   }
@@ -315,7 +329,10 @@ footer {
 }
 
 .descHeight {
-  min-height: 19vh;
+  @media (min-width: 760px) {
+    font-size: 1.5rem;
+    min-height: 19vh;
+  }
 }
 
 .hidden {
