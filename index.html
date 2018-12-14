@@ -338,17 +338,17 @@
       <div id="formModal" class=" modal">
         <div class="modal-content withImage">
           <span class="close">&times;</span>
-          <div class="modalImage"></div>
-          <h1 class="formTitle"></h1>
-          <form id="notSignedIn">
-            <div class="right">
+          <div class="modalImage clip"> <div>
               <p>
                 If you are not already a member you will be signed up and an
                 account created for you.
               </p>
               <p>Already a member?</p>
               <div class=" button notSignedSignIn">Sign in</div>
-            </div>
+            </div></div>
+          <h1 class="formTitle"></h1>
+          <form id="notSignedIn">
+           
             <div>
               <label>Name
               <input
@@ -544,13 +544,23 @@
             </p>
           -->
           <p></p>
-          <h2 id="signedUpVolunteering"></h2></div
-      ></a>
+          <h2 id="signedUpVolunteering"></h2></div></a>
+
+
       <div id="signIn" class="modal">
         <div class="modal-content withImage">
-          <div class="modalImage"></div>
+          <div class="modalImage absolute"> 
+             <div class="notMember">
+            <p>Are you not a member?</p>
+            <div class="button shadow signUpLink">Sign up</div>
+          </div>
+          <div class="alreadyMember">
+              <p>Already a member?</p>
+              <div class="button shadow signLink">Sign In</div>
+            </div>
+        </div>
           <span class="close">&times;</span>
-          <div class="modalIn">
+          <div class="signInContent">
             <h1>Sign in</h1>
             <form>
               <label for=""
@@ -565,18 +575,9 @@
                 class="button shadow "
                 value="Sign In"
               />
-              <div class="right">
-                <p>Are you not a member?</p>
-                <div class="button shadow signUpLink">Sign up</div>
-              </div>
             </form>
           </div>
-        </div>
-      </div>
-
-      <div id="signUp" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
+          <div class="signUpContent">
           <h1>Sign Up</h1>
           <form id="signUpForm">
             <label
@@ -640,18 +641,6 @@
                 onblur="checkInput('password')"
                 onfocus="resetColor(this)"
             /></label>
-            <!--
-              <label
-                >Repeat Password<input
-                  type="password"
-                  required
-                  name="passwordv"
-                  class="passwordv"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkPassVal()"
-                  onfocus="resetColor(this)"
-              /></label>
-            -->
             <input
               type="submit"
               class="button shadow"
@@ -661,7 +650,14 @@
             />
           </form>
         </div>
+        </div>
       </div>
+
+      <!-- <div id="signUp" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+                 </div>
+      </div> -->
 
       <div id="hero">
         <h1>The Nature Fund</h1>

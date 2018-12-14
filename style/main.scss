@@ -308,19 +308,3 @@ footer {
 .hidden {
   display: none;
 }
-
-input {
-  border: 0;
-  background: transparent;
-  // border-bottom: 1px solid rgb(5, 53, 21);
-}
-label {
-  // background: lightgrey;
-  border-bottom: 1px solid black;
-  // border-radius: 5px 5px 0 0;
-  padding: 1%;
-  width: 80%;
-  input {
-    padding: 0 0 0 10px;
-  }
-}

@@ -35,12 +35,19 @@ function init() {
 
   function openModal() {
     signInModal.style.display = "block";
-    signUpLink.addEventListener("click", opensignUpModal);
+    signUpLink.addEventListener("click", moveLeft);
   }
-  function opensignUpModal() {
+  function moveLeft() {
     console.log("click");
-    signUpModal.style.display = "block";
-    signInModal.style.display = "none";
+    document.querySelector(".absolute").classList.add("move");
+    document.querySelector(".notMember").style.display = "none";
+    document.querySelector(".alreadyMember").style.display = "block";
+    document.querySelector(".signLink").addEventListener("click", moveRight);
+  }
+  function moveRight() {
+    document.querySelector(".absolute").classList.remove("move");
+    document.querySelector(".notMember").style.display = "block";
+    document.querySelector(".alreadyMember").style.display = "none";
   }
 
   function openFormModal(type) {
