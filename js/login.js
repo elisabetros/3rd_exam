@@ -85,18 +85,23 @@ function showSignUp(userData) {
 function checkUser(userData) {
   let userInput = document.querySelector("#name").value;
   let passwordInput = document.querySelector("#password").value;
-  let userName = null;
+  let exist = false;
   // let userPassword = null;
   // let userID;
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
       let userName = user.name;
+      exist = true;
       doLogIn(user);
-    } else {
-      // showAlertModal("Wrong username or password");
-      // WHY ALWAYS SHOWS ALERT
-    }
+    } // showAlertModal("Wrong username or password");
+    // WHY ALWAYS SHOWS ALERT
   });
+  // if (exist) {
+  //   doLogIn(user);
+  //   console.log("login");
+  // } else {
+  //   alert("wrong username or password");
+  // }
 }
 
 function doLogIn(user) {

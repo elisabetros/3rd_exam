@@ -92,7 +92,7 @@ ul {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  transition: all 0.6s;
+  transition: all 5s;
   li,
   h2 {
     line-height: 4rem;
@@ -101,7 +101,7 @@ ul {
   }
 }
 .hidden {
-  @include transform(translateX(-100vw));
+  @include transform(translateX(-200vw));
 }
 
 .fadeOut {
