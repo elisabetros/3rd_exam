@@ -251,6 +251,7 @@ ul {
     font-size: 1.5rem; }
 
 .close {
+  z-index: 11;
   position: absolute;
   top: 0;
   right: 1vw;
@@ -392,6 +393,12 @@ label {
   transform: translateX(0);
   clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
   border-radius: 5px 0 0 5px; }
+
+.absolute ~ .close {
+  color: white; }
+
+.move ~ .close {
+  color: black; }
 
 .container {
   margin: auto;

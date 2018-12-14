@@ -96,12 +96,11 @@ function checkUser(userData) {
     } // showAlertModal("Wrong username or password");
     // WHY ALWAYS SHOWS ALERT
   });
-  // if (exist) {
-  //   doLogIn(user);
-  //   console.log("login");
-  // } else {
-  //   alert("wrong username or password");
-  // }
+  if (exist) {
+    console.log("login");
+  } else {
+    showAlertModal("wrong username or password");
+  }
 }
 
 function doLogIn(user) {
