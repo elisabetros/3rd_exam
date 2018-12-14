@@ -31,7 +31,7 @@
     }
   }
   p {
-    margin: 0 0 0 3%;
+    margin: 0 0 0 0.5%;
   }
   .updateBtn {
     display: none;
@@ -90,4 +90,9 @@
   .donationsArea {
     padding: 5%;
   }
+}
+
+#profileEmail,
+#profileTel {
+  display: inline-block;
 }

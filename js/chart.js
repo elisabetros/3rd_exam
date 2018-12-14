@@ -144,9 +144,33 @@ function createVolunteerList(usersAllData) {
   }
   let btnVolunteer = document.querySelector("#allVolunteers");
   let modalVolunteers = document.querySelector(".volunteerDonations");
-  // btnVolunteer.addEventListener("click", function() {
-  //   modalVolunteers.style.display = "block";
-  // });
+  btnVolunteer.addEventListener("click", function() {
+    modalVolunteers.style.display = "block";
+  });
+}
+
+function createListsByProjects(usersAllData) {
+  const projects = document.querySelectorAll(".dropdown-content p");
+  projects.forEach(project => {
+    project.addEventListener("click", function() {
+      document.querySelector("#projectsUsers").innerHTML = "";
+      const filtered = usersAllData.filter(u => {
+        return u.projects.find(p => p.id == project.dataset.id);
+      });
+      const projectModal = document.querySelector(".projectsList");
+      projectModal.style.display = "block";
+      console.log(filtered);
+      let template = document.querySelector("#projectsTemp").content;
+      for (let i = 0; i < filtered.length; i++) {
+        let clone = template.cloneNode(true);
+        clone.querySelector("#projectUserName").textContent = filtered[i].name;
+        clone.querySelector("#projectUserEmail").textContent =
+          filtered[i].email;
+        clone.querySelector("#projectUserTel").textContent = filtered[i].tel;
+        document.querySelector("#projectsUsers").appendChild(clone);
+      }
+    });
+  });
 }
 
 //admins Authentication

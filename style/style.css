@@ -164,7 +164,7 @@ ul {
       .treeImage .edit {
         width: 2%; } }
   .treeImage p {
-    margin: 0 0 0 3%; }
+    margin: 0 0 0 0.5%; }
   .treeImage .updateBtn {
     display: none; }
 
@@ -212,6 +212,10 @@ ul {
         border-left: 1px solid #283618; } }
   #wrapper .donationsArea {
     padding: 5%; }
+
+#profileEmail,
+#profileTel {
+  display: inline-block; }
 
 .modal {
   display: none;
@@ -511,7 +515,7 @@ label {
   position: absolute;
   margin: 100px 0 0 40vw;
   overflow-y: auto;
-  /* max-height: 60vh; */ }
+  display: none; }
   .modalDonations h3,
   .modalDonations h2,
   .modalDonations p,
