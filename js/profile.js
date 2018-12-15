@@ -9,52 +9,6 @@ let userData;
 let area;
 let user = JSON.parse(sessionStorage.getItem("user"));
 
-let editBtn = document.querySelector(".edit");
-const userSettingSection = document.querySelector("#userSettings");
-let changeName = document.querySelector(".profileName");
-let changeEmail = document.querySelector(".profileEmail");
-let changeTel = document.querySelector(".profileTel");
-let updateBtn = document.querySelector(".updateBtn");
-
-function changeToInput() {
-  changeName.contentEditable = "true";
-  changeEmail.contentEditable = "true";
-  changeTel.contentEditable = "true";
-  updateBtn.style.display = "initial";
-  // Add input styling
-  updateBtn.addEventListener("click", e => {
-    console.log("click");
-    changeName.contentEditable = "false";
-    changeEmail.contentEditable = "false";
-    changeTel.contentEditable = "false";
-
-    let updatedContent = {
-      name: changeName.textContent,
-      email: changeEmail.textContent,
-      phonenumber: changeTel.textContent
-    };
-    updateUserInformation(updatedContent);
-  });
-}
-
-function updateUserInformation(updatedContent) {
-  // Put rewuest
-  return new Promise((resolve, reject) => {
-    fetch(endpoint + "/user/" + user.id, {
-      method: "PUT",
-      body: JSON.stringify(updatedContent),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(function(data) {
-        resolve(data);
-        console.log("updated user", data);
-      });
-  });
-}
 function fetchVolunteer() {
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/volunteer/")
@@ -143,25 +97,97 @@ function matchVolunteers(user, volunteeringData) {
   }
 }
 
+//Edit user settings
+
 let editNameIcon = document.querySelector("#nameEdit");
+let saveNameIcon = document.querySelector("#saveEditName");
 editNameIcon.addEventListener("click", function() {
   document.querySelector("#profileName").focus();
-  document.getElementById("nameEdit").src = "img/diskette.svg";
+  editNameIcon.style.display = "none";
+  saveNameIcon.style.display = "inline-block";
+});
+
+saveNameIcon.addEventListener("click", function() {
+  let newName = document.querySelector("#profileName").textContent;
+  let name = user.name;
+  if (newName !== name) {
+    let newUserName = {
+      name: newName
+    };
+
+    updateUserInformation(newUserName);
+    user.name = newName;
+    sessionStorage.setItem("user", JSON.stringify(user));
+  }
+  editNameIcon.style.display = "inline-block";
+  saveNameIcon.style.display = "none";
 });
 
 let editEmail = document.querySelector("#emailEdit");
-
+let saveEmail = document.querySelector("#saveEditEmail");
 editEmail.addEventListener("click", function() {
   document.querySelector("#profileEmail").focus();
-  document.getElementById("emailEdit").src = "img/diskette.svg";
+  editEmail.style.display = "none";
+  saveEmail.style.display = "inline-block";
+});
+
+saveEmail.addEventListener("click", function() {
+  let newEmail = document.querySelector("#profileEmail").textContent;
+  let email = user.email;
+  if (newEmail !== email) {
+    let newUserEmail = {
+      email: newEmail
+    };
+    updateUserInformation(newUserEmail);
+    user.email = newEmail;
+    sessionStorage.setItem("user", JSON.stringify(user));
+  }
+  editEmail.style.display = "inline-block";
+  saveEmail.style.display = "none";
 });
 
 let editPhone = document.querySelector("#telEdit");
+let savePhone = document.querySelector("#saveEditTel");
 
 editPhone.addEventListener("click", function() {
   document.querySelector("#profileTel").focus();
-  document.getElementById("telEdit").src = "img/diskette.svg";
+  editPhone.style.display = "none";
+  savePhone.style.display = "inline-block";
 });
+
+savePhone.addEventListener("click", function() {
+  let newTel = document.querySelector("#profileTel").textContent;
+  let tel = user.phonenumber;
+  if (newTel !== tel) {
+    let newUserTel = {
+      phonenumber: newTel
+    };
+    updateUserInformation(newUserTel);
+    user.phonenumber = newTel;
+    sessionStorage.setItem("user", JSON.stringify(user));
+  }
+  editPhone.style.display = "inline-block";
+  savePhone.style.display = "none";
+});
+
+function updateUserInformation(content) {
+  // Put request
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/users/" + user.id, {
+      method: "PUT",
+      body: JSON.stringify(content),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+        console.log("updated user", data);
+      });
+  });
+}
 
 function showUser(data) {
   //show profile information
@@ -237,10 +263,10 @@ async function init() {
     link.addEventListener("click", logOut);
   });
   fillInData(user);
-  editBtn.addEventListener("click", e => {
-    e.preventDefault();
-    // console.log("edit click");
-    changeToInput();
-  });
+  // editBtn.addEventListener("click", e => {
+  //   e.preventDefault();
+  //   // console.log("edit click");
+  //   changeToInput();
+  // });
   // fillTemplateDonations(thisUserDonations);
 }

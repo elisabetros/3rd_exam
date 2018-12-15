@@ -308,7 +308,7 @@
 
       <nav class="deskmenu">
         <ul>
-          <li><a href="index.html">Frontpage</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#Contact">Contact</a></li>
           <li class="logOut">Log Out</li>
@@ -323,6 +323,7 @@
     </header>
     <nav class="menu hidden">
       <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#Contact">Contact</a></li>
         <li class="logOut">Log Out</li>
@@ -331,7 +332,17 @@
     <main id="profile">
       <div class="treeImage" id="userSettings">
         <h1 id="profileName" contenteditable="true"></h1>
-        <img src="img/write.svg" class="edit" id="nameEdit" alt="pencil icon" />
+        <img
+          src="img/write.svg"
+          class="edit"
+          id="nameEdit"
+          alt="pencil icon"
+        /><img
+          src="img/diskette.svg"
+          class="edit hide"
+          id="saveEditName"
+          alt="pencil icon"
+        />
 
         <div>
           <p id="profileEmail" contenteditable="true">Elb@</p>
@@ -341,6 +352,12 @@
             id="emailEdit"
             alt="pencil icon"
           />
+          <img
+            src="img/diskette.svg"
+            class="edit hide"
+            id="saveEditEmail"
+            alt="pencil icon"
+          />
         </div>
         <div>
           <p id="profileTel" contenteditable="true">sdf</p>
@@ -348,6 +365,11 @@
             src="img/write.svg"
             class="edit"
             id="telEdit"
+            alt="pencil icon"
+          /><img
+            src="img/diskette.svg"
+            class="edit hide"
+            id="saveEditTel"
             alt="pencil icon"
           />
         </div>

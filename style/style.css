@@ -217,6 +217,9 @@ ul {
 #profileTel {
   display: inline-block; }
 
+.hide {
+  display: none; }
+
 .modal {
   display: none;
   position: fixed;
@@ -469,7 +472,6 @@ p > .signIn {
     color: white; }
 
 .dropbtn {
-  color: #062911;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -496,9 +498,6 @@ p > .signIn {
 
 .dropdown:hover .dropdown-content {
   display: block; }
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41; }
 
 * {
   box-sizing: border-box; }

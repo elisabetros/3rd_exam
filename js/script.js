@@ -25,15 +25,17 @@ function toggleMenu() {
 }
 
 window.addEventListener("scroll", function(e) {
-  // var header = document.getElementById("nav");
-  if (scrollY >= 700) {
-    header.style.backgroundColor = "rgba(0,0,0,.7)";
-    dropdown.style.backgroundColor = "rgba(0,0,0,.7)";
-  } else {
-    header.style.backgroundColor = "rgba(0,0,0,0)";
-    dropdown.style.backgroundColor = "rgba(0,0,0,0)";
+  if (dropdown && header) {
+    if (scrollY >= 700) {
+      header.style.backgroundColor = "rgba(0,0,0,.7)";
+      dropdown.style.backgroundColor = "rgba(0,0,0,.7)";
+    } else {
+      header.style.backgroundColor = "rgba(0,0,0,0)";
+      dropdown.style.backgroundColor = "rgba(0,0,0,0)";
+    }
   }
 });
+// var header = document.getElementById("nav");
 
 //MENU ends
 
