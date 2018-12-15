@@ -123,45 +123,55 @@ $border: 1px solid rgb(40, 54, 24);
 }
 
 #loginform {
+  margin: 10% auto;
+  padding: 5%;
   width: 40vw;
   height: 50vh;
-  position: absolute;
-  background-color: rgb(135, 139, 135);
-}
-
-// #logout {
-//   color: white;
-// }
-
-.modalDonations,
-.volunteerDonations,
-.projectList {
-  display: none;
-  width: 40vw;
-  height: 60vh;
-  background-color: rgba(40, 54, 24, 0.8);
-  position: absolute;
-  margin: 100px 0 0 40vw;
-  overflow-y: auto;
-  h3,
-  h2,
-  p {
-    color: white;
+  background-color: $redColor;
+  label {
+    margin: auto;
+    input {
+      margin: 0 5%;
+    }
   }
-  p,
-  h3 {
-    display: inline-block;
-    margin: 0 10% 0;
-  }
-  .line {
-    width: 100%;
-    margin: 3% 0 10%;
-  }
-  section {
+  .button {
     margin: 5%;
   }
-  .close {
-    color: white;
+
+  // #logout {
+  //   color: white;
+  // }
+
+  .modalDonations,
+  .volunteerDonations,
+  .projectList {
+    display: none;
+    width: 40vw;
+    height: 60vh;
+    background-color: rgba(40, 54, 24, 0.8);
+    position: absolute;
+    margin: 100px 0 0 40vw;
+    overflow-y: auto;
+    h3,
+    h2,
+    p {
+      color: white;
+    }
+    p,
+    h3 {
+      display: inline-block;
+      margin: 0 10% 0;
+    }
+    .line {
+      width: 100%;
+      margin: 3% 0 10%;
+    }
+    section {
+      margin: 5%;
+    }
+    .close {
+      color: white;
+    }
+    display: none;
   }
-  display: none;
 }

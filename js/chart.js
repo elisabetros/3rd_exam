@@ -206,6 +206,7 @@ submitAdmin.addEventListener("click", function(e) {
       console.log("match", admins[i].name);
       let admin = admins[i];
       loginAdmin.style.display = "none";
+      adminPage.style.display = "block";
       adminName.textContent = "Hello" + " " + admins[i].name + "!";
       sessionStorage.setItem("admin", JSON.stringify(admin));
       init();

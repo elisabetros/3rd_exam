@@ -9,12 +9,13 @@
     <script src="lib/moment-with-locales.min.js"></script>
   </head>
   <body >
-    <div id="loginform">
+    <div id="loginform" class="shadow">
       <form>
-        <button id="submitAdmin">Sign in</button> <label>User Name :</label>
-        <input type="text" name="username" id="username" />
-        <label>Password :</label>
-        <input type="password" name="password" id="password" />
+       <label>User Name :
+        <input type="text" name="username" id="username" /></label>
+        <label>Password :
+        <input type="password" name="password" id="password" /></label>
+        <div class="button shadow" id="submitAdmin">Sign in</div>
       </form>
     </div>
     <main class="adminPage">
