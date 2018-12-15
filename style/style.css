@@ -239,7 +239,7 @@ ul {
   color: black;
   border-radius: 5px;
   background-color: white;
-  margin: 10% auto;
+  margin: 3% auto;
   width: 90%; }
   @media (min-width: 760px) {
     .modal-content {
@@ -287,11 +287,6 @@ p > .signIn {
   grid-column: 2;
   grid-row: 1; }
 
-.titleProject {
-  padding: 5%;
-  color: white;
-  font-size: 5rem; }
-
 .textProject {
   padding: 10%; }
 
@@ -305,6 +300,10 @@ p > .signIn {
       border-radius: 5px 0 0 5px;
       grid-column: 1;
       grid-row: 1; } }
+  .imgProject .titleProject {
+    padding: 100% 5% 0;
+    color: white;
+    font-size: 5rem; }
 
 .close {
   position: absolute;
@@ -347,7 +346,7 @@ p > .signIn {
     color: #f95738; }
   .withImage .modalImage {
     padding: 30% 10%;
-    background-image: url(../img/daylight-environment-forest-1322351.jpg);
+    background-image: url(../img/planting.png);
     background-size: cover; }
     .withImage .modalImage p {
       color: white; }
