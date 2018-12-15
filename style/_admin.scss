@@ -92,6 +92,17 @@ $border: 1px solid rgb(40, 54, 24);
     color: white;
     cursor: pointer;
   }
+  ul {
+    margin: 5% 10%;
+  }
+  #adminName {
+    font-size: 2.5rem;
+  }
+
+  li,
+  .dropBtn {
+    font-size: 2rem;
+  }
 }
 
 .sidenav a {
@@ -137,41 +148,50 @@ $border: 1px solid rgb(40, 54, 24);
   .button {
     margin: 5%;
   }
+}
+// #logout {
+//   color: white;
+// }
 
-  // #logout {
-  //   color: white;
-  // }
-
-  .modalDonations,
-  .volunteerDonations,
-  .projectList {
-    display: none;
-    width: 40vw;
-    height: 60vh;
-    background-color: rgba(40, 54, 24, 0.8);
-    position: absolute;
-    margin: 100px 0 0 40vw;
-    overflow-y: auto;
-    h3,
-    h2,
-    p {
-      color: white;
-    }
-    p,
-    h3 {
-      display: inline-block;
-      margin: 0 10% 0;
-    }
-    .line {
-      width: 100%;
-      margin: 3% 0 10%;
-    }
-    section {
-      margin: 5%;
-    }
-    .close {
-      color: white;
-    }
-    display: none;
+.modalDonations,
+.volunteerDonations,
+.projectsList {
+  display: none;
+  width: 50vw;
+  height: 60vh;
+  background-color: rgba(40, 54, 24, 0.8);
+  position: absolute;
+  margin: 100px 0 0 40vw;
+  overflow-y: auto;
+  section > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
+  .line {
+    grid-column: span 2;
+  }
+  h3,
+  h2,
+  p {
+    color: white;
+  }
+  p,
+  h3 {
+    // display: inline-block;
+    margin: 1%;
+  }
+  .line {
+    width: 100%;
+    margin: 3% 0 5%;
+  }
+  section {
+    margin: 5%;
+  }
+  .close {
+    color: white;
+  }
+}
+#userName,
+#projectUserName {
+  grid-column: 1/-1;
 }

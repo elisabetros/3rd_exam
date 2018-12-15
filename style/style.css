@@ -515,6 +515,13 @@ select:-webkit-autofill:focus {
   .sidenav li {
     color: white;
     cursor: pointer; }
+  .sidenav ul {
+    margin: 5% 10%; }
+  .sidenav #adminName {
+    font-size: 2.5rem; }
+  .sidenav li,
+  .sidenav .dropBtn {
+    font-size: 2rem; }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
@@ -552,48 +559,60 @@ select:-webkit-autofill:focus {
       margin: 0 5%; }
   #loginform .button {
     margin: 5%; }
-  #loginform .modalDonations,
-  #loginform .volunteerDonations,
-  #loginform .projectList {
-    display: none;
-    width: 40vw;
-    height: 60vh;
-    background-color: rgba(40, 54, 24, 0.8);
-    position: absolute;
-    margin: 100px 0 0 40vw;
-    overflow-y: auto;
-    display: none; }
-    #loginform .modalDonations h3,
-    #loginform .modalDonations h2,
-    #loginform .modalDonations p,
-    #loginform .volunteerDonations h3,
-    #loginform .volunteerDonations h2,
-    #loginform .volunteerDonations p,
-    #loginform .projectList h3,
-    #loginform .projectList h2,
-    #loginform .projectList p {
-      color: white; }
-    #loginform .modalDonations p,
-    #loginform .modalDonations h3,
-    #loginform .volunteerDonations p,
-    #loginform .volunteerDonations h3,
-    #loginform .projectList p,
-    #loginform .projectList h3 {
-      display: inline-block;
-      margin: 0 10% 0; }
-    #loginform .modalDonations .line,
-    #loginform .volunteerDonations .line,
-    #loginform .projectList .line {
-      width: 100%;
-      margin: 3% 0 10%; }
-    #loginform .modalDonations section,
-    #loginform .volunteerDonations section,
-    #loginform .projectList section {
-      margin: 5%; }
-    #loginform .modalDonations .close,
-    #loginform .volunteerDonations .close,
-    #loginform .projectList .close {
-      color: white; }
+
+.modalDonations,
+.volunteerDonations,
+.projectsList {
+  display: none;
+  width: 50vw;
+  height: 60vh;
+  background-color: rgba(40, 54, 24, 0.8);
+  position: absolute;
+  margin: 100px 0 0 40vw;
+  overflow-y: auto; }
+  .modalDonations section > div,
+  .volunteerDonations section > div,
+  .projectsList section > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+  .modalDonations .line,
+  .volunteerDonations .line,
+  .projectsList .line {
+    grid-column: span 2; }
+  .modalDonations h3,
+  .modalDonations h2,
+  .modalDonations p,
+  .volunteerDonations h3,
+  .volunteerDonations h2,
+  .volunteerDonations p,
+  .projectsList h3,
+  .projectsList h2,
+  .projectsList p {
+    color: white; }
+  .modalDonations p,
+  .modalDonations h3,
+  .volunteerDonations p,
+  .volunteerDonations h3,
+  .projectsList p,
+  .projectsList h3 {
+    margin: 1%; }
+  .modalDonations .line,
+  .volunteerDonations .line,
+  .projectsList .line {
+    width: 100%;
+    margin: 3% 0 5%; }
+  .modalDonations section,
+  .volunteerDonations section,
+  .projectsList section {
+    margin: 5%; }
+  .modalDonations .close,
+  .volunteerDonations .close,
+  .projectsList .close {
+    color: white; }
+
+#userName,
+#projectUserName {
+  grid-column: 1/-1; }
 
 * {
   box-sizing: border-box; }

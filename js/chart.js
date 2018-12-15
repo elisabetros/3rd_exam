@@ -103,6 +103,7 @@ function createLists(usersAllData) {
       let modalDonation = document.querySelector(".modalDonations");
       let btnDonations = document.querySelector("#allDonations");
       btnDonations.addEventListener("click", function() {
+        console.log("click");
         modalDonation.style.display = "block";
       });
 
@@ -145,6 +146,7 @@ function createVolunteerList(usersAllData) {
   let btnVolunteer = document.querySelector("#allVolunteers");
   let modalVolunteers = document.querySelector(".volunteerDonations");
   btnVolunteer.addEventListener("click", function() {
+    console.log("show volunteers");
     modalVolunteers.style.display = "block";
   });
 }
@@ -153,6 +155,7 @@ function createListsByProjects(usersAllData) {
   const projects = document.querySelectorAll(".dropdown-content p");
   projects.forEach(project => {
     project.addEventListener("click", function() {
+      console.log("projects clicked");
       document.querySelector("#projectsUsers").innerHTML = "";
       const filtered = usersAllData.filter(u => {
         return u.projects.find(p => p.id == project.dataset.id);
@@ -623,9 +626,10 @@ async function init() {
   console.log("usersAll in init", usersAllData);
   createLists(usersAllData);
   createVolunteerList(usersAllData);
+  createListsByProjects(usersAllData);
   span.forEach(singleSpan => {
     singleSpan.addEventListener("click", e => {
-      e.target.parentElement.parentElement.style.display = "none";
+      e.target.parentElement.style.display = "none";
     });
   });
 }

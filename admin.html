@@ -8,105 +8,118 @@
     <script src="lib/Chart.min.js"></script>
     <script src="lib/moment-with-locales.min.js"></script>
   </head>
-  <body >
+  <body>
     <div id="loginform" class="shadow">
       <form>
-       <label>User Name :
-        <input type="text" name="username" id="username" /></label>
-        <label>Password :
-        <input type="password" name="password" id="password" /></label>
+        <label
+          >User Name : <input type="text" name="username" id="username"
+        /></label>
+        <label
+          >Password : <input type="password" name="password" id="password"
+        /></label>
         <div class="button shadow" id="submitAdmin">Sign in</div>
       </form>
     </div>
     <main class="adminPage">
-    <div class="modalDonations">
-      <!-- <button>Sort by date</button><button>Sort by amount</button> -->
-      <section id="donations"><span class="close">X</span></section>
-      <template id="donationTemp">
-        <h2 id="userName"></h2>
+      <div class="modalDonations">
+        <span class="close">X</span>
+        <!-- <button>Sort by date</button><button>Sort by amount</button> -->
+        <section id="donations"></section>
+        <template id="donationTemp">
+          <div>
+            <h2 id="userName"></h2>
+            <p id="dateDonated"></p>
+            <h3 id="amountDonated"></h3>
+            <div class="line"></div>
+          </div>
+        </template>
+      </div>
+      <div class="volunteerDonations">
+        <span class="close">X</span>
+        <!-- <button>Sort by date</button><button>Sort by amount</button> -->
+        <section id="volunteerDonations"></section>
+        <template id="volunteerTemp">
+          <div>
+            <h3 id="volunteerRegion"></h3>
+            <p id="volunteerEmail"></p>
+            <p id="voluntName"></p>
+            <p id="volunteerTel"></p>
+            <div class="line"></div>
+          </div>
+        </template>
+      </div>
 
-        <p id="dateDonated"></p>
-        <h3 id="amountDonated"></h3>
-        <div class="line"></div>
-      </template>
-    </div>
-    <div class="volunteerDonations">
-      <!-- <button>Sort by date</button><button>Sort by amount</button> -->
-      <section id="volunteerDonations"><span class="close">X</span></section>
-      <template id="volunteerTemp">
-        <p id="volunteerRegion"></p>
-        <p id="voluntName"></p>
-        <p id="volunteerEmail"></p>
-        <p id="volunteerTel"></p>
-      </template>
-    </div>
-    <div class="projectsList">
-      <div><span class="close">X</span></div>
+      <div class="projectsList">
+        <span class="close">X</span>
+        <section id="projectsUsers"></section>
+        <template id="projectsTemp">
+          <div>
+            <h3 id="projectUserName"></h3>
+            <p id="projectUserEmail"></p>
+            <p id="projectUserTel"></p>
+            <div class="line"></div>
+          </div>
+        </template>
+      </div>
 
-      <section id="projectsUsers"></section>
-      <template id="projectsTemp">
-        <p id="projectUserName"></p>
-        <p id="projectUserEmail"></p>
-        <p id="projectUserTel"></p>
-      </template>
-    </div>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <ul>
-        <h2 id="adminName">Name</h2>
-        <li id="logout">Log out</p>
-        <li id="allDonations">All donations</p>
-        <li id="allVolunteers">All volunteers</p>
-        <div class="dropdown">
-          <h2 class="dropbtn">Projects</h2>
-          <div class="dropdown-content">
-            <p id="project11" data-id="11">Help to clean Bognæs Skov</p>
-            <p id="project12" data-id="12">Replant the Planet</p>
-            <p id="project13" data-id="13">Clean beautiful beaches</p>
-            <p id="project14" data-id="14">Spend a day with wild birds</p>
-            <p id="project15" data-id="15">Make a difference at Bølling Sø</p>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <ul>
+          <h2 id="adminName">Name</h2>
+          <li id="logout">Log out</li>
+          <li id="allDonations">All donations</li>
+          <li></li>
+          <li id="allVolunteers">All volunteers</li>
+          <div class="dropdown">
+            <h2 class="dropbtn">Projects</h2>
+            <div class="dropdown-content">
+              <p id="project11" data-id="11">Help to clean Bognæs Skov</p>
+              <p id="project12" data-id="12">Replant the Planet</p>
+              <p id="project13" data-id="13">Clean beautiful beaches</p>
+              <p id="project14" data-id="14">Spend a day with wild birds</p>
+              <p id="project15" data-id="15">Make a difference at Bølling Sø</p>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <svg class="menuIconAdmin" viewBox="0 0 100 100" onclick="openNav()">
+        <rect class="myrect" x="10" y="10" width="40" height="10" />
+        <rect class="myrect" x="10" y="30" width="60" height="10" />
+        <rect class="myrect" x="10" y="50" width="80" height="10" />
+      </svg>
+      <div class="container">
+        <div class="total-container">
+          <div id="totalMoney">
+            <h2>Total amount of donations</h2>
+            <div class="line green"></div>
+            <h1 class="total">Number</h1>
+          </div>
+          <div id="totalVolunteer">
+            <h2>Total amount of volunteers</h2>
+            <div class="line green"></div>
+            <h1 class="total">Number</h1>
           </div>
         </div>
-      </ul>
-    </div>
-    <svg class="menuIconAdmin" viewBox="0 0 100 100" onclick="openNav()">
-      <rect class="myrect" x="10" y="10" width="40" height="10" />
-      <rect class="myrect" x="10" y="30" width="60" height="10" />
-      <rect class="myrect" x="10" y="50" width="80" height="10" />
-    </svg>
-    <div class="container">
-      <div class="total-container">
-        <div id="totalMoney">
-          <h2>Total amount of donations</h2>
-          <div class="line green"></div>
-          <h1 class="total">Number</h1>
+        <div class="horizontalLine one"></div>
+
+        <div class="chart-container size">
+          <canvas id="donationChart" class="size"></canvas>
         </div>
-        <div id="totalVolunteer">
-          <h2>Total amount of volunteers</h2>
-          <div class="line green"></div>
-          <h1 class="total">Number</h1>
+        <div class="chart-container size">
+          <canvas id="volunteeringChart" class="size"></canvas>
+        </div>
+
+        <div class="chart-container size">
+          <canvas id="genderChart" class="size"></canvas>
+        </div>
+        <div class="horizontalLine two"></div>
+        <div class="chart-container size">
+          <canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
         </div>
       </div>
-      <div class="horizontalLine one"></div>
-
-      <div class="chart-container size">
-        <canvas id="donationChart" class="size"></canvas>
-      </div>
-      <div class="chart-container size">
-        <canvas id="volunteeringChart" class="size"></canvas>
-      </div>
-
-      <div class="chart-container size">
-        <canvas id="genderChart" class="size"></canvas>
-      </div>
-      <div class="horizontalLine two"></div>
-      <div class="chart-container size">
-        <canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
-      </div>
-    </div>
-  </main>
+    </main>
   </body>
   <script src="js/chart.js"></script>
 </html>
