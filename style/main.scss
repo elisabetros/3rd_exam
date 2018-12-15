@@ -56,8 +56,11 @@ h2 {
 }
 p,
 div {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: openSans;
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+  }
 }
 a {
   text-decoration: none;
@@ -117,9 +120,12 @@ a {
   }
   h2 {
     font-size: 2.5rem;
-    padding: 4vh 0 0 25vh;
+    padding: 4vh 0 0 5vh;
     @media (min-width: 760px) {
-      padding: 4vh 0 0 5vh;
+      padding: 4vh 0 0 15vh;
+    }
+    @media (min-width: 1024px) {
+      padding: 4vh 0 0 25vh;
     }
   }
 }
@@ -127,7 +133,7 @@ a {
   border-radius: 5px;
   margin: auto;
   background-color: $redColor;
-  width: 40vw;
+  width: 65vw;
   padding: 5% 1%;
   .line {
     border: 0.5px solid white;
@@ -137,15 +143,23 @@ a {
     text-align: center;
   }
   .button {
-    margin: 9% 5%;
+    margin: 9% auto;
   }
   @media (min-width: 760px) {
+    padding: 5%;
     position: absolute;
     top: 60vh;
-    right: 30vw;
+    right: 20vw;
   }
+  @media (min-width: 800px) {
+    top: 20vh;
+    right: 5vw;
+    width: 40vw;
+  }
+
   @media (min-width: 1024px) {
-    width: 20vw;
+    padding: 3% 5%;
+    width: 30vw;
     top: 30vh;
     right: 8vw;
   }
@@ -229,12 +243,19 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 110vh;
-  clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
-  padding: 5% 10% 0;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 0.1fr 2fr;
-  grid-gap: 1%;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+  padding: 20% 10%;
+  @media (min-width: 760px) {
+    padding: 20% 15%;
+  }
+  @media (min-width: 1024px) {
+    padding: 5% 10% 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0.1fr 2fr;
+    grid-gap: 1%;
+    clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
+  }
   h1,
   .line {
     grid-column: 1/-1;
@@ -243,12 +264,18 @@ a {
     grid-column: 1;
   }
   .aboutDiv {
-    margin-top: 10%;
     grid-row: 2;
     grid-column: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: start;
+    @media (min-width: 760px) {
+      margin: 10% 15%;
+    }
+    @media (min-width: 1024px) {
+      margin: 10% 0 0 0;
+    }
+
     // h1 {
     //   text-align: center;
     //   font-size: 5rem;
@@ -302,24 +329,12 @@ footer {
 }
 
 .descHeight {
-  min-height: 19vh;
+  @media (min-width: 760px) {
+    font-size: 1.5rem;
+    min-height: 19vh;
+  }
 }
 
 .hidden {
   display: none;
-}
-
-#securePayment {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-gap: 10px;
-}
-
-input {
-  border: 0;
-  border-bottom: 1px solid rgb(5, 53, 21);
-}
-
-.expdate {
-  width: 2em;
 }

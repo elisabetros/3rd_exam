@@ -35,12 +35,19 @@ function init() {
 
   function openModal() {
     signInModal.style.display = "block";
-    signUpLink.addEventListener("click", opensignUpModal);
+    signUpLink.addEventListener("click", moveLeft);
   }
-  function opensignUpModal() {
+  function moveLeft() {
     console.log("click");
-    signUpModal.style.display = "block";
-    signInModal.style.display = "none";
+    document.querySelector(".absolute").classList.add("move");
+    document.querySelector(".notMember").style.display = "none";
+    document.querySelector(".alreadyMember").style.display = "block";
+    document.querySelector(".signLink").addEventListener("click", moveRight);
+  }
+  function moveRight() {
+    document.querySelector(".absolute").classList.remove("move");
+    document.querySelector(".notMember").style.display = "block";
+    document.querySelector(".alreadyMember").style.display = "none";
   }
 
   function openFormModal(type) {
@@ -59,7 +66,6 @@ function init() {
       console.log("no one is logged in");
       formModal.querySelectorAll("form").forEach(form => {
         form.style.display = "none";
-        showForm(type);
       });
       notSignedInForm.style.display = "grid";
       notSignedInForm.addEventListener("submit", e => {
@@ -83,7 +89,7 @@ function showForm(type) {
   document.querySelector("#" + type).style.display = "block";
   document.querySelector("#" + type).addEventListener("submit", e => {
     e.preventDefault();
-    console.log("click");
+    // console.log("click");
     if (type === "donateForm") {
       // console.log(donateForm.elements);
       goToPayment(donateForm.elements);
@@ -92,6 +98,7 @@ function showForm(type) {
     }
   });
 }
+
 function goToPayment(formElements) {
   formModal.querySelectorAll("form").forEach(form => {
     form.style.display = "none";
@@ -116,7 +123,7 @@ async function makeNewDonation(formElements) {
   let newCreatedDonation = await addNewDonation(newDonation);
   console.log("new created", newCreatedDonation);
   formModal.style.display = "none";
-  let string = "You have successfully donated " + newDonation.amount;
+  let string = "You have successfully donated " + newDonation.amount + " dkk";
   showAlertModal(string);
 }
 async function makeNewVolunteer(formElements) {
@@ -145,7 +152,7 @@ async function makeNewVolunteer(formElements) {
     let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
     console.log("newCreated", newCreatedVolunteer);
     showAlertModal(
-      "Thank you for signing up as a volunteer in this area, we will contact you with projects in the are via email"
+      "Thank you for signing up as a volunteer in this area, we will contact you with projects via email"
     );
     form.formModal.style.display = "none";
   } else {

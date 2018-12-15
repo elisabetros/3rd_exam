@@ -29,7 +29,7 @@ function createUserData(allData) {
 
   let donations = allData.donations;
   let volunteers = allData.volunteers;
-  // console.log("donations", donations);
+  console.log("donations", donations);
   for (let i = 0; i < users.length; i++) {
     let user = {
       userID: Number(users[i].id),
@@ -57,7 +57,7 @@ function createUserData(allData) {
       }
     }
   }
-  // console.log("users with donations", usersAllData);
+  console.log("users with donations", usersAllData);
   for (let i = 0; i < usersAllData.length; i++) {
     for (let u = 0; u < volunteers.length; u++) {
       if (usersAllData[i].userID == volunteers[u].userID) {
@@ -103,6 +103,7 @@ function createLists(usersAllData) {
       let modalDonation = document.querySelector(".modalDonations");
       let btnDonations = document.querySelector("#allDonations");
       btnDonations.addEventListener("click", function() {
+        console.log("click");
         modalDonation.style.display = "block";
       });
 
@@ -128,10 +129,10 @@ function sortByRegion(a, b) {
 function createVolunteerList(usersAllData) {
   let template = document.querySelector("#volunteerTemp").content;
   let sortedRegion = usersAllData.sort(sortByRegion);
-  // console.log("sortedRegion", sortedRegion);
+  console.log("sortedRegion", sortedRegion);
   for (let i = 0; i < usersAllData.length; i++) {
     if (usersAllData[i].region) {
-      // console.log("usersAllData[i] with region", usersAllData[i].region);
+      console.log("usersAllData[i] with region", usersAllData[i].region);
       let clone = template.cloneNode(true);
       clone.querySelector("#volunteerRegion").textContent =
         usersAllData[i].region;
@@ -145,6 +146,7 @@ function createVolunteerList(usersAllData) {
   let btnVolunteer = document.querySelector("#allVolunteers");
   let modalVolunteers = document.querySelector(".volunteerDonations");
   btnVolunteer.addEventListener("click", function() {
+    console.log("show volunteers");
     modalVolunteers.style.display = "block";
   });
 }
@@ -153,6 +155,7 @@ function createListsByProjects(usersAllData) {
   const projects = document.querySelectorAll(".dropdown-content p");
   projects.forEach(project => {
     project.addEventListener("click", function() {
+      console.log("projects clicked");
       document.querySelector("#projectsUsers").innerHTML = "";
       const filtered = usersAllData.filter(u => {
         return u.projects.find(p => p.id == project.dataset.id);
@@ -189,9 +192,9 @@ const admins = [
 ];
 
 let adminName = document.querySelector("#adminName");
-
 let submitAdmin = document.querySelector("#submitAdmin");
 let loginAdmin = document.querySelector("#loginform");
+let adminPage = document.querySelector(".adminPage");
 
 submitAdmin.addEventListener("click", function(e) {
   e.preventDefault();
@@ -206,6 +209,7 @@ submitAdmin.addEventListener("click", function(e) {
       console.log("match", admins[i].name);
       let admin = admins[i];
       loginAdmin.style.display = "none";
+      adminPage.style.display = "block";
       adminName.textContent = "Hello" + " " + admins[i].name + "!";
       sessionStorage.setItem("admin", JSON.stringify(admin));
       init();
@@ -221,9 +225,11 @@ function isLoggedInAsAdmin() {
   if (admin) {
     console.log("logged in as admin", admin);
     loginAdmin.style.display = "none";
+    adminPage.style.display = "block";
     init();
   } else {
     loginAdmin.style.display = "block";
+    adminPage.style.display = "none";
   }
 }
 
@@ -623,7 +629,7 @@ async function init() {
   createListsByProjects(usersAllData);
   span.forEach(singleSpan => {
     singleSpan.addEventListener("click", e => {
-      e.target.parentElement.parentElement.style.display = "none";
+      e.target.parentElement.style.display = "none";
     });
   });
 }

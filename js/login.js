@@ -85,17 +85,26 @@ function showSignUp(userData) {
 function checkUser(userData) {
   let userInput = document.querySelector("#name").value;
   let passwordInput = document.querySelector("#password").value;
-  let userName = null;
-  let userPassword = null;
-  let userID;
+  let exist = false;
+  // let userPassword = null;
+  // let userID;
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
+      let userName = user.name;
+      exist = true;
       doLogIn(user);
-    }
+    } // showAlertModal("Wrong username or password");
+    // WHY ALWAYS SHOWS ALERT
   });
+  if (exist) {
+    console.log("login");
+  } else {
+    showAlertModal("wrong username or password");
+  }
 }
 
 function doLogIn(user) {
+  console.log("click");
   sessionStorage.setItem("user", JSON.stringify(user));
   link.forEach(singleLink => {
     singleLink.innerText = "Log Out";
@@ -128,9 +137,9 @@ function checkInput(inputClass) {
     item.style.color = "red";
   } else {
     if (item.checkValidity()) {
-      item.style.border = "1px solid green";
+      item.style.borderBottom = "1px solid green";
     } else {
-      item.style.border = "1px solid red";
+      item.style.borderBottom = "1px solid red";
     }
   }
 }
@@ -248,3 +257,14 @@ function openProfile() {
     showSignUp();
   }
 }
+
+window.addEventListener("scroll", function(e) {
+  // var header = document.getElementById("nav");
+  if (scrollY >= 700) {
+    header.style.backgroundColor = "rgba(0,0,0,.7)";
+    dropdown.style.backgroundColor = "rgba(0,0,0,.7)";
+  } else {
+    header.style.backgroundColor = "rgba(0,0,0,0)";
+    dropdown.style.backgroundColor = "rgba(0,0,0,0)";
+  }
+});

@@ -336,20 +336,22 @@
         </div>
       </div>
       <div id="formModal" class=" modal">
-        <div class="modal-content">
+        <div class="modal-content withImage">
           <span class="close">&times;</span>
-          <h2 class="formTitle"></h2>
+          <div class="modalImage clip"> <div>
+              <p>
+                If you are not already a member you will be signed up and an
+                account created for you.
+              </p>
+              <p>Already a member?</p>
+              <div class=" button notSignedSignIn">Sign in</div>
+            </div></div>
+          <h1 class="formTitle"></h1>
           <form id="notSignedIn">
-            <p>
-              If you are not already a member you will be signed up and an
-              account created for you.
-            </p>
-            <p>
-              Already a member? <span class="notSignedSignIn">Sign in</span> to
-              continue
-            </p>
-            <label
-              >Name<input
+           
+            <div>
+              <label>Name
+              <input
                 required
                 type="text"
                 name="username"
@@ -357,9 +359,9 @@
                 oninput="checkForm('notSignedIn')"
                 onblur="checkInput('username')"
                 onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Date of birth<input
+              /></label>
+              <label>Date of birth
+              <input
                 required
                 type="date"
                 name="age"
@@ -367,21 +369,19 @@
                 oninput="checkForm('notSignedIn')"
                 onblur="checkInput('age')"
                 onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Gender<select
+              /></label>
+              <label>Gender<select
                 name="gender"
                 required
                 class="gender"
                 onblur="checkInput('gender')"
-              >
+              ></label>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
-              </select></label
-            >
-            <label
-              >Email<input
+              </select></label>
+              <label>Email
+              <input
                 required
                 type="email"
                 name="email"
@@ -389,9 +389,8 @@
                 oninput="checkForm('notSignedIn')"
                 onblur="checkInput('email')"
                 onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Phonenumber<input
+              /></label>
+              <label>Phonenumber<input
                 required
                 type="tel"
                 name="phonenumber"
@@ -399,9 +398,8 @@
                 oninput="checkForm('notSignedIn')"
                 onblur="checkInput('phonenumber')"
                 onfocus="resetColor(this)"
-            /></label>
-            <label
-              >Password<input
+              /></label>
+              <label>Password<input
                 type="password"
                 class="passwordn"
                 name="passwordn"
@@ -409,9 +407,14 @@
                 oninput="checkForm('notSignedIn')"
                 onblur="checkInput('passwordn')"
                 onfocus="resetColor(this)"
-            /></label>
+              /></label>
 
-            <input type="submit" class="toNextStep" value="Continue" />
+              <input
+                type="submit"
+                class="button shadow toNextStep"
+                value="Continue"
+              />
+            </div>
             <!-- <p class="smallText">By </p> -->
           </form>
           <form id="donateForm">
@@ -420,71 +423,83 @@
                 pattern="[0-9]"
                 type="number"
                 class="donation"
+                placeholder="500"
                 name="donation"
                 required
                 oninput="checkForm('donateForm')"
                 onblur="checkInput('donation')"
                 onfocus="resetColor(this)"
             /></label>
-            <input type="submit" class="goToPay" value="Go to Secure Payment" />
+            <input
+              type="submit"
+              class="button shadow goToPay"
+              value="Go to Secure Payment"
+            />
           </form>
           <form id="securePayment">
             <div class="imgPay"></div>
-            <div>
-              <label
-                >Name on Credit Card<input
-                  type="text"
-                  name="cname"
-                  class="cname"
-                  required
-                  oninput="checkForm('securePayment')"
-                  onblur="checkInput('cname')"
-                  onfocus="resetColor(this)"/></label
-              ><br />
-              <label
-                >Card number<input
-                  type="number"
-                  name="cnumber"
-                  class="cnumber"
-                  pattern="[0-9]{13,16}"
-                  required
-                  oninput="checkForm('securePayment')"
-                  onblur="checkInput('cnumber')"
-                  onfocus="resetColor(this)"/></label
-              ><br />
-              <label
-                >Expiraton Month<input
-                  type="text"
-                  name="expmonth"
-                  class="expmonth expdate"
-                  required
-                  oninput="checkForm('securePayment')"
-                  onblur="checkInput('expmonth')"
-                  onfocus="resetColor(this)"
-              /></label>
-              <label
-                >Expiration Year<input
-                  type="text"
-                  name="expyear"
-                  class="expyear expdate"
-                  oninput="checkForm('securePayment')"
-                  onblur="checkInput('expyear')"
-                  onfocus="resetColor(this)"
-                  required
-              /></label>
-              <label
-                >Security Code<input
-                  required
-                  pattern="[0-9]{3}"
-                  type="number"
-                  class="securitycode expdate"
-                  name="securitycode"
-                  oninput="checkForm('securePayment')"
-                  onblur="checkInput('securitycode')"
-                  onfocus="resetColor(this)"
-              /></label>
-            </div>
-            <input type="submit" class="" value="Pay" />
+          
+                <label
+                  >Name on Credit Card<input
+                    type="text"
+                    name="cname"
+                    class="cname"
+                    placeholder="Gob Bluth"
+                    required
+                    oninput="checkForm('securePayment')"
+                    onblur="checkInput('cname')"
+                    onfocus="resetColor(this)"
+                /></label>
+        
+                <label
+                  >Card number<input
+                    type="number"
+                    name="cnumber"
+                    placeholder="4500 4500 4500 4500"
+                    class="cnumber"
+                    pattern="[0-9]{13,16}"
+                    required
+                    oninput="checkForm('securePayment')"
+                    onblur="checkInput('cnumber')"
+                    onfocus="resetColor(this)"
+                /></label>
+                <label class="expdate">Expiraton date
+                  <input
+                    type="text"
+                    name="expmonth"
+                    class="expmonth"
+                    placeholder="September"
+                    required
+                    oninput="checkForm('securePayment')"
+                    onblur="checkInput('expmonth')"
+                    onfocus="resetColor(this)"
+                /><input
+                type="text"
+                name="expyear"
+                placeholder="2020"
+                class="expyear"
+                oninput="checkForm('securePayment')"
+                onblur="checkInput('expyear')"
+                onfocus="resetColor(this)"
+                required
+            /></label>
+            
+                <!-- <label
+                  >Expiration Year</label> -->
+                <label
+                  >Security Code<input
+                    required
+                    pattern="[0-9]{3}"
+                    type="number"
+                    placeholder="866"
+                    class="securitycode expdate"
+                    name="securitycode"
+                    oninput="checkForm('securePayment')"
+                    onblur="checkInput('securitycode')"
+                    onfocus="resetColor(this)"
+                /></label>
+        
+            <input type="submit" class="button shadow " value="Pay" />
           </form>
           <form id="volunteerForm">
             <p>
@@ -514,7 +529,7 @@
 
             <input
               type="submit"
-              class="newVolunteer"
+              class="newVolunteer button shadow "
               value="Sign up as a volunteer"
             />
           </form>
@@ -529,12 +544,25 @@
             </p>
           -->
           <p></p>
-          <h2 id="signedUpVolunteering"></h2></div
-      ></a>
+          <h2 id="signedUpVolunteering"></h2></div></a>
+
+
       <div id="signIn" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <div class="modalIn">
+        <div class="modal-content withImage">
+           
+          <div class="modalImage absolute"> 
+             <div class="notMember">
+            <p>Are you not a member?</p>
+            <div class="button shadow signUpLink">Sign up</div>
+          </div>
+          <div class="alreadyMember">
+              <p>Already a member?</p>
+              <div class="button shadow signLink">Sign In</div>
+            </div>
+        </div>
+        <span class="close">&times;</span>
+         
+          <div class="signInContent">
             <h1>Sign in</h1>
             <form>
               <label for=""
@@ -543,19 +571,15 @@
               <label for=""
                 >Password<input type="password" name="password" id="password"
               /></label>
-              <input id="signInBtn" type="submit" value="Sign In" />
-              <p>
-                Are you not a member? Sign Up
-                <span class="signUpLink">here</span>
-              </p>
+              <input
+                id="signInBtn"
+                type="submit"
+                class="button shadow "
+                value="Sign In"
+              />
             </form>
           </div>
-        </div>
-      </div>
-
-      <div id="signUp" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
+          <div class="signUpContent">
           <h1>Sign Up</h1>
           <form id="signUpForm">
             <label
@@ -619,22 +643,23 @@
                 onblur="checkInput('password')"
                 onfocus="resetColor(this)"
             /></label>
-            <!--
-              <label
-                >Repeat Password<input
-                  type="password"
-                  required
-                  name="passwordv"
-                  class="passwordv"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkPassVal()"
-                  onfocus="resetColor(this)"
-              /></label>
-            -->
-            <input type="submit" value="Sign Up" id="signUpBtn" disabled />
+            <input
+              type="submit"
+              class="button shadow"
+              value="Sign Up"
+              id="signUpBtn"
+              disabled
+            />
           </form>
         </div>
+        </div>
       </div>
+
+      <!-- <div id="signUp" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+                 </div>
+      </div> -->
 
       <div id="hero">
         <h1>The Nature Fund</h1>
@@ -642,17 +667,14 @@
         <h2>Planting trees and saving bees since 2000</h2>
       </div>
       <div class="choose shadow">
-        <h2>Help Denmark's nature!</h2>
-        <!-- <div class="line"></div> -->
-        <!--
           <p>
-            Join a community of volunteers contribute to saving the environment
+            Do you have couple of spare hours? Join our community of volunteers and help the environment!
           </p>
-        -->
+     
         <div class="button volunteerBtn">Volunteer</div>
-        <!--
-          <p>Donate and give us the resources to preserve Danish nature</p>
-        -->
+   
+          <p>Take two minutes to help us preserve Danish nature, every krona counts.</p>
+    
         <div class="button donateBtn">Donate</div>
       </div>
       <div id="projects">
