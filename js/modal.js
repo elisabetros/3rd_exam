@@ -12,7 +12,7 @@ const securePayForm = document.querySelector("#securePayment");
 const projectVolBtn = document.querySelectorAll(".beVolunteer");
 const donateBtn = document.querySelector(".donateBtn");
 const volunteerBtn = document.querySelector(".volunteerBtn");
-let link = document.querySelectorAll(".signIn");
+let signInlink = document.querySelectorAll(".signIn");
 let signUpLink = document.querySelector(".signUpLink");
 let span = document.querySelectorAll(".close");
 let signUpBtn = document.querySelector("#signUpBtn");
@@ -24,7 +24,7 @@ function init() {
   volunteerBtn.addEventListener("click", function() {
     openFormModal("volunteerForm");
   });
-  link.forEach(singleLink => {
+  signInlink.forEach(singleLink => {
     singleLink.addEventListener("click", openModal);
   });
   span.forEach(singleSpan => {

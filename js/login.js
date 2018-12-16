@@ -5,6 +5,7 @@ window.addEventListener("load", init);
 // let userName;
 let signUpForm = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+let logOutLink = document.querySelectorAll(".logOut");
 
 // //MENU
 // let menuOpen = false;
@@ -33,6 +34,9 @@ async function init() {
   // checkLogin(userData);
   showSignUp(userData);
   checkLogin();
+  logOutLink.forEach(logLink => {
+    logLink.addEventListener("click", logOut);
+  });
   // form.addEventListener("submit");
 }
 
@@ -47,14 +51,19 @@ function fetchUsers() {
 }
 
 ////////LOGIN CHECK///////
-function checkLogin(userData) {
+function checkLogin() {
   if (isLoggedIn()) {
-    // console.log("someone is signed in!");
-    link.forEach(singleLink => {
-      singleLink.innerText = "Log Out";
-      singleLink.addEventListener("click", logOut);
+    signInlink.forEach(singleLink => {
+      singleLink.style.display = "none";
+    });
+    logOutLink.forEach(logLink => {
+      logLink.style.display = "block";
     });
     // console.log("user logged in is", userData);
+  } else {
+    logOutLink.forEach(logLink => {
+      logLink.style.display = "none";
+    });
   }
 }
 
@@ -72,10 +81,6 @@ function isLoggedIn() {
 // }
 
 function showSignUp(userData) {
-  // console.log("noone is signed in");
-  link.forEach(singleLink => {
-    singleLink.innerText = "Sign In";
-  });
   document.querySelector("#signInBtn").addEventListener("click", e => {
     e.preventDefault();
     checkUser(userData);
@@ -106,18 +111,23 @@ function checkUser(userData) {
 function doLogIn(user) {
   console.log("click");
   sessionStorage.setItem("user", JSON.stringify(user));
-  link.forEach(singleLink => {
-    singleLink.innerText = "Log Out";
-    singleLink.addEventListener("click", logOut);
-    // singleLink.removeEventListener("click", openModal);
-    // singleLink.removeEventListener("click", openModal);
-  });
-  // alert("you are signed in!");
   signInModal.style.display = "none";
   showAlertModal("Your are now signed In!");
+  signInlink.forEach(singleLink => {
+    singleLink.style.display = "none";
+  });
+  logOutLink.forEach(logLink => {
+    logLink.style.display = "block";
+  });
 }
 
 function logOut() {
+  signInlink.forEach(singleLink => {
+    singleLink.style.display = "block";
+  });
+  logOutLink.forEach(logLink => {
+    logLink.style.display = "none";
+  });
   showAlertModal("You have successfully logged out");
   setTimeout(function() {
     sessionStorage.removeItem("user");
