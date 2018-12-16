@@ -41,10 +41,9 @@ header {
     float: left; }
     @media (min-width: 760px) {
       header svg.logo {
-        width: 30%; } }
+        width: 15%; } }
     @media (min-width: 1024px) {
       header svg.logo {
-        width: 50%;
         margin: 3%; } }
   header svg.menuIcon {
     margin: 3%;
@@ -796,10 +795,12 @@ a {
     @media (min-width: 760px) {
       .iconGrid .icon {
         margin: 0; } }
+  .iconGrid svg,
   .iconGrid img {
     display: block;
-    margin: auto;
-    width: 30%; }
+    margin: 3% auto;
+    height: 10vh;
+    width: 10vw; }
 
 #about {
   background-image: url(../img/fallen-tree.jpg);
@@ -844,8 +845,9 @@ a {
       padding: 5%;
       background-color: #283618;
       border-radius: 5px; }
-  #about img {
-    width: 50%; }
+  #about svg {
+    height: 10vh;
+    width: 10vw; }
 
 footer {
   min-height: 10vh;
@@ -878,3 +880,27 @@ footer {
 
 .hidden {
   display: none; }
+
+.animate {
+  width: 50%;
+  height: 50%; }
+
+.path {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-miterlimit: 10;
+  stroke-width: 5px; }
+
+.path.white {
+  stroke: white; }
+
+.path.green {
+  stroke: #283618; }
+
+.draw {
+  animation: dash 2s linear forwards; }
+
+@keyframes dash {
+  100% {
+    stroke-dashoffset: 0; } }

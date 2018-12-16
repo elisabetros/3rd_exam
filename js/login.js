@@ -28,6 +28,7 @@ let logOutLink = document.querySelectorAll(".logOut");
 // }
 
 // //MENU ends
+let svgs = document.querySelectorAll(".animate");
 
 async function init() {
   const userData = await fetchUsers();
@@ -37,7 +38,30 @@ async function init() {
   logOutLink.forEach(logLink => {
     logLink.addEventListener("click", logOut);
   });
+  createObserver();
   // form.addEventListener("submit");
+}
+
+function createObserver() {
+  let observer;
+  observer = new IntersectionObserver(entries => {
+    // console.log(entries);
+    entries.forEach(entry => {
+      let path = entry.target.querySelector("path");
+      if (entry.intersectionRatio > 0) {
+        console.log("in view");
+        path.classList.add("draw");
+        // entry.target.style.display = "block";
+      } else {
+        console.log("out of view");
+        path.classList.remove("draw");
+        // entry.target.style.display = "none";
+      }
+    });
+  });
+  svgs.forEach(svg => {
+    observer.observe(svg);
+  });
 }
 
 function fetchUsers() {
@@ -68,17 +92,10 @@ function checkLogin() {
 }
 
 function isLoggedIn() {
-  // const loggedIn = sessionStorage.getItem("loggedin");
   let user = JSON.parse(sessionStorage.getItem("user"));
   console.log("You are logged in:", user);
   return user;
 }
-
-// function isLoggedIn() {
-//   const loggedIn = sessionStorage.getItem("loggedin") === "true";
-//   console.log("You are logged in:", loggedIn);
-//   return loggedIn;
-// }
 
 function showSignUp(userData) {
   document.querySelector("#signInBtn").addEventListener("click", e => {
@@ -91,20 +108,16 @@ function checkUser(userData) {
   let userInput = document.querySelector("#name").value;
   let passwordInput = document.querySelector("#password").value;
   let exist = false;
-  // let userPassword = null;
-  // let userID;
   userData.forEach(user => {
     if (userInput === user.name && passwordInput === user.password) {
-      let userName = user.name;
+      // let userName = user.name;
       exist = true;
       doLogIn(user);
-    } // showAlertModal("Wrong username or password");
-    // WHY ALWAYS SHOWS ALERT
+    }
   });
-  if (exist) {
-    console.log("login");
-  } else {
+  if (!exist) {
     showAlertModal("wrong username or password");
+    // console.log("login");
   }
 }
 
