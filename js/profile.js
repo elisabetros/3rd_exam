@@ -231,6 +231,10 @@ function fillInTemplateProjects(userData) {
       let clone = template.cloneNode(true);
       clone.querySelector("#projectName").textContent = project.title;
       clone.querySelector("#projectDate").textContent = project.date;
+      clone.querySelector(".removeBtn").dataset.id = project.id;
+      clone
+        .querySelector(".removeBtn")
+        .addEventListener("click", removeProject);
       projectSection.appendChild(clone);
     });
   } else {
@@ -248,6 +252,58 @@ function fillInData(user) {
   userPhone.textContent = "tel:" + user.phonenumber;
 }
 
+window.addEventListener("scroll", function(e) {
+  // var header = document.getElementById("nav");
+  if (scrollY >= 100) {
+    header.style.backgroundColor = "rgba(0,0,0,.7)";
+  } else {
+    header.style.backgroundColor = "rgba(0,0,0,0)";
+  }
+});
+async function removeProject(e) {
+  console.log(e);
+  const volunteers = await fetchVolunteer();
+  const projectID = e.target.dataset.id;
+  console.log(projectID);
+  volunteers.find(volunteer => {
+    if (volunteer.userID === user.id) {
+      console.log(volunteer);
+      const updatedProjects = volunteer.projects.filter(p => {
+        if (p.id != projectID) {
+          return true;
+        }
+      });
+
+      updateProjectList(updatedContent, volunteer.id);
+    }
+  });
+  // let string = "You have removed yourself from the project, ";
+  // showAlertModal(string);
+}
+function updateProjectList(content, id) {
+  const newData = {
+    projects: content
+  };
+  console.log(content);
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/volunteer/" + id, {
+      method: "PUT",
+      body: JSON.stringify(newData),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(function(data) {
+        resolve(data);
+        console.log("updated user", data);
+      });
+  });
+}
+// r
+//
+
 async function init() {
   const donationsData = await fetchDonations();
   const volunteeringData = await fetchVolunteer();
@@ -263,6 +319,13 @@ async function init() {
     link.addEventListener("click", logOut);
   });
   fillInData(user);
+  // removeBtn.forEach(btn => {
+  //   btn.addEventListener("click", function() {
+  //     console.log(btn);
+  //     // removeProject(name);
+  //   });
+  // });
+
   // editBtn.addEventListener("click", e => {
   //   e.preventDefault();
   //   // console.log("edit click");

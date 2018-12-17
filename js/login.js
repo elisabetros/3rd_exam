@@ -29,13 +29,13 @@ function createObserver() {
     entries.forEach(entry => {
       let path = entry.target.querySelectorAll(".path");
       if (entry.intersectionRatio > 0) {
-        console.log("in view");
+        // console.log("in view");
         path.forEach(singlePath => {
           singlePath.classList.add("draw");
         });
         // entry.target.style.display = "block";
       } else {
-        console.log("out of view");
+        // console.log("out of view");
         path.forEach(singlePath => {
           singlePath.classList.remove("draw");
         });
@@ -89,11 +89,11 @@ function showSignUp(userData) {
 }
 
 function checkUser(userData) {
-  let userInput = document.querySelector("#name").value;
+  let emailInput = document.querySelector("#email").value;
   let passwordInput = document.querySelector("#password").value;
   let exist = false;
   userData.forEach(user => {
-    if (userInput === user.name && passwordInput === user.password) {
+    if (emailInput === user.email && passwordInput === user.password) {
       // let userName = user.name;
       exist = true;
       doLogIn(user);
@@ -298,8 +298,12 @@ function openFormModal(type) {
   formModal.style.display = "block";
   if (type === "donateForm") {
     document.querySelector(".formTitle").textContent = "Donate";
+    formModal.querySelector(".modalImage").style.backgroundImage =
+      "url(../img/gribskov.png)";
   } else {
     document.querySelector(".formTitle").textContent = "Volunteer";
+    formModal.querySelector(".modalImage").style.backgroundImage =
+      "url(../img/kikkert.jpg)";
   }
   document.querySelector(".notSignedSignIn").addEventListener("click", e => {
     openModal();

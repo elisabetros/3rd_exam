@@ -56,13 +56,12 @@
   padding: 5%;
   margin: auto;
   @media (min-width: 1024px) {
-    padding: 0 20%;
+    padding: 0 10%;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
   }
-  // background-color: #fff;
-  // color: #444;
+
   h1,
   h3,
   h4,
@@ -79,16 +78,51 @@
   }
   #projectSection {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 0.1fr;
+    img {
+      cursor: pointer;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      width: 80%;
+      margin: 0 10%;
+    }
   }
   .volunteerArea {
-    padding: 5%;
     @media (min-width: 1024px) {
       border-left: 1px solid $darkGreen;
     }
   }
-  .donationsArea {
+  .donationsArea,
+  .volunteerArea {
     padding: 5%;
+    .background {
+      padding: 5%;
+      border-radius: 5px;
+      background-color: darken($greencolor, 10%);
+    }
+    .grid {
+      padding: 5%;
+    }
+    .grid,
+    #allDonations {
+      margin: 5% 0;
+      border-radius: 5px;
+      background-color: darken($greencolor, 10%);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      // h2,
+      // h3 {
+      //   margin: 0;
+      // }
+      h3 {
+        text-align: right;
+      }
+      .line {
+        grid-column: 1/-1;
+      }
+    }
   }
 }
 
@@ -99,4 +133,33 @@
 
 .hide {
   display: none;
+}
+.donationsMade,
+#area {
+  margin: 0;
+}
+
+////Tooltip form W3 schools
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
