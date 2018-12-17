@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: openSans;
-  src: url(../fonts/opensans/OpenSansCondensed-Light.ttf);
+  src: url(../fonts/opensans/OpenSans-Regular.ttf);
 }
 
 header {
@@ -242,7 +242,7 @@ ul {
 }
 @media (min-width: 1024px) {
   #wrapper {
-    padding: 0 20%;
+    padding: 0 10%;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
@@ -264,18 +264,57 @@ ul {
 }
 #wrapper #projectSection {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr 0.1fr;
 }
-#wrapper .volunteerArea {
-  padding: 5%;
+#wrapper #projectSection img {
+  cursor: pointer;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  margin: 0 10%;
 }
 @media (min-width: 1024px) {
   #wrapper .volunteerArea {
     border-left: 1px solid #283618;
   }
 }
-#wrapper .donationsArea {
+#wrapper .donationsArea,
+#wrapper .volunteerArea {
   padding: 5%;
+}
+#wrapper .donationsArea .background,
+#wrapper .volunteerArea .background {
+  padding: 5%;
+  border-radius: 5px;
+  background-color: #c5ccb7;
+}
+#wrapper .donationsArea .grid,
+#wrapper .volunteerArea .grid {
+  padding: 5%;
+}
+#wrapper .donationsArea .grid,
+#wrapper .donationsArea #allDonations,
+#wrapper .volunteerArea .grid,
+#wrapper .volunteerArea #allDonations {
+  margin: 5% 0;
+  border-radius: 5px;
+  background-color: #c5ccb7;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+#wrapper .donationsArea .grid h3,
+#wrapper .donationsArea #allDonations h3,
+#wrapper .volunteerArea .grid h3,
+#wrapper .volunteerArea #allDonations h3 {
+  text-align: right;
+}
+#wrapper .donationsArea .grid .line,
+#wrapper .donationsArea #allDonations .line,
+#wrapper .volunteerArea .grid .line,
+#wrapper .volunteerArea #allDonations .line {
+  grid-column: 1/-1;
 }
 
 #profileEmail,
@@ -285,6 +324,33 @@ ul {
 
 .hide {
   display: none;
+}
+
+.donationsMade,
+#area {
+  margin: 0;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .modal {
@@ -859,15 +925,19 @@ h2 {
   font-weight: 200;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 p,
 div {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: openSans;
 }
-@media (min-width: 1024px) {
+@media (min-width: 760px) {
   p,
   div {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -1146,11 +1216,6 @@ footer .footerIcon img {
 footer .smallText {
   font-size: 1rem;
   float: right;
-}
-
-.smallContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 @media (min-width: 760px) {

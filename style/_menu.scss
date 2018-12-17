@@ -118,28 +118,19 @@ ul {
 }
 
 //** dropDown from W3 mediaschools
-// .dropbtn {
-//   // padding: 16px;
-//   // font-size: 16px;
-//   // border: none;
-// }
 
 .dropdown {
   position: relative;
   display: inline-block;
 }
 .dropdown:hover {
-  // padding: 0 5px 5%;
-  // background-color: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  // box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16), 0 3px 0 rgba(0, 0, 0, 0.23);
 }
 .dropdown-content {
   margin: 0;
   padding: 5% 0 5% 10%;
   display: none;
   position: absolute;
-  // background-color: rgba(0, 0, 0, 0.3);
   min-width: 160px;
   // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   z-index: 1;
