@@ -3,7 +3,6 @@
 window.addEventListener("load", init);
 
 const signInModal = document.querySelector("#signIn");
-const signUpModal = document.querySelector("#signUp");
 const formModal = document.querySelector("#formModal");
 const volunteerForm = document.querySelector("#volunteerForm");
 const donateForm = document.querySelector("#donateForm");
@@ -28,14 +27,18 @@ function createObserver() {
   observer = new IntersectionObserver(entries => {
     // console.log(entries);
     entries.forEach(entry => {
-      let path = entry.target.querySelector("path");
+      let path = entry.target.querySelectorAll(".path");
       if (entry.intersectionRatio > 0) {
         console.log("in view");
-        path.classList.add("draw");
+        path.forEach(singlePath => {
+          singlePath.classList.add("draw");
+        });
         // entry.target.style.display = "block";
       } else {
         console.log("out of view");
-        path.classList.remove("draw");
+        path.forEach(singlePath => {
+          singlePath.classList.remove("draw");
+        });
         // entry.target.style.display = "none";
       }
     });
@@ -103,7 +106,7 @@ function checkUser(userData) {
 }
 
 function doLogIn(user) {
-  console.log("click");
+  // console.log("click");
   sessionStorage.setItem("user", JSON.stringify(user));
   signInModal.style.display = "none";
   showAlertModal("Your are now signed In!");
@@ -175,7 +178,7 @@ async function checkIfAlreadyUser(form) {
   // console.log(userData);
   const found = userData.find(user => {
     if (user.name === form.username.value) {
-      alert("user already exist, choose another username");
+      showAlertModal("user already exist, choose another username");
       return true;
     }
   });
@@ -239,7 +242,7 @@ function createUser(
     .then(res => res.json())
     .then(d => {
       console.log(d);
-      signUpModal.style.display = "none";
+      signInModal.style.display = "none";
       setTimeout(() => {
         logInNewUser(newUser);
       }, 1000);
