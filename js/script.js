@@ -138,7 +138,8 @@ async function addProject(id) {
       });
       console.log("found", found);
       if (found) {
-        console.log("already added, do not add twice");
+        showAlertModal("You are already signed up for this project");
+        // console.log("already added, do not add twice");
         return;
       }
       console.log("project does not exists, add to api");
@@ -178,35 +179,35 @@ const texts = [
     title: "Help to clean Bognæs Skov (Zealand)",
     text:
       "<h3>Where:</h3> Bognæs Skov 4300 Holbæk <br><h3>When:</h3> 12/05/2019  (You will get email with detailed information after you sign up) <br><h3>Why:</h3> Bognæs skov is located at half-island Tuse Næs, with an area of 94 ha of wild forest. Help us to improve the area, by cleaning the forest and fixing amenities and get to know Danish nature in its wild appearance!",
-    img: "img/tuse.png"
+    img: "img/woman.jpg"
   },
   {
     id: 12,
     title: "Replant the Planet (Capital region)",
     text:
       "Gribskov is one of Denmark's largest forests with approximately 5500ha. It is the last remains of the vast wilderness, which in past covered the whole of North Sealand. <br><h3>Where: </h3>Gribskov forest, 3400 Hillerød <br><h3>When:</h3> 15/04/2019 (You will get email with detailed information after you sign up)<br><h3> Why:</h3> Gribskov is not only an essential historical inheritage, but also a biggest forest in North Zealand. Our purpose is to both save its origins and to improve the climate, by planting new trees. At this event you will be able to make a difference and to learn more about Danish fauna and Danish history!",
-    img: "img/gribskov.png"
+    img: "img/plantning.jpg"
   },
   {
     id: 14,
     title: "Spend a day with wild birds (South Jutland)",
     text:
       "<h3>Where: </h3>Okholmvej 56760 Ribe <br><h3>When: </h3>10/05/2019 (You will get email with detailed information after you sign up) <br><h3>Why:</h3> Mandø is located in the middle of the Wadden Sea with the most unique concentrations of migratory birds. Help us to save birds from disappearing  by cleaning the area and install new birds houses. In this event you will get a perfect opportunity not only to make a change, but watch birds and get to know a lot about Danish fauna!",
-    img: "img/mandoe.png"
+    img: "img/hiking.jpg"
   },
   {
     id: 13,
     title: "Clean beautiful beaches (North Jutland)",
     text:
       "Kandestederne is a wide beach with high dunes, where you can enjoy the view over the North Sea and the open plains. <br><h3>Where: </h3>Kandestederne/Skiveren 9990 Skagen <br><h3>When:</h3> 10/04/2019 (You will get email with detailed information after you sign up) <br><h3> Why: </h3>Skagen beaches are one of the biggest attraction for both Danish citizens and tourists. Help us to kick start outdoor season by cleaning a very picturesque area of Kandestederne/Skiveren. At this event you will be able not only to improve the climate, but make many beautiful pictures of a wild nature!",
-    img: "img/beach.png"
+    img: "img/beach.jpg"
   },
   {
     id: 15,
     title: "Make a difference at Bølling Sø area (Central Jutland)",
     text:
       "<h3>Where:</h3>  Kragelundvej 6a 7442 Engesvang <br><h3> When:</h3> 10/06/2019  (You will get email with detailed information after you sign up)<br><h3>Why:</h3>  Bølling Sø has both historical and environmental meaning. Help us to maintain its beauty by cleaning, planting trees or fixing amenities and get to watch birds, fish, enjoy the nature and also make an input in a Danish environment!",
-    img: "img/boling.png"
+    img: "img/cleaning.jpg"
   }
 ];
 

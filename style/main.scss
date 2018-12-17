@@ -229,10 +229,12 @@ a {
       // width: auto;
     }
   }
+  svg,
   img {
     display: block;
-    margin: auto;
-    width: 30%;
+    margin: 3% auto;
+    height: 10vh;
+    width: 10vw;
   }
 }
 /////////////About////////7
@@ -289,8 +291,9 @@ a {
       border-radius: 5px;
     }
   }
-  img {
-    width: 50%;
+  svg {
+    height: 10vh;
+    width: 10vw;
   }
 }
 
@@ -345,4 +348,30 @@ footer {
   margin-block-end: 0.67em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+.animate {
+  width: 50%;
+  height: 50%;
+}
+.path {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-miterlimit: 10;
+
+  stroke-width: 5px;
+}
+.path.white {
+  stroke: white;
+}
+.path.green {
+  stroke: #283618;
+}
+.draw {
+  animation: dash 2s linear forwards;
+}
+
+@keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
