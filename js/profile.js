@@ -274,7 +274,7 @@ async function removeProject(e) {
         }
       });
 
-      updateProjectList(updatedContent, volunteer.id);
+      updateProjectList(updatedProjects, volunteer.id);
     }
   });
   // let string = "You have removed yourself from the project, ";
