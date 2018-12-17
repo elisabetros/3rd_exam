@@ -2,6 +2,8 @@
 
 window.addEventListener("load", init);
 
+// const signUpModal = document.querySelector("#signUp");
+
 // let userName;
 let signUpForm = document.querySelector("#signUpForm");
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";

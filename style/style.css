@@ -888,13 +888,14 @@ footer {
     border: 1px solid #283618;
     margin: 0; }
   footer .footerIcon img {
-    width: 5%; }
+    width: 3%; }
   @media (min-width: 760px) {
     footer .footerGrid {
       display: grid;
       grid-template-columns: 1fr 1fr; } }
   footer .smallText {
-    font-size: 1rem; }
+    font-size: 1rem;
+    float: right; }
 
 .smallContainer {
   display: grid;
@@ -907,3 +908,9 @@ footer {
 
 .hidden {
   display: none; }
+
+#contact h1 {
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px; }
