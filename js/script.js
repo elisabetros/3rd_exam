@@ -138,7 +138,8 @@ async function addProject(id) {
       });
       console.log("found", found);
       if (found) {
-        console.log("already added, do not add twice");
+        showAlertModal("You are already signed up for this project");
+        // console.log("already added, do not add twice");
         return;
       }
       console.log("project does not exists, add to api");

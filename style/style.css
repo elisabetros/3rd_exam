@@ -44,6 +44,7 @@ header {
         width: 15%; } }
     @media (min-width: 1024px) {
       header svg.logo {
+        width: 20%;
         margin: 3%; } }
   header svg.menuIcon {
     margin: 3%;
