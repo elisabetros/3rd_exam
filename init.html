@@ -304,12 +304,20 @@
             userID: 15
           }
         ],
+
         volunteer: [
           {
             createdAt: Date.now(),
             area: "Zealand",
             userID: 1,
-            projects: []
+            projects: [
+              {
+                id: 15,
+                title: "Make a difference at Bølling Sø",
+                region: "Central Jutland",
+                date: "10/06/2019"
+              }
+            ]
           },
           {
             createdAt: Date.now(),
@@ -321,19 +329,58 @@
             createdAt: Date.now(),
             area: "Zealand",
             userID: 8,
-            projects: []
+            projects: [
+              {
+                id: 15,
+                title: "Make a difference at Bølling Sø",
+                region: "Central Jutland",
+                date: "10/06/2019"
+              },
+              {
+                id: 14,
+                title: "Spend a day with wild birds",
+                region: "South Jutland",
+                date: "10/05/2019"
+              }
+            ]
           },
           {
             createdAt: Date.now(),
-            area: "Southern Jutland",
+            area: "South Jutland",
             userID: 4,
-            projects: []
+            projects: [
+              {
+                id: 14,
+                title: "Spend a day with wild birds",
+                region: "South Jutland",
+                date: "10/05/2019"
+              },
+              {
+                id: 11,
+                title: "Help to clean Bognæs Skov",
+                region: "Zealand",
+                date: "12/05/2019"
+              }
+            ]
           },
           {
             createdAt: Date.now(),
             area: "Capital Region",
             userID: 3,
-            projects: []
+            projects: [
+              {
+                id: 13,
+                title: "Clean beautiful beaches",
+                region: "North Jutland",
+                date: "10/04/2019"
+              },
+              {
+                id: 12,
+                title: "Replant the Planet",
+                region: "Capital Region",
+                date: "15/04/2019"
+              }
+            ]
           },
           {
             createdAt: Date.now(),
@@ -343,35 +390,128 @@
           },
           {
             createdAt: Date.now(),
-            area: "Northen Jutland",
+            area: "North Jutland",
             userID: 9,
-            projects: []
+            projects: [
+              {
+                id: 11,
+                title: "Help to clean Bognæs Skov",
+                region: "Zealand",
+                date: "12/05/2019"
+              },
+              {
+                id: 12,
+                title: "Replant the Planet",
+                region: "Capital Region",
+                date: "15/04/2019"
+              },
+              {
+                id: 13,
+                title: "Clean beautiful beaches",
+                region: "North Jutland",
+                date: "10/04/2019"
+              }
+            ]
           },
           {
             createdAt: Date.now(),
             area: "Zealand",
             userID: 6,
             projects: []
+          },
+          {
+            createdAt: Date.now(),
+            area: "Zealand",
+            userID: 10,
+            projects: [
+              {
+                id: 11,
+                title: "Help to clean Bognæs Skov",
+                region: "Zealand",
+                date: "12/05/2019"
+              },
+              {
+                id: 12,
+                title: "Replant the Planet",
+                region: "Capital Region",
+                date: "15/04/2019"
+              },
+              {
+                id: 13,
+                title: "Clean beautiful beaches",
+                region: "North Jutland",
+                date: "10/04/2019"
+              }
+            ]
+          },
+          {
+            createdAt: Date.now(),
+            area: "North Jutland",
+            userID: 15,
+            projects: []
+          },
+          {
+            createdAt: Date.now(),
+            area: "Capital Region",
+            userID: 11,
+            projects: []
+          },
+          {
+            createdAt: Date.now(),
+            area: "Central Jutland",
+            userID: 20,
+            projects: [
+              {
+                id: 11,
+                title: "Help to clean Bognæs Skov",
+                region: "Zealand",
+                date: "12/05/2019"
+              },
+              {
+                id: 12,
+                title: "Replant the Planet",
+                region: "Capital Region",
+                date: "15/04/2019"
+              }
+            ]
+          },
+          {
+            createdAt: Date.now(),
+            area: "North Jutland",
+            userID: 14,
+            projects: []
+          },
+          {
+            createdAt: Date.now(),
+            area: "Capital Region",
+            userID: 13,
+            projects: []
+          },
+          {
+            createdAt: Date.now(),
+            area: "Zealand",
+            userID: 19,
+            projects: []
           }
         ]
       };
 
-      mydata.users.forEach((u, i) => {
-        setTimeout(() => {
-          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
-            method: "post",
-            body: JSON.stringify(u),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            }
-          })
-            .then(res => res.json())
-            .then(d => {
-              console.log("added ", u.name);
-            });
-        }, i * 500);
-      });
+      // mydata.users.forEach((u, i) => {
+      //   setTimeout(() => {
+      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/users`, {
+      //       method: "post",
+      //       body: JSON.stringify(u),
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json"
+      //       }
+      //     })
+      //       .then(res => res.json())
+      //       .then(d => {
+      //         console.log("added ", u.name);
+      //       });
+      //   }, i * 500);
+      // });
 
       // mydata.donation.forEach((d, i) => {
       //   setTimeout(() => {
@@ -390,22 +530,22 @@
       //   }, i * 500);
       // });
 
-      // mydata.volunteer.forEach((v, i) => {
-      //   setTimeout(() => {
-      //     fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
-      //       method: "post",
-      //       body: JSON.stringify(v),
-      //       headers: {
-      //         Accept: "application/json",
-      //         "Content-Type": "application/json"
-      //       }
-      //     })
-      //       .then(res => res.json())
-      //       .then(d => {
-      //         console.log("volunteer ", v.userID);
-      //       });
-      //   }, i * 500);
-      // });
+      mydata.volunteer.forEach((v, i) => {
+        setTimeout(() => {
+          fetch(`http://5bdffe7bf2ef840013994a18.mockapi.io/volunteer`, {
+            method: "post",
+            body: JSON.stringify(v),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(res => res.json())
+            .then(d => {
+              console.log("volunteer ", v.userID);
+            });
+        }, i * 500);
+      });
     </script>
   </body>
 </html>

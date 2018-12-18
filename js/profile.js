@@ -3,6 +3,9 @@
 window.addEventListener("load", init);
 
 let linkOut = document.querySelectorAll(".logOut");
+linkOut.forEach(logLink => {
+  logLink.addEventListener("click", logOut);
+});
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 let userData;
 
@@ -261,7 +264,7 @@ window.addEventListener("scroll", function(e) {
   }
 });
 async function removeProject(e) {
-  console.log(e);
+  // console.log(e);
   const volunteers = await fetchVolunteer();
   const projectID = e.target.dataset.id;
   console.log(projectID);
@@ -273,7 +276,7 @@ async function removeProject(e) {
           return true;
         }
       });
-
+      console.log(updatedProjects);
       updateProjectList(updatedProjects, volunteer.id);
     }
   });
@@ -315,9 +318,6 @@ async function init() {
   let userData = await fetchUser();
   console.log("userData", userData);
   fillInTemplateProjects(userData);
-  linkOut.forEach(link => {
-    link.addEventListener("click", logOut);
-  });
   fillInData(user);
   // removeBtn.forEach(btn => {
   //   btn.addEventListener("click", function() {

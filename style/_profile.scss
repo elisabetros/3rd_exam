@@ -39,9 +39,10 @@
 }
 
 .seeThroughTree {
+  z-index: -1;
   background-image: url(../img/leaf.svg);
   background-size: cover;
-  opacity: 0.1;
+  opacity: 0.2;
   position: absolute;
   bottom: -20vh;
   left: 0;
@@ -162,4 +163,11 @@
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+#profile ~ .line.green {
+  width: 100%;
+}
+
+#profile ~ #contact {
+  margin: 5% 5%;
 }

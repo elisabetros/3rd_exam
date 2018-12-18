@@ -11,9 +11,12 @@ header {
   z-index: 1;
   padding: 0 3%;
   transition: all 0.5s;
+  // &:hover {
+  //   background-color: rgba(0, 0, 0, 0.7);
+  // }
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0.5fr 2fr;
   }
 
   .deskmenu {
@@ -21,10 +24,10 @@ header {
     @media (min-width: 1024px) {
       // grid-column: 3;
       li {
-        margin: 3% 0;
+        margin: 3rem 0;
         font-size: 3rem;
         display: inline-block;
-        padding: 0 5%;
+        padding: 0 3%;
         cursor: pointer;
       }
       ul {
@@ -41,16 +44,15 @@ header {
   }
 
   svg.logo {
-    margin: 1% 3% 1%;
+    margin: 3%;
     width: 50%;
     @media (min-width: 760px) {
-      width: 15%;
+      width: 30%;
     }
     @media (min-width: 1024px) {
-      width: 20%;
-      margin: 3%;
+      width: 60%;
+      margin: 3rem;
     }
-
     float: left;
   }
   svg.menuIcon {
@@ -127,12 +129,11 @@ ul {
   border-radius: 5px;
 }
 .dropdown-content {
-  margin: 0;
+  border-radius: 5px;
   padding: 5% 0 5% 10%;
   display: none;
   position: absolute;
   min-width: 160px;
-  // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   z-index: 1;
 }
 
@@ -152,5 +153,5 @@ ul {
   -webkit-transform: rotate(45deg);
 }
 .nav-colored {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
 }
