@@ -260,44 +260,62 @@ window.addEventListener("scroll", function(e) {
     header.style.backgroundColor = "rgba(0,0,0,0)";
   }
 });
+
+function fetchVolunteerById() {
+  return new Promise((resolve, reject) => {
+    fetch(endpoint + "/volunteer/" + user.id)
+      .then(response => response.json())
+      .then(function(data) {
+        console.log("onevolunteer", data);
+        resolve(data);
+      });
+  });
+}
+
 async function removeProject(e) {
   console.log(e);
-  const volunteers = await fetchVolunteer();
+  const volunteer = await fetchVolunteerById();
   const projectID = e.target.dataset.id;
-  console.log(projectID);
-  volunteers.find(volunteer => {
-    if (volunteer.userID === user.id) {
-      console.log(volunteer);
-      const updatedProjects = volunteer.projects.filter(p => {
-        if (p.id != projectID) {
-          return true;
-        }
-      });
+  console.log("projectID", projectID);
 
-      updateProjectList(updatedProjects, volunteer.id);
-    }
-  });
-  // let string = "You have removed yourself from the project, ";
-  // showAlertModal(string);
-}
-function updateProjectList(content, id) {
-  const newData = {
-    projects: content
+  volunteer.projects = volunteer.projects.filter(p => p.id != projectID);
+  console.log("volunteer.projects", volunteer.projects);
+  const user = {
+    projects: volunteer.projects
   };
+  updateProjectList(user, volunteer.id);
+}
+
+// volunteer.projects.find(project => {
+//   if (project.userID === user.id) {
+//     console.log(volunteer);
+//     const updatedProjects = volunteer.projects.filter(p => {
+//       if (p.id != projectID) {
+//         return true;
+//       }
+//     });
+
+//       updateProjectList(updatedProjects, volunteer.id);
+//     }
+//   });
+//   // let string = "You have removed yourself from the project, ";
+//   // showAlertModal(string);
+// }
+
+function updateProjectList(content, id) {
   console.log(content);
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/volunteer/" + id, {
       method: "PUT",
-      body: JSON.stringify(newData),
+      body: JSON.stringify(content),
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json"
       }
     })
       .then(res => res.json())
       .then(function(data) {
-        resolve(data);
         console.log("updated user", data);
+        resolve(data);
       });
   });
 }
