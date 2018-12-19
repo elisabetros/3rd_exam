@@ -24,10 +24,15 @@ function fetchVolunteer() {
 
 function fetchUser() {
   return new Promise((resolve, reject) => {
-    fetch(endpoint + "/volunteer/" + user.id)
+    fetch(endpoint + "/volunteer/")
       .then(response => response.json())
       .then(function(userData) {
-        resolve(userData);
+        userData.find(volunteer => {
+          if (volunteer.userID === user.id) {
+            resolve(volunteer);
+            console.log(volunteer);
+          }
+        });
       });
   });
 }
@@ -90,7 +95,7 @@ function sortByDate(a, b) {
 
 function matchVolunteers(user, volunteeringData) {
   for (let i = 0; i < volunteeringData.length; i++) {
-    if (user.id == volunteeringData[i].id) {
+    if (user.id == volunteeringData[i].userID) {
       console.log("you are volunteer", volunteeringData[i].area);
       area = volunteeringData[i].area;
       return;

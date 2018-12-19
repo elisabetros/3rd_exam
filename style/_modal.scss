@@ -267,7 +267,7 @@ select:-webkit-autofill:focus {
   display: block;
   width: 60%;
   z-index: 10;
-  background-color: rgba(249, 87, 56, 0.9);
+  background-color: rgba(40, 54, 24, 0.9);
   padding: 0 3%;
   position: fixed;
   top: 5%;
@@ -278,7 +278,7 @@ select:-webkit-autofill:focus {
     display: block;
     border-width: 10px 10px 0;
     border-style: solid;
-    border-color: rgba(249, 87, 56, 0.9) transparent transparent;
+    border-color: rgba(40, 54, 24, 0.9) transparent transparent;
     margin-left: -10px;
     position: absolute;
     bottom: -10px;
@@ -287,7 +287,7 @@ select:-webkit-autofill:focus {
     bottom: auto;
     border-top-width: 0;
     border-bottom-width: 10px;
-    border-bottom-color: rgba(249, 87, 56, 0.9);
+    border-bottom-color: rgba(40, 54, 24, 0.9);
   }
   @media (min-width: 760px) {
     width: 50%;

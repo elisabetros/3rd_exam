@@ -382,7 +382,7 @@ async function makeNewVolunteer(formElements) {
   let volunteers = await fetchVolunteer();
   let user = JSON.parse(sessionStorage.getItem("user"));
   let found = volunteers.find(volunteer => {
-    if (volunteer.id === user.id) {
+    if (volunteer.userID === user.id) {
       // Put request
       let changedVolunteer = {
         userID: user.id,

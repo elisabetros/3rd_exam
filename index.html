@@ -418,7 +418,8 @@
                   oninput="checkForm('signUpForm')"
                   onblur="checkInput('age')"
                   onfocus="resetColor(this)"
-              />
+              /><span class="validated"></span
+                ><span class="invalid hide">!</span>
             </div>
             <div class="field">
               <label for="email"
@@ -440,9 +441,6 @@
                   type="tel"
                   name="phonenumber"
                   class="phonenumber"
-                  oninput="checkForm('signUpForm')"
-                  onblur="checkInput('phonenumber')"
-                  onfocus="resetColor(this)"
               />
               </div>
               <div class="field">
