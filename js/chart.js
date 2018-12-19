@@ -2,7 +2,7 @@
 
 window.addEventListener("load", isLoggedInAsAdmin);
 
-let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io/";
+const endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io/";
 let userID = [];
 let volunteerUserIds = [];
 let donationUserIds = [];
@@ -26,11 +26,11 @@ let userData;
 //create lists of all users data, combine data from different endpoints
 
 function createUserData(allData) {
-  let usersAllData = [];
-  let users = allData.users;
+  const usersAllData = [];
+  const users = allData.users;
 
-  let donations = allData.donations;
-  let volunteers = allData.volunteers;
+  const donations = allData.donations;
+  const volunteers = allData.volunteers;
   console.log("donations", donations);
   for (let i = 0; i < users.length; i++) {
     let user = {
@@ -129,7 +129,7 @@ function sortByRegion(a, b) {
 }
 
 function createVolunteerList(usersAllData) {
-  let template = document.querySelector("#volunteerTemp").content;
+  const template = document.querySelector("#volunteerTemp").content;
   let sortedRegion = usersAllData.sort(sortByRegion);
   console.log("sortedRegion", sortedRegion);
   for (let i = 0; i < usersAllData.length; i++) {
@@ -145,8 +145,8 @@ function createVolunteerList(usersAllData) {
       document.querySelector("#volunteerDonations").appendChild(clone);
     }
   }
-  let btnVolunteer = document.querySelector("#allVolunteers");
-  let modalVolunteers = document.querySelector(".volunteerDonations");
+  const btnVolunteer = document.querySelector("#allVolunteers");
+  const modalVolunteers = document.querySelector(".volunteerDonations");
   btnVolunteer.addEventListener("click", function() {
     console.log("show volunteers");
     modalVolunteers.style.display = "block";
@@ -165,7 +165,7 @@ function createListsByProjects(usersAllData) {
       const projectModal = document.querySelector(".projectsList");
       projectModal.style.display = "block";
       console.log(filtered);
-      let template = document.querySelector("#projectsTemp").content;
+      const template = document.querySelector("#projectsTemp").content;
       for (let i = 0; i < filtered.length; i++) {
         let clone = template.cloneNode(true);
         clone.querySelector("#projectUserName").textContent = filtered[i].name;
@@ -193,11 +193,11 @@ const admins = [
   }
 ];
 
-let adminName = document.querySelector("#adminName");
-let submitAdmin = document.querySelector("#submitAdmin");
-let loginAdmin = document.querySelector("#loginform");
-let logo = document.querySelector(".admin");
-let adminPage = document.querySelector(".adminPage");
+const adminName = document.querySelector("#adminName");
+const submitAdmin = document.querySelector("#submitAdmin");
+const loginAdmin = document.querySelector("#loginform");
+const logo = document.querySelector(".admin");
+const adminPage = document.querySelector(".adminPage");
 
 submitAdmin.addEventListener("click", function(e) {
   e.preventDefault();
@@ -238,7 +238,7 @@ function isLoggedInAsAdmin() {
   }
 }
 
-let logOutBtn = document.querySelector("#logout");
+const logOutBtn = document.querySelector("#logout");
 
 logOutBtn.addEventListener("click", function() {
   logOutAdmin();
@@ -359,13 +359,13 @@ function countVolunteersByAreas(volunteers) {
     } else if (volunteers[i].area === "Capital Region") {
       area[1]++;
       allVolunteer++;
-    } else if (volunteers[i].area === "Southern Jutland") {
+    } else if (volunteers[i].area === "South Jutland") {
       area[2]++;
       allVolunteer++;
     } else if (volunteers[i].area === "Central Jutland") {
       area[3]++;
       allVolunteer++;
-    } else if (volunteers[i].area === "Northern Jutland") {
+    } else if (volunteers[i].area === "North Jutland") {
       area[4]++;
       allVolunteer++;
     }
@@ -594,7 +594,7 @@ function displayAgeChart(agesOverview) {
     }
   });
 }
-let span = document.querySelectorAll(".close");
+const span = document.querySelectorAll(".close");
 
 async function init() {
   // Fetch data

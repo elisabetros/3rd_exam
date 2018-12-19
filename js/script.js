@@ -4,11 +4,11 @@
 
 //MENU
 let menuOpen = false;
-let menuIcon = document.querySelector(".menuIcon");
-let menu = document.querySelector(".menu");
-let bars = menuIcon.querySelectorAll("rect");
+const menuIcon = document.querySelector(".menuIcon");
+const menu = document.querySelector(".menu");
+const bars = menuIcon.querySelectorAll("rect");
 let menuLinks = document.querySelectorAll(".menu>ul>li");
-let header = document.querySelector("header");
+const header = document.querySelector("header");
 let dropdown = document.querySelector(".dropdown-content");
 menuIcon.addEventListener("click", toggleMenu);
 menuLinks.forEach(link => {
@@ -92,7 +92,7 @@ function addNewProjectToJson(matchedProject, id) {
   const newData = {
     projects: matchedProject
   };
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/volunteer/" + id, {
       method: "PUT",
@@ -151,7 +151,7 @@ async function addProject(id) {
         volunteers[i].projects,
         volunteerID
       );
-      // sessionStorage.setItem("project", JSON.stringify(matchedProject));
+
       console.log("newDataposted", newDataPosted);
     }
   }
@@ -164,10 +164,10 @@ async function addProject(id) {
     };
     console.log("newVolunteer", newVolunteer);
     let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
-    // sessionStorage.setItem("project", JSON.stringify(matchedProject));
+
     console.log("newCreated", newCreatedVolunteer);
   }
-  // sessionStorage.setItem("project", JSON.stringify(matchedProject));
+
   // fillInTemplateProjects(id);
   let string =
     "You have successfully signed up as a volunteer in the " +
@@ -239,11 +239,11 @@ function openReadMore(id) {
   });
 }
 
-let titleProject = document.querySelector(".titleProject");
-let textProject = document.querySelector(".textProject");
-let imgProject = document.querySelector(".imgProject");
-let modalReadMore = document.querySelector(".modal-box");
-let btnReadMore = document.querySelectorAll(".readMore");
+const titleProject = document.querySelector(".titleProject");
+const textProject = document.querySelector(".textProject");
+const imgProject = document.querySelector(".imgProject");
+const modalReadMore = document.querySelector(".modal-box");
+const btnReadMore = document.querySelectorAll(".readMore");
 // var spanReadMore = document.getElementsByClassName("closeModal")[0];
 
 btnReadMore.forEach(function(e) {

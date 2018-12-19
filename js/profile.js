@@ -2,11 +2,11 @@
 
 window.addEventListener("load", init);
 
-let linkOut = document.querySelectorAll(".logOut");
+const linkOut = document.querySelectorAll(".logOut");
 linkOut.forEach(logLink => {
   logLink.addEventListener("click", logOut);
 });
-let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+const endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 let userData;
 
 let area;
@@ -314,8 +314,6 @@ window.addEventListener("scroll", function(e) {
 //   updateProjectList(user, volunteer.id);
 // }
 
-///blablbla
-
 function updateProjectList(content, id) {
   console.log(content, id);
 
@@ -335,8 +333,6 @@ function updateProjectList(content, id) {
       });
   });
 }
-// r
-//
 
 async function init() {
   fillInData(user);

@@ -11,16 +11,16 @@ const securePayForm = document.querySelector("#securePayment");
 const projectVolBtn = document.querySelectorAll(".beVolunteer");
 const donateBtn = document.querySelector(".donateBtn");
 const volunteerBtn = document.querySelector(".volunteerBtn");
-let signInlink = document.querySelectorAll(".signIn");
-let signUpLink = document.querySelector(".signUpLink");
-let span = document.querySelectorAll(".close");
-let signUpBtn = document.querySelector("#signUpBtn");
+const signInlink = document.querySelectorAll(".signIn");
+const signUpLink = document.querySelector(".signUpLink");
+const span = document.querySelectorAll(".close");
+const signUpBtn = document.querySelector("#signUpBtn");
 
-let signUpForm = document.querySelector("#signUpForm");
-let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
-let logOutLink = document.querySelectorAll(".logOut");
+const signUpForm = document.querySelector("#signUpForm");
+const endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+const logOutLink = document.querySelectorAll(".logOut");
 
-let svgs = document.querySelectorAll(".animate");
+const svgs = document.querySelectorAll(".animate");
 const observedNumbers = document.querySelectorAll(".observedNumbers");
 
 function createObserver() {
