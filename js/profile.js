@@ -314,29 +314,15 @@ window.addEventListener("scroll", function(e) {
 //   updateProjectList(user, volunteer.id);
 // }
 
-// volunteer.projects.find(project => {
-//   if (project.userID === user.id) {
-//     console.log(volunteer);
-//     const updatedProjects = volunteer.projects.filter(p => {
-//       if (p.id != projectID) {
-//         return true;
-//       }
-//     });
-
-//       updateProjectList(updatedProjects, volunteer.id);
-//     }
-//   });
-//   // let string = "You have removed yourself from the project, ";
-//   // showAlertModal(string);
-// }
-
 function updateProjectList(content, id) {
-  console.log(content);
+  console.log(content, id);
+
   return new Promise((resolve, reject) => {
     fetch(endpoint + "/volunteer/" + id, {
       method: "PUT",
       body: JSON.stringify(content),
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json"
       }
     })

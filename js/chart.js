@@ -8,6 +8,8 @@ let volunteerUserIds = [];
 let donationUserIds = [];
 let userData;
 
+// saved for if we need age later
+
 // function countAge(userData) {
 //   console.log("userData for age function", userData);
 //   let age = [];
@@ -218,7 +220,7 @@ submitAdmin.addEventListener("click", function(e) {
     }
   }
   if (!exists) {
-    alert("wrong password or login");
+    alert("wrong password or user name");
   }
 });
 
@@ -593,6 +595,7 @@ function displayAgeChart(agesOverview) {
   });
 }
 let span = document.querySelectorAll(".close");
+
 async function init() {
   // Fetch data
   const userData = await fetchUsers();
@@ -614,12 +617,13 @@ async function init() {
   const ages = countAges(userData);
   const agesOverview = splitAge(ages);
 
-  // Display data
+  // Display data in charts
   displayChart(amountOverview);
   displayChartByGender(volunteersByGender, donationByGender);
   displayVolunteering(volunteersByArea);
   displayAgeChart(agesOverview);
 
+  //display data in lists
   const allData = {
     users: userData,
     donations: donations,
@@ -636,3 +640,8 @@ async function init() {
     });
   });
 }
+
+setInterval(function() {
+  init();
+  console.log("init runs");
+}, 50000);

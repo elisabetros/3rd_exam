@@ -21,6 +21,7 @@ let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 let logOutLink = document.querySelectorAll(".logOut");
 
 let svgs = document.querySelectorAll(".animate");
+const observedNumbers = document.querySelectorAll(".observedNumbers");
 
 function createObserver() {
   let observer;
@@ -33,6 +34,10 @@ function createObserver() {
         path.forEach(singlePath => {
           singlePath.classList.add("draw");
         });
+        incrementByOneForIndex(trees, 1026);
+        incrementByOneForIndex(animals, 89);
+        incrementByOneForIndex(years, 19);
+        incrementByOneForIndex(nature, 101);
         // entry.target.style.display = "block";
       } else {
         // console.log("out of view");
@@ -42,6 +47,9 @@ function createObserver() {
         // entry.target.style.display = "none";
       }
     });
+  });
+  observedNumbers.forEach(num => {
+    observer.observe(num);
   });
   svgs.forEach(svg => {
     observer.observe(svg);
