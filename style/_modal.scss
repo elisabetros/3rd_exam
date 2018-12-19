@@ -2,7 +2,11 @@
 
 .modal {
   display: none;
-  position: fixed;
+  position: absolute;
+  @media (min-width: 760px) {
+    position: fixed;
+  }
+
   z-index: 2;
   left: 0;
   top: 0;
