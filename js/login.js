@@ -100,7 +100,7 @@ function checkUser(userData) {
     }
   });
   if (!exist) {
-    showAlertModal("wrong username or password");
+    showAlertModal("wrong username or password", "error");
     // console.log("login");
   }
 }
@@ -109,7 +109,7 @@ function doLogIn(user) {
   // console.log("click");
   sessionStorage.setItem("user", JSON.stringify(user));
   signInModal.style.display = "none";
-  showAlertModal("Your are now signed In!");
+  showAlertModal("Your are now signed In!", "success");
   signInlink.forEach(singleLink => {
     singleLink.style.display = "none";
   });
@@ -125,7 +125,7 @@ function logOut() {
   logOutLink.forEach(logLink => {
     logLink.style.display = "none";
   });
-  showAlertModal("You have successfully logged out");
+  showAlertModal("You have successfully logged out", "success");
   setTimeout(function() {
     sessionStorage.removeItem("user");
     window.location.href = "index.html";
@@ -179,7 +179,7 @@ async function checkIfAlreadyUser(form) {
   // console.log(userData);
   const found = userData.find(user => {
     if (user.name === form.username.value) {
-      showAlertModal("user already exist, choose another username");
+      showAlertModal("user already exist, choose another username", "error");
       return true;
     }
   });
@@ -376,7 +376,7 @@ async function makeNewDonation(formElements) {
   console.log("new created", newCreatedDonation);
   formModal.style.display = "none";
   let string = "You have successfully donated " + newDonation.amount + " dkk";
-  showAlertModal(string);
+  showAlertModal(string, "success");
 }
 async function makeNewVolunteer(formElements) {
   let volunteers = await fetchVolunteer();
@@ -407,7 +407,7 @@ async function makeNewVolunteer(formElements) {
       "Thank you for signing up as a volunteer in the " +
       newVolunteer.area +
       " area, we will contact you with projects via email";
-    showAlertModal(string);
+    showAlertModal(string, "success");
     formModal.style.display = "none";
   } else {
     console.log("updatedVolunteer", newVolunteer);
@@ -416,7 +416,7 @@ async function makeNewVolunteer(formElements) {
     string =
       "You have successfully changed the are you want to volunteer in to " +
       newVolunteer.area;
-    showAlertModal(string);
+    showAlertModal(string, "success");
   }
 }
 function changeVolunteer(newVolunteer) {
@@ -454,9 +454,17 @@ function addNewDonation(newDonation) {
   });
 }
 
-function showAlertModal(text) {
+function showAlertModal(text, message) {
   // console.log("yas I wil show");
   let webAlert = document.querySelector(".slide-modal");
+  if (message === "error") {
+    webAlert.classList.add(message);
+    webAlert.classList.remove("success");
+  } else {
+    webAlert.classList.add(message);
+    webAlert.classList.remove("error");
+  }
+
   webAlert.classList.remove("slide");
   webAlert.querySelector("p").innerText = text;
   setTimeout(function() {

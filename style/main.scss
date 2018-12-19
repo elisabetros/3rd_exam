@@ -7,9 +7,11 @@
   src: url(../fonts/opensans/OpenSans-Regular.ttf);
 }
 $greencolor: #dde1d5;
-$darkGreen: rgb(40, 54, 24);
-$redColor: rgb(249, 87, 56);
+$darkGreen: #283618;
+$redColor: #f95738;
 $lightred: #fa7960;
+$errorRed: rgb(221, 43, 8);
+$lightBlue: rgb(191, 206, 203);
 $fontColor: white;
 
 @import "menu";
