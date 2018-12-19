@@ -267,10 +267,11 @@ async function logInNewUser(newUser) {
 }
 
 function openProfile() {
+  console.log("logged in");
   if (sessionStorage.getItem("user")) {
     window.location.href = "profile.html";
   } else {
-    showSignUp();
+    showAlertModal("You have to be signed in to look at your profile", "error");
   }
 }
 
