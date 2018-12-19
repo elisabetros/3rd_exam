@@ -306,11 +306,11 @@ function openFormModal(type) {
   if (type === "donateForm") {
     document.querySelector(".formTitle").textContent = "Donate";
     formModal.querySelector(".modalImage").style.backgroundImage =
-      "url(../img/gribskov.png)";
+      "url(img/gribskov.png)";
   } else {
     document.querySelector(".formTitle").textContent = "Volunteer";
     formModal.querySelector(".modalImage").style.backgroundImage =
-      "url(../img/kikkert.jpg)";
+      "url(img/kikkert.jpg)";
     formModal.querySelector(".toProjects").addEventListener("click", e => {
       formModal.style.display = "none";
     });
