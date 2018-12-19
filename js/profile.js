@@ -314,6 +314,8 @@ window.addEventListener("scroll", function(e) {
 //   updateProjectList(user, volunteer.id);
 // }
 
+///blablbla
+
 function updateProjectList(content, id) {
   console.log(content, id);
 
