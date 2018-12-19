@@ -314,6 +314,8 @@ window.addEventListener("scroll", function(e) {
 //   updateProjectList(user, volunteer.id);
 // }
 
+///blablbla
+
 function updateProjectList(content, id) {
   console.log(content, id);
 
@@ -337,6 +339,7 @@ function updateProjectList(content, id) {
 //
 
 async function init() {
+  fillInData(user);
   const donationsData = await fetchDonations();
   const volunteeringData = await fetchVolunteer();
   const totalDonations = matchDonations(user, donationsData);
@@ -347,7 +350,7 @@ async function init() {
   let userData = await fetchUser();
   console.log("userData", userData);
   fillInTemplateProjects(userData);
-  fillInData(user);
+
   // removeBtn.forEach(btn => {
   //   btn.addEventListener("click", function() {
   //     console.log(btn);
