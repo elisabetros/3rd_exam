@@ -637,3 +637,8 @@ async function init() {
     });
   });
 }
+
+setInterval(function() {
+  init();
+  console.log("init runs");
+}, 50000);
