@@ -137,7 +137,7 @@
           <div class="imgProject"><h2 class="titleProject"></h2></div>
           <div class="left">
             <p class="textProject"></p>
-            <div class="button beVolunteerModal shadow">Volunteer</div>
+            <div class="button beVolunteerModal">Volunteer</div>
             <div class="shareIcons">
               <p class="share">Share this projects!</p>
               <img src="img/faceicon.png" alt="Facebook icon" />
@@ -202,8 +202,9 @@
 
               <input
                 type="submit"
-                class="button shadow toNextStep"
+                class="button toNextStep"
                 value="Continue"
+                disabled
               />
             </div>
             <!-- <p class="smallText">By </p> -->
@@ -226,8 +227,9 @@
           </div>
             <input
               type="submit"
-              class="button shadow goToPay"
+              class="button goToPay"
               value="Go to Secure Payment"
+              disabled
             />
           </form>
           <form id="securePayment">
@@ -259,23 +261,26 @@
                 onfocus="resetColor(this)"/><span class="validated"></span
             ><span class="invalid hide">!</span>
           </div>
-          <div class="field">
-            <label class="expdate" for="expmonth exyear"
+          <div class="field exp">
+            <label class="expdate" for="expmonth"
               >Expiraton date <span class="required"></span></label>
               <input
-                type="text"
+                type="number"
                 name="expmonth"
                 class="expmonth"
                 required
+                placeholder="MM"
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('expmonth')"
                 onfocus="resetColor(this)"/><span class="validated"></span
                   ><span class="invalid hide">!</span>
                 
                 <input
-                type="text"
+                type="number"
                 name="expyear"
                 class="expyear"
+                placeholder="YY"
+                pattern =""
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('expyear')"
                 onfocus="resetColor(this)"
@@ -293,7 +298,6 @@
                 required
                 pattern="[0-9]{3}"
                 type="number"
-                placeholder="866"
                 class="securitycode expdate"
                 name="securitycode"
                 oninput="checkForm('securePayment')"
@@ -302,7 +306,7 @@
             /><span class="validated"></span
               ><span class="invalid hide">!</span>
             </div>
-            <input type="submit" class="button shadow " value="Pay" />
+            <input type="submit" class="button" value="Pay" disabled />
           </form>
           <form id="volunteerForm">
             <p>
@@ -332,8 +336,9 @@
 
             <input
               type="submit"
-              class="newVolunteer button shadow"
+              class="newVolunteer button"
               value="Sign up as a volunteer"
+              disabled
             />
           </form>
         </div>
@@ -347,11 +352,11 @@
           <div class="modalImage absolute">
             <div class="notMember">
               <p>Are you not a member?</p>
-              <div class="button shadow signUpLink">Sign up</div>
+              <div class="button signUpLink">Sign up</div>
             </div>
             <div class="alreadyMember">
               <p>Already a member?</p>
-              <div class="button shadow signLink">Sign In</div>
+              <div class="button signLink">Sign In</div>
             </div>
           </div>
           <span class="close">&times;</span>
@@ -370,7 +375,7 @@
               <input
                 id="signInBtn"
                 type="submit"
-                class="button shadow "
+                class="button"
                 value="Sign In"
               />
             </form>
@@ -459,7 +464,7 @@
               </div>
               <input
                 type="submit"
-                class="button shadow"
+                class="button"
                 value="Sign Up"
                 id="signUpBtn"
                 disabled
@@ -488,14 +493,14 @@
           and help the environment!
         </p>
 
-        <div class="button volunteerBtn shadow">Volunteer</div>
+        <div class="button volunteerBtn">Volunteer</div>
 
         <p>
           Take two minutes to help us preserve Danish nature, every krona
           counts.
         </p>
 
-        <div class="button donateBtn shadow">Donate</div>
+        <div class="button donateBtn">Donate</div>
       </div>
       <div id="projects">
         <h1>Our Projects</h1>
@@ -528,7 +533,7 @@
               </span>
             </p>
             <div
-              class="button beVolunteer shadow"
+              class="button beVolunteer"
               id="11"
               onclick="addProject(11)"
             >
@@ -559,7 +564,7 @@
               </span>
             </p>
             <div
-              class="button beVolunteer shadow"
+              class="button beVolunteer"
               id="12"
               onclick="addProject(12)"
             >
@@ -604,7 +609,7 @@
               </span>
             </p>
             <div
-              class="button beVolunteer shadow"
+              class="button beVolunteer"
               id="13"
               onclick="addProject(13)"
             >
@@ -637,7 +642,7 @@
               </span>
             </p>
             <div
-              class="button beVolunteer shadow"
+              class="button beVolunteer"
               id="14"
               onclick="addProject(14)"
             >
@@ -667,7 +672,7 @@
               </span>
             </p>
             <div
-              class="button beVolunteer shadow"
+              class="button beVolunteer"
               id="15"
               onclick="addProject(15)"
             >

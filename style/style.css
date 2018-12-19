@@ -319,7 +319,6 @@ ul {
       width: 60%; } }
   .modal-content h3,
   .modal-content p,
-  .modal-content label,
   .modal-content h2 {
     color: black; }
   .modal-content p,
@@ -432,9 +431,10 @@ input.button {
   position: relative; }
 
 label {
+  font-size: 1rem;
+  color: grey;
   display: block;
-  margin: 5% 0 0;
-  padding: 1%; }
+  margin: 5% 0 0; }
 
 input {
   border-radius: 5px 5px 0 0;
@@ -455,16 +455,24 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: inset 5px 0 0px 9999px white;
   transition: background-color 5000s ease-in-out 0s; }
 
-.expdate {
+.exp {
   border: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   grid-gap: 5px; }
-  .expdate input {
+  .exp label {
+    grid-column: span 2; }
+  .exp input,
+  .exp select {
     border-bottom: 1px solid black;
-    width: 80%;
     grid-row: 2;
     padding: 0; }
+  .exp .expmonth {
+    width: 100%;
+    grid-column: 1; }
+  .exp .expyear {
+    width: 50%;
+    grid-column: 2; }
 
 .absolute {
   position: absolute;
@@ -800,7 +808,8 @@ a {
 
 h1,
 h2,
-li {
+li,
+label {
   margin: 0;
   font-family: futuraBold; }
 
@@ -843,6 +852,7 @@ a {
   border: 1px solid #283618; }
 
 .button {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 5px;
   cursor: pointer;
   font-family: futuraBold;
@@ -852,8 +862,13 @@ a {
   padding: 1% 5%;
   font-size: 2rem;
   transition: all 0.3s; }
+  .button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
   .button:active {
     transform: translateX(-3%) translateY(-5%) scale(0.9); }
+  .button:disabled {
+    background-color: grey;
+    box-shadow: none; }
 
 #hero {
   background-image: url(../img/forest5.jpg);
