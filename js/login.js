@@ -73,7 +73,7 @@ function checkLogin() {
       singleLink.style.display = "none";
     });
     logOutLink.forEach(logLink => {
-      logLink.style.display = "block";
+      logLink.style.display = "inline-block";
     });
     // console.log("user logged in is", userData);
   } else {
@@ -108,7 +108,7 @@ function checkUser(userData) {
     }
   });
   if (!exist) {
-    showAlertModal("wrong username or password");
+    showAlertModal("wrong username or password", "error");
     // console.log("login");
   }
 }
@@ -117,23 +117,23 @@ function doLogIn(user) {
   // console.log("click");
   sessionStorage.setItem("user", JSON.stringify(user));
   signInModal.style.display = "none";
-  showAlertModal("Your are now signed In!");
+  showAlertModal("Your are now signed In!", "success");
   signInlink.forEach(singleLink => {
     singleLink.style.display = "none";
   });
   logOutLink.forEach(logLink => {
-    logLink.style.display = "block";
+    logLink.style.display = "inline-block";
   });
 }
 
 function logOut() {
   signInlink.forEach(singleLink => {
-    singleLink.style.display = "block";
+    singleLink.style.display = "inline-block";
   });
   logOutLink.forEach(logLink => {
     logLink.style.display = "none";
   });
-  showAlertModal("You have successfully logged out");
+  showAlertModal("You have successfully logged out", "success");
   setTimeout(function() {
     sessionStorage.removeItem("user");
     window.location.href = "index.html";
@@ -148,13 +148,14 @@ function logOut() {
 
 function checkInput(inputClass) {
   let item = document.querySelector("." + inputClass);
+  console.log(item.nextElementSibling.nextElementSibling);
   if (item.value === "") {
-    item.style.color = "red";
+    // item.style.borderBottom = "1px solid red";
   } else {
     if (item.checkValidity()) {
-      item.style.borderBottom = "1px solid green";
+      item.nextElementSibling.nextElementSibling.classList.add("hide");
     } else {
-      item.style.borderBottom = "1px solid red";
+      item.nextElementSibling.nextElementSibling.classList.remove("hide");
     }
   }
 }
@@ -181,27 +182,57 @@ signUpForm.addEventListener("submit", e => {
 });
 
 async function checkIfAlreadyUser(form) {
-  // console.log(form);
+  console.log(form.length);
   const userData = await fetchUsers();
   // console.log(userData);
   const found = userData.find(user => {
     if (user.name === form.username.value) {
-      showAlertModal("user already exist, choose another username");
+      showAlertModal("user already exist, choose another username", "error");
       return true;
     }
   });
+
   if (!found) {
-    createUser(
-      form.username.value,
-      form.gender.value,
-      form.age.value,
-      form.email.value,
-      form.phonenumber.value,
-      form.password.value
-    );
+    let newUser;
+    if (form.length <= 5) {
+      // console.log("less");
+      newUser = {
+        createdAt: Date.now(),
+        name: form.username.value,
+        gender: "",
+        birthDate: "",
+        email: form.email.value,
+        phonenumber: "",
+        password: form.passwordn.value
+      };
+    } else {
+      // console.log("more");
+      let formGender;
+      if (form.gender.value === "female") {
+        formGender = "f";
+      } else if (form.gender.value === "male") {
+        formGender = "m";
+      } else {
+        formGender = "o";
+      }
+      let y = form.age.value.split("-")[0];
+      let m = form.age.value.split("-")[1];
+      let d = form.age.value.split("-")[2];
+      // console.log(y, m, d);
+      newUser = {
+        createdAt: Date.now(),
+        name: form.username.value,
+        gender: formGender,
+        birthDate: d + "-" + m + "-" + y,
+        email: form.email.value,
+        phonenumber: form.phonenumber.value,
+        password: form.password.value
+      };
+    }
+    createUser(newUser);
   }
-  // });
 }
+// });
 
 // Create empty user object
 // fill it with information from form when submit button is pressed
@@ -209,34 +240,7 @@ async function checkIfAlreadyUser(form) {
 // Get all information from form and store in newUser
 // if it's a existing user Don't push
 // Post to API
-function createUser(
-  formName,
-  formGender,
-  formAge,
-  formEmail,
-  formTel,
-  formPass
-) {
-  if (formGender === "female") {
-    formGender = "f";
-  } else if (formGender === "male") {
-    formGender = "m";
-  } else {
-    formGender = "o";
-  }
-  let y = formAge.split("-")[0];
-  let m = formAge.split("-")[1];
-  let d = formAge.split("-")[2];
-  // console.log(y, m, d);
-  let newUser = {
-    createdAt: Date.now(),
-    name: formName,
-    gender: formGender,
-    birthDate: d + "-" + m + "-" + y,
-    email: formEmail,
-    phonenumber: formTel,
-    password: formPass
-  };
+function createUser(newUser) {
   // console.log(newUser);
 
   fetch(endpoint + "/users", {
@@ -274,13 +278,10 @@ function openProfile() {
 }
 
 window.addEventListener("scroll", function(e) {
-  // var header = document.getElementById("nav");
   if (scrollY >= 700) {
-    header.style.backgroundColor = "rgba(0,0,0,.7)";
-    dropdown.style.backgroundColor = "rgba(0,0,0,.7)";
+    header.classList.add("nav-colored");
   } else {
-    header.style.backgroundColor = "rgba(0,0,0,0)";
-    dropdown.style.backgroundColor = "rgba(0,0,0,0)";
+    header.classList.remove("nav-colored");
   }
 });
 
@@ -298,7 +299,7 @@ function moveLeft() {
 function moveRight() {
   document.querySelector(".absolute").classList.remove("move");
   document.querySelector(".notMember").style.display = "block";
-  document.querySelector(".alreadyMgit ember").style.display = "none";
+  document.querySelector(".alreadyMember").style.display = "none";
 }
 
 function openFormModal(type) {
@@ -312,10 +313,16 @@ function openFormModal(type) {
     document.querySelector(".formTitle").textContent = "Volunteer";
     formModal.querySelector(".modalImage").style.backgroundImage =
       "url(../img/kikkert.jpg)";
+    formModal.querySelector(".toProjects").addEventListener("click", e => {
+      formModal.style.display = "none";
+    });
   }
   document.querySelector(".notSignedSignIn").addEventListener("click", e => {
     openModal();
     notSignedInForm.style.display = "none";
+    showForm(type);
+
+    // if user pressses
   });
   if (!isLoggedIn()) {
     console.log("no one is logged in");
@@ -377,13 +384,13 @@ async function makeNewDonation(formElements) {
   console.log("new created", newCreatedDonation);
   formModal.style.display = "none";
   let string = "You have successfully donated " + newDonation.amount + " dkk";
-  showAlertModal(string);
+  showAlertModal(string, "success");
 }
 async function makeNewVolunteer(formElements) {
   let volunteers = await fetchVolunteer();
   let user = JSON.parse(sessionStorage.getItem("user"));
   let found = volunteers.find(volunteer => {
-    if (volunteer.id === user.id) {
+    if (volunteer.userID === user.id) {
       // Put request
       let changedVolunteer = {
         userID: user.id,
@@ -408,8 +415,8 @@ async function makeNewVolunteer(formElements) {
       "Thank you for signing up as a volunteer in the " +
       newVolunteer.area +
       " area, we will contact you with projects via email";
-    showAlertModal(string);
-    form.formModal.style.display = "none";
+    showAlertModal(string, "success");
+    formModal.style.display = "none";
   } else {
     console.log("updatedVolunteer", newVolunteer);
     let updatedVolunteer = await changeVolunteer(newVolunteer);
@@ -417,7 +424,7 @@ async function makeNewVolunteer(formElements) {
     string =
       "You have successfully changed the are you want to volunteer in to " +
       newVolunteer.area;
-    showAlertModal(string);
+    showAlertModal(string, "success");
   }
 }
 function changeVolunteer(newVolunteer) {
@@ -455,9 +462,17 @@ function addNewDonation(newDonation) {
   });
 }
 
-function showAlertModal(text) {
+function showAlertModal(text, message) {
   // console.log("yas I wil show");
   let webAlert = document.querySelector(".slide-modal");
+  if (message === "error") {
+    webAlert.classList.add(message);
+    webAlert.classList.remove("success");
+  } else {
+    webAlert.classList.add(message);
+    webAlert.classList.remove("error");
+  }
+
   webAlert.classList.remove("slide");
   webAlert.querySelector("p").innerText = text;
   setTimeout(function() {

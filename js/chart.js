@@ -196,6 +196,7 @@ const admins = [
 let adminName = document.querySelector("#adminName");
 let submitAdmin = document.querySelector("#submitAdmin");
 let loginAdmin = document.querySelector("#loginform");
+let logo = document.querySelector(".admin");
 let adminPage = document.querySelector(".adminPage");
 
 submitAdmin.addEventListener("click", function(e) {
@@ -211,6 +212,7 @@ submitAdmin.addEventListener("click", function(e) {
       console.log("match", admins[i].name);
       let admin = admins[i];
       loginAdmin.style.display = "none";
+      logo.classList.add("loggedIn");
       adminPage.style.display = "block";
       adminName.textContent = "Hello" + " " + admins[i].name + "!";
       sessionStorage.setItem("admin", JSON.stringify(admin));
@@ -228,6 +230,7 @@ function isLoggedInAsAdmin() {
     console.log("logged in as admin", admin);
     loginAdmin.style.display = "none";
     adminPage.style.display = "block";
+    logo.classList.add("loggedIn");
     init();
   } else {
     loginAdmin.style.display = "block";

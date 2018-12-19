@@ -3,6 +3,9 @@
 window.addEventListener("load", init);
 
 let linkOut = document.querySelectorAll(".logOut");
+linkOut.forEach(logLink => {
+  logLink.addEventListener("click", logOut);
+});
 let endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
 let userData;
 
@@ -21,10 +24,15 @@ function fetchVolunteer() {
 
 function fetchUser() {
   return new Promise((resolve, reject) => {
-    fetch(endpoint + "/volunteer/" + user.id)
+    fetch(endpoint + "/volunteer/")
       .then(response => response.json())
       .then(function(userData) {
-        resolve(userData);
+        userData.find(volunteer => {
+          if (volunteer.userID === user.id) {
+            resolve(volunteer);
+            console.log(volunteer);
+          }
+        });
       });
   });
 }
@@ -87,7 +95,7 @@ function sortByDate(a, b) {
 
 function matchVolunteers(user, volunteeringData) {
   for (let i = 0; i < volunteeringData.length; i++) {
-    if (user.id == volunteeringData[i].id) {
+    if (user.id == volunteeringData[i].userID) {
       console.log("you are volunteer", volunteeringData[i].area);
       area = volunteeringData[i].area;
       return;
@@ -261,30 +269,50 @@ window.addEventListener("scroll", function(e) {
   }
 });
 
-function fetchVolunteerById() {
-  return new Promise((resolve, reject) => {
-    fetch(endpoint + "/volunteer/" + user.id)
-      .then(response => response.json())
-      .then(function(data) {
-        console.log("onevolunteer", data);
-        resolve(data);
-      });
-  });
-}
+// function fetchVolunteerById() {
+//   return new Promise((resolve, reject) => {
+//     fetch(endpoint + "/volunteer/" + user.id)
+//       .then(response => response.json())
+//       .then(function(data) {
+//         console.log("onevolunteer", data);
+//         resolve(data);
+//       });
+//   });
+// }
 
-async function removeProject(e) {
-  console.log(e);
-  const volunteer = await fetchVolunteerById();
-  const projectID = e.target.dataset.id;
-  console.log("projectID", projectID);
+/// Remove single project, doesn't work because of MockAPI bug with arrays
 
-  const newprojects = volunteer.projects.filter(p => p.id != projectID);
-  console.log("volunteer.projects", newprojects);
-  const user = {
-    projects: newprojects
-  };
-  updateProjectList(user, volunteer.id);
-}
+// async function removeProject(e) {
+//   // console.log(e);
+//   const volunteers = await fetchVolunteer();
+//   const projectID = e.target.dataset.id;
+//   console.log(projectID);
+//   volunteers.find(volunteer => {
+//     if (volunteer.userID === user.id) {
+//       console.log(volunteer);
+//       const updatedProjects = volunteer.projects.filter(p => {
+//         if (p.id != projectID) {
+//           return true;
+//         }
+//       });
+//       console.log(updatedProjects);
+//       updateProjectList(updatedProjects, volunteer.id);
+//     }
+//   });
+//   // let string = "You have removed yourself from the project, ";
+//   // showAlertModal(string);
+//   console.log(e);
+//   const volunteer = await fetchVolunteerById();
+//   const projectID = e.target.dataset.id;
+//   console.log("projectID", projectID);
+
+//   volunteer.projects = volunteer.projects.filter(p => p.id != projectID);
+//   console.log("volunteer.projects", volunteer.projects);
+//   const user = {
+//     projects: volunteer.projects
+//   };
+//   updateProjectList(user, volunteer.id);
+// }
 
 function updateProjectList(content, id) {
   console.log(content, id);
@@ -319,9 +347,6 @@ async function init() {
   let userData = await fetchUser();
   console.log("userData", userData);
   fillInTemplateProjects(userData);
-  linkOut.forEach(link => {
-    link.addEventListener("click", logOut);
-  });
   fillInData(user);
   // removeBtn.forEach(btn => {
   //   btn.addEventListener("click", function() {

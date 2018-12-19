@@ -126,7 +126,7 @@ async function addProject(id) {
   console.log("sessionStorageUser", user.id);
   let exists = false;
   for (let i = 0; i < volunteers.length; i++) {
-    if (volunteers[i].id === user.id) {
+    if (volunteers[i].userID === user.id) {
       exists = true;
       console.log("exists", volunteers[i]);
       let projectsForthisVolunteer = volunteers[i].projects;
