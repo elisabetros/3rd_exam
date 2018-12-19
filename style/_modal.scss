@@ -157,14 +157,16 @@ p > .signIn {
     padding: 30% 10%;
     background-image: url(../img/planting.jpg);
     background-size: cover;
-
+    border-radius: 5px 0 0 5px;
     p {
       color: white;
     }
   }
-  .clip {
-    clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-    border-radius: 5px 0 0 5px;
+  @media (min-width: 760px) {
+    .clip {
+      clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    }
   }
 }
 input.button {
@@ -246,6 +248,7 @@ select:-webkit-autofill:focus {
     transform: translate(70%);
     border-radius: 0 5px 5px 0;
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
   }
   .alreadyMember,
   .notMember {
@@ -264,6 +267,7 @@ select:-webkit-autofill:focus {
     height: 100%;
     transform: translateX(0);
     clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
     border-radius: 5px 0 0 5px;
   }
 }

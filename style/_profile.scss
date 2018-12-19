@@ -14,6 +14,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
   padding: 20% 5% 5%;
   @media (min-width: 1024px) {
     padding: 15% 5% 5%;

@@ -151,6 +151,7 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
   padding: 20% 5% 5%; }
   @media (min-width: 1024px) {
     .treeImage {
@@ -419,6 +420,7 @@ p > .signIn {
       color: white; }
   .withImage .clip {
     clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
     border-radius: 5px 0 0 5px; }
 
 input.button {
@@ -490,7 +492,8 @@ select:-webkit-autofill:focus {
       width: 60%;
       transform: translate(70%);
       border-radius: 0 5px 5px 0;
-      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); } }
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+      -webkit-clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); } }
   .absolute .alreadyMember,
   .absolute .notMember {
     top: 30%;
@@ -507,6 +510,7 @@ select:-webkit-autofill:focus {
       height: 100%;
       transform: translateX(0);
       clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
       border-radius: 5px 0 0 5px; } }
 
 .absolute ~ .close {
@@ -869,6 +873,8 @@ a {
   .button:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
   .button:active {
+    -webkit-transform: translateX(-3%) translateY(-5%) scale(0.9);
+    -ms-transform: translateX(-3%) translateY(-5%) scale(0.9);
     transform: translateX(-3%) translateY(-5%) scale(0.9); }
   .button:disabled {
     background-color: grey;
@@ -884,7 +890,8 @@ a {
   width: 100vw;
   top: 0;
   padding: 30vh 5vh 0 5vh;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
   @media (min-width: 1024px) {
     #hero {
       padding: 40vh 10vh 0 10vh; } }
@@ -1101,6 +1108,7 @@ a {
   background-size: cover;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   padding: 20% 10%; }
   @media (min-width: 760px) {
     #about {
@@ -1112,7 +1120,8 @@ a {
       grid-template-columns: 2fr 1fr;
       grid-template-rows: 0.1fr 2fr;
       grid-gap: 1%;
-      clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%); } }
+      clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
+      -webkit-clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%); } }
   #about h1,
   #about .line {
     grid-column: 1/-1; }
