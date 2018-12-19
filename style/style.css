@@ -48,6 +48,7 @@ header {
         width: 60%;
         margin: 3rem; } }
   header svg.menuIcon {
+    cursor: pointer;
     margin: 3%;
     z-index: 10;
     float: right;
@@ -337,7 +338,8 @@ ul {
   color: black;
   float: right;
   font-size: 28px;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer; }
 
 .close:hover,
 .close:focus {
@@ -517,11 +519,11 @@ select:-webkit-autofill:focus {
       -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
       border-radius: 5px 0 0 5px; } }
 
-.absolute ~ .close {
-  color: white; }
-
-.move ~ .close {
-  color: black; }
+@media (min-width: 760px) {
+  .absolute ~ .close {
+    color: white; }
+  .move ~ .close {
+    color: black; } }
 
 .slide-modal {
   border-radius: 5px;
@@ -885,7 +887,7 @@ a {
     box-shadow: none; }
 
 #hero {
-  background-image: url(../img/forestmobile.jpg);
+  background-image: url(../img/foresttablet.jpg);
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -895,13 +897,12 @@ a {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
   @media (min-width: 760px) {
     #hero {
-      background-image: url(../img/foresttablet.jpg); } }
-  @media (min-width: 1024px) {
-    #hero {
       background-image: url(../img/forest5.jpg);
       background-attachment: fixed;
       background-position: center;
-      background-repeat: no-repeat;
+      background-repeat: no-repeat; } }
+  @media (min-width: 1024px) {
+    #hero {
       padding: 40vh 10vh 0 10vh; } }
   #hero .line {
     margin: 0;
@@ -935,8 +936,13 @@ a {
     text-align: center; }
   .choose .button {
     margin: 9% auto; }
+  @media (min-width: 760px) {
+    .choose {
+      padding: 5%;
+      width: 40vw; } }
   @media (min-width: 1024px) {
     .choose {
+      position: absolute;
       padding: 3%;
       width: 30vw;
       top: 30vh;
@@ -945,10 +951,16 @@ a {
 #scroll-down {
   display: block;
   position: absolute;
-  bottom: 5vh;
+  bottom: 1vh;
   left: 45vw;
   padding-top: 51px;
   text-align: center; }
+  @media (min-width: 760px) {
+    #scroll-down {
+      bottom: 10vh; } }
+  @media (min-width: 1024px) {
+    #scroll-down {
+      bottom: 5vh; } }
 
 .arrow-down {
   display: block;
@@ -1098,21 +1110,23 @@ a {
     min-height: 10vh; } }
 
 #about {
-  background-image: url(../img/fallen-treemobile.jpg);
-  background-size: cover;
+  background-color: #283618;
+  background-image: url(../img/fallen-treetablet.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   padding: 20% 10%; }
   @media (min-width: 760px) {
     #about {
-      background-image: url(../img/fallen-tree.jpg);
+      background-size: none;
       padding: 20% 15%; } }
   @media (min-width: 1024px) {
     #about {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
+      background-image: url(../img/fallen-tree.jpg);
+      background-size: cover;
       padding: 5% 10% 0;
       display: grid;
       grid-template-columns: 2fr 1fr;

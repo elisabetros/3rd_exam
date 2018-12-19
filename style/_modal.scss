@@ -60,6 +60,7 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
@@ -275,14 +276,14 @@ select:-webkit-autofill:focus {
     border-radius: 5px 0 0 5px;
   }
 }
-
-.absolute ~ .close {
-  color: white;
+@media (min-width: 760px) {
+  .absolute ~ .close {
+    color: white;
+  }
+  .move ~ .close {
+    color: black;
+  }
 }
-.move ~ .close {
-  color: black;
-}
-
 //////////////////Alert Modal
 
 .slide-modal {

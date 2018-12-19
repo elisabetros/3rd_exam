@@ -115,7 +115,7 @@ a {
 }
 //////////Frontpage//////////////
 #hero {
-  background-image: url(../img/forestmobile.jpg);
+  background-image: url(../img/foresttablet.jpg);
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -124,14 +124,12 @@ a {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
   @media (min-width: 760px) {
-    // position: fixed;
-    background-image: url(../img/foresttablet.jpg);
-  }
-  @media (min-width: 1024px) {
     background-image: url(../img/forest5.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  @media (min-width: 1024px) {
     padding: 40vh 10vh 0 10vh;
   }
 
@@ -174,19 +172,18 @@ a {
   .button {
     margin: 9% auto;
   }
-  // @media (min-width: 760px) {
-  //   padding: 5%;
-  //   position: absolute;
-  //   top: 60vh;
-  //   right: 20vw;
-  // }
+  @media (min-width: 760px) {
+    padding: 5%;
+    width: 40vw;
+  }
   // @media (min-width: 800px) {
   //   top: 20vh;
   //   right: 5vw;
-  //   width: 40vw;
+  //
   // }
 
   @media (min-width: 1024px) {
+    position: absolute;
     padding: 3%;
     width: 30vw;
     top: 30vh;
@@ -198,10 +195,16 @@ a {
 #scroll-down {
   display: block;
   position: absolute;
-  bottom: 5vh;
+  bottom: 1vh;
   left: 45vw;
   padding-top: 51px;
   text-align: center;
+  @media (min-width: 760px) {
+    bottom: 10vh;
+  }
+  @media (min-width: 1024px) {
+    bottom: 5vh;
+  }
 }
 .arrow-down {
   display: block;
@@ -524,21 +527,22 @@ a {
 }
 /////////////About////////7
 #about {
-  background-image: url(../img/fallen-treemobile.jpg);
-
-  background-size: cover;
+  background-color: $darkGreen;
+  background-image: url(../img/fallen-treetablet.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   padding: 20% 10%;
   @media (min-width: 760px) {
-    background-image: url(../img/fallen-tree.jpg);
+    background-size: none;
     padding: 20% 15%;
   }
   @media (min-width: 1024px) {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url(../img/fallen-tree.jpg);
+    background-size: cover;
     padding: 5% 10% 0;
     display: grid;
     grid-template-columns: 2fr 1fr;
