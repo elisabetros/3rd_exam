@@ -105,7 +105,7 @@ a {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
   &:active {
-    transform: translateX(-3%) translateY(-5%) scale(0.9);
+    @include transform(translateX(-3%) translateY(-5%) scale(0.9));
   }
   &:disabled {
     background-color: grey;
@@ -125,6 +125,7 @@ a {
   top: 0;
   padding: 30vh 5vh 0 5vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 
   @media (min-width: 1024px) {
     padding: 40vh 10vh 0 10vh;
@@ -525,6 +526,7 @@ a {
   background-size: cover;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   padding: 20% 10%;
   @media (min-width: 760px) {
     padding: 20% 15%;
@@ -536,6 +538,7 @@ a {
     grid-template-rows: 0.1fr 2fr;
     grid-gap: 1%;
     clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
   }
   h1,
   .line {

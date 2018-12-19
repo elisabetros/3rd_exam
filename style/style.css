@@ -190,25 +190,13 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
-  padding: 20% 5% 5%;
-}
-@media (min-width: 1024px) {
-  .treeImage {
-    padding: 15% 5% 5%;
-  }
-}
-.treeImage h1 {
-  display: inline;
-}
-.treeImage .edit {
-  width: 3%;
-}
-@media (min-width: 760px) {
-  .treeImage .edit {
-    width: 3%;
-  }
-}
-@media (min-width: 1024px) {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
+  padding: 20% 5% 5%; }
+  @media (min-width: 1024px) {
+    .treeImage {
+      padding: 15% 5% 5%; } }
+  .treeImage h1 {
+    display: inline; }
   .treeImage .edit {
     width: 2%;
   }
@@ -512,31 +500,28 @@ p > .signIn {
 }
 @media (min-width: 760px) {
   .withImage form {
-    padding: 15% 10%;
-  }
-}
-.withImage .formTitle {
-  color: white;
-  position: absolute;
-  top: 3vh;
-  left: 3vw;
-  z-index: 10;
-}
-.withImage a {
-  color: #f95738;
-}
-.withImage .modalImage {
-  padding: 30% 10%;
-  background-image: url(../img/planting.jpg);
-  background-size: cover;
-}
-.withImage .modalImage p {
-  color: white;
-}
-.withImage .clip {
-  clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-  border-radius: 5px 0 0 5px;
-}
+    padding: 5%; }
+    @media (min-width: 760px) {
+      .withImage form {
+        padding: 15% 10%; } }
+  .withImage .formTitle {
+    color: white;
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+    z-index: 10; }
+  .withImage a {
+    color: #f95738; }
+  .withImage .modalImage {
+    padding: 30% 10%;
+    background-image: url(../img/planting.jpg);
+    background-size: cover; }
+    .withImage .modalImage p {
+      color: white; }
+  .withImage .clip {
+    clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    border-radius: 5px 0 0 5px; }
 
 input.button {
   border: none;
@@ -612,38 +597,32 @@ select:-webkit-autofill:focus {
   left: 0;
   transition: all 0.5s;
   width: 100%;
-  transform: translateY(35%);
-}
-@media (min-width: 760px) {
-  .absolute {
-    width: 60%;
-    transform: translate(70%);
-    border-radius: 0 5px 5px 0;
-    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
-.absolute .alreadyMember,
-.absolute .notMember {
-  top: 30%;
-  padding: 5%;
-}
-.absolute .alreadyMember {
-  display: none;
-}
+  transform: translateY(35%); }
+  @media (min-width: 760px) {
+    .absolute {
+      width: 60%;
+      transform: translate(70%);
+      border-radius: 0 5px 5px 0;
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+      -webkit-clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); } }
+  .absolute .alreadyMember,
+  .absolute .notMember {
+    top: 30%;
+    padding: 5%; }
+  .absolute .alreadyMember {
+    display: none; }
 
 .absolute.move {
   transform: translatey(0);
-  height: 35%;
-}
-@media (min-width: 760px) {
-  .absolute.move {
-    width: 50%;
-    height: 100%;
-    transform: translateX(0);
-    clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-    border-radius: 5px 0 0 5px;
-  }
-}
+  height: 35%; }
+  @media (min-width: 760px) {
+    .absolute.move {
+      width: 50%;
+      height: 100%;
+      transform: translateX(0);
+      clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+      border-radius: 5px 0 0 5px; } }
 
 .absolute ~ .close {
   color: white;
@@ -1085,18 +1064,16 @@ a {
   margin: auto;
   padding: 1% 5%;
   font-size: 2rem;
-  transition: all 0.3s;
-}
-.button:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.button:active {
-  transform: translateX(-3%) translateY(-5%) scale(0.9);
-}
-.button:disabled {
-  background-color: grey;
-  box-shadow: none;
-}
+  transition: all 0.3s; }
+  .button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .button:active {
+    -webkit-transform: translateX(-3%) translateY(-5%) scale(0.9);
+    -ms-transform: translateX(-3%) translateY(-5%) scale(0.9);
+    transform: translateX(-3%) translateY(-5%) scale(0.9); }
+  .button:disabled {
+    background-color: grey;
+    box-shadow: none; }
 
 #hero {
   background-image: url(../img/forest5.jpg);
@@ -1109,21 +1086,13 @@ a {
   top: 0;
   padding: 30vh 5vh 0 5vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-}
-@media (min-width: 1024px) {
-  #hero {
-    padding: 40vh 10vh 0 10vh;
-  }
-}
-#hero .line {
-  margin: 0;
-  width: 15%;
-}
-#hero h1 {
-  margin: 0;
-  font-size: 5rem;
-}
-@media (min-width: 760px) {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
+  @media (min-width: 1024px) {
+    #hero {
+      padding: 40vh 10vh 0 10vh; } }
+  #hero .line {
+    margin: 0;
+    width: 15%; }
   #hero h1 {
     font-size: 7rem;
   }
@@ -1382,16 +1351,28 @@ a {
   background-size: cover;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
-  padding: 20% 10%;
-}
-@media (min-width: 760px) {
-  #about {
-    padding: 20% 15%;
-  }
-}
-@media (min-width: 1024px) {
-  #about {
-    padding: 5% 10% 0;
+  -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+  padding: 20% 10%; }
+  @media (min-width: 760px) {
+    #about {
+      padding: 20% 15%; } }
+  @media (min-width: 1024px) {
+    #about {
+      padding: 5% 10% 0;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 0.1fr 2fr;
+      grid-gap: 1%;
+      clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
+      -webkit-clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%); } }
+  #about h1,
+  #about .line {
+    grid-column: 1/-1; }
+  #about p {
+    grid-column: 1; }
+  #about .aboutDiv {
+    grid-row: 2;
+    grid-column: 2;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 0.1fr 2fr;
