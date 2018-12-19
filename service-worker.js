@@ -30,6 +30,7 @@ var urlsToCache = [
   "/img/office.svg",
   "/img/pine.svg",
   "/img/planting.jpg",
+  "/img/plantning.jpg",
   "/img/reed.svg",
   "/img/remove.svg",
   "/img/sun.svg",
