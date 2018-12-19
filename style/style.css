@@ -727,6 +727,7 @@ input:valid ~ .validated::after {
   height: 50vh;
   background-color: #f95738; }
   #loginform label {
+    color: black;
     margin: auto; }
     #loginform label input {
       margin: 0 5%; }

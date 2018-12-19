@@ -6,7 +6,7 @@ const linkOut = document.querySelectorAll(".logOut");
 linkOut.forEach(logLink => {
   logLink.addEventListener("click", logOut);
 });
-const endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+const endpoint = "https://5bdffe7bf2ef840013994a18.mockapi.io";
 let userData;
 
 let area;

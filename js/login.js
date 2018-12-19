@@ -17,7 +17,7 @@ const span = document.querySelectorAll(".close");
 const signUpBtn = document.querySelector("#signUpBtn");
 
 const signUpForm = document.querySelector("#signUpForm");
-const endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+const endpoint = "https://5bdffe7bf2ef840013994a18.mockapi.io";
 const logOutLink = document.querySelectorAll(".logOut");
 
 const svgs = document.querySelectorAll(".animate");
@@ -306,11 +306,11 @@ function openFormModal(type) {
   if (type === "donateForm") {
     document.querySelector(".formTitle").textContent = "Donate";
     formModal.querySelector(".modalImage").style.backgroundImage =
-      "url(../img/gribskov.png)";
+      "url(img/gribskov.png)";
   } else {
     document.querySelector(".formTitle").textContent = "Volunteer";
     formModal.querySelector(".modalImage").style.backgroundImage =
-      "url(../img/kikkert.jpg)";
+      "url(img/kikkert.jpg)";
     formModal.querySelector(".toProjects").addEventListener("click", e => {
       formModal.style.display = "none";
     });
