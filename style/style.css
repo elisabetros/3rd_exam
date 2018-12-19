@@ -413,7 +413,7 @@ p > .signIn {
     color: #f95738; }
   .withImage .modalImage {
     padding: 30% 10%;
-    background-image: url(../img/planting.png);
+    background-image: url(../img/planting.jpg);
     background-size: cover; }
     .withImage .modalImage p {
       color: white; }
@@ -460,16 +460,18 @@ select:-webkit-autofill:focus {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-gap: 5px; }
+  .exp input:valid ~ .validated::after,
+  .exp .invalid {
+    bottom: 11px; }
   .exp label {
     grid-column: span 2; }
-  .exp input,
-  .exp select {
+  .exp input {
     border-bottom: 1px solid black;
-    grid-row: 2;
-    padding: 0; }
+    grid-row: 2; }
   .exp .expmonth {
     width: 100%;
-    grid-column: 1; }
+    grid-column: 1;
+    padding: 0 20%; }
   .exp .expyear {
     width: 50%;
     grid-column: 2; }
@@ -572,7 +574,7 @@ select:-webkit-autofill:focus {
 
 input:valid ~ .validated::after {
   position: absolute;
-  bottom: 5px;
+  bottom: 7px;
   left: 0;
   width: 20px;
   height: 20px;
@@ -583,7 +585,7 @@ input:valid ~ .validated::after {
 
 .invalid {
   position: absolute;
-  bottom: 5px;
+  bottom: 7px;
   left: 0;
   width: 20px;
   height: 20px;

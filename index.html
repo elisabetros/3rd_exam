@@ -19,7 +19,7 @@
             .cls-1 {
               fill: #fff;
             }
-            .path.logo{
+            .path.logo {
               stroke-width: 1px;
             }
           </style>
@@ -163,8 +163,7 @@
           <form id="notSignedIn">
             <div>
               <div class="field">
-              <label for="email"
-                >Email<span class="required"></span></label>
+                <label for="email">Email<span class="required"></span></label>
                 <input
                   required
                   type="email"
@@ -172,33 +171,37 @@
                   class="email"
                   oninput="checkForm('notSignedIn')"
                   onblur="checkInput('email')"
-                  onfocus="resetColor(this)"/>
-                  <span class="validated"></span><span class="invalid hide">!</span>
-                </div>
+                />
+                <span class="validated"></span
+                ><span class="invalid hide">!</span>
+              </div>
               <div class="field">
-                <label for="name">Name <span class="required"></span></label>
+                <label for="usernamen"
+                  >Name <span class="required"></span
+                ></label>
                 <input
                   required
                   type="text"
-                  name="username"
-                  class="username"
+                  name="usernamen"
+                  class="usernamen"
                   oninput="checkForm('notSignedIn')"
-                  onblur="checkInput('username')"
-                  onfocus="resetColor(this)"
-                /><span class="validated"></span> <span class="invalid hide">!</span>
+                  onblur="checkInput('usernamen')"
+                /><span class="validated"></span>
+                <span class="invalid hide">!</span>
               </div>
               <div class="field">
-              <label for="passwordn">Password<span class="required"></span
-                ></label><input
+                <label for="passwordn"
+                  >Password<span class="required"></span></label
+                ><input
                   type="password"
                   class="passwordn"
                   name="passwordn"
                   required
                   oninput="checkForm('notSignedIn')"
                   onblur="checkInput('passwordn')"
-                  onfocus="resetColor(this)"
-              /><span class="validated"></span> <span class="invalid hide">!</span>  
-            </div>
+                /><span class="validated"></span>
+                <span class="invalid hide">!</span>
+              </div>
 
               <input
                 type="submit"
@@ -211,9 +214,8 @@
           </form>
           <form id="donateForm">
             <div class="field">
-            <label for="donation"
-              >How much would you like to donate:
-              </label><input
+              <label for="donation">How much would you like to donate: </label
+              ><input
                 pattern="[0-9]"
                 type="number"
                 class="donation"
@@ -222,9 +224,8 @@
                 required
                 oninput="checkForm('donateForm')"
                 onblur="checkInput('donation')"
-                onfocus="resetColor(this)"
-            />
-          </div>
+              />
+            </div>
             <input
               type="submit"
               class="button goToPay"
@@ -234,23 +235,23 @@
           </form>
           <form id="securePayment">
             <div class="imgPay"></div>
-<div class="field">
-            <label for="cname"
-              >Name on Credit Card<span class="required"></span
-              ></label><input
+            <div class="field">
+              <label for="cname"
+                >Name on Credit Card<span class="required"></span></label
+              ><input
                 type="text"
                 name="cname"
                 class="cname"
                 required
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('cname')"
-                onfocus="resetColor(this)"
-            /><span class="validated"><span class="invalid hide">!</span>
-                </div>
-                <div class="field">
-            <label for ="cnumber"
-              >Card number<span class="required"></span
-              >   </label><input
+              /><span class="validated"></span
+              ><span class="invalid hide">!</span>
+            </div>
+            <div class="field">
+              <label for="cnumber"
+                >Card number<span class="required"></span> </label
+              ><input
                 type="number"
                 name="cnumber"
                 class="cnumber"
@@ -258,12 +259,13 @@
                 required
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('cnumber')"
-                onfocus="resetColor(this)"/><span class="validated"></span
-            ><span class="invalid hide">!</span>
-          </div>
-          <div class="field exp">
-            <label class="expdate" for="expmonth"
-              >Expiraton date <span class="required"></span></label>
+              /><span class="validated"></span
+              ><span class="invalid hide">!</span>
+            </div>
+            <div class="field exp">
+              <label class="expdate"
+                >Expiraton date <span class="required"></span
+              ></label>
               <input
                 type="number"
                 name="expmonth"
@@ -272,29 +274,30 @@
                 placeholder="MM"
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('expmonth')"
-                onfocus="resetColor(this)"/><span class="validated"></span
-                  ><span class="invalid hide">!</span>
-                
-                <input
+              />
+              <span class="validated"></span>
+              <span class="invalid hide">!</span>
+
+              <input
                 type="number"
                 name="expyear"
                 class="expyear"
                 placeholder="YY"
-                pattern =""
+                pattern=""
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('expyear')"
-                onfocus="resetColor(this)"
-                required/><span class="validated"></span
-            ><span class="invalid hide">!</span>
-          </div>
+                required
+              />
+              <span class="validated"></span>
+              <span class="invalid hide">!</span>
+            </div>
             <!--
               <label
               >Expiration Year</label>
             -->
-<div class="field">
-            <label
-              >Security Code<span class="required"></span
-              ></label><input
+            <div class="field">
+              <label>Security Code<span class="required"></span></label
+              ><input
                 required
                 pattern="[0-9]{3}"
                 type="number"
@@ -302,8 +305,7 @@
                 name="securitycode"
                 oninput="checkForm('securePayment')"
                 onblur="checkInput('securitycode')"
-                onfocus="resetColor(this)"
-            /><span class="validated"></span
+              /><span class="validated"></span
               ><span class="invalid hide">!</span>
             </div>
             <input type="submit" class="button" value="Pay" disabled />
@@ -324,7 +326,6 @@
                 required
                 oninput="checkForm('volunteerForm')"
                 onblur="checkInput('region')"
-                onfocus="resetColor(this)"
               >
                 <option value="Central Jutland">Central Jutland</option>
                 <option value="South Jutland">South Jutland</option>
@@ -344,7 +345,9 @@
         </div>
       </div>
       <a href="profile.html">
-        <div class="slide-modal slide shadow"><p></p><div class="line"></div></div
+        <div class="slide-modal slide shadow">
+          <p></p>
+          <div class="line"></div></div
       ></a>
 
       <div id="signIn" class="modal">
@@ -384,23 +387,20 @@
             <h1>Sign Up</h1>
             <form id="signUpForm">
               <div class="field">
-              <label for="username"
-                >Full Name<span class="required"></span
-                ></label><input
+                <label for="username"
+                  >Full Name<span class="required"></span></label
+                ><input
                   required
                   type="text"
                   name="username"
                   class="username"
                   oninput="checkForm('signUpForm')"
                   onblur="checkInput('username')"
-                  onfocus="resetColor(this)"
-              /><span class="validated"></span
+                /><span class="validated"></span
                 ><span class="invalid hide">!</span>
               </div>
               <div class="field">
-              <label for="gender"
-                >Gender<span class="required"></span
-                ></label
+                <label for="gender">Gender<span class="required"></span></label
                 ><select
                   name="gender"
                   required
@@ -411,55 +411,50 @@
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </select>
-            </div>
-            <div class="field">
-              <label for="age"
-                >Date of birth<span class="required"></span
-                ></label><input
+              </div>
+              <div class="field">
+                <label for="age"
+                  >Date of birth<span class="required"></span></label
+                ><input
                   required
                   type="date"
                   name="age"
                   class="age"
+                  min="1900-12-31"
+                  max="2018-12-31"
                   oninput="checkForm('signUpForm')"
                   onblur="checkInput('age')"
-                  onfocus="resetColor(this)"
-              /><span class="validated"></span
-                ><span class="invalid hide">!</span>
-            </div>
-            <div class="field">
-              <label for="email"
-                >Email<span class="required"></span
-                ></label><input
+                /><span class="validated"></span>
+                <span class="invalid hide">!</span>
+              </div>
+              <div class="field">
+                <label for="email">Email<span class="required"></span></label
+                ><input
                   required
                   type="email"
                   name="email"
                   class="email"
                   oninput="checkForm('signUpForm')"
                   onblur="checkInput('email')"
-                  onfocus="resetColor(this)"
-              /><span class="validated"></span
+                /><span class="validated"></span
                 ><span class="invalid hide">!</span>
-            </div>
-<div class="field">
-              <label for="phonenumber"
-                >Phonenumber </label><input
-                  type="tel"
-                  name="phonenumber"
-                  class="phonenumber"
-              />
               </div>
               <div class="field">
-              <label for="password"
-                >Password<span class="required"></span
-                ></label><input
+                <label for="phonenumber">Phonenumber </label
+                ><input type="tel" name="phonenumber" class="phonenumber" />
+              </div>
+              <div class="field">
+                <label for="password"
+                  >Password<span class="required"></span></label
+                ><input
                   type="password"
                   required
                   class="password"
                   name="password"
                   oninput="checkForm('signUpForm')"
                   onblur="checkInput('password')"
-                  onfocus="resetColor(this)"
-              /> <span class="validated"></span
+                />
+                <span class="validated"></span
                 ><span class="invalid hide">!</span>
               </div>
               <input
@@ -474,18 +469,14 @@
         </div>
       </div>
 
-
       <div id="hero">
         <h1>The Nature Fund</h1>
         <div class="line"></div>
         <h2>Planting trees and saving bees since 2000</h2>
 
         <div id="scroll-down">
-            <span class="arrow-down">
-            <!-- css generated icon -->
-            </span>
-          </div>
-      
+          <span class="arrow-down"> <!-- css generated icon --> </span>
+        </div>
       </div>
       <div class="choose shadow">
         <p>
@@ -532,11 +523,7 @@
                 Read more...
               </span>
             </p>
-            <div
-              class="button beVolunteer"
-              id="11"
-              onclick="addProject(11)"
-            >
+            <div class="button beVolunteer" id="11" onclick="addProject(11)">
               Volunteer
             </div>
           </div>
@@ -563,11 +550,7 @@
                 Read more...
               </span>
             </p>
-            <div
-              class="button beVolunteer"
-              id="12"
-              onclick="addProject(12)"
-            >
+            <div class="button beVolunteer" id="12" onclick="addProject(12)">
               Volunteer
             </div>
           </div>
@@ -608,11 +591,7 @@
                 Read more...
               </span>
             </p>
-            <div
-              class="button beVolunteer"
-              id="13"
-              onclick="addProject(13)"
-            >
+            <div class="button beVolunteer" id="13" onclick="addProject(13)">
               Volunteer
             </div>
           </div>
@@ -641,11 +620,7 @@
                 Read more...
               </span>
             </p>
-            <div
-              class="button beVolunteer"
-              id="14"
-              onclick="addProject(14)"
-            >
+            <div class="button beVolunteer" id="14" onclick="addProject(14)">
               Volunteer
             </div>
           </div>
@@ -671,11 +646,7 @@
                 Read more...
               </span>
             </p>
-            <div
-              class="button beVolunteer"
-              id="15"
-              onclick="addProject(15)"
-            >
+            <div class="button beVolunteer" id="15" onclick="addProject(15)">
               Volunteer
             </div>
           </div>

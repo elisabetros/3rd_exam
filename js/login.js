@@ -148,9 +148,10 @@ function logOut() {
 
 function checkInput(inputClass) {
   let item = document.querySelector("." + inputClass);
-  console.log(item.nextElementSibling.nextElementSibling);
+  // console.log(item.nextElementSibling.nextElementSibling);
   if (item.value === "") {
     // item.style.borderBottom = "1px solid red";
+    item.nextElementSibling.nextElementSibling.classList.remove("hide");
   } else {
     if (item.checkValidity()) {
       item.nextElementSibling.nextElementSibling.classList.add("hide");
@@ -158,10 +159,6 @@ function checkInput(inputClass) {
       item.nextElementSibling.nextElementSibling.classList.remove("hide");
     }
   }
-}
-function resetColor(input) {
-  // NOT READY YET
-  input.style.color = "#1b1464";
 }
 
 function checkForm(formID) {
