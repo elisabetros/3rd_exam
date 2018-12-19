@@ -17,7 +17,7 @@ const span = document.querySelectorAll(".close");
 const signUpBtn = document.querySelector("#signUpBtn");
 
 const signUpForm = document.querySelector("#signUpForm");
-const endpoint = "http://5bdffe7bf2ef840013994a18.mockapi.io";
+const endpoint = "https://5bdffe7bf2ef840013994a18.mockapi.io";
 const logOutLink = document.querySelectorAll(".logOut");
 
 const svgs = document.querySelectorAll(".animate");
