@@ -1111,7 +1111,8 @@ a {
 
 #about {
   background-color: #283618;
-  background-image: url(../img/fallen-treetablet.jpg);
+  background-image: url(../img/fallen-tree.jpg);
+  background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -1125,7 +1126,6 @@ a {
       padding: 20% 15%; } }
   @media (min-width: 1024px) {
     #about {
-      background-image: url(../img/fallen-tree.jpg);
       background-size: cover;
       padding: 5% 10% 0;
       display: grid;
