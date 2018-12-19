@@ -146,7 +146,7 @@ async function addProject(id) {
       volunteers[i].projects.push(matchedProject);
       let newDataPosted = await addNewProjectToJson(volunteers[i].projects);
 
-      sessionStorage.setItem("project", JSON.stringify(matchedProject));
+      // sessionStorage.setItem("project", JSON.stringify(matchedProject));
       console.log("newDataposted", newDataPosted);
     }
   }
@@ -159,7 +159,7 @@ async function addProject(id) {
     };
     console.log("newVolunteer", newVolunteer);
     let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
-    sessionStorage.setItem("project", JSON.stringify(matchedProject));
+    // sessionStorage.setItem("project", JSON.stringify(matchedProject));
     console.log("newCreated", newCreatedVolunteer);
   }
   // sessionStorage.setItem("project", JSON.stringify(matchedProject));
