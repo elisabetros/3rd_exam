@@ -269,16 +269,16 @@ window.addEventListener("scroll", function(e) {
   }
 });
 
-function fetchVolunteerById() {
-  return new Promise((resolve, reject) => {
-    fetch(endpoint + "/volunteer/" + user.id)
-      .then(response => response.json())
-      .then(function(data) {
-        console.log("onevolunteer", data);
-        resolve(data);
-      });
-  });
-}
+// function fetchVolunteerById() {
+//   return new Promise((resolve, reject) => {
+//     fetch(endpoint + "/volunteer/" + user.id)
+//       .then(response => response.json())
+//       .then(function(data) {
+//         console.log("onevolunteer", data);
+//         resolve(data);
+//       });
+//   });
+// }
 
 /// Remove single project, doesn't work because of MockAPI bug with arrays
 
