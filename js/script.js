@@ -1,6 +1,6 @@
 "use strict";
 
-// window.addEventListener("load", init);
+window.addEventListener("load", init);
 
 //MENU
 let menuOpen = false;
@@ -176,7 +176,7 @@ async function addProject(id) {
   showAlertModal(string, "success");
 }
 
-// projects added
+// projects addedg
 
 const texts = [
   {
