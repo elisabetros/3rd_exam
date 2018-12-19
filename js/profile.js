@@ -240,9 +240,9 @@ function fillInTemplateProjects(userData) {
       clone.querySelector("#projectName").textContent = project.title;
       clone.querySelector("#projectDate").textContent = project.date;
       clone.querySelector(".removeBtn").dataset.id = project.id;
-      clone
-        .querySelector(".removeBtn")
-        .addEventListener("click", removeProject);
+      // clone
+      //   .querySelector(".removeBtn")
+      //   .addEventListener("click", removeProject);
       projectSection.appendChild(clone);
     });
   } else {
