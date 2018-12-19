@@ -1,6 +1,6 @@
 "use strict";
 
-// window.addEventListener("load", init);
+window.addEventListener("load", init);
 
 //MENU
 let menuOpen = false;
@@ -164,7 +164,7 @@ async function addProject(id) {
     };
     console.log("newVolunteer", newVolunteer);
     let newCreatedVolunteer = await addNewVolunteer(newVolunteer);
-    sessionStorage.setItem("project", JSON.stringify(matchedProject));
+    // sessionStorage.setItem("project", JSON.stringify(matchedProject));
     console.log("newCreated", newCreatedVolunteer);
   }
   // sessionStorage.setItem("project", JSON.stringify(matchedProject));
@@ -176,7 +176,7 @@ async function addProject(id) {
   showAlertModal(string, "success");
 }
 
-// projects added
+// projects addedg
 
 const texts = [
   {
@@ -261,16 +261,3 @@ window.onclick = function(event) {
     modalReadMore.style.display = "none";
   }
 };
-
-function incrementByOneForIndex(content, u) {
-  let i = 0;
-  setInterval(function() {
-    if (i == u) clearInterval(this);
-    else content.innerHTML = i++;
-  }, 5);
-}
-
-const trees = document.querySelector("#incrementTrees");
-const years = document.querySelector("#incrementYears");
-const animals = document.querySelector("#incrementAnimals");
-const nature = document.querySelector("#incrementNature");
