@@ -86,7 +86,7 @@ function addNewVolunteer(newVolunteer) {
   });
 }
 
-function addNewProjectToJson(matchedProject) {
+function addNewProjectToJson(matchedProject, id) {
   console.log("matchedProject", matchedProject);
 
   const newData = {
@@ -94,7 +94,7 @@ function addNewProjectToJson(matchedProject) {
   };
   let user = JSON.parse(sessionStorage.getItem("user"));
   return new Promise((resolve, reject) => {
-    fetch(endpoint + "/volunteer/" + user.id, {
+    fetch(endpoint + "/volunteer/" + id, {
       method: "PUT",
       body: JSON.stringify(newData),
       headers: {
@@ -123,12 +123,15 @@ async function addProject(id) {
   console.log("volunteers", volunteers);
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log("sessionStorageUser", user.id);
+  // console.log("sessionStorageUser", user.id);
   let exists = false;
+  let volunteerID;
   for (let i = 0; i < volunteers.length; i++) {
     if (volunteers[i].userID === user.id) {
+      volunteerID = volunteers[i].id;
       exists = true;
       console.log("exists", volunteers[i]);
+      console.log("volunteerId is ", volunteerID);
       let projectsForthisVolunteer = volunteers[i].projects;
       let found = projectsForthisVolunteer.find(function(project) {
         console.log("project before if", matchedProject);
@@ -138,14 +141,16 @@ async function addProject(id) {
       });
       console.log("found", found);
       if (found) {
-        showAlertModal("You are already signed up for this project");
+        showAlertModal("You are already signed up for this project", "error");
         // console.log("already added, do not add twice");
         return;
       }
       console.log("project does not exists, add to api");
       volunteers[i].projects.push(matchedProject);
-      let newDataPosted = await addNewProjectToJson(volunteers[i].projects);
-
+      let newDataPosted = await addNewProjectToJson(
+        volunteers[i].projects,
+        volunteerID
+      );
       // sessionStorage.setItem("project", JSON.stringify(matchedProject));
       console.log("newDataposted", newDataPosted);
     }
@@ -168,7 +173,7 @@ async function addProject(id) {
     "You have successfully signed up as a volunteer in the " +
     matchedProject.title +
     " project";
-  showAlertModal(string);
+  showAlertModal(string, "success");
 }
 
 // projects added
