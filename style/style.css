@@ -418,7 +418,7 @@ p > .signIn {
   .withImage a {
     color: #f95738; }
   .withImage .modalImage {
-    padding: 30% 10%;
+    padding: 30% 10% 0;
     background-image: url(../img/planting.jpg);
     background-size: cover;
     border-radius: 5px 0 0 5px; }
@@ -958,9 +958,6 @@ a {
   @media (min-width: 760px) {
     #scroll-down {
       bottom: 10vh; } }
-  @media (min-width: 1024px) {
-    #scroll-down {
-      bottom: 5vh; } }
 
 .arrow-down {
   display: block;
