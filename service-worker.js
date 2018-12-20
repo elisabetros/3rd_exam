@@ -1,14 +1,10 @@
-var CACHE_VERSION = "v2";
+var CACHE_VERSION = "v3";
 var urlsToCache = [
   "/",
-  "/js/chart.js",
   "/js/login.js",
-  "/js/profile.js",
   "/js/script.js",
   "/style/style.css",
-  "/admin.html",
   "/index.html",
-  "/profile.html",
   "/img/beach.jpg",
   "/img/bee.svg",
   "/img/bird.svg",
