@@ -1,4 +1,4 @@
-var CACHE_VERSION = "v1";
+var CACHE_VERSION = "v2";
 var urlsToCache = [
   "/",
   "/js/chart.js",

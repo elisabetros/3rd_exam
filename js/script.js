@@ -1,7 +1,5 @@
 "use strict";
 
-window.addEventListener("load", init);
-
 //MENU
 let menuOpen = false;
 const menuIcon = document.querySelector(".menuIcon");
