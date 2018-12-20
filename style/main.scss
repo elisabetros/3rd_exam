@@ -115,10 +115,7 @@ a {
 }
 //////////Frontpage//////////////
 #hero {
-  background-image: url(../img/forest5.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url(../img/foresttablet.jpg);
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -126,10 +123,16 @@ a {
   padding: 30vh 5vh 0 5vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-
+  @media (min-width: 760px) {
+    background-image: url(../img/forest5.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   @media (min-width: 1024px) {
     padding: 40vh 10vh 0 10vh;
   }
+
   .line {
     margin: 0;
     width: 15%;
@@ -171,17 +174,16 @@ a {
   }
   @media (min-width: 760px) {
     padding: 5%;
-    position: absolute;
-    top: 60vh;
-    right: 20vw;
-  }
-  @media (min-width: 800px) {
-    top: 20vh;
-    right: 5vw;
     width: 40vw;
   }
+  // @media (min-width: 800px) {
+  //   top: 20vh;
+  //   right: 5vw;
+  //
+  // }
 
   @media (min-width: 1024px) {
+    position: absolute;
     padding: 3%;
     width: 30vw;
     top: 30vh;
@@ -193,10 +195,13 @@ a {
 #scroll-down {
   display: block;
   position: absolute;
-  bottom: 5vh;
+  bottom: 1vh;
   left: 45vw;
   padding-top: 51px;
   text-align: center;
+  @media (min-width: 760px) {
+    bottom: 10vh;
+  }
 }
 .arrow-down {
   display: block;
@@ -519,19 +524,23 @@ a {
 }
 /////////////About////////7
 #about {
+  background-color: $darkGreen;
   background-image: url(../img/fallen-tree.jpg);
+  // background-size: contain;
+  background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   padding: 20% 10%;
   @media (min-width: 760px) {
+    background-size: none;
     padding: 20% 15%;
   }
   @media (min-width: 1024px) {
+    background-size: cover;
     padding: 5% 10% 0;
     display: grid;
     grid-template-columns: 2fr 1fr;

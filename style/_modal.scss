@@ -2,7 +2,11 @@
 
 .modal {
   display: none;
-  position: fixed;
+  position: absolute;
+  @media (min-width: 760px) {
+    position: fixed;
+  }
+
   z-index: 2;
   left: 0;
   top: 0;
@@ -58,6 +62,7 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
@@ -156,7 +161,7 @@ p > .signIn {
     color: $redColor;
   }
   .modalImage {
-    padding: 30% 10%;
+    padding: 30% 10% 0;
     background-image: url(../img/planting.jpg);
     background-size: cover;
     border-radius: 5px 0 0 5px;
@@ -273,14 +278,14 @@ select:-webkit-autofill:focus {
     border-radius: 5px 0 0 5px;
   }
 }
-
-.absolute ~ .close {
-  color: white;
+@media (min-width: 760px) {
+  .absolute ~ .close {
+    color: white;
+  }
+  .move ~ .close {
+    color: black;
+  }
 }
-.move ~ .close {
-  color: black;
-}
-
 //////////////////Alert Modal
 
 .slide-modal {
