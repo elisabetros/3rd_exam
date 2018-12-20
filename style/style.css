@@ -587,6 +587,7 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: black;
   -webkit-box-shadow: inset 5px 0 0px 9999px white;
+  box-shadow: inset 5px 0 0px 9999px white;
   transition: background-color 5000s ease-in-out 0s;
 }
 
