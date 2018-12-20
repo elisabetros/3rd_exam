@@ -491,7 +491,7 @@ async function init() {
     logLink.addEventListener("click", logOut);
   });
   // alert("init #3");
-  // createObserver();
+  createObserver();
   // alert("init #4");
   donateBtn.addEventListener("click", function() {
     openFormModal("donateForm");
