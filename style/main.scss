@@ -117,6 +117,7 @@ a {
 #hero {
   background-image: url(../img/foresttablet.jpg);
   background-size: auto;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   top: 0;
@@ -126,7 +127,6 @@ a {
   @media (min-width: 760px) {
     background-attachment: fixed;
     background-position: top;
-    background-repeat: no-repeat;
   }
   @media (min-width: 1024px) {
     background-image: url(../img/forest5.jpg);
