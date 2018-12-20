@@ -634,14 +634,15 @@ async function init() {
   createLists(usersAllData);
   createVolunteerList(usersAllData);
   createListsByProjects(usersAllData);
-  span.forEach(singleSpan => {
-    singleSpan.addEventListener("click", e => {
-      e.target.parentElement.style.display = "none";
-    });
-  });
 }
+
+span.forEach(singleSpan => {
+  singleSpan.addEventListener("click", e => {
+    e.target.parentElement.style.display = "none";
+  });
+});
 
 setInterval(function() {
   init();
   console.log("init runs");
-}, 50000);
+}, 60000);

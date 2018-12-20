@@ -1,6 +1,8 @@
-"user strict";
+"use strict";
 
-window.addEventListener("load", init);
+window.addEventListener("load", function() {
+  init();
+});
 
 const signInModal = document.querySelector("#signIn");
 const formModal = document.querySelector("#formModal");
@@ -10,7 +12,7 @@ const notSignedInForm = document.querySelector("#notSignedIn");
 const securePayForm = document.querySelector("#securePayment");
 const projectVolBtn = document.querySelectorAll(".beVolunteer");
 const donateBtn = document.querySelector(".donateBtn");
-const volunteerBtn = document.querySelector(".volunteerBtn");
+
 const signInlink = document.querySelectorAll(".signIn");
 const signUpLink = document.querySelector(".signUpLink");
 const span = document.querySelectorAll(".close");
@@ -301,6 +303,7 @@ function moveRight() {
 }
 
 function openFormModal(type) {
+  // alert("openFormModal pressed");
   console.log(type);
   formModal.style.display = "block";
   if (type === "donateForm") {
@@ -479,16 +482,21 @@ function showAlertModal(text, message) {
 }
 
 async function init() {
+  // alert("init is running!");
   const userData = await fetchUsers();
   showSignUp(userData);
+  // alert("init #2");
   checkLogin();
   logOutLink.forEach(logLink => {
     logLink.addEventListener("click", logOut);
   });
-  createObserver();
+  // alert("init #3");
+  // createObserver();
+  // alert("init #4");
   donateBtn.addEventListener("click", function() {
     openFormModal("donateForm");
   });
+  const volunteerBtn = document.querySelector(".volunteerBtn");
   volunteerBtn.addEventListener("click", function() {
     openFormModal("volunteerForm");
   });

@@ -37,6 +37,7 @@ header {
       font-size: 3rem;
       cursor: pointer; }
   header svg.logo {
+<<<<<<< HEAD
     margin: 3%;
     width: 50%;
     float: left; }
@@ -47,26 +48,39 @@ header {
       header svg.logo {
         width: 60%;
         margin: 3rem; } }
+=======
+    width: 60%;
+    margin: 3rem;
+  }
+}
+header svg.menuIcon {
+  cursor: pointer;
+  margin: 3%;
+  z-index: 10;
+  float: right;
+  fill: white;
+  height: 50px;
+  width: 40px;
+}
+@media (min-width: 1024px) {
+>>>>>>> 0887797ef0502884fd6d1905926e0d3b752f2ead
   header svg.menuIcon {
-    cursor: pointer;
-    margin: 3%;
-    z-index: 10;
-    float: right;
-    fill: white;
-    height: 50px;
-    width: 40px; }
-    @media (min-width: 1024px) {
-      header svg.menuIcon {
-        display: none; } }
-    header svg.menuIcon rect {
-      height: 8px;
-      transition: all 0.6s; }
-    header svg.menuIcon rect:nth-child(1) {
-      transform-origin: left top; }
-    header svg.menuIcon rect:nth-child(3) {
-      transform-origin: left bottom; }
-  header .navLogo {
-    display: inline; }
+    display: none;
+  }
+}
+header svg.menuIcon rect {
+  height: 8px;
+  transition: all 0.6s;
+}
+header svg.menuIcon rect:nth-child(1) {
+  transform-origin: left top;
+}
+header svg.menuIcon rect:nth-child(3) {
+  transform-origin: left bottom;
+}
+header .navLogo {
+  display: inline;
+}
 
 ul {
   list-style-type: none;
@@ -153,12 +167,25 @@ ul {
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 67%, 0% 100%);
-  padding: 20% 5% 5%; }
-  @media (min-width: 1024px) {
-    .treeImage {
-      padding: 15% 5% 5%; } }
-  .treeImage h1 {
-    display: inline; }
+  padding: 20% 5% 5%;
+}
+@media (min-width: 1024px) {
+  .treeImage {
+    padding: 15% 5% 5%;
+  }
+}
+.treeImage h1 {
+  display: inline;
+}
+.treeImage .edit {
+  width: 3%;
+}
+@media (min-width: 760px) {
+  .treeImage .edit {
+    width: 3%;
+  }
+}
+@media (min-width: 1024px) {
   .treeImage .edit {
     width: 3%; }
     @media (min-width: 760px) {
@@ -294,13 +321,23 @@ ul {
   z-index: 2;
   left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 40%, rgba(0, 0, 0, 0) 100%); }
-  @media (min-width: 760px) {
-    .modal {
-      position: fixed; } }
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.65) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+@media (min-width: 760px) {
+  .modal {
+    position: fixed;
+  }
+}
 
 .donateForm,
 .volunteerForm,
@@ -339,7 +376,8 @@ ul {
   float: right;
   font-size: 28px;
   font-weight: bold;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .close:hover,
 .close:focus {
@@ -405,29 +443,34 @@ p > .signIn {
       display: grid;
       grid-template-columns: 1fr 1fr; } }
   .withImage form {
-    padding: 5%; }
-    @media (min-width: 760px) {
-      .withImage form {
-        padding: 15% 10%; } }
-  .withImage .formTitle {
-    color: white;
-    position: absolute;
-    top: 3vh;
-    left: 3vw;
-    z-index: 10; }
-  .withImage a {
-    color: #f95738; }
-  .withImage .modalImage {
-    padding: 30% 10% 0;
-    background-image: url(../img/planting.jpg);
-    background-size: cover;
-    border-radius: 5px 0 0 5px; }
-    .withImage .modalImage p {
-      color: white; }
-  @media (min-width: 760px) {
-    .withImage .clip {
-      clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-      -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%); } }
+    padding: 15% 10%;
+  }
+}
+.withImage .formTitle {
+  color: white;
+  position: absolute;
+  top: 3vh;
+  left: 3vw;
+  z-index: 10;
+}
+.withImage a {
+  color: #f95738;
+}
+.withImage .modalImage {
+  padding: 30% 10% 0;
+  background-image: url(../img/planting.jpg);
+  background-size: cover;
+  border-radius: 5px 0 0 5px;
+}
+.withImage .modalImage p {
+  color: white;
+}
+@media (min-width: 760px) {
+  .withImage .clip {
+    clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+  }
+}
 
 input.button {
   border: none;
@@ -461,7 +504,13 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: black;
   -webkit-box-shadow: inset 5px 0 0px 9999px white;
+<<<<<<< HEAD
   transition: background-color 5000s ease-in-out 0s; }
+=======
+  box-shadow: inset 5px 0 0px 9999px white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+>>>>>>> 0887797ef0502884fd6d1905926e0d3b752f2ead
 
 .exp {
   border: 0;
@@ -492,38 +541,49 @@ select:-webkit-autofill:focus {
   left: 0;
   transition: all 0.5s;
   width: 100%;
-  transform: translateY(35%); }
-  @media (min-width: 760px) {
-    .absolute {
-      width: 60%;
-      transform: translate(70%);
-      border-radius: 0 5px 5px 0;
-      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-      -webkit-clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); } }
-  .absolute .alreadyMember,
-  .absolute .notMember {
-    top: 30%;
-    padding: 5%; }
-  .absolute .alreadyMember {
-    display: none; }
+  transform: translateY(35%);
+}
+@media (min-width: 760px) {
+  .absolute {
+    width: 60%;
+    transform: translate(70%);
+    border-radius: 0 5px 5px 0;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+.absolute .alreadyMember,
+.absolute .notMember {
+  top: 30%;
+  padding: 5%;
+}
+.absolute .alreadyMember {
+  display: none;
+}
 
 .absolute.move {
   transform: translatey(0);
-  height: 35%; }
-  @media (min-width: 760px) {
-    .absolute.move {
-      width: 50%;
-      height: 100%;
-      transform: translateX(0);
-      clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-      -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-      border-radius: 5px 0 0 5px; } }
+  height: 35%;
+}
+@media (min-width: 760px) {
+  .absolute.move {
+    width: 50%;
+    height: 100%;
+    transform: translateX(0);
+    clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+    border-radius: 5px 0 0 5px;
+  }
+}
 
 @media (min-width: 760px) {
   .absolute ~ .close {
-    color: white; }
+    color: white;
+  }
   .move ~ .close {
-    color: black; } }
+    color: black;
+  }
+}
 
 .slide-modal {
   border-radius: 5px;
@@ -875,16 +935,20 @@ a {
   margin: auto;
   padding: 1% 5%;
   font-size: 2rem;
-  transition: all 0.3s; }
-  .button:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
-  .button:active {
-    -webkit-transform: translateX(-3%) translateY(-5%) scale(0.9);
-    -ms-transform: translateX(-3%) translateY(-5%) scale(0.9);
-    transform: translateX(-3%) translateY(-5%) scale(0.9); }
-  .button:disabled {
-    background-color: grey;
-    box-shadow: none; }
+  transition: all 0.3s;
+}
+.button:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.button:active {
+  -webkit-transform: translateX(-3%) translateY(-5%) scale(0.9);
+  -ms-transform: translateX(-3%) translateY(-5%) scale(0.9);
+  transform: translateX(-3%) translateY(-5%) scale(0.9);
+}
+.button:disabled {
+  background-color: grey;
+  box-shadow: none;
+}
 
 #hero {
   background-image: url(../img/foresttablet.jpg);
@@ -928,25 +992,33 @@ a {
   margin: auto;
   background-color: #f95738;
   width: 70vw;
-  padding: 3%; }
-  .choose .line {
-    border: 0.5px solid white; }
-  .choose h2 {
-    font-family: openSans;
-    text-align: center; }
-  .choose .button {
-    margin: 9% auto; }
-  @media (min-width: 760px) {
-    .choose {
-      padding: 5%;
-      width: 40vw; } }
-  @media (min-width: 1024px) {
-    .choose {
-      position: absolute;
-      padding: 3%;
-      width: 30vw;
-      top: 30vh;
-      right: 8vw; } }
+  padding: 3%;
+}
+.choose .line {
+  border: 0.5px solid white;
+}
+.choose h2 {
+  font-family: openSans;
+  text-align: center;
+}
+.choose .button {
+  margin: 9% auto;
+}
+@media (min-width: 760px) {
+  .choose {
+    padding: 5%;
+    width: 40vw;
+  }
+}
+@media (min-width: 1024px) {
+  .choose {
+    position: absolute;
+    padding: 3%;
+    width: 30vw;
+    top: 30vh;
+    right: 8vw;
+  }
+}
 
 #scroll-down {
   display: block;
@@ -954,10 +1026,13 @@ a {
   bottom: 1vh;
   left: 45vw;
   padding-top: 51px;
-  text-align: center; }
-  @media (min-width: 760px) {
-    #scroll-down {
-      bottom: 10vh; } }
+  text-align: center;
+}
+@media (min-width: 760px) {
+  #scroll-down {
+    bottom: 10vh;
+  }
+}
 
 .arrow-down {
   display: block;
@@ -1116,29 +1191,18 @@ a {
   min-height: 110vh;
   clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
   -webkit-clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
-  padding: 20% 10%; }
-  @media (min-width: 760px) {
-    #about {
-      background-size: none;
-      padding: 20% 15%; } }
-  @media (min-width: 1024px) {
-    #about {
-      background-size: cover;
-      padding: 5% 10% 0;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: 0.1fr 2fr;
-      grid-gap: 1%;
-      clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%);
-      -webkit-clip-path: polygon(0 0, 100% 9%, 100% 89%, 0% 100%); } }
-  #about h1,
-  #about .line {
-    grid-column: 1/-1; }
-  #about p {
-    grid-column: 1; }
-  #about .aboutDiv {
-    grid-row: 2;
-    grid-column: 2;
+  padding: 20% 10%;
+}
+@media (min-width: 760px) {
+  #about {
+    background-size: none;
+    padding: 20% 15%;
+  }
+}
+@media (min-width: 1024px) {
+  #about {
+    background-size: cover;
+    padding: 5% 10% 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: start; }
