@@ -76,7 +76,7 @@ ul {
   text-align: center;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 1;
   padding-top: 80px;
   width: 100vw;
@@ -176,7 +176,7 @@ ul {
   z-index: -1;
   background-image: url(../img/leaf.svg);
   background-size: cover;
-  opacity: 0.2;
+  opacity: 0.1;
   position: absolute;
   bottom: -20vh;
   left: 0;
@@ -735,9 +735,12 @@ input:valid ~ .validated::after {
   border-radius: 5px;
   margin: 5% auto;
   padding: 5%;
-  width: 40vw;
+  width: 70vw;
   height: 50vh;
   background-color: #f95738; }
+  @media (min-width: 760px) {
+    #loginform {
+      width: 40vw; } }
   #loginform label {
     color: black;
     margin: auto; }

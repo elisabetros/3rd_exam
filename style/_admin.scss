@@ -147,7 +147,10 @@ $border: 1px solid rgb(40, 54, 24);
   border-radius: 5px;
   margin: 5% auto;
   padding: 5%;
-  width: 40vw;
+  width: 70vw;
+  @media (min-width: 760px) {
+    width: 40vw;
+  }
   height: 50vh;
   background-color: $redColor;
   label {
